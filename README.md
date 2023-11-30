@@ -47,7 +47,7 @@ We currently have 3 branches, (main, portal_frontend and kachi_frontend).
 ```bash
 git add -A
 
-git commit -m 'your commit message comes here
+git commit -m 'your commit message comes here'
 
 git push origin <name your branch>
 ```

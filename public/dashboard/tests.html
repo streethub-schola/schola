@@ -24,7 +24,9 @@
         <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
           <ul class="md:flex justify-between text-right hidden" id="navbar">
             <li><a href="staff.html" class="uppercase">staff</a></li>
-            <li><a href="./dashboard/index.html" class="uppercase">students</a></li>
+            <li>
+              <a href="./dashboard/index.html" class="uppercase">students</a>
+            </li>
             <li><a href="#" class="uppercase">classes</a></li>
             <li><a href="#" class="uppercase">tests</a></li>
             <li><a href="#" class="uppercase">to mark</a></li>
@@ -101,7 +103,9 @@
             <li>
               <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
             </li>
-            <li class="text-neutral-500 dark:text-neutral-400"><a href="#" class="text-primary hover:text-primary-600">Tests</a> </li>
+            <li class="text-neutral-500 dark:text-neutral-400">
+              <a href="#" class="text-primary hover:text-primary-600">Tests</a>
+            </li>
           </ol>
         </nav>
         <div class="text-center font-semibold text-gray-500">
@@ -116,15 +120,44 @@
                     class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
                   >
                     <tr>
-                      <th scope="col" class="px-4 py-4 border-r-gray-200 border">Created by:</th>
-                      <th scope="col" class="px-6 py-4 border-r-gray-200 border">
+                      <th
+                        scope="col"
+                        class="px-4 py-4 border-r-gray-200 border"
+                      >
+                        Created by:
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-4 border-r-gray-200 border"
+                      >
                         Prof Dev
                       </th>
-                      <th scope="col" class="px-6 py-4 border-r-gray-200 border">Date Created</th>
-                      <th scope="col" class="px-6 py-4 border-r-gray-200 border">4th Nov, 2023</th>
-                      <th scope="col" class="px-6 py-4 border-r-gray-200 border flex flex-col gap-2 md:flex-row">
-                        <input type="button" value="View Class" class="bg-blue-200 p-2 cursor-pointer rounded-md font-thin text-sm">
-                        <input type="button" value="Student scores" class="bg-blue-200 cursor-pointer p-2 rounded-md font-thin text-sm">
+                      <th
+                        scope="col"
+                        class="px-6 py-4 border-r-gray-200 border"
+                      >
+                        Date Created
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-4 border-r-gray-200 border"
+                      >
+                        4th Nov, 2023
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-4 border-r-gray-200 border flex flex-col gap-2 md:flex-row"
+                      >
+                        <input
+                          type="button"
+                          value="View Class"
+                          class="bg-blue-200 p-2 cursor-pointer rounded-md font-thin text-sm"
+                        />
+                        <input
+                          type="button"
+                          value="Student scores"
+                          class="bg-blue-200 cursor-pointer p-2 rounded-md font-thin text-sm"
+                        />
                       </th>
                     </tr>
                   </thead>
@@ -132,14 +165,23 @@
                     <tr
                       class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
                     >
-                      <td class="whitespace-nowrap px-2 py-2 font-medium border-r-gray-200 border text-left">
-                        <p>Published: <span class="text-sm">No</span> </p>
-                        <input type="button" value="Publish" class="bg-blue-200 p-2 cursor-pointer rounded-md font-thin">
+                      <td
+                        class="whitespace-nowrap px-2 py-2 font-medium border-r-gray-200 border text-left"
+                      >
+                        <p>Published: <span class="text-sm">No</span></p>
+                        <input
+                          type="button"
+                          value="Publish"
+                          class="bg-blue-200 p-2 cursor-pointer rounded-md font-thin"
+                        />
                       </td>
-                      <td colspan="4" class="whitespace-nowrap px-2  border-r-gray-200 border">Test Description</td>
-                     
+                      <td
+                        colspan="4"
+                        class="whitespace-nowrap px-2 border-r-gray-200 border"
+                      >
+                        Test Description
+                      </td>
                     </tr>
-                  
                   </tbody>
                 </table>
               </div>
@@ -147,65 +189,156 @@
           </div>
         </div>
 
-        <section class="mt-4 mb-4 ">
-          <h4 class="text-center font-semibold">Add Multiple Choiced Question</h4>
+        <section class="mt-4 mb-4">
+          <h4 class="text-center font-semibold">
+            Add Multiple Choiced Question
+          </h4>
           <form action="" method="" class="w-full p-0 m-auto bg-slate-100">
             <div class="flex flex-col">
               <label for="question">Question</label>
-              <textarea name="" id="" cols="30" rows="3" class="w-full m-0 rounded-md shadow-md"></textarea>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="3"
+                class="w-full m-0 rounded-md shadow-md"
+              ></textarea>
             </div>
-            <div class="bg-slate-100 border border-gray-400 w-full mt-2 rounded-md  flex">
+            <div
+              class="bg-slate-100 border border-gray-400 w-full mt-2 rounded-md flex"
+            >
               <div class="w-fit px-2 border-r-gray-200 border-r bg-gray-300">
-                <span >Comment(optional)</span>
+                <span>Comment(optional)</span>
               </div>
-              <input type="text" name="" id="" placeholder="Comment" class="w-full rounded-md pl-2 bg-transparent focus:outline-none">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Comment"
+                class="w-full rounded-md pl-2 bg-transparent focus:outline-none"
+              />
             </div>
-            <div class="bg-slate-100 border border-gray-400 w-full mt-2 rounded-md flex">
-              <div class="w-fit px-2 border-r-gray-200 border-r bg-gray-300 flex md:px-2 items-center">
-                <svg class="w-3 md:mx-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg><span class="text-sm whitespace-nowrap mx-1">image (optional)</span>
+            <div
+              class="bg-slate-100 border border-gray-400 w-full mt-2 rounded-md flex"
+            >
+              <div
+                class="w-fit px-2 border-r-gray-200 border-r bg-gray-300 flex md:px-2 items-center"
+              >
+                <svg
+                  class="w-3 md:mx-1"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path></svg
+                ><span class="text-sm whitespace-nowrap mx-1"
+                  >image (optional)</span
+                >
               </div>
-              <input type="file" name="image" id="userImage" class="rounded-none file:border-none file:rounded-r-md hover:file:opacity-50 file:bg-blue-200 file:p-2">
+              <input
+                type="file"
+                name="image"
+                id="userImage"
+                class="rounded-none file:border-none file:rounded-r-md hover:file:opacity-50 file:bg-blue-200 file:p-2"
+              />
             </div>
-            
-            <div class="rounded-md shadow-gray-700 shadow-lg border border-gray-300 mt-2 pb-3">
-              <div class="w-full flex justify-between   bg-blue-200 p-2 items-center">
-                <h4 class="text-sm">
-                  Multiple Choice Answers
-                </h4>
+
+            <div
+              class="rounded-md shadow-gray-700 shadow-lg border border-gray-300 mt-2 pb-3"
+            >
+              <div
+                class="w-full flex justify-between bg-blue-200 p-2 items-center"
+              >
+                <h4 class="text-sm">Multiple Choice Answers</h4>
                 <div class="p2">
-                  <button class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400">
-                      <span class="flex"><svg class="w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg> <span class="text-sm">Add Choice</span></span>
+                  <button
+                    class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400"
+                  >
+                    <span class="flex"
+                      ><svg
+                        class="w-4"
+                        aria-hidden="true"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 6v12m6-6H6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                      <span class="text-sm">Add Choice</span></span
+                    >
                   </button>
                 </div>
               </div>
               <div id="answer_section" class="w-full">
                 <div class="m-2 pr-2">
                   <span class="text-md text-slate-400">A:</span>
-                  <input type="text" name="" placeholder="Type your answer here" id="" class="focus:outline-none mx-2 w-full rounded-md bg-transparent">
-                  <input type="radio" name="correct_A" id="option1" value="Correct Answer" class="mx-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="Type your answer here"
+                    id=""
+                    class="focus:outline-none mx-2 w-full rounded-md bg-transparent"
+                  />
+                  <input
+                    type="radio"
+                    name="correct_A"
+                    id="option1"
+                    value="Correct Answer"
+                    class="mx-2"
+                  />
                   <label for="option1">Correct Answer</label>
                 </div>
               </div>
               <div id="answer_section" class="w-full">
                 <div class="m-2 pr-2">
                   <span class="text-md text-slate-400">B:</span>
-                  <input type="text" name="" placeholder="Type your answer here" id="" class="focus:outline-none mx-2 w-full rounded-md bg-transparent">
-                  <input type="radio" name="correct_B" id="option2" value="Correct Answer" class="mx-2">
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="Type your answer here"
+                    id=""
+                    class="focus:outline-none mx-2 w-full rounded-md bg-transparent"
+                  />
+                  <input
+                    type="radio"
+                    name="correct_B"
+                    id="option2"
+                    value="Correct Answer"
+                    class="mx-2"
+                  />
                   <label for="option2">Correct Answer</label>
                 </div>
               </div>
               <div class="w-full flex justify-between items-center px-4">
-                <button type="reset" class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400 text-sm">Back</button>
-                <button type="submit" class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400 text-sm">Save Questions</button>
+                <button
+                  type="reset"
+                  class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400 text-sm"
+                >
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  class="rounded-md bg-blue-200 border-gray-400 border p-2 hover:bg-blue-400 text-sm"
+                >
+                  Save Questions
+                </button>
               </div>
             </div>
           </form>
         </section>
-
       </main>
     </div>
   </body>

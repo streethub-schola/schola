@@ -619,8 +619,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .mx-8{
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 3rem;
+  margin-right: 7rem;
 }
 
 .my-2 {

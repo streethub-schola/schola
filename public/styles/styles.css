@@ -926,10 +926,6 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding: 1.8rem;
 }
 
-.pxy{
-  padding: 10px
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1282,8 +1278,8 @@ input[type="range"]:active::-webkit-slider-thumb {
     flex-direction: column;
   }
 
-  .sm\:w-80 {
-    width: 80%;
+  .sm\:w-95 {
+    width: 95%;
   }
 
   .sm\:p {

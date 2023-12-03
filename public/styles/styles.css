@@ -956,7 +956,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .pxx{
-  padding-right: 15rem;
+  padding-right: auto;
   padding-left: 0.25rem;
 }
 
@@ -1263,7 +1263,7 @@ input[type="range"]:active::-webkit-slider-thumb {
   color: rgb(143 174 224 / var(--tw-text-opacity));
 }
 
-@media (min-width: 640px) {
+@media (min-width: 0) and (max-width: 640px) {
   .sm\:-mx-6 {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -1272,6 +1272,22 @@ input[type="range"]:active::-webkit-slider-thumb {
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .sm\:w-80 {
+    width: 80%;
+  }
+
+  .sm\:p {
+    padding: 10px;
   }
 }
 

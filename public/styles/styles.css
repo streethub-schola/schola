@@ -1278,6 +1278,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     flex-direction: column;
   }
 
+  .sm\:m-auto {
+    margin: auto;
+  }
+
   .sm\:w-95 {
     width: 95%;
   }

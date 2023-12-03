@@ -619,8 +619,8 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .mx-8{
-  margin-left: 3rem;
-  margin-right: 7rem;
+  margin-left: 4rem;
+  margin-right: 8rem;
 }
 
 .my-2 {
@@ -736,6 +736,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .w-5{
   width: 3rem;
+}
+
+.w-60{
+  width: 60%;
 }
 
 .min-w-full {
@@ -949,6 +953,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 .px-10{
   padding-left: 1.5rem;
   padding-right: 2.5rem;
+}
+
+.pxx{
+  padding-right: 15rem;
+  padding-left: 0.25rem;
 }
 
 .py-1 {

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <title>Schola Project!</title>
+
+    <script src="../js/nav.js" defer></script>
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="../index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+          <ul
+            class="md:flex md:mx-4 justify-between text-right hidden"
+            id="navbar"
+          >
+            <li><a href="../staff.html" class="uppercase">staff</a></li>
+            <li><a href="#" class="uppercase">students</a></li>
+            <li><a href="#" class="uppercase">classes</a></li>
+            <li><a href="#" class="uppercase">tests</a></li>
+            <li><a href="#" class="uppercase">to mark</a></li>
+            <li><a href="#" class="uppercase">marked</a></li>
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8"
+          aria-label="mobile-menu"
+        >
+          <a
+            href="../staff.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >staff</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >classes</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >test</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to mark</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to marked</a
+          >
+        </nav>
+      </section>
+
+      <section class="grid placing">
+        <div class="card border-2 m-auto p-3">
+          <h4 class="text-center font-bold my-3">Edit Profile</h4>
+          <div class="content flex justify-center">
+            <div class="img mx-5">
+              <div class="profile-pic border w-24">
+                <img src="./images/brlogo.jpeg" alt="" class="">
+              </div>
+              <div class="img-btn">
+                <button>Browse Image</button>
+              </div>
+            </div>
+            <form class="profile-info border-2 bg-slate-100 w-full mx-2">
+              <div class="inp my-5 grid p-2 text-sm">
+                <input type="text" name="" value="Name" id="" readonly class="border-2 mb-2 pxx py-1">
+                <input type="text" name="" value="Surname" id="" readonly class="border-2 mb-2 pxx py-1" >
+                <input type="text" name="" value="Example@example.com" id="" readonly class="border-2 mb-2 pxx py-1">
+                <input type="text" name="" value="Gender" id="" readonly class="border-2 mb-2 pxx py-1">
+                <input type="text" name="" value="admin/user" id="" class="border-2 mb-2 pxx py-1">
+                <input type="password" name="" value="" id="" placeholder="Password" class="border-2 mb-2 pxx py-1">
+                <input type="password" name="" value="" id="" placeholder="Confirm Password" class="border-2 mb-2 pxx py-1">
+              </div>
+              <div class="inp-btns flex justify-between mx-2 mb-5">
+                <button class="border bg-blue-500 text-white font-bold text-sm p-2 rounded-md">Back to Profile</button>
+                <button type="submit" class="border bg-blue-200  font-bold text-sm p-2 rounded-md"">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+     </div>
+  </body>
+</html>

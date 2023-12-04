@@ -369,6 +369,10 @@ textarea::placeholder {
   /* 2 */
 }
 
+.log-inp input::placeholder{
+  font-style: italic;
+}
+
 /*
 Set the default cursor for buttons.
 */
@@ -908,6 +912,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 109 109 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -954,6 +963,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 .pxx{
   padding-right: auto;
   padding-left: 0.25rem;
+}
+
+.pxy{
+  padding: 10px
 }
 
 .py-1 {
@@ -1155,6 +1168,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .file\:rounded-full::file-selector-button {
   border-radius: 9999px;
+}
+
+.file\:rounded-md::file-selector-button {
+  border-radius: 5px;
 }
 
 .file\:border-none::file-selector-button {

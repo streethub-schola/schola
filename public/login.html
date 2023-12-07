@@ -1,50 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
     <link
       rel="stylesheet"
       href="./styles/styles.css
     "
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-    <div class="container grid placing mx-8">
-        <div class="card pt-4 mx-8">
-                <div class="content">
-                <section class="text-center">
-                    <h1 class=" text-4xl">My School</h1>
-                        <img src="./images/brlogo.jpeg" alt="" class="w-10 border-2 border-blue-300 rounded-full m-auto">
-                </section>
-                <form action="" class="pxy">
-                    <h2 class="text-2xl">Login</h2>
-                    <div class="flex flex-col">
-                        <input type="text" placeholder="Example@example.com" class="border-2 bg-blue-200 py-2 rounded-md my-2 mb-5 pl-1">
-                        <input type="password" placeholder="Password" class="border-2 bg-blue-200 py-2 rounded-md pl-1" >
-                        <button type="submit" class="my-2 border bg-blue-500 rounded-md w-fit p-2 px-3 hover:bg-neutral-100 text-white">Login</button>
-                    </div>
-                </form>
-                <section class="flex justify-between text-sm py-2 px-3">
-                    <p class=""><a href="#" class="text-neutral-500 hover:text-blue-500">Forgot password?</a></p>
-                    <p class="hover:text-blue-500">New User?<br><a href="#" class="text-neutral-500 ml-8 hover:text-blue-500">Register Here</a></p>
-                </section>
-                <section class="px-3">
-                <div class="otheropt placing">
-                    <div class="border-2 border-gray-300 rounded-full mb-2 pb-1 hover:bg-neutral-100">
-                        <a href="" class="flex placing"><span class="mt-2 mx-2"> Login with </span>
-                            <div class="w-5 h-1"><img src="./images/social.png" alt=""></div></a></div>
-                    <p class="border-2 border-gray-300 rounded-full mb-2 p-2 hover:bg-neutral-100 text-center"><a href="">Login with
-                         <i class="fa-brands fa-facebook-f" style="color: rgb(79, 130, 216)"></i><span class="font-bold text-blue-300">acebook</span>
-                        </a></p>
-                </div> 
-                </section>
-                </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="p-2">
+    <div class=" w-full md:w-3/5 m-auto mt-12 border rounded-md p-4 text-sm">
+      <div class="">
+        <div class="content">
+          <section class="text-center">
+            <h1 class="text-4xl">My School</h1>
+            <img
+              src="./images/brlogo.jpeg"
+              alt=""
+              class="w-10 border-2 border-blue-300 rounded-full m-auto"
+            />
+          </section>
+          <form action="" class="pxy">
+            <h2 class="text-2xl">Login</h2>
+            <div class="flex flex-col">
+              <input
+                type="text"
+                placeholder="Example@example.com" name="username"
+                class="border-2  py-2 rounded-md my-2 mb-5 pl-1"
+              />
+              <input
+                type="password" name="password"
+                placeholder="Password"
+                class="border-2  py-2 rounded-md pl-1"
+              />
+              <button
+                type="submit"
+                class="my-2 border bg-blue-300 rounded-md w-fit p-2 px-3 hover:bg-neutral-100 hover:text-black text-white"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+          <section class="flex justify-between text-sm py-2 px-3">
+            <p class="">
+              <a href="index.html" class="text-neutral-500 hover:text-blue-500"
+                >Forgot password?</a
+              >
+            </p>
+            <p class="hover:text-blue-500">
+              New User?<br /><a
+                href="index.html"
+                class="text-neutral-500  hover:text-blue-500"
+                >Register Here</a
+              >
+            </p>
+          </section>
+          <section class="px-3">
+            <div class="otheropt placing">
+              <div
+                class="border-2 border-gray-300 rounded-full mb-2 pb-1 hover:bg-neutral-100"
+              >
+                <a href="" class="flex placing"
+                  ><span class="mt-2 mx-2"> Login with </span>
+                  <div class="w-5 h-1">
+                    <img src="./images/social.png" alt="" /></div
+                ></a>
+              </div>
+              <p
+                class="border-2 border-gray-300 rounded-full mb-2 p-2 hover:bg-neutral-100 text-center"
+              >
+                <a href=""
+                  >Login with
+                  <i
+                    class="fa-brands fa-facebook-f"
+                    style="color: rgb(79, 130, 216)"
+                  ></i
+                  ><span class="font-bold text-blue-300">acebook</span>
+                </a>
+              </p>
+            </div>
+          </section>
         </div>
+      </div>
     </div>
-
 
     <script
       type="text/javascript"
@@ -52,5 +96,21 @@
     ></script>
 
     <script type="module" src="./js/telements.js"></script>
-</body>
+
+    <script>
+      let form = document.querySelector('form');
+
+      form.addEventListener('submit', (e)=> {
+        e.preventDefault();
+
+        if (form.username.value && form.password.value == 'student'){
+          location.href = './students/index.html';
+        } else if (form.username.value && form.password.value == 'teacher') {
+          location.href = './teachers/my_profile.html';
+        } else {
+          alert ('Default username bypassed');
+        }
+      })
+    </script>
+  </body>
 </html>

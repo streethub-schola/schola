@@ -3,34 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../styles/styles.css
-    "
-    />
+    <link rel="stylesheet" href="../styles/styles.css" />
 
     <title>Schola Project!</title>
 
     <script src="../js/nav.js" defer></script>
   </head>
-  <body class="dark:bg-slate-700 dark:text-white">
+  <body>
     <div class="w-full bg-slate-100 min-h-screen">
       <section
         class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
       >
         <div class="brand uppercase">
-          <a href="index.html">Schola</a>
+          <a href="../index.html">Schola</a>
         </div>
         <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
-          <ul class="md:flex justify-between text-right hidden" id="navbar">
-            <li><a href="staff.html" class="uppercase">staff</a></li>
-            <li>
-              <a href="./dashboard/index.html" class="uppercase">students</a>
-            </li>
-            <li><a href="#" class="uppercase">classes</a></li>
-            <li><a href="#" class="uppercase">tests</a></li>
-            <li><a href="#" class="uppercase">to mark</a></li>
-            <li><a href="#" class="uppercase">marked</a></li>
+          <ul
+            class="md:flex md:mx-4 justify-between text-right hidden"
+            id="navbar"
+          >
+            <!-- <li><a href="../staff.html" class="uppercase">my profile</a></li> -->
+            <li><a href="students.html" class="uppercase">My students</a></li>
+            <li><a href="classes.html" class="uppercase">My classes</a></li>
+            <!-- <li><a href="#" class="uppercase">My tests</a></li> -->
+            <li><a href="tasks.html?category=todo" class="uppercase">to mark</a></li>
+            <li><a href="tasks.html?category=done" class="uppercase">marked</a></li>
           </ul>
           <button
             class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
@@ -53,38 +50,39 @@
           class="flex flex-col min-h-screen items-center py-8"
           aria-label="mobile-menu"
         >
-          <a
-            href="staff.html"
+          <!-- <a
+            href="../staff.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >staff</a
-          >
+          > -->
           <a
-            href="./dashboard/index.html"
+            href="classes.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >students</a
+            >my classes</a
           >
           <a
+            href="students.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >my students</a
+          >
+          <!-- <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >classes</a
-          >
+            >my tests</a
+          > -->
           <a
-            href="#"
-            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >test</a
-          >
-          <a
-            href="#"
+            href="tasks.html?category=todo"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >to mark</a
           >
           <a
-            href="#"
+            href="tasks.html?category=done"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >to marked</a
+            >marked</a
           >
         </nav>
       </section>
+
 
       <main class="w-4/5 m-auto bg-gray-100">
         <nav class="w-full rounded-md flex justify-center mt-5">
@@ -111,7 +109,7 @@
         <div class="text-center font-semibold text-gray-500">
           <h3>Maths</h3>
         </div>
-        <div class="flex flex-col shadow-lg shadow-gray-700">
+        <div class="flex flex-col shadow-gray-700">
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div class="overflow-hidden">
@@ -207,8 +205,12 @@
             <div
               class="bg-slate-100 border border-gray-400 w-full mt-2 rounded-md flex"
             >
-              <div class="w-fit px-2 py-1 border-r-gray-200 border-r bg-gray-300">
-                <span class="whitespace-nowrap mx-1 py-2 text-sm">Comment (optional)</span>
+              <div
+                class="w-fit px-2 py-1 border-r-gray-200 border-r bg-gray-300"
+              >
+                <span class="whitespace-nowrap mx-1 py-2 text-sm"
+                  >Comment (optional)</span
+                >
               </div>
               <input
                 type="text"
@@ -236,8 +238,7 @@
                   <path
                     d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path></svg><span class="text-sm whitespace-nowrap mx-1"
+                    stroke-linejoin="round"></path></svg><span class="text-sm whitespace-nowrap mx-1"
                   >image (optional)</span
                 >
               </div>
@@ -249,9 +250,7 @@
               />
             </div>
 
-            <div
-              class="rounded-md shadow-gray-700 shadow-lg border border-gray-300 mt-2 pb-3"
-            >
+            <div class="rounded-md shadow-gray-700 shadow-lg border border-gray-300 mt-2 pb-3">
               <div
                 class="w-full flex justify-between bg-blue-200 p-2 items-center"
               >

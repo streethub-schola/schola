@@ -15,7 +15,7 @@
     />
   </head>
   <body class="p-2">
-    <div class=" w-full md:w-3/5 m-auto mt-12 border rounded-md p-4 text-sm">
+    <div class="w-full md:w-3/5 m-auto mt-12 border rounded-md p-4 text-sm">
       <div class="">
         <div class="content">
           <section class="text-center">
@@ -31,13 +31,15 @@
             <div class="flex flex-col">
               <input
                 type="text"
-                placeholder="Example@example.com" name="username"
-                class="border-2  py-2 rounded-md my-2 mb-5 pl-1"
+                placeholder="Example@example.com"
+                name="username"
+                class="border-2 py-2 rounded-md my-2 mb-5 pl-1"
               />
               <input
-                type="password" name="password"
+                type="password"
+                name="password"
                 placeholder="Password"
-                class="border-2  py-2 rounded-md pl-1"
+                class="border-2 py-2 rounded-md pl-1"
               />
               <button
                 type="submit"
@@ -56,7 +58,7 @@
             <p class="hover:text-blue-500">
               New User?<br /><a
                 href="index.html"
-                class="text-neutral-500  hover:text-blue-500"
+                class="text-neutral-500 hover:text-blue-500"
                 >Register Here</a
               >
             </p>
@@ -98,19 +100,19 @@
     <script type="module" src="./js/telements.js"></script>
 
     <script>
-      let form = document.querySelector('form');
+      let form = document.querySelector("form");
 
-      form.addEventListener('submit', (e)=> {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (form.username.value && form.password.value == 'student'){
-          location.href = './students/index.html';
-        } else if (form.username.value && form.password.value == 'teacher') {
-          location.href = './teachers/my_profile.html';
+        if (form.username.value && form.password.value == "student") {
+          location.href = "./students/index.html";
+        } else if (form.username.value && form.password.value == "teacher") {
+          location.href = "./teachers/my_profile.html";
         } else {
-          alert ('Default username bypassed');
+          alert("Default username bypassed");
         }
-      })
+      });
     </script>
   </body>
 </html>

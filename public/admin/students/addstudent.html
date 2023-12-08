@@ -1,0 +1,91 @@
+<!-- This should add a student  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- For FAVICON -->
+    <link rel="icon" href="images/school logo 1.png">
+
+    <!-- ----------------- Google Font -------------------->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&family=Dancing+Script&family=Jost&family=Kalam&family=Kanit&family=Noto+Sans+Display:wght@600&family=PT+Sans+Narrow&family=Slabo+27px&family=Ubuntu:wght@500&display=swap');
+    </style>
+    <!----------------- Custom CSS Link ------------------ -->
+  <link rel="stylesheet" href="../../styles/register.css">
+</head>
+
+<body>
+    <!-- Parent Container -->
+    <div class="parent">
+        <h2 class="formHeader">Register A New Student</h2>
+        <i class="fa-solid fa-user-tie"></i>
+        <!-- For Form Container -->
+        <form action="" autocomplete="on">
+            <!-- Taecher's Name Input -->
+            <div class="TeacherNameField">
+                <label for="TeacherName">Teacher Name: <small id="fieldRequired">*</small></label>
+                <input type="text" id="TeacherName" placeholder="Name e.g. Samson Kiti" autocomplete="username">
+                <small class="ValidateName"></small>
+            </div>
+            <!-- TSC  Input -->
+            <div class="TSCField">
+                <label for="TSCNumber">TSC Number: <small id="fieldRequired">*</small> </label>
+                <input type="number" name="" id="TSCNumber" placeholder="TSC Number e.g. 1234">
+                <small class="ValidateTSC"></small>
+            </div>
+            <!-- Taecher's Work Station Input -->
+            <div class="teachersWorkField">
+                <label for="TaechersSatation">Teacher's Work Station: <small id="fieldRequired">*</small></label>
+                <input type="text" name="" id="TaechersSatation" placeholder="Name. e.g. Likoni Primary">
+                <small class="ValidateWorkStation"></small>
+            </div>
+            <!-- Taecher's Designation Input -->
+            <div class="TaechersDesignationField">
+                <label for="TaechersDesignate">Taecher's Designation: <small id="fieldRequired">*</small></label>
+                <input type="text" name="" id="TaechersDesignate" placeholder="*** Select Type ***"
+                    autocomplete="username">
+                <small class="ValidateDesignation"></small>
+            </div>
+            <!-- Taecher's DOB Input -->
+            <div class="DOBfield">
+                <label for="DOB">Date of Birth: <small id="fieldRequired">*</small></label>
+                <input type="date" name="" id="DOB">
+                <small class="ValidateDOB"></small>
+            </div>
+            <!-- Taecher's Appointment Input -->
+            <div class="appointmentfield">
+                <label for="Appointment">Date of Appointment: <small id="fieldRequired">*</small></label>
+                <input type="date" name="" id="Appointment">
+                <small class="ValidateAppointment"></small>
+            </div>
+            <!-- Taecher's Password Input -->
+            <div class="PasswordInput">
+                <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
+                <input type="password" name="" id="TeachersPasword" placeholder="Create a Password ****"
+                    autocomplete="current-password">
+                <i class="fa-solid fa-eye" id="showPassword"></i>
+                <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
+                <small class="ValidatePassword"></small>
+            </div>
+            <button type="submit" class="SubmitBtn" onclick="ValidateForm()">Admit Teacher</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+    <!------------------ Font Awesome JS Link  -->
+    <script src="https://kit.fontawesome.com/9b5c4c6b23.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JS Link -->
+    <script src="../../js/register.js "></script>
+</body>
+
+</html>

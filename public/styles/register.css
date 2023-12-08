@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------ Root Selectors -------------------------- */
+:root {
+    --green-primary: #0c5239;
+    --green-TransparentMain: #077b26f5;
+    --white-primaty-main: #fff;
+    --gray-Transparent: rgb(230, 230, 230);
+    --dark-primry: #090909;
+    --gray-primary-NoTransparent: rgb(89, 88, 88);
+    --blue-primary-main: #220fca;
+    --semi-red: #e26482;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(rgba(149, 149, 159, 0.3), rgba(118, 118, 156, 0.8)), url(../images/backgroundImage.jpg) no-repeat center center/cover;
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    opacity: 0.8;
+}
+
+.parent {
+    background: var(--gray-Transparent);
+    text-align: center;
+    padding: 20px 45px;
+    margin: 10px 15px;
+    border-radius: 10px;
+    width: 900px;
+}
+
+.parent small {
+    color: var(--semi-red);
+}
+
+.formHeader {
+    color: var(--green-primary);
+}
+
+.fa-user-tie {
+    font-size: 35px;
+    padding: 10px;
+}
+
+/* ------------------------- Styling For All inputs Field Container ------------------------ */
+.TeacherNameField,
+.TSCField,
+.teachersWorkField,
+.TaechersDesignationField,
+.DOBfield,
+.appointmentfield,
+.PasswordInput {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+form label {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+/* ------------------------- Styling For All inputs  ------------------------ */
+#TeacherName,
+#TSCNumber,
+#TaechersSatation,
+#TaechersDesignate,
+#DOB,
+#Appointment,
+#TeachersPasword {
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid var(--dark-primry);
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    background: transparent;
+    color: var(--dark-primry);
+}
+
+#DOB,
+#Appointment {
+    width: 800px;
+}
+
+#TeacherName:hover,
+#TSCNumber:hover,
+#TaechersSatation:hover,
+#TaechersDesignate:hover,
+#DOB:hover,
+#Appointment:hover,
+#TeachersPasword:hover {
+    cursor: grab;
+    transition: all .5s ease-in-out;
+    transform: scale(1.0, 1.1);
+    border: 2px solid var(--dark-primry);
+}
+
+::placeholder {
+    color: var(--gray-primary-NoTransparent);
+    font-size: 15px;
+}
+
+#showPassword,
+#HidePassword {
+    position: relative;
+    left: 95px;
+    bottom: 30px;
+    width: 100px;
+}
+
+#showPassword {
+    display: none;
+}
+
+.SubmitBtn {
+    background: var(--blue-primary-main);
+    color: var(--white-primaty-main);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-family: 'Jost', sans-serif;
+    width: 300px;
+}
+
+.SubmitBtn:hover {
+    background: var(--green-primary);
+    cursor: pointer;
+    transition: .5s ease;
+    transform: translateY(-10px);
+}
+
+/* Media querry For Mobiles */
+@media (min-width: 0px) and (max-width: 750px) {
+    * {
+        overflow-x: hidden;
+    }
+
+    .parent {
+        width: auto;
+    }
+
+    .SubmitBtn {
+        width: auto;
+    }
+
+    #showPassword,
+    #HidePassword {
+        position: relative;
+        left: 2px;
+        bottom: 30px;
+        width: 50px;
+    }
+
+    #DOB,
+    #Appointment {
+        width: 250px;
+    }
+}
+
+/* Media querry for Ipads */
+
+@media (min-width: 768px) and (max-width: 820px) {
+    * {
+        overflow-x: hidden;
+    }
+
+    .parent {
+        width: 500px;
+    }
+
+    .SubmitBtn {
+        width: auto;
+    }
+
+    #showPassword,
+    #HidePassword {
+        position: relative;
+        left: 2px;
+        bottom: 30px;
+        width: 50px;
+    }
+
+    #DOB,
+    #Appointment {
+        width: 400px;
+    }
+}

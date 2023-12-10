@@ -19,6 +19,9 @@ var userPassword = document.getElementById("TeachersPasword");
 // Getting our Submit Btn 
 var SubmitFormBtn = document.querySelector(".SubmitBtn");
 
+// Getting the value of the checkbox
+let guardian_AddressCheck = document.getElementById("G-checkboxAddress");
+
 function ValidateForm() {
   if (Reg_No_Student.value == 0 ) {
     alert("Error - Missing fields")
@@ -46,15 +49,17 @@ function ValidateForm() {
                 event.preventDefault()
 
   }else if (DateOfBirth.value == 0) {
+    alert("Error - Missing fields")
     let DateOfBirthValidate = document.querySelector(".ValidateDOB");
     DateOfBirthValidate.innerHTML = "Date of Birth is required";
     DateOfBirthValidate.style.color = "red";
                     event.preventDefault()
 
-  }else if (AppointmentDate.value == 0) {
-    let AppointmentDateValidate = document.querySelector(".ValidateAppointment");
-    AppointmentDateValidate.innerHTML = "Appointment date is required";
-    AppointmentDateValidate.style.color = "red";
+  }else if (address_Of_Student.value == 0) {
+    alert("Error - Missing fields");
+    let studentAddressValidate = document.querySelector(".ValidateAddress");
+    studentAddressValidate.innerHTML = "Address is required";
+    studentAddressValidate.style.color = "red";
                         event.preventDefault()
 
   }else if (userPassword.value == 0) {
@@ -72,8 +77,21 @@ function ValidateForm() {
     userPasswordValidate.innerHTML = "Exceeded Maximum Characters";
     userPasswordValidate.style.color = "#e26482";
                                          event.preventDefault();
-  }else{
+  }else if (guardian_AddressCheck.checked) {
+    alert("hi")
+  }
+  else{
     alert("Sucess")
+  }
+  console.log(guardian_AddressCheck);
+  if (guardian_AddressCheck.checked) {
+    let G_Address = document.getElementById("G-Address");
+    let address_Of_Student = document.getElementById("addressOfStudent");
+    G_Address.value = address_Of_Student.value;
+    // alert("Adress has been autofiled");
+  }else if (address_Of_Student.value == 0) {
+    alert("Cannot autofil empty Address");
+    event.preventDefault()
   }
 }
 

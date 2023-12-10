@@ -43,8 +43,8 @@ body {
     color: var(--green-primary);
 }
 
-.fa-user-tie {
-    font-size: 35px;
+.fa-user-graduate {
+    font-size: 45px;
     padding: 10px;
 }
 
@@ -101,7 +101,7 @@ form label {
     cursor: grab;
     transition: all .5s ease-in-out;
     transform: scale(1.0, 1.1);
-    border: 2px solid var(--dark-primry);
+    border: 1.5px solid var(--green-primary);
 }
 
 ::placeholder {

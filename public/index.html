@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./styles/styles.css
+    "
+    />
+
+    <title>Schola Project!</title>
+
+    <script src="./js/nav.js" defer></script>
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:w-1/3 md:pt-1" aria-label="main-menu">
+          <ul class="md:flex justify-between text-right hidden" id="navbar">
+            <li><a href="login.html" class="uppercase">staff</a></li>
+            <li>
+              <a href="login.html" class="uppercase">students</a>
+            </li>
+            <li><a href="#" class="uppercase">Photo Gallery</a></li>
+            <!-- <li><a href="#" class="uppercase">tests</a></li>
+            <li><a href="#" class="uppercase">to mark</a></li>
+            <li><a href="#" class="uppercase">marked</a></li> -->
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8"
+          aria-label="mobile-menu"
+        >
+          <a
+            href="login.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >staff</a
+          >
+          <a
+            href="login.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >students</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >Photo Gallery</a
+          >
+          <!-- <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >test</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to mark</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to marked</a
+          > -->
+        </nav>
+      </section>
+    </div>
+  </body>
+</html>

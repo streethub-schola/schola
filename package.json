@@ -1,0 +1,19 @@
+{
+  "name": "schola-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
+    "prettier": "npx prettier --write **/*{.html,.js}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.5.7"
+  },
+  "dependencies": {
+    "tw-elements": "^1.0.0"
+  }
+}

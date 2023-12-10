@@ -2,44 +2,47 @@
 // This function below is meant to validate the form to ensure that users put in the right inputs
 
 // defining a variable for all of our inputs
-// For teacher input
-let NameTeacher = document.getElementById("TeacherName");
-// for TSC input
-let TSC = document.getElementById("TSCNumber");
-// teachers work station 
-let Teachers_Station = document.getElementById("TaechersSatation");
-// For teachers Designation Input
-let DesignateTeacher = document.getElementById("TaechersDesignate");
+// For Student Reg No input
+let Reg_No_Student = document.getElementById("StudentReg");
+// for Student First name input
+let firstNameStudent = document.getElementById("Student-F-Name");
+// for Students last name input
+let latsNameStudent = document.getElementById("Student-L-Name");
+// For student's age Input
+let age_Of_Student = document.getElementById("ageOfStudent");
 // for Date of Birth Input
 let DateOfBirth = document.getElementById("DOB");
-// for date of appointment input
-let AppointmentDate = document.getElementById("Appointment");
+// for students address input
+let address_Of_Student = document.getElementById("addressOfStudent");
 // To get the password input
 var userPassword = document.getElementById("TeachersPasword");
 // Getting our Submit Btn 
 var SubmitFormBtn = document.querySelector(".SubmitBtn");
 
 function ValidateForm() {
-  if (NameTeacher.value == 0 ) {
-    let NameTeacherValidate = document.querySelector(".ValidateName")
-    NameTeacherValidate.innerHTML = "Name is required";
-    NameTeacherValidate.style.color = "red"
+  if (Reg_No_Student.value == 0 ) {
+    alert("Error - Missing fields")
+    let Re_NoValidate = document.querySelector(".ValidateRegNo")
+    Re_NoValidate.innerHTML = "Reg No is required";
+    Re_NoValidate.style.color = "red"
     event.preventDefault()
-  }else if (TSC.value == 0) {
-  let TSCValidate = document.querySelector(".ValidateTSC");
-    TSCValidate.innerHTML = "A TSC Number is compulsory";
-    TSCValidate.style.color = "red"
+  }else if (firstNameStudent.value == 0) {
+        alert("Error - Missing fields");
+  let StudentFNameValidate = document.querySelector(".Validate-F-Name");
+    StudentFNameValidate.innerHTML = "First Name is required";
+    StudentFNameValidate.style.color = "red"
         event.preventDefault()
-  }else if (Teachers_Station.value == 0) {
-    let Teachers_StationValidate = document.querySelector(".ValidateWorkStation");
-    Teachers_StationValidate.innerHTML = "Please enter a work Station Name";
-    Teachers_StationValidate.style.color = "red"
+  }else if (latsNameStudent.value == 0) {
+        alert("Error - Missing fields");
+    let studentLastNameValidate = document.querySelector(".Validate-L-Name");
+    studentLastNameValidate.innerHTML = "Last Name is required";
+    studentLastNameValidate.style.color = "red"
             event.preventDefault()
-
-  }else if (DesignateTeacher.value == 0) {
-    let DesignateTeacherValidate = document.querySelector(".ValidateDesignation");
-    DesignateTeacherValidate.innerHTML = "Please enter a designation"
-    DesignateTeacherValidate.style.color = "red";
+  }else if (age_Of_Student.value == 0) {
+    alert("Error - Missing fields")
+    let studentAgeValidate = document.querySelector(".ValidateAge");
+    studentAgeValidate.innerHTML = "Please enter your age"
+    studentAgeValidate.style.color = "red";
                 event.preventDefault()
 
   }else if (DateOfBirth.value == 0) {

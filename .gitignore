@@ -2,3 +2,4 @@ node_modules
 tailwind.config.js
 src
 src/styles/*.*
+**/archive/*.*

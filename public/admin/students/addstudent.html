@@ -27,7 +27,7 @@
             <!-- Student's Reg No: Input -->
             <div class="StudentNameField">
                 <label for="StudentReg">Student Reg No: <small id="fieldRequired">*</small></label>
-                <input type="number" id="StudentReg" placeholder="Reg No e.g. 012" autocomplete="cc-number" max="5">
+                <input type="number" id="StudentReg" placeholder="Reg No e.g. 012" autocomplete="cc-number" maxlength="5">
                 <small class="ValidateRegNo"></small>
             </div>
             <!-- Students'First Name Input -->
@@ -80,12 +80,13 @@
             </div>
             <!-- Guardian Email Input Field -->
             <div class="gurdianEmail">
-                <label for="G-EmailID">Guardian Email</label>
-                <input type="email" id="G-EmailID" placeholder="Email e.g. samuel@yahoo.com" autocomplete="email" required>
+                <label for="G-EmailID">Guardian Email <small id="fieldRequired">*</small></label>
+                <input type="email" id="G-EmailID" placeholder="Email e.g. samuel@yahoo.com" autocomplete="email" >
+                <span class="validateG-Email"></span>
             </div>
             <!-- Guardian Address Input Field -->
             <div class="guardianAddress">
-                <label for="G-Address">Guardian Address: <small id="fieldRequired">*</small></label>
+                <label for="G-Address">Guardian Address: </label>
                 <input type="text" name="" id="G-Address" autocomplete="address-line1" placeholder="Adress e.g. Plot 12 Lekki Street">
                 <div>
                     <input type="checkbox" id="G-checkboxAddress"> <span>Check the box if your adress is the same with the student</span>

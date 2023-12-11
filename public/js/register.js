@@ -22,6 +22,9 @@ var SubmitFormBtn = document.querySelector(".SubmitBtn");
 // Getting the value of the checkbox
 let guardian_AddressCheck = document.getElementById("G-checkboxAddress");
 
+// Getting the value the Guardian Email
+let emailOfGuardian = document.getElementById("G-EmailID");
+
 function ValidateForm() {
   if (Reg_No_Student.value == 0 ) {
     alert("Error - Missing fields")
@@ -62,7 +65,14 @@ function ValidateForm() {
     studentAddressValidate.style.color = "red";
                         event.preventDefault()
 
-  }else if (userPassword.value == 0) {
+  }else if (emailOfGuardian.value == 0) {
+      alert("Error - Missing fields");
+      let email_Guardianvalidate = document.querySelector(".validateG-Email");
+      email_Guardianvalidate.innerHTML = "A Guardian Email is needed";
+      email_Guardianvalidate.style.color = "red";
+      event.preventDefault()
+  }
+  else if (userPassword.value == 0) {
     let userPasswordValidate = document.querySelector(".ValidatePassword");
     userPasswordValidate.innerHTML = "A Password is required";
     userPasswordValidate.style.color = "red";
@@ -77,23 +87,42 @@ function ValidateForm() {
     userPasswordValidate.innerHTML = "Exceeded Maximum Characters";
     userPasswordValidate.style.color = "#e26482";
                                          event.preventDefault();
-  }else if (guardian_AddressCheck.checked) {
-    alert("hi")
   }
   else{
     alert("Sucess")
   }
-  console.log(guardian_AddressCheck);
-  if (guardian_AddressCheck.checked) {
+}
+ guardian_AddressCheck.addEventListener("click", function (){
+    if (guardian_AddressCheck.checked) {
     let G_Address = document.getElementById("G-Address");
     let address_Of_Student = document.getElementById("addressOfStudent");
     G_Address.value = address_Of_Student.value;
     // alert("Adress has been autofiled");
   }else if (address_Of_Student.value == 0) {
     alert("Cannot autofil empty Address");
-    event.preventDefault()
+    event.preventDefault();
+  }else{
+    alert("address removed");
+      let address_Of_Student = document.getElementById("addressOfStudent");
+          let G_Address = document.getElementById("G-Address");
+    G_Address.value = " ";
+    console.log(address_Of_Student.value)
+    // console.log(guardian_AddressCheck.unchecked);
   }
-}
+ });
+
+
+  
+  // console.log(guardian_AddressCheck);
+  // if (guardian_AddressCheck.checked) {
+  //   let G_Address = document.getElementById("G-Address");
+  //   let address_Of_Student = document.getElementById("addressOfStudent");
+  //   G_Address.value = address_Of_Student.value;
+  //   // alert("Adress has been autofiled");
+  // }else if (address_Of_Student.value == 0) {
+  //   alert("Cannot autofil empty Address");
+  //   event.preventDefault()
+  // }
 
 
 

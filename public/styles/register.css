@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
 }
 
 /* ------------ Root Selectors -------------------------- */
@@ -48,13 +49,13 @@ body {
 }
 
 /* ------------------------- Styling For All inputs Field Container ------------------------ */
-.TeacherNameField,
-.TSCField,
-.teachersWorkField,
-.TaechersDesignationField,
-.DOBfield,
+.StudentNameField,
+.StudentFName,
+.StudentLName,
+.StudentAgeField,
+.DOBfield, .StudentAddressfield,
 .appointmentfield,
-.PasswordInput {
+.PasswordInput, .ImageStudentField, .guardianName, .guardianPhone, .gurdianEmail, .guardianAddress {
     display: flex;
     flex-direction: column;
     margin: 15px 0;
@@ -67,12 +68,12 @@ form label {
 }
 
 /* ------------------------- Styling For All inputs  ------------------------ */
-#TeacherName,
-#TSCNumber,
-#TaechersSatation,
-#TaechersDesignate,
-#DOB,
-#Appointment,
+#StudentReg,
+#Student-F-Name,
+#Student-L-Name,
+#ageOfStudent,
+#DOB, #addressOfStudent,
+#StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
 #TeachersPasword {
     height: 40px;
     border-radius: 7px;
@@ -87,17 +88,15 @@ form label {
     color: var(--dark-primry);
 }
 
-#DOB,
-#Appointment {
+#DOB{
     width: 800px;
 }
-
-#TeacherName:hover,
-#TSCNumber:hover,
-#TaechersSatation:hover,
-#TaechersDesignate:hover,
-#DOB:hover,
-#Appointment:hover,
+#StudentReg:hover, 
+#Student-F-Name:hover,
+#Student-L-Name:hover, #ageOfStudent:hover,
+ #addressOfStudent:hover, #StudentImg:hover,
+ #G-Name:hover,  #G-PhoneNo:hover, #G-EmailID:hover,
+#DOB:hover,  #G-Address:hover,
 #TeachersPasword:hover {
     cursor: grab;
     transition: all .5s ease-in-out;

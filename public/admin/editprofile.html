@@ -66,12 +66,12 @@
           <h4 class="text-center">Edit Profile Page</h4>
             <form action="" method="post">
               <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="Full Name" class="mr-2 w-[20%] md:w-[6%]">Full Name</label>
-              <input type="text" placeholder="Full name fetched from DB" readonly name="fullName" id="Full Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
-              </div>
-              <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Admission No" class="mr-2 md:w-[6%] w-[20%]">Ad No</label>
               <input type="text" placeholder="Non Editable Admission No from DB" readonly name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Full Name" class="mr-2 w-[20%] md:w-[6%]">Full Name</label>
+              <input type="text" placeholder="Full name fetched from DB" readonly name="fullName" id="Full Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Class" class="mr-2 md:w-[6%] w-[20%]">Class</label>
@@ -79,9 +79,23 @@
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
-              <input type="date" readonly placeholder="Non Editable Class from DB" name="studentAdNo" id="Date of Birth" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" readonly placeholder="Non Editable Class from DB" name="studentAdNo" id="Date of Birth" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
-              
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Address" class="mr-2 md:w-[6%] w-[20%]">Address</label>
+              <input type="text" readonly placeholder="Non Editable Address Line from the DB" name="Full Address" id="Address" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="w-full text-center m-2 mt-8">
+                <h4>Parents or Guardian Details</h4>
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Name" class="mr-2 md:w-[6%] w-[20%]">Guardian Name</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Name from the DB" name="Parents or Guardian's Name" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
 
             </form>
         </div>

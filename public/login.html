@@ -108,7 +108,9 @@
         e.preventDefault();
 
         if (form.username.value && form.password.value == "student" || form.username.value && form.password.value == "teacher") {
-          location.href = "./admin/students/index.html";
+          location.href = "./admin/index.html";
+        } else if (form.username.value && form.password.value == 'admin'){
+          location.href = "./admin/admin/index.html";
         } else {
           alert("Default username bypassed");
         }

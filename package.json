@@ -6,7 +6,8 @@
   "scripts": {
     "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
     "minify": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --minify",
-    "prettier": "npx prettier --write **/*{.html,.js}"
+    "prettier": "npx prettier --write **/*{.html,.js}",
+    "build": "npm run build:css"
   },
   "keywords": [],
   "author": "",

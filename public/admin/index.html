@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="./styles/styles.css
-    "
+      href="../styles/styles.css"
     />
-    <link rel="stylesheet" href="../styles/styles.css">
 
     <title>Schola Project!</title>
 
@@ -22,19 +20,19 @@
         <div class="brand uppercase">
           <a href="index.html">Schola</a>
         </div>
-        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
-          <ul class="md:flex justify-between text-right hidden" id="navbar">
-            <li><a href="#" class="uppercase">staff</a></li>
-            <li><a href="#" class="uppercase">students</a></li>
-            <li><a href="#" class="uppercase">classes</a></li>
-            <li><a href="#" class="uppercase">tests</a></li>
-            <!-- <li><a href="#" class="uppercase">to mark</a></li>
+        <nav class="mx-2 md:w-1/3 md:pt-1" aria-label="main-menu">
+          <ul class="lg:flex justify-between text-right hidden md:hidden" id="navbar">
+            <li><a href="login.html" class="uppercase">staff</a></li>
+            <li>
+              <a href="login.html" class="uppercase">students</a>
+            </li>
+            <li><a href="#" class="uppercase">Photo Gallery</a></li>
+            <!-- <li><a href="#" class="uppercase">tests</a></li>
+            <li><a href="#" class="uppercase">to mark</a></li>
             <li><a href="#" class="uppercase">marked</a></li> -->
-            <li><a href="#" class="uppercase">payments</a></li>
-            <li><a href="#" class="uppercase">Logout</a></li>
           </ul>
           <button
-            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            class="outline-none border-none absolute top-0 right-6 text-2xl lg:hidden"
             id="nav_toggle"
           >
             &#9776;
@@ -55,21 +53,26 @@
           aria-label="mobile-menu"
         >
           <a
-            href="staff.html"
+            href="login.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >staff</a
           >
           <a
-            href="#"
+            href="login.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >classes</a
+            >students</a
           >
           <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >test</a
+            >Photo Gallery</a
           >
           <!-- <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >test</a
+          >
+          <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >to mark</a
@@ -79,16 +82,6 @@
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >to marked</a
           > -->
-          <a
-            href="#"
-            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >payments</a
-          >
-          <a
-            href="#"
-            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >Logout</a
-          >
         </nav>
       </section>
       <main class="md:grid md:grid-cols-3 mx-5 w-full mt-5">

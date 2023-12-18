@@ -668,6 +668,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin: auto;
 }
 
+.m-8 {
+  margin: 2rem;
+}
+
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -1123,6 +1127,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-amber-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
 .bg-clip-padding {
   background-clip: padding-box;
 }
@@ -1519,6 +1528,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1583,9 +1597,76 @@ input[type="range"]:active::-webkit-slider-thumb {
   color: rgb(40 81 146 / var(--tw-text-opacity));
 }
 
+.peer\/tab-one:checked ~ .peer-checked\/tab-one\:block {
+  display: block;
+}
+
+.peer\/tab-three:checked ~ .peer-checked\/tab-three\:block {
+  display: block;
+}
+
+.peer\/tab-two:checked ~ .peer-checked\/tab-two\:block {
+  display: block;
+}
+
 .peer\/tab-one:checked ~ .peer-checked\/tab-one\:bg-amber-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-three:checked ~ .peer-checked\/tab-three\:bg-amber-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-two:checked ~ .peer-checked\/tab-two\:bg-amber-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 230 138 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-one:checked ~ .peer-checked\/tab-one\:bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-two:checked ~ .peer-checked\/tab-two\:bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-three:checked ~ .peer-checked\/tab-three\:bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-one:checked ~ .peer-checked\/tab-one\:bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-three:checked ~ .peer-checked\/tab-three\:bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-two:checked ~ .peer-checked\/tab-two\:bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-one:checked ~ .peer-checked\/tab-one\:bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-three:checked ~ .peer-checked\/tab-three\:bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.peer\/tab-two:checked ~ .peer-checked\/tab-two\:bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
 
 .data-\[te-tab-active\]\:block[data-te-tab-active] {

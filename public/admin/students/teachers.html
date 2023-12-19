@@ -1,0 +1,139 @@
+<!-- Displays all the students across all the registered schools -->
+
+<!-- This should be a table -->
+
+<!-- To contain search box and Add button -->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../styles/styles.css"
+    />
+    <link rel="stylesheet" href="../../admin/students/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Schola Project!</title>
+
+    <script src="./js/nav.js" defer></script>
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:pt-1" aria-label="main-menu">
+          <ul class="md:flex justify-between text-right hidden" id="navbar">
+            <li><a href="../admin/index.html" class="uppercase hover:bg-blue-400 md:p-2 md:mx-2">Home</a></li>
+            <li>
+              <a href="../../login.html" class="uppercase hover:bg-blue-400 md:p-2 md:mx-2">Logout</a>
+            </li>
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8"
+          aria-label="mobile-menu"
+        >
+          <a
+            href="../admin/index.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >Home</a
+          >
+          <a
+            href="../../login.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >Log out</a
+          >
+        </nav>
+      </section>
+
+      <!-- MAIN SECTION -->
+
+      <div class="flex flex-col md:w-11/12 m-auto items-center md:py-2 md:flex-row md:justify-between">
+        <input type="text" name="searchBox" id="" placeholder="Search strings" class="w-10/12 p-2 rounded-md">
+        <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400">Add Student</a>
+      </div>
+
+      <div class="flex flex-col shadow-lg shadow-gray-700 w-11/12 m-auto">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <table class="min-w-full text-left text-sm font-light">
+                <thead
+                  class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
+                >
+                  <tr>
+                    <th scope="col" class="p-4 border-r-gray-200 border">#</th>
+                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
+                      Admisison No
+                    </th>
+                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
+                      Student Name
+                    </th>
+                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
+                      Class
+                    </th>
+                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                  >
+                    <td class="px-4">1</td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      FUTO/001
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      Godwin Onyeka
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      SS 3 B
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border flex flex-row items-center gap-3">
+                      <a href="edit_student.html?studentId=001" data-te-toggle="tooltip" title="Edit Record">
+                        <i class="fa fa-pen-to-square text-lg text-blue-400"></i>  
+                      </a>
+                      <a href="view.html?studentId=001" data-te-toggle="tooltip" title="View Record">
+                        <i class="fa-regular fa-eye text-lg text-blue-400"></i>
+                      </a>
+                      <a href="edit_student.html?studentId=001" data-te-toggle="tooltip" title="Delete Record">
+                        <i class="fa fa-trash text-red-500 text-lg"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

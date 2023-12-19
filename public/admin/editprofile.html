@@ -28,7 +28,7 @@
         <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
           <ul class="md:flex justify-end text-right hidden" id="navbar">
             <li><a href="./index.html" class="uppercase mx-4">home</a></li>
-            <li><a href="#" class="uppercase">Logout</a></li>
+            <li><a href="../login.html" class="uppercase">Logout</a></li>
           </ul>
           <button
             class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
@@ -55,14 +55,14 @@
             Home
         </a>
           <a
-            href="#"
+            href="../index.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >Logout</a
           >
         </nav>
       </section>
 
-      <main class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-slate-300 md:p-4 p-2">
+      <main class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 md:p-4 p-2">
         <div>
           <!-- something is wrong -->
           <h4 class="text-center">Edit Profile Page</h4>
@@ -96,8 +96,25 @@
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
-              <input type="text" readonly placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Email</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Address</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Address from the DB" name="guardianAddress" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Change Password</label>
+              <input type="text" placeholder="Enter your new password" name="guardianAddress" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row justify-end text-sm my-2">
+              <input type="submit" name="update" value="Update Records" class="md:mx-4 bg-blue-300 rounded-md p-2">
+              </div>
+              
+
 
             </form>
         </div>

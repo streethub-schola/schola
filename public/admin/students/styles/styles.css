@@ -6,3 +6,7 @@ tbody > tr:nth-child(even){
 tbody > tr {
     line-height: 40px;
 }
+
+input:focus {
+    outline: none;
+}

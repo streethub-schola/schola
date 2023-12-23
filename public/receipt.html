@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Receipt</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <h2>RECEIPT</h2>
+                <img src="./images/brlogo.jpeg" alt="">
+            </header>
+            <div class="compDetails">
+            <div class="brand uppercase">
+                <a href="../index.html">Schola</a>
+              </div>
+              <p>Address:</p>
+                <p>+2348023456789</p>
+                <p>www.schola.com</p>
+            </div>
+            <hr>
+
+            <div class="billdetails">
+                <div class="paiduserDetails">
+                    <h4>Name</h4>
+                    <p class="paidUserName uppercase">Judith Chinenye</p>
+                    <P>Class: <span class="stdclass">SS3</span></P>
+                    <p class="paidUserNo">1234567890</p>
+                    <p class="paidStuMail">student@gmail.com</p>
+                </div>
+
+                <div class="receiptDetails">
+                    <p>Receipt No: <span class="rcptNo">001</span></p>
+                    <p>Receipt Date: <span class="rcptDate">12/4/2023</span></p>
+                    <p>Payment Due: <span class="recptPymntDue">12/4/2023</span></p>
+                    <p>Amount Due: <span class="amtDue">&#8358;0.00</span></p>
+                </div>
+            </div>
+
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>QTY</th>
+                        <th>DESCRIPTION</th>
+                        <th>UNIT</th>
+                        <th>SUB-TOTAL</th>
+                    </tr>
+                </table>
+             </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Receipt</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #receipt {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="receipt">
+  <h2>School Receipt</h2>
+
+  <label for="studentName">Student Name:
+  <input type="text" id="studentName" placeholder="Enter student name"></label>
+
+  <label for="courseFee">Course Fee:</label>
+  <input type="number" id="courseFee" placeholder="Enter course fee">
+
+  <label for="booksCost">Books Cost:</label>
+  <input type="number" id="booksCost" placeholder="Enter books cost">
+
+  <label for="uniformCost">Uniform Cost:</label>
+  <input type="number" id="uniformCost" placeholder="Enter uniform cost">
+
+  <button onclick="generateReceipt()">Generate Receipt</button>
+
+  <h3>Receipt Details</h3>
+  <p id="output"></p>
+
+  <div>Choose a browser from this list:</div>
+<input list="browsers" />
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Internet Explorer">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+</div>
+
+<script>
+  function generateReceipt() {
+    // Get input values
+    var studentName = document.getElementById('studentName').value;
+    var courseFee = parseFloat(document.getElementById('courseFee').value) || 0;
+    var booksCost = parseFloat(document.getElementById('booksCost').value) || 0;
+    var uniformCost = parseFloat(document.getElementById('uniformCost').value) || 0;
+
+    // Calculate total cost
+    var totalCost = courseFee + booksCost + uniformCost;
+
+    // Display receipt details
+    var receiptDetails = `
+      Student Name: ${studentName}
+      <br>
+      Course Fee: $${courseFee.toFixed(2)}
+      <br>
+      Books Cost: $${booksCost.toFixed(2)}
+      <br>
+      Uniform Cost: $${uniformCost.toFixed(2)}
+      <br>
+      <strong>Total Cost: $${totalCost.toFixed(2)}</strong>
+    `;
+
+    document.getElementById('output').innerHTML = receiptDetails;
+  }
+</script>
+
+</body>
+</html>

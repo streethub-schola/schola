@@ -1,7 +1,7 @@
 {
   "name": "schola-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Schola is a school management portal built to reform the Educational Management space",
   "main": "tailwind.config.js",
   "scripts": {
     "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",

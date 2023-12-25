@@ -16,6 +16,8 @@ let DateOfBirth = document.getElementById("DOB");
 let address_Of_Student = document.getElementById("addressOfStudent");
 // To get the password input
 var userPassword = document.getElementById("TeachersPasword");
+// Confirm Password input
+var passcode_Confirm = document.getElementById("password-Confirm");
 // Getting our Submit Btn 
 var SubmitFormBtn = document.querySelector(".SubmitBtn");
 
@@ -26,13 +28,15 @@ let guardian_AddressCheck = document.getElementById("G-checkboxAddress");
 let emailOfGuardian = document.getElementById("G-EmailID");
 
 function ValidateForm() {
-  if (Reg_No_Student.value == 0 ) {
-    alert("Error - Missing fields")
-    let Re_NoValidate = document.querySelector(".ValidateRegNo")
-    Re_NoValidate.innerHTML = "Reg No is required";
-    Re_NoValidate.style.color = "red"
-    event.preventDefault()
-  }else if (firstNameStudent.value == 0) {
+  // if (Reg_No_Student.value == 0 ) {
+  //   alert("Error - Missing fields");
+  //   console.log(passcode_Confirm)
+  //   let Re_NoValidate = document.querySelector(".ValidateRegNo")
+  //   Re_NoValidate.innerHTML = "Reg No is required";
+  //   Re_NoValidate.style.color = "red"
+  //   event.preventDefault()
+  // }
+ if (firstNameStudent.value == 0) {
         alert("Error - Missing fields");
   let StudentFNameValidate = document.querySelector(".Validate-F-Name");
     StudentFNameValidate.innerHTML = "First Name is required";
@@ -44,14 +48,16 @@ function ValidateForm() {
     studentLastNameValidate.innerHTML = "Last Name is required";
     studentLastNameValidate.style.color = "red"
             event.preventDefault()
-  }else if (age_Of_Student.value == 0) {
-    alert("Error - Missing fields")
-    let studentAgeValidate = document.querySelector(".ValidateAge");
-    studentAgeValidate.innerHTML = "Please enter your age"
-    studentAgeValidate.style.color = "red";
-                event.preventDefault()
+  }
+  // else if (age_Of_Student.value == 0) {
+  //   alert("Error - Missing fields")
+  //   let studentAgeValidate = document.querySelector(".ValidateAge");
+  //   studentAgeValidate.innerHTML = "Please enter your age"
+  //   studentAgeValidate.style.color = "red";
+  //               event.preventDefault()
 
-  }else if (DateOfBirth.value == 0) {
+  // }
+  else if (DateOfBirth.value == 0) {
     alert("Error - Missing fields")
     let DateOfBirthValidate = document.querySelector(".ValidateDOB");
     DateOfBirthValidate.innerHTML = "Date of Birth is required";
@@ -87,6 +93,12 @@ function ValidateForm() {
     userPasswordValidate.innerHTML = "Exceeded Maximum Characters";
     userPasswordValidate.style.color = "#e26482";
                                          event.preventDefault();
+  } else if (passcode_Confirm.value != userPassword.value) {
+    let passcodeConfirmval = document.querySelector(".ValidateNewPassword");
+   passcodeConfirmval.innerHTML = "Passoword does not match";
+   passcodeConfirmval.style.color = "ff0000";
+    event.preventDefault();
+    console.log(passcodeConfirmval)
   }
   else{
     alert("Sucess")
@@ -113,13 +125,14 @@ function ValidateForm() {
 
 
   
-  // console.log(guardian_AddressCheck);
-  // if (guardian_AddressCheck.checked) {
-  //   let G_Address = document.getElementById("G-Address");
-  //   let address_Of_Student = document.getElementById("addressOfStudent");
-  //   G_Address.value = address_Of_Student.value;
-  //   // alert("Adress has been autofiled");
-  // }else if (address_Of_Student.value == 0) {
+  console.log(guardian_AddressCheck);
+  if (guardian_AddressCheck.checked) {
+    let G_Address = document.getElementById("G-Address");
+    let address_Of_Student = document.getElementById("addressOfStudent");
+    G_Address.value = address_Of_Student.value;
+    // alert("Adress has been autofiled");
+  }
+  // else if (address_Of_Student.value == 0) {
   //   alert("Cannot autofil empty Address");
   //   event.preventDefault()
   // }
@@ -151,3 +164,21 @@ PasswordVisible.addEventListener('click', () =>{
         PasswordVisible.style.display = "none"
       }
 })
+var confirm_Show_passcode = document.getElementById("showPasswordConfirm");
+var confirm_Hide_passcode = document.getElementById("HidePasswordConfirm");
+
+function confirmpasscodeShow(){
+  if (passcode_Confirm.type = "password"){
+    passcode_Confirm.type = "text";
+    confirm_Show_passcode.style.display = "block";
+    confirm_Hide_passcode.style.display = "none"
+  }
+}
+
+function confirmPasscodeHide(){
+  if(passcode_Confirm.type = "text"){
+    passcode_Confirm.type = "password";
+      confirm_Show_passcode.style.display = "none";
+    confirm_Hide_passcode.style.display = "block"
+  }
+}

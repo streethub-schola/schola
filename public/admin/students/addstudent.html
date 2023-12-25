@@ -25,11 +25,11 @@
         <!-- For Form Container -->
         <form action="" autocomplete="on">
             <!-- Student's Reg No: Input -->
-            <div class="StudentNameField">
+            <!-- <div class="StudentNameField">
                 <label for="StudentReg">Student Reg No: <small id="fieldRequired">*</small></label>
                 <input type="number" id="StudentReg" placeholder="Reg No e.g. 012" autocomplete="cc-number" maxlength="5">
                 <small class="ValidateRegNo"></small>
-            </div>
+            </div> -->
             <!-- Students'First Name Input -->
             <div class="StudentFName">
                 <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
@@ -43,12 +43,12 @@
                 <small class="Validate-L-Name"></small>
             </div>
             <!-- Student's Age Input -->
-            <div class="StudentAgeField">
+            <!-- <div class="StudentAgeField">
                 <label for="ageOfStudent">Student's Age: <small id="fieldRequired">*</small></label>
                 <input type="number" name="" id="ageOfStudent" placeholder="Age e.g. 15"
                     autocomplete="new-age">
                 <small class="ValidateAge"></small>
-            </div>
+            </div> -->
             <!-- Student's DOB Input -->
             <div class="DOBfield">
                 <label for="DOB">Student's Date of Birth: <small id="fieldRequired">*</small></label>
@@ -76,7 +76,7 @@
             <!-- Gurdian Phone No Input field -->
             <div class="guardianPhone">
                 <label for="G-PhoneNo">Guardian Phone No:</label>
-                <input type="tel" name="" id="G-PhoneNo" placeholder="Phone No: e.g +23470000" autocomplete="tel">
+                <input type="tel" name="" id="G-PhoneNo" placeholder="Phone No: e.g 0705XXXXXX" autocomplete="tel">
             </div>
             <!-- Guardian Email Input Field -->
             <div class="gurdianEmail">
@@ -101,6 +101,14 @@
                 <i class="fa-solid fa-eye" id="showPassword"></i>
                 <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
                 <small class="ValidatePassword"></small>
+            </div>
+            <div class="PasswordInput">
+                <label for="password-Confirm">Confirm Password <small id="fieldRequired">*</small></label>
+                <input type="password" name="" id="password-Confirm"  placeholder="Confirm Password ****"
+                    autocomplete="current-password">
+                <i class="fa-solid fa-eye" id="showPasswordConfirm" onclick="confirmPasscodeHide()"></i>
+                <i class="fa-solid fa-eye-slash" id="HidePasswordConfirm"  onclick="confirmpasscodeShow()"></i>
+                <small class="ValidateNewPassword"></small>
             </div>
             <button type="submit" class="SubmitBtn" onclick="ValidateForm()">Admit Student</button>
         </form>

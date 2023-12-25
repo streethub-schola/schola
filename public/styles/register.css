@@ -43,8 +43,8 @@ body {
     color: var(--green-primary);
 }
 
-.fa-user-tie {
-    font-size: 35px;
+.fa-user-graduate {
+    font-size: 45px;
     padding: 10px;
 }
 
@@ -74,7 +74,7 @@ form label {
 #ageOfStudent,
 #DOB, #addressOfStudent,
 #StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
-#TeachersPasword {
+#TeachersPasword, #password-Confirm {
     height: 40px;
     border-radius: 7px;
     border: 1px solid var(--dark-primry);
@@ -87,21 +87,17 @@ form label {
     background: transparent;
     color: var(--dark-primry);
 }
-
-#DOB{
-    width: 800px;
-}
 #StudentReg:hover, 
 #Student-F-Name:hover,
 #Student-L-Name:hover, #ageOfStudent:hover,
  #addressOfStudent:hover, #StudentImg:hover,
  #G-Name:hover,  #G-PhoneNo:hover, #G-EmailID:hover,
 #DOB:hover,  #G-Address:hover,
-#TeachersPasword:hover {
+#TeachersPasword:hover, #password-Confirm:hover {
     cursor: grab;
     transition: all .5s ease-in-out;
     transform: scale(1.0, 1.1);
-    border: 2px solid var(--dark-primry);
+    border: 1.5px solid var(--green-primary);
 }
 
 ::placeholder {
@@ -110,7 +106,7 @@ form label {
 }
 
 #showPassword,
-#HidePassword {
+#HidePassword, #showPasswordConfirm, #HidePasswordConfirm {
     position: relative;
     left: 95px;
     bottom: 30px;
@@ -118,6 +114,9 @@ form label {
 }
 
 #showPassword {
+    display: none;
+}
+#showPasswordConfirm{
     display: none;
 }
 
@@ -161,10 +160,10 @@ form label {
         width: 50px;
     }
 
-    #DOB,
+    /* #DOB,
     #Appointment {
         width: 250px;
-    }
+    } */
 }
 
 /* Media querry for Ipads */

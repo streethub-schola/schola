@@ -34,6 +34,24 @@ body {
     border-radius: 10px;
     width: 900px;
 }
+.returnHomeBtn{
+    padding: 3px;
+    border: none;
+    background: transparent;
+    position: relative;
+    left: -350px;
+    bottom: 10px;
+}
+.returnHomeBtn:hover{
+    transition: .5s ease-in;
+    transform: translateX(-15px);
+    border-bottom: 2px solid var(--semi-red);
+}
+.returnHomeBtn a{
+    color: var(--green-primary);
+    font-size: 17px;
+    text-decoration: none;
+}
 
 .parent small {
     color: var(--semi-red);
@@ -147,13 +165,17 @@ form label {
     .parent {
         width: auto;
     }
+        .returnHomeBtn {
+            left: -60px;
+            bottom: 5px;
+        }
 
     .SubmitBtn {
         width: auto;
     }
 
     #showPassword,
-    #HidePassword {
+    #HidePassword, #HidePasswordConfirm, #showPasswordConfirm {
         position: relative;
         left: 2px;
         bottom: 30px;
@@ -176,21 +198,20 @@ form label {
     .parent {
         width: 500px;
     }
+         .returnHomeBtn {
+             left: -140px;
+             bottom: 5px;
+         }
 
     .SubmitBtn {
         width: auto;
     }
 
     #showPassword,
-    #HidePassword {
+    #HidePassword, #HidePasswordConfirm, #showPasswordConfirm {
         position: relative;
         left: 2px;
         bottom: 30px;
         width: 50px;
-    }
-
-    #DOB,
-    #Appointment {
-        width: 400px;
     }
 }

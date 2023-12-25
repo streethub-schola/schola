@@ -1,11 +1,13 @@
 {
   "name": "schola-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Schola is a school management portal built to reform the Educational Management space",
   "main": "tailwind.config.js",
   "scripts": {
     "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
-    "prettier": "npx prettier --write **/*{.html,.js}"
+    "minify": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --minify",
+    "prettier": "npx prettier --write **/*{.html,.js}",
+    "build": "npm run build:css"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
     "prettier-plugin-tailwindcss": "^0.5.7"
   },
   "dependencies": {
-    "tw-elements": "^1.0.0"
+    "tailwindcss": "^3.3.6",
+    "tw-elements": "^1.1.0"
   }
 }

@@ -17,21 +17,29 @@
   <body class="p-2">
     <div class="w-full md:w-3/5 m-auto mt-12 border rounded-md p-4 text-sm">
       <div class="">
+        <div class="home text-xs hover:text-blue-500">
+          <a href="index.html">Return to Home</a>
+        </div>
         <div class="content">
           <section class="text-center">
             <h1 class="text-4xl">My School</h1>
-            <img
+            <a href="index.html">
+              <img
               src="./images/brlogo.jpeg"
               alt=""
               class="w-10 border-2 border-blue-300 rounded-full m-auto"
             />
+            </a>
           </section>
+          <div class="w-full bg-red-300 m-auto my-4 h-auto p-2 rounded-md hidden" id="errorMsg">
+            
+          </div>
           <form action="" class="pxy">
             <h2 class="text-2xl">Login</h2>
             <div class="flex flex-col">
               <input
                 type="text"
-                placeholder="Example@example.com"
+                placeholder="xxx/xxx/xxx"
                 name="username"
                 class="border-2 py-2 rounded-md my-2 mb-5 pl-1"
               />
@@ -41,52 +49,22 @@
                 placeholder="Password"
                 class="border-2 py-2 rounded-md pl-1"
               />
-              <button
+              <div class="flex flex-row justify-between items-center">
+                <button
                 type="submit"
                 class="my-2 border bg-blue-300 rounded-md w-fit p-2 px-3 hover:bg-neutral-100 hover:text-black text-white"
               >
                 Login
               </button>
+              <p class="">
+                <a href="index.html" class="text-neutral-500 hover:text-blue-500"
+                  >Forgot password?</a
+                >
+              </p>
+              </div>
             </div>
           </form>
           <section class="flex justify-between text-sm py-2 px-3">
-            <p class="">
-              <a href="index.html" class="text-neutral-500 hover:text-blue-500"
-                >Forgot password?</a
-              >
-            </p>
-            <p class="hover:text-blue-500">
-              New User?<br /><a
-                href="index.html"
-                class="text-neutral-500 hover:text-blue-500"
-                >Register Here</a
-              >
-            </p>
-          </section>
-          <section class="px-3">
-            <div class="otheropt placing">
-              <div
-                class="border-2 border-gray-300 rounded-full mb-2 pb-1 hover:bg-neutral-100"
-              >
-                <a href="" class="flex placing"
-                  ><span class="mt-2 mx-2"> Login with </span>
-                  <div class="w-5 h-1">
-                    <img src="./images/social.png" alt="" /></div
-                ></a>
-              </div>
-              <p
-                class="border-2 border-gray-300 rounded-full mb-2 p-2 hover:bg-neutral-100 text-center"
-              >
-                <a href=""
-                  >Login with
-                  <i
-                    class="fa-brands fa-facebook-f"
-                    style="color: rgb(79, 130, 216)"
-                  ></i
-                  ><span class="font-bold text-blue-300">acebook</span>
-                </a>
-              </p>
-            </div>
           </section>
         </div>
       </div>
@@ -97,22 +75,23 @@
       src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
     ></script>
 
-    <script type="module" src="./js/telements.js"></script>
+    <!-- <script type="module" src="./js/telements.js"></script> -->
+    <script src="./js/login.js"></script>
 
-    <script>
+    <!-- <script>
       let form = document.querySelector("form");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (form.username.value && form.password.value == "student") {
-          location.href = "./students/index.html";
-        } else if (form.username.value && form.password.value == "teacher") {
-          location.href = "./teachers/my_profile.html";
+        if (form.username.value && form.password.value == "student" || form.username.value && form.password.value == "teacher") {
+          location.href = "./admin/index.html";
+        } else if (form.username.value && form.password.value == 'admin'){
+          location.href = "./admin/admin/index.html";
         } else {
           alert("Default username bypassed");
         }
       });
-    </script>
+    </script> -->
   </body>
 </html>

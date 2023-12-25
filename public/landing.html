@@ -16,31 +16,56 @@
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
-      <section
-        class="w-full sticky z-[9999] top-0 bg-blue-200 shadow flex justify-between items-center p-2"
-      >
-        <div class="brand uppercase">
-          <a href="index.html">Schola</a>
-        </div>
-        <nav class="mx-2 md:w-1/3 md:pt-1" aria-label="main-menu">
-          <ul class="lg:flex justify-between text-right hidden md:hidden" id="navbar">
-            <li><a href="login.html" class="uppercase">staff</a></li>
-            <li>
-              <a href="login.html" class="uppercase">students</a>
-            </li>
-            <li><a href="#" class="uppercase">Photo Gallery</a></li>
-          </ul>
-          <button
-            class="outline-none border-none absolute top-0 right-6 text-2xl lg:hidden"
-            id="nav_toggle"
-          >
-            &#9776;
-          </button>
-        </nav>
-      </section>
+      <header class="top-0 sticky">
+        <section
+          class="bg-gray-300 flex justify-between text-sm w-full p-2"
+        >
+          <div class="w-3/5 flex items-center">
+            <a href="tel:55555555555" class="mx-2"
+              ><span>&#9990; </span>+2348088568636</a
+            >
+            <a href="mailto:schola@gmail.com" class="mx-2"
+              ><span>&#128231;</span>schola@gmail.com</a
+            >
+          </div>
+          <div class="flex justify-between items-center w-30">
+            <a href="#inquiry" class="p-1 hover:bg-slate-200">&#8505; Inquiry</a>
+            <div>
+              <a href="login.html" class="ml-2 hover:bg-slate-200 p-2 font-bold">Login</a>
+              <a href="" class="mx-1 hover:bg-slate-200 p-2">Register</a>
+            </div>
+          </div>
+        </section>
+        <section
+          class="w-full bg-blue-200 shadow flex justify-between items-center p-2"
+        >
+          <div class="brand uppercase">
+            <a href="index.html">Schola</a>
+          </div>
+          <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+            <ul class="md:flex justify-between text-right hidden" id="navbar">
+              <li><a href="staff.html" class="uppercase">staff</a></li>
+              <li>
+                <a href="./dashboard/index.html" class="uppercase">students</a>
+              </li>
+              <li><a href="#" class="uppercase">classes</a></li>
+              <li><a href="#" class="uppercase">tests</a></li>
+              <li><a href="#" class="uppercase">to mark</a></li>
+              <li><a href="#" class="uppercase">marked</a></li>
+            </ul>
+            <button
+              class="outline-none border-none absolute top-10 right-6 text-2xl md:hidden"
+              id="nav_toggle"
+            >
+              &#9776;
+            </button>
+          </nav>
+        </section>
+      </header>
+      
       <section
         id="mobile-menu"
-        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-200 z-[9999]"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
       >
         <button
           class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
@@ -52,25 +77,39 @@
           aria-label="mobile-menu"
         >
           <a
-            href="login.html"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
+            href="staff.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >staff</a
           >
           <a
-            href="login.html"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
+            href="./dashboard/index.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >students</a
           >
           <a
             href="#"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
-            >Photo Gallery</a
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >classes</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >test</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to mark</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to marked</a
           >
         </nav>
       </section>
-      <div class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 relative">
-         <!-- JUDITH'S CODE -->
-         <main class="bg-blue-200">
+
+      <main class="bg-blue-200">
         <div class="w-full relative">
           <img
             src="./images/kids pic/kids2.jpg"
@@ -78,13 +117,13 @@
             class="w-full"
           />
           <blockquote
-            class="pl-4 my-4 absolute md:block top-6 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold"
+            class="border-l-4 pl-4 my-4 absolute top-6 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold"
           >
-            <p class="text-sm md:text-2xl font-medium">
+            <p class="text-3xl font-medium">
               " Education is the most powerful weapon which you can use to
               change the world. "
             </p>
-            <cite class="block text-xs md:text-sm text-right"
+            <cite class="block text-right"
               >— Nelson Mandela <br />1918-2013</cite
             >
           </blockquote>
@@ -92,7 +131,7 @@
             Education is the most powerful weapon which you can use to change the world. <br><span>Nelson Mandela <br>1918-2013</span>
           </h2>-->
           <button
-            class="absolute p-1 top-10 border-2 border-gray-400 right-6 lg:top-60 lg:left-85 lg:text-xl lg:p-4 bg-slate-300 font-bold rounded-md hover:bg-blue-300"
+            class="absolute p-2 top-10 border-2 border-gray-400 right-6 lg:top-60 lg:left-85 lg:text-xl lg:p-4 bg-slate-300 font-bold rounded-md hover:bg-blue-300"
           >
             Check Result
           </button>
@@ -102,7 +141,7 @@
           class="about border-2 border-gray-400 p-4 w-4/5 lg:w-2/4 m-auto -mt-4 lg:-mt-48 relative bg-gray-300 rounded-md text-lg"
         >
           <div class="abtnav flex flex-col justify-between">
-            <details class="p-1 my-1">
+            <details open class="p-1 my-1">
               <summary class="text-xl font-bold">About us</summary>
               <p class="border-b-2 pb-3">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -164,78 +203,85 @@
           <p>Learn with passion to live with purpose</p>
         </div>
 
-        <div class="content p-6 w-full flex flex-col gap-3 md:flex-row justify-between">
+        <div class="content p-6 w-full flex justify-between">
           <form
             action=""
-            class="w-full md:w-2/4 lg:w-[50%] p-4 border-2 border-gray-400 rounded-md bg-slate-100" id="inquiry"
+            class="grid w-2/4 p-4 ml-5 border-2 border-gray-400 rounded-md bg-slate-100" id="inquiry"
           >
-            <h2 class="text-center font-bold opacity-70">
+            <p class="text-center text-2xl font-bold opacity-70">
               Inquiry form
-            </h2>
-            <label for="name" class="my-2">Name</label>
+            </p>
+            <label for="name" class="font-bold opacity-70 mt-4">Name
             <input
-              type="text" id="name"
+              type="text id
+              name"
               placeholder="Enter your name"
-              class="rounded-sm w-11/12 lg:p-4"
-            />
+              class="lg:-mt-8 rounded-sm p-1 w-11/12 lg:p-4"
+            /></label>
 
-            <label for="email" class="my-2">Email</label>
+            <label for="email" class="font-bold opacity-70">Email                       
             <input
               type="email"
               id="email"
               placeholder="janedoe@gmail.com"
-              class="rounded-sm w-11/12 lg:p-2 my-2"
-            />
+              class="rounded-sm w-11/12 lg:p-4"
+            /></label>
 
-            <label for="year" class="my-2"
+            <label for="year" class="font-bold opacity-70"
               >Interested School Year
             <input
               type="text"
               id="year"
               placeholder="2023/2024"
-              class="w-11/12 rounded-sm lg:p-2"
+              class="w-11/12 rounded-sm p-1 lg:p-4"
             /></label>
 
-  
-              <label for="class" class="my-2">Intended Class</label>
+            <label for="class" class="font-bold opacity-70"
+              >Intended Class
             <input
               type="text"
               id="class"
               placeholder="JSS 1"
-              class="mb-2 rounded-sm p-1 w-11/12 lg:p-2"/>
+              class="mb-2 lg:-mt-8 rounded-sm p-1 w-11/12 lg:p-4"
+            /></label>
 
-            <label for="message" class="my-2">Message</label>
+            <label for="message" class="font-bold opacity-70">Message
             <textarea
-              id="message" cols="30" rows="10"
+              id="message"
               placeholder="Write your message"
-              class="mb-2rounded-sm p-2 w-11/12"
+              class="mb-2 lg:-mt-8 rounded-sm p-2 w-11/12 lg:p-4"
             ></textarea>
-          
+          </label>
 
             <button
-              class="hover:bg-blue-300 bg-blue-500 text-white font-bold rounded-md p-2"
+              class="border-2 hover:bg-blue-300 bg-blue-500 text-white font-bold rounded-md lg:p-2"
             >
               Submit
             </button>
           </form>
 
-          <div class=" w-full md:w-2/4">
-            <div class="carousel mx-4">
+          <div class="gallery w-1/2 ml-4">
+            <div class="carousel justify-between lg:flex">
+              <div class="picDetails p-2 m-auto">
+                <h1 class="font-bold text-xl text-center">GALLERY</h1>
+                <p class="text-center">The kids had lots of fun on their Color Day</p>
+              </div>
+
               <div class="carousel-inner">
                   <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-                  <div class="carousel-item w-full">
+                  <div class="carousel-item lg:w-[500px]">
                       <img src="images/color day/topaz day.jpg" class="">
                   </div>
                   <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
+                  <div class="carousel-item lg:w-[500px]">
                       <img src="images/color day/red colour.jpg">
                   </div>
                   <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
+                  <div class="carousel-item lg:w-[500px]">
                       <img src="images/color day/pink colour.jpg">
                   </div>
                   <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
+                  <div class="carousel-item lg:w-[500px]">
                       <img src="images/color day/green colour.jpg">
                   </div>
                   <label for="carousel-4" class="carousel-control prev control-1">‹</label>
@@ -293,13 +339,5 @@
         </section>
       </div>
     </div>
-
-    
-    <!-- JUDITH'S CODE ENDS HERE -->
-      </div>
-    </div>
-
-   
-    
   </body>
 </html>

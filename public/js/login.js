@@ -5,16 +5,17 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     
     const userData = {
-        username: `${form.username.value}`,
+        admin_no: `${form.username.value}`,
         password: `${form.password.value}`
     };
 
     const configData = {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
             'Content-Type':'application/json',
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify(userData.message),
     };
 
     // console.log(JSON.stringify(userData));

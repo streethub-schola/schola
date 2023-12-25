@@ -1,8 +1,17 @@
-<!-- Displays all the students across all the registered schools -->
+<!-- Its features will be
+1. Show students profile image
+2. Show students details
+3. Students outstanding tasks and payment
+4. Show global announcement from teacher and principals 
+5. Show students perfomance graph/history year-on-year
+-->
 
-<!-- This should be a table -->
-
-<!-- To contain search box and Add button -->
+<!-- Nav structure
+- Edit Profile
+- Take Assignments
+- Initialize payments
+- Read forum
+- Print Reports -->
 
 
 <!doctype html>
@@ -20,8 +29,7 @@
 
     <title>Schola Project!</title>
 
-    <script src="../../js/nav.js" defer type="text/javascript"></script>
-    <script src="../../js/viewstudents.js" defer></script>
+    <script src="./js/nav.js" defer></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -72,45 +80,9 @@
         </nav>
       </section>
 
-      <!-- MAIN SECTION -->
+      
 
-      <div class="flex flex-col md:w-11/12 m-auto items-center md:py-2 md:flex-row md:justify-between">
-        <input type="text" name="searchBox" id="" placeholder="Search strings" class="w-10/12 p-2 rounded-md">
-        <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400">Add Student</a>
-      </div>
 
-      <div class="flex flex-col shadow-lg shadow-gray-700 w-11/12 m-auto">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full text-left text-sm font-light" >
-                <thead
-                  class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
-                >
-                  <tr>
-                    <th scope="col" class="p-4 border-r-gray-200 border">#</th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Admisison No
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Student Name
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Class
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="showStudents">
-                  
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </body>
 </html>

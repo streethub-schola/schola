@@ -31,12 +31,15 @@
             />
             </a>
           </section>
+          <div class="w-full bg-red-300 m-auto my-4 h-auto p-2 rounded-md hidden" id="errorMsg">
+            
+          </div>
           <form action="" class="pxy">
             <h2 class="text-2xl">Login</h2>
             <div class="flex flex-col">
               <input
                 type="text"
-                placeholder="Example@example.com"
+                placeholder="xxx/xxx/xxx"
                 name="username"
                 class="border-2 py-2 rounded-md my-2 mb-5 pl-1"
               />
@@ -72,9 +75,10 @@
       src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"
     ></script>
 
-    <script type="module" src="./js/telements.js"></script>
+    <!-- <script type="module" src="./js/telements.js"></script> -->
+    <script src="./js/login.js"></script>
 
-    <script>
+    <!-- <script>
       let form = document.querySelector("form");
 
       form.addEventListener("submit", (e) => {
@@ -88,6 +92,6 @@
           alert("Default username bypassed");
         }
       });
-    </script>
+    </script> -->
   </body>
 </html>

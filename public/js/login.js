@@ -17,6 +17,8 @@ form.addEventListener('submit', (e) => {
         body: JSON.stringify(userData),
     };
 
+    // console.log(JSON.stringify(userData));
+
     fetch('https://scholabe.myf2.net/api/studentapi/studentlogin.php', configData)
     .then(response => {
         if(!response){

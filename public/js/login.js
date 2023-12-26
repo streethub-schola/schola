@@ -17,10 +17,14 @@ form.addEventListener('submit', (e) => {
         headers: {
             'Content-Type':'application/json',
         },
-        body: JSON.stringify(userData.message),
+        body: JSON.stringify(userData),
     };
    
-    fetch('https://scholabe.myf2.net/api/studentapi/studentlogin.php', configData)
+
+    // console.log (userData)
+
+
+    fetch('https://schola.myf2.net/api/studentapi/studentlogin.php', configData)
     .then(res => res.json())
     .then(data => console.log(data))
     .catch(err => console.log(err))

@@ -64,11 +64,14 @@
                 <input type="text" name="" id="addressOfStudent" autocomplete="address-line1" placeholder=" e.g. Plot 12 Lekki Street">
                 <small class="ValidateAddress"></small>
             </div>
-
+            <!-- Preview box -->
+            <div class="preview">
+                <img src="" alt="student's image" id="file-ip-1-preview">
+            </div>
             <!-- Student's Image Input -->
             <div class="ImageStudentField">
-                <label for="StudentImg">Student's Image: <small id="fieldRequired">*</small>  </label>
-                <input type="file" name="" id="StudentImg" placeholder="Image of Student">
+                <label for="file-ip-1">Upload Image <small id="fieldRequired"></small>  </label>
+                <input type="file" name="" id="file-ip-1" placeholder="Image of Student" class="StudentImg" accept="Image/*" onchange="Showpreview(event)">
             </div>
 
             <!-- Guardian Input Field -->

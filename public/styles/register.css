@@ -91,7 +91,7 @@ form label {
 #Student-L-Name,
 #ageOfStudent,
 #DOB, #addressOfStudent,
-#StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
+.StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
 #TeachersPasword, #password-Confirm {
     height: 40px;
     border-radius: 7px;
@@ -105,10 +105,35 @@ form label {
     background: transparent;
     color: var(--dark-primry);
 }
+#file-ip-1-preview{
+    width: 250px;
+    height: 250px;
+    margin-left: 34%;
+    border-radius: 50%;
+    display: none;
+}
+.ImageStudentField label{
+    background: var(--green-primary);
+    color: var(--white-primaty-main);
+    padding: 10px;
+    text-transform: uppercase;
+    width: 200px;
+    margin-left: 37%;
+    border-radius: 5px;
+}
+.ImageStudentField label:hover{
+    cursor: pointer;
+    background: rgb(33, 33, 162);
+    transition: .5s ease-in-out;
+}
+.StudentImg{
+    padding: 70px;
+    display: none;
+}
 #StudentReg:hover, 
 #Student-F-Name:hover,
 #Student-L-Name:hover, #ageOfStudent:hover,
- #addressOfStudent:hover, #StudentImg:hover,
+ #addressOfStudent:hover, .StudentImg:hover,
  #G-Name:hover,  #G-PhoneNo:hover, #G-EmailID:hover,
 #DOB:hover,  #G-Address:hover,
 #TeachersPasword:hover, #password-Confirm:hover {
@@ -169,6 +194,14 @@ form label {
             left: -60px;
             bottom: 5px;
         }
+                #file-ip-1-preview {
+                    width: 150px;
+                    height: 150px;
+                    margin-left: 26%;
+                }
+                .ImageStudentField label{
+                    margin-left: 20%;
+                }
 
     .SubmitBtn {
         width: auto;
@@ -202,6 +235,15 @@ form label {
              left: -140px;
              bottom: 5px;
          }
+                  #file-ip-1-preview {
+                      width: 200px;
+                      height: 200px;
+                      margin-left: 26%;
+                  }
+        
+                  .ImageStudentField label {
+                      margin-left: 27%;
+                  }
 
     .SubmitBtn {
         width: auto;

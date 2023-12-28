@@ -131,12 +131,15 @@ if (guardian_AddressCheck.checked) {
 //   event.preventDefault()
 // }
 
+// Function for uploading student's image
 function Showpreview(event) {
   if (event.target.files.length > 0) {
     var src = URL.createObjectURL(event.target.files[0]);
     var preview = document.getElementById("file-ip-1-preview");
+        let student_Avatar = document.getElementById("student-avatar");
     preview.src = src;
     preview.style.display = "block"
+    student_Avatar.style.display = "none"
   }
 }
 

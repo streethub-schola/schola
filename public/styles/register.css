@@ -151,6 +151,7 @@ form label {
     background: var(--green-primary);
     color: var(--white-primaty-main);
     padding: 10px;
+    text-align: center;
     text-transform: uppercase;
     width: 200px;
     margin-left: 37%;

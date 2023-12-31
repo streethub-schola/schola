@@ -27,79 +27,88 @@ let guardian_AddressCheck = document.getElementById("G-checkboxAddress");
 // Getting the value the Guardian Email
 let emailOfGuardian = document.getElementById("G-EmailID");
 
-function ValidateForm() {
-  // if (Reg_No_Student.value == 0 ) {
-  //   alert("Error - Missing fields");
-  //   console.log(passcode_Confirm)
-  //   let Re_NoValidate = document.querySelector(".ValidateRegNo")
-  //   Re_NoValidate.innerHTML = "Reg No is required";
-  //   Re_NoValidate.style.color = "red"
-  //   event.preventDefault()
-  // }
-  if (firstNameStudent.value == 0) {
-    alert("Error - Missing fields");
-    let StudentFNameValidate = document.querySelector(".Validate-F-Name");
-    StudentFNameValidate.innerHTML = "First Name is required";
-    StudentFNameValidate.style.color = "red";
-    event.preventDefault();
-  } else if (latsNameStudent.value == 0) {
-    alert("Error - Missing fields");
-    let studentLastNameValidate = document.querySelector(".Validate-L-Name");
-    studentLastNameValidate.innerHTML = "Last Name is required";
-    studentLastNameValidate.style.color = "red";
-    event.preventDefault();
-  }
-  // else if (age_Of_Student.value == 0) {
-  //   alert("Error - Missing fields")
-  //   let studentAgeValidate = document.querySelector(".ValidateAge");
-  //   studentAgeValidate.innerHTML = "Please enter your age"
-  //   studentAgeValidate.style.color = "red";
-  //               event.preventDefault()
+// function ValidateForm() {
+//   // if (Reg_No_Student.value == 0 ) {
+//   //   alert("Error - Missing fields");
+//   //   console.log(passcode_Confirm)
+//   //   let Re_NoValidate = document.querySelector(".ValidateRegNo")
+//   //   Re_NoValidate.innerHTML = "Reg No is required";
+//   //   Re_NoValidate.style.color = "red"
+//   //   event.preventDefault()
+//   // }
+//   if (firstNameStudent.value == 0) {
+//     alert("Error - Missing fields");
+//     let StudentFNameValidate = document.querySelector(".Validate-F-Name");
+//     StudentFNameValidate.innerHTML = "First Name is required";
+//     StudentFNameValidate.style.color = "red";
+//     event.preventDefault();
+//   } else if (latsNameStudent.value == 0) {
+//     alert("Error - Missing fields");
+//     let studentLastNameValidate = document.querySelector(".Validate-L-Name");
+//     studentLastNameValidate.innerHTML = "Last Name is required";
+//     studentLastNameValidate.style.color = "red";
+//     event.preventDefault();
+//   }
+//   // else if (age_Of_Student.value == 0) {
+//   //   alert("Error - Missing fields")
+//   //   let studentAgeValidate = document.querySelector(".ValidateAge");
+//   //   studentAgeValidate.innerHTML = "Please enter your age"
+//   //   studentAgeValidate.style.color = "red";
+//   //               event.preventDefault()
 
-  // }
-  else if (DateOfBirth.value == 0) {
-    alert("Error - Missing fields");
-    let DateOfBirthValidate = document.querySelector(".ValidateDOB");
-    DateOfBirthValidate.innerHTML = "Date of Birth is required";
-    DateOfBirthValidate.style.color = "red";
-    event.preventDefault();
-  } else if (address_Of_Student.value == 0) {
-    alert("Error - Missing fields");
-    let studentAddressValidate = document.querySelector(".ValidateAddress");
-    studentAddressValidate.innerHTML = "Address is required";
-    studentAddressValidate.style.color = "red";
-    event.preventDefault();
-  } else if (emailOfGuardian.value == 0) {
-    alert("Error - Missing fields");
-    let email_Guardianvalidate = document.querySelector(".validateG-Email");
-    email_Guardianvalidate.innerHTML = "A Guardian Email is needed";
-    email_Guardianvalidate.style.color = "red";
-    event.preventDefault();
-  } else if (userPassword.value == 0) {
-    let userPasswordValidate = document.querySelector(".ValidatePassword");
-    userPasswordValidate.innerHTML = "A Password is required";
-    userPasswordValidate.style.color = "red";
-    event.preventDefault();
-  } else if (userPassword.value.length <= 5) {
-    let userPasswordValidate = document.querySelector(".ValidatePassword");
-    userPasswordValidate.innerHTML = "Password must exceed 5 characters";
-    userPasswordValidate.style.color = "#e26482";
-    event.preventDefault();
-  } else if (userPassword.value.length >= 30) {
-    let userPasswordValidate = document.querySelector(".ValidatePassword");
-    userPasswordValidate.innerHTML = "Exceeded Maximum Characters";
-    userPasswordValidate.style.color = "#e26482";
-    event.preventDefault();
-  } else if (passcode_Confirm.value != userPassword.value) {
-    let passcodeConfirmval = document.querySelector(".ValidateNewPassword");
-    passcodeConfirmval.innerHTML = "Passoword does not match";
-    passcodeConfirmval.style.color = "ff0000";
-    event.preventDefault();
-    console.log(passcodeConfirmval);
-  } else {
-    alert("Sucess");
+//   // }
+//   else if (DateOfBirth.value == 0) {
+//     alert("Error - Missing fields");
+//     let DateOfBirthValidate = document.querySelector(".ValidateDOB");
+//     DateOfBirthValidate.innerHTML = "Date of Birth is required";
+//     DateOfBirthValidate.style.color = "red";
+//     event.preventDefault();
+//   } else if (address_Of_Student.value == 0) {
+//     alert("Error - Missing fields");
+//     let studentAddressValidate = document.querySelector(".ValidateAddress");
+//     studentAddressValidate.innerHTML = "Address is required";
+//     studentAddressValidate.style.color = "red";
+//     event.preventDefault();
+//   } else if (emailOfGuardian.value == 0) {
+//     alert("Error - Missing fields");
+//     let email_Guardianvalidate = document.querySelector(".validateG-Email");
+//     email_Guardianvalidate.innerHTML = "A Guardian Email is needed";
+//     email_Guardianvalidate.style.color = "red";
+//     event.preventDefault();
+//   } else if (userPassword.value == 0) {
+//     let userPasswordValidate = document.querySelector(".ValidatePassword");
+//     userPasswordValidate.innerHTML = "A Password is required";
+//     userPasswordValidate.style.color = "red";
+//     event.preventDefault();
+//   } else if (userPassword.value.length <= 5) {
+//     let userPasswordValidate = document.querySelector(".ValidatePassword");
+//     userPasswordValidate.innerHTML = "Password must exceed 5 characters";
+//     userPasswordValidate.style.color = "#e26482";
+//     event.preventDefault();
+//   } else if (userPassword.value.length >= 30) {
+//     let userPasswordValidate = document.querySelector(".ValidatePassword");
+//     userPasswordValidate.innerHTML = "Exceeded Maximum Characters";
+//     userPasswordValidate.style.color = "#e26482";
+//     event.preventDefault();
+//   } else if (passcode_Confirm.value != userPassword.value) {
+//     let passcodeConfirmval = document.querySelector(".ValidateNewPassword");
+//     passcodeConfirmval.innerHTML = "Passoword does not match";
+//     passcodeConfirmval.style.color = "ff0000";
+//     event.preventDefault();
+//     console.log(passcodeConfirmval);
+//   } else {
+//     alert("Sucess");
+//   }
+// }
+
+SubmitFormBtn.addEventListener("click", (event)=>{
+  if (passcode_Confirm.value != userPassword.value) {
+    alert("password does not match");
+    event.preventDefault()
+    console.log(passcode_Confirm.value, userPassword.value)
   }
-}
+})
+
 guardian_AddressCheck.addEventListener("click", function () {
   if (guardian_AddressCheck.checked) {
     let G_Address = document.getElementById("G-Address");

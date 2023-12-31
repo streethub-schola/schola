@@ -59,13 +59,13 @@
                     <!-- Students'First Name Input -->
                     <div class="StudentFName">
                         <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
-                        <input type="text" name="" id="Student-F-Name" placeholder=" e.g. Samuel" autocomplete="name">
+                        <input type="text" name="" id="Student-F-Name" placeholder=" e.g. Samuel" autocomplete="name" required>
                         <small class="Validate-F-Name"></small>
                     </div>
                     <!-- Student's Last Name Input -->
                     <div class="StudentLName">
                         <label for="Student-L-Name">Student's Last Name: <small id="fieldRequired">*</small></label>
-                        <input type="text" name="" id="Student-L-Name" placeholder=" e.g. Chidiebere">
+                        <input type="text" name="" id="Student-L-Name" placeholder=" e.g. Chidiebere" required>
                         <small class="Validate-L-Name"></small>
                     </div>
                     <!-- Student's Age Input -->
@@ -78,14 +78,14 @@
                     <!-- Student's DOB Input -->
                     <div class="DOBfield">
                         <label for="DOB">Student's Date of Birth: <small id="fieldRequired">*</small></label>
-                        <input type="date" name="" id="DOB">
+                        <input type="date" name="" id="DOB" required>
                         <small class="ValidateDOB"></small>
                     </div>
                     <!-- Student's Address Input -->
                     <div class="StudentAddressfield">
                         <label for="addressOfStudent">Student's Address: <small id="fieldRequired">*</small></label>
                         <input type="text" name="" id="addressOfStudent" autocomplete="address-line1"
-                            placeholder=" e.g. Plot 12 Lekki Street">
+                            placeholder=" e.g. Plot 12 Lekki Street" required>
                         <small class="ValidateAddress"></small>
                     </div>
                 
@@ -103,7 +103,7 @@
                     <!-- Guardian Email Input Field -->
                     <div class="gurdianEmail">
                         <label for="G-EmailID">Guardian Email <small id="fieldRequired">*</small></label>
-                        <input type="email" id="G-EmailID" placeholder=" e.g. samuel@yahoo.com" autocomplete="email">
+                        <input type="email" id="G-EmailID" placeholder=" e.g. samuel@yahoo.com" autocomplete="email" required>
                         <span class="validateG-Email"></span>
                     </div>
                     <!-- Guardian Address Input Field -->
@@ -121,7 +121,7 @@
                     <div class="PasswordInput">
                         <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
                         <input type="password" name="" id="TeachersPasword" placeholder="Create a Password ****"
-                            autocomplete="current-password">
+                            autocomplete="current-password" required>
                         <i class="fa-solid fa-eye" id="showPassword"></i>
                         <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
                         <small class="ValidatePassword"></small>
@@ -134,7 +134,7 @@
                         <i class="fa-solid fa-eye-slash" id="HidePasswordConfirm" onclick="confirmpasscodeShow()"></i>
                         <small class="ValidateNewPassword"></small>
                     </div>
-                    <button type="submit" class="SubmitBtn" onclick="ValidateForm()">Admit Student</button>
+                    <button type="submit" class="SubmitBtn">Admit Student</button>
                 
                 </div>
          </div>

@@ -104,6 +104,12 @@ let emailOfGuardian = document.getElementById("G-EmailID");
 SubmitFormBtn.addEventListener("click", (event)=>{
   if (passcode_Confirm.value != userPassword.value) {
     alert("password does not match");
+    passcode_Confirm.style.border = "1px solid red"
+    passcode_Confirm.style.color = "red"
+    var playAudioSound = new Audio("../../../sounds/mixkit-correct-answer-tone-2870.wav");
+    playAudioSound.load();
+    playAudioSound.volume = 0.10;
+    playAudioSound.play();
     event.preventDefault()
     console.log(passcode_Confirm.value, userPassword.value)
   }

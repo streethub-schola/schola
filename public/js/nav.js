@@ -10,3 +10,5 @@ navSwitch.addEventListener("click", () => {
 mobileView.addEventListener("click", () => {
   mobileView.classList.toggle("hidden");
 });
+
+

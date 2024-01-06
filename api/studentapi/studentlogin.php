@@ -1,5 +1,7 @@
 <?php
+
 include('../config/autoload.php');
+
 // required headers
 header("Access-Control-Allow-Origin:" . $ORIGIN);
 header("Content-Type:" . $CONTENT_TYPE);
@@ -7,8 +9,7 @@ header("Access-Control-Allow-Methods:" . $POST_METHOD);
 header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
-// var_dump($ORIGIN);
-// return;
+
 
 // prepare product object
 $student = new Student();

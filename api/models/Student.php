@@ -375,7 +375,7 @@ class Student extends Database
     public function studentLogin()
     {
 
-        $sql = "SELECT * FROM $this->table_name WHERE admin_no=:admin_no";
+        $sql = "SELECT * FROM " . $this->table_name . " WHERE admin_no=:admin_no";
 
         // prepare query statement
         $login_stmt = $this->conn->prepare($sql);

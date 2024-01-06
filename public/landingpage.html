@@ -8,7 +8,7 @@
       href="./styles/styles.css
     "
     />
-    <link rel="stylesheet" href="./styles/landing.css">
+    <link rel="stylesheet" href="styles/landing.css">
 
     <title>Schola Project!</title>
 
@@ -16,11 +16,11 @@
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
-      <header class="top-0 sticky z-50">
+      <header class="sticky top-0 z-[1055]">
         <section
-          class="bg-gray-300 flex justify-between text-sm w-full p-2"
+          class="bg-gray-300 flex justify-between text-sm w-full p-2 sticky"
         >
-          <div class="w-3/5 flex items-center">
+          <div class="w-3/5 flex justify-between">
             <a href="tel:55555555555" class="mx-2"
               ><span>&#9990; </span>+2348088568636</a
             >
@@ -62,10 +62,9 @@
           </nav>
         </section>
       </header>
-      
       <section
         id="mobile-menu"
-        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300 md:z-[1066]"
       >
         <button
           class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
@@ -109,8 +108,8 @@
         </nav>
       </section>
 
-      <main class="bg-blue-200">
-        <div class="w-full relative">
+      <main class="bg-blue-200 md:relative">
+        <div class="hero w-full h-1/5 relative">
           <img
             src="./images/kids pic/kids2.jpg"
             alt="school kids pics"

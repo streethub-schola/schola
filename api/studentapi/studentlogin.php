@@ -1,5 +1,4 @@
 <?php
-
 include('../config/autoload.php');
 
 // required headers

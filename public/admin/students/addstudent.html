@@ -1,11 +1,13 @@
-<!-- This should add a student  -->
+
 <!DOCTYPE html>
 <html lang="en">
+    <!-- This should add a student  -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <!-- <script src="../../js/addstudent.js"></script> -->
     <!-- For FAVICON -->
     <link rel="icon" href="../../images/school logo 1.png">
 
@@ -26,7 +28,7 @@
         <h2 class="formHeader"> Register A New Student</h2>
     <i class="fa-solid fa-user-graduate"></i>
         <!-- For Form Container Real -->
-        <form action="" autocomplete="on">
+        <form action="" method="" id="form" enctype="multipart/form-data" >
             <!-- Student's Reg No: Input -->
             <!-- <div class="StudentNameField">
                 <label for="StudentReg">Student Reg No: <small id="fieldRequired">*</small></label>
@@ -36,13 +38,13 @@
             <!-- Students'First Name Input -->
             <div class="StudentFName">
                 <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
-                <input type="text" name="" id="Student-F-Name" placeholder="First Name e.g. Samuel" autocomplete="name">
+                <input type="text" name="studentFName" id="Student-F-Name" placeholder="First Name e.g. Samuel">
                 <small class="Validate-F-Name"></small>
             </div>
             <!-- Student's Last Name Input -->
             <div class="StudentLName">
                 <label for="Student-L-Name">Student's Last Name: <small id="fieldRequired">*</small></label>
-                <input type="text" name="" id="Student-L-Name" placeholder="Last Name. e.g. Chidiebere">
+                <input type="text" name="studentLName" id="Student-L-Name" placeholder="Last Name. e.g. Chidiebere">
                 <small class="Validate-L-Name"></small>
             </div>
             <!-- Student's Age Input -->
@@ -55,42 +57,42 @@
             <!-- Student's DOB Input -->
             <div class="DOBfield">
                 <label for="DOB">Student's Date of Birth: <small id="fieldRequired">*</small></label>
-                <input type="date" name="" id="DOB">
+                <input type="date" name="studentDOB" id="DOB">
                 <small class="ValidateDOB"></small>
             </div>
             <!-- Student's Address Input -->
             <div class="StudentAddressfield">
                 <label for="addressOfStudent">Student's Address: <small id="fieldRequired">*</small></label>
-                <input type="text" name="" id="addressOfStudent" autocomplete="address-line1" placeholder=" e.g. Plot 12 Lekki Street">
+                <input type="text" name="studentAddress" id="addressOfStudent" placeholder=" e.g. Plot 12 Lekki Street">
                 <small class="ValidateAddress"></small>
             </div>
 
             <!-- Student's Image Input -->
             <div class="ImageStudentField">
                 <label for="StudentImg">Student's Image: <small id="fieldRequired">*</small>  </label>
-                <input type="file" name="" id="StudentImg" placeholder="Image of Student">
+                <input type="file" name="studentPassport" id="StudentImg">
             </div>
 
             <!-- Guardian Input Field -->
             <div class="guardianName">
                 <label for="G-Name">Guardian Name: </label>
-                <input type="text" id="G-Name" placeholder="Name of Guardian e.g. Miss Ann" autocomplete="name">
+                <input type="text" id="G-Name" name="guardianName" placeholder="Name of Guardian e.g. Miss Ann">
             </div>
             <!-- Gurdian Phone No Input field -->
             <div class="guardianPhone">
                 <label for="G-PhoneNo">Guardian Phone No:</label>
-                <input type="tel" name="" id="G-PhoneNo" placeholder="Phone No: e.g 0705XXXXXX" autocomplete="tel">
+                <input type="tel" name="guardianPhone" id="G-PhoneNo" placeholder="Phone No: e.g 0705XXXXXX">
             </div>
             <!-- Guardian Email Input Field -->
             <div class="gurdianEmail">
                 <label for="G-EmailID">Guardian Email <small id="fieldRequired">*</small></label>
-                <input type="email" id="G-EmailID" placeholder="Email e.g. samuel@yahoo.com" autocomplete="email" >
+                <input type="email" id="G-EmailID" placeholder="Email e.g. samuel@yahoo.com" name="guardianEmail" >
                 <span class="validateG-Email"></span>
             </div>
             <!-- Guardian Address Input Field -->
             <div class="guardianAddress">
                 <label for="G-Address">Guardian Address: </label>
-                <input type="text" name="" id="G-Address" autocomplete="address-line1" placeholder="Adress e.g. Plot 12 Lekki Street">
+                <input type="text" name="guardianAddress" id="G-Address" placeholder="Adress e.g. Plot 12 Lekki Street">
                 <div>
                     <input type="checkbox" id="G-checkboxAddress"> <span>Check the box if your adress is the same with the student</span>
 
@@ -99,21 +101,19 @@
             <!-- Taecher's Password Input -->
             <div class="PasswordInput">
                 <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
-                <input type="password" name="" id="TeachersPasword" placeholder="Create a Password ****"
-                    autocomplete="current-password">
+                <input type="password" name="password" id="TeachersPasword">
                 <i class="fa-solid fa-eye" id="showPassword"></i>
                 <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
                 <small class="ValidatePassword"></small>
             </div>
             <div class="PasswordInput">
                 <label for="password-Confirm">Confirm Password <small id="fieldRequired">*</small></label>
-                <input type="password" name="" id="password-Confirm"  placeholder="Confirm Password ****"
-                    autocomplete="current-password">
+                <input type="password" name="" id="password-Confirm">
                 <i class="fa-solid fa-eye" id="showPasswordConfirm" onclick="confirmPasscodeHide()"></i>
                 <i class="fa-solid fa-eye-slash" id="HidePasswordConfirm"  onclick="confirmpasscodeShow()"></i>
                 <small class="ValidateNewPassword"></small>
             </div>
-            <button type="submit" class="SubmitBtn" onclick="ValidateForm()">Admit Student</button>
+            <button type="submit" class="SubmitBtn" >Admit Student</button>
         </form>
     </div>
 
@@ -126,9 +126,10 @@
 
     <!------------------ Font Awesome JS Link  -->
     <script src="https://kit.fontawesome.com/9b5c4c6b23.js" crossorigin="anonymous"></script>
+    <script src="../../js/edit.js"></script>
 
     <!-- Custom JS Link -->
-    <script src="../../js/register.js "></script>
+    <!-- <script src="../../js/register.js "></script> -->
 </body>
 
 </html>

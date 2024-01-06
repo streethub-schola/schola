@@ -27,6 +27,11 @@ let guardian_AddressCheck = document.getElementById("G-checkboxAddress");
 // Getting the value the Guardian Email
 let emailOfGuardian = document.getElementById("G-EmailID");
 
+// let submitbtn = document.querySelector('.SubmitBtn');
+
+
+// submitbtn.addEventListener('click'. ValidateForm);
+
 function ValidateForm() {
   // if (Reg_No_Student.value == 0 ) {
   //   alert("Error - Missing fields");

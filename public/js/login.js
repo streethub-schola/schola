@@ -15,7 +15,8 @@ form.addEventListener('submit', (e) => {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Accept':'application/json'
         },
         body: JSON.stringify(userData)
     };
@@ -24,9 +25,13 @@ form.addEventListener('submit', (e) => {
     // console.log (userData)
 
 
+    // fetch('data.json', configData)
     fetch('https://schola.myf2.net/api/studentapi/studentlogin.php', configData)
+    // fetch('http://localhost/api/studentapi/studentlogin.php', configData)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        console.log(data)
+    })
     .catch(err => console.log(err))
     
 })

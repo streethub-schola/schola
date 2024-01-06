@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <!-- For FAVICON -->
-    <link rel="icon" href="images/school logo 1.png">
+    <link rel="icon" href="../../images/school logo 1.png">
 
     <!-- ----------------- Google Font -------------------->
     <style>
@@ -20,88 +20,124 @@
 <body>
     <!-- Parent Container -->
     <div class="parent">
-        <h2 class="formHeader">Register A New Student</h2>
-        <i class="fa-solid fa-user-tie"></i>
-        <!-- For Form Container -->
+       <div>
+        <button class="returnHomeBtn"><a href="../../../public/index.html"><i class="fa-solid fa-arrow-left"></i> Return Home</a></button>
+       </div>
+        <h2 class="formHeader"> Register A New Student</h2>
+    <i class="fa-solid fa-user-graduate"></i>
+        <!-- For Form Container Real -->
         <form action="" autocomplete="on">
             <!-- Student's Reg No: Input -->
-            <div class="StudentNameField">
+            <!-- <div class="StudentNameField">
                 <label for="StudentReg">Student Reg No: <small id="fieldRequired">*</small></label>
-                <input type="text" id="StudentReg" placeholder="Reg No e.g. 012" autocomplete="cc-number" maxlength="5">
+                <input type="number" id="StudentReg" placeholder="Reg No e.g. 012" autocomplete="cc-number" max="5">
                 <small class="ValidateRegNo"></small>
-            </div>
-            <!-- Students'First Name Input -->
-            <div class="StudentFName">
-                <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
-                <input type="text" name="" id="Student-F-Name" placeholder="First Name e.g. Samuel" autocomplete="name">
-                <small class="Validate-F-Name"></small>
-            </div>
-            <!-- Student's Last Name Input -->
-            <div class="StudentLName">
-                <label for="Student-L-Name">Student's Last Name: <small id="fieldRequired">*</small></label>
-                <input type="text" name="" id="Student-L-Name" placeholder="Last Name. e.g. Chidiebere">
-                <small class="Validate-L-Name"></small>
-            </div>
-            <!-- Student's Age Input -->
-            <div class="StudentAgeField">
-                <label for="ageOfStudent">Student's Age: <small id="fieldRequired">*</small></label>
-                <input type="number" name="" id="ageOfStudent" placeholder="Age will be populated when you enter your correct date of birth" readonly
-                    autocomplete="new-age">
-                <small class="ValidateAge"></small>
-            </div>
-            <!-- Student's DOB Input -->
-            <div class="DOBfield">
-                <label for="DOB">Student's Date of Birth: <small id="fieldRequired">*</small></label>
-                <input type="date" name="" id="DOB">
-                <small class="ValidateDOB"></small>
-            </div>
-            <!-- Student's Address Input -->
-            <div class="StudentAddressfield">
-                <label for="addressOfStudent">Student's Address: <small id="fieldRequired">*</small></label>
-                <input type="text" name="" id="addressOfStudent" autocomplete="address-line1" placeholder="Adress e.g. Plot 12 Lekki Street">
-                <small class="ValidateAddress"></small>
-            </div>
-
-            <!-- Student's Image Input -->
-            <div class="ImageStudentField">
-                <label for="StudentImg">Student's Image: <small id="fieldRequired">*</small>  </label>
-                <input type="file" name="" id="StudentImg" placeholder="Image of Student">
-            </div>
-
-            <!-- Guardian Input Field -->
-            <div class="guardianName">
-                <label for="G-Name">Guardian Name: </label>
-                <input type="text" id="G-Name" placeholder="Name of Guardian e.g. Miss Ann" autocomplete="name">
-            </div>
-            <!-- Gurdian Phone No Input field -->
-            <div class="guardianPhone">
-                <label for="G-PhoneNo">Guardian Phone No:</label>
-                <input type="tel" name="" id="G-PhoneNo" placeholder="Phone No: e.g +23470000" autocomplete="tel">
-            </div>
-            <!-- Guardian Email Input Field -->
-            <div class="gurdianEmail">
-                <label for="G-EmailID">Guardian Email</label>
-                <input type="email" id="G-EmailID" placeholder="Email e.g. samuel@yahoo.com" autocomplete="email" required>
-            </div>
-            <!-- Guardian Address Input Field -->
-            <div class="guardianAddress">
-                <label for="G-Address">Guardian Address: <small id="fieldRequired">*</small></label>
-                <input type="text" name="" id="G-Address" autocomplete="address-line1" placeholder="Adress e.g. Plot 12 Lekki Street">
+            </div> -->
+         <div class="parentStudentProfile">
+            <p>Student's Image</p>
+            <div class="sudentProfile">
+                <!-- Preview box -->
+                <div class="preview">
+                    <img src="" alt="student's image" id="file-ip-1-preview">
+                </div>
                 <div>
-                    <input type="checkbox"> <span>Check the box if your adress is the same with the student</span>
-
+                    <img src="../../images/student image avatar.jpg" alt="" id="student-avatar">
+                    <!-- <i class="fa-solid fa-user-large" id="user-imgUpload"></i> -->
+                </div>
+                <!-- Student's Image Input -->
+                <div class="ImageStudentField">
+                    <label for="file-ip-1">Upload Image<small id="fieldRequired"></small> </label>
+                    <input type="file" name="" id="file-ip-1" placeholder="Image of Student" class="StudentImg" accept="Image/*"
+                        onchange="Showpreview(event)">
                 </div>
             </div>
-            <!-- Taecher's Password Input -->
-            <div class="PasswordInput">
-                <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
-                <input type="password" name="" id="TeachersPasword" placeholder="Create a Password ****"
-                    autocomplete="current-password">
-                <i class="fa-solid fa-eye" id="showPassword"></i>
-                <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
-                <small class="ValidatePassword"></small>
-            </div>
-            <button type="submit" class="SubmitBtn" onclick="ValidateForm()">Admit Student</button>
+         </div>
+         <!-- Details/Information of Student -->
+         <div class="studentsD">
+            <p class="s-details">Student's Details</p>
+                <div class="studentDetailsContainer">
+                    <!-- Students'First Name Input -->
+                    <div class="StudentFName">
+                        <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
+                        <input type="text" name="" id="Student-F-Name" placeholder=" e.g. Samuel" autocomplete="name" required>
+                        <small class="Validate-F-Name"></small>
+                    </div>
+                    <!-- Student's Last Name Input -->
+                    <div class="StudentLName">
+                        <label for="Student-L-Name">Student's Last Name: <small id="fieldRequired">*</small></label>
+                        <input type="text" name="" id="Student-L-Name" placeholder=" e.g. Chidiebere" required>
+                        <small class="Validate-L-Name"></small>
+                    </div>
+                    <!-- Student's Age Input -->
+                    <!-- <div class="StudentAgeField">
+                                                        <label for="ageOfStudent">Student's Age: <small id="fieldRequired">*</small></label>
+                                                        <input type="number" name="" id="ageOfStudent" placeholder="Age will be populated when you enter your correct date of birth" readonly
+                                                            autocomplete="new-age">
+                                                        <small class="ValidateAge"></small>
+                                                    </div> -->
+                    <!-- Student's DOB Input -->
+                    <div class="DOBfield">
+                        <label for="DOB">Student's Date of Birth: <small id="fieldRequired">*</small></label>
+                        <input type="date" name="" id="DOB" required>
+                        <small class="ValidateDOB"></small>
+                    </div>
+                    <!-- Student's Address Input -->
+                    <div class="StudentAddressfield">
+                        <label for="addressOfStudent">Student's Address: <small id="fieldRequired">*</small></label>
+                        <input type="text" name="" id="addressOfStudent" autocomplete="address-line1"
+                            placeholder=" e.g. Plot 12 Lekki Street" required>
+                        <small class="ValidateAddress"></small>
+                    </div>
+                
+                
+                    <!-- Guardian Input Field -->
+                    <div class="guardianName">
+                        <label for="G-Name">Guardian Name: </label>
+                        <input type="text" id="G-Name" placeholder=" e.g. Miss Ann" autocomplete="name">
+                    </div>
+                    <!-- Gurdian Phone No Input field -->
+                    <div class="guardianPhone">
+                        <label for="G-PhoneNo">Guardian Phone No:</label>
+                        <input type="tel" name="" id="G-PhoneNo" placeholder=" e.g 0705XXXXXX" autocomplete="tel">
+                    </div>
+                    <!-- Guardian Email Input Field -->
+                    <div class="gurdianEmail">
+                        <label for="G-EmailID">Guardian Email <small id="fieldRequired">*</small></label>
+                        <input type="email" id="G-EmailID" placeholder=" e.g. samuel@yahoo.com" autocomplete="email" required>
+                        <span class="validateG-Email"></span>
+                    </div>
+                    <!-- Guardian Address Input Field -->
+                    <div class="guardianAddress">
+                        <label for="G-Address">Guardian Address: </label>
+                        <input type="text" name="" id="G-Address" autocomplete="address-line1"
+                            placeholder="e.g. Plot 12 Lekki Street">
+                        <div>
+                            <input type="checkbox" id="G-checkboxAddress"> <span>Check the box if your adress is the same with the
+                                student</span>
+                        </div>
+                    </div>
+                    <!-- Taecher's Password Input -->
+                    <div class="PasswordInput">
+                        <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
+                        <input type="password" name="" id="TeachersPasword" placeholder="Create a Password ****"
+                            autocomplete="current-password" required>
+                        <i class="fa-solid fa-eye" id="showPassword"></i>
+                        <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
+                        <small class="ValidatePassword"></small>
+                    </div>
+                    <div class="PasswordInput">
+                        <label for="password-Confirm">Confirm Password <small id="fieldRequired">*</small></label>
+                        <input type="password" name="" id="password-Confirm" placeholder="Confirm Password ****"
+                            autocomplete="current-password">
+                        <i class="fa-solid fa-eye" id="showPasswordConfirm" onclick="confirmPasscodeHide()"></i>
+                        <i class="fa-solid fa-eye-slash" id="HidePasswordConfirm" onclick="confirmpasscodeShow()"></i>
+                        <small class="ValidateNewPassword"></small>
+                    </div>
+                    <button type="submit" class="SubmitBtn">Admit Student</button>
+                
+                </div>
+         </div>
+     
         </form>
     </div>
 

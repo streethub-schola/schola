@@ -8,6 +8,7 @@
       href="./styles/styles.css
     "
     />
+    <link rel="stylesheet" href="./styles/landing.css">
 
     <title>Schola Project!</title>
 
@@ -16,7 +17,7 @@
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
       <section
-        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+        class="w-full sticky z-[9999] top-0 bg-blue-200 shadow flex justify-between items-center p-2"
       >
         <div class="brand uppercase">
           <a href="index.html">Schola</a>
@@ -39,7 +40,7 @@
       </section>
       <section
         id="mobile-menu"
-        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-200"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-200 z-[9999]"
       >
         <button
           class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
@@ -67,10 +68,238 @@
           >
         </nav>
       </section>
-      <div class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 md:p-4 p-2">
-        <h3>landing page content goes here</h3>
+      <div class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 relative">
+         <!-- JUDITH'S CODE -->
+         <main class="bg-blue-200">
+        <div class="w-full relative">
+          <img
+            src="./images/kids pic/kids2.jpg"
+            alt="school kids pics"
+            class="w-full"
+          />
+          <blockquote
+            class="pl-4 my-4 absolute md:block top-6 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold"
+          >
+            <p class="text-sm md:text-2xl font-medium">
+              " Education is the most powerful weapon which you can use to
+              change the world. "
+            </p>
+            <cite class="block text-xs md:text-sm text-right"
+              >— Nelson Mandela <br />1918-2013</cite
+            >
+          </blockquote>
+          <!--<h2 class="absolute top-10 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold" >
+            Education is the most powerful weapon which you can use to change the world. <br><span>Nelson Mandela <br>1918-2013</span>
+          </h2>-->
+          <button
+            class="absolute p-1 top-10 border-2 border-gray-400 right-6 lg:top-60 lg:left-85 lg:text-xl lg:p-4 bg-slate-300 font-bold rounded-md hover:bg-blue-300"
+          >
+            Check Result
+          </button>
+        </div>
+
+        <div
+          class="about border-2 border-gray-400 p-4 w-4/5 lg:w-2/4 m-auto -mt-4 lg:-mt-48 relative bg-gray-300 rounded-md text-sm md:text-lg"
+        >
+          <div class="abtnav flex flex-col justify-between">
+            <details class="p-1 my-1">
+              <summary class="text-sm md:text-lg font-bold">About us</summary>
+              <p class="border-b-2 pb-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Aperiam laborum ad similique eum possimus cupiditate nemo
+                numquam, suscipit earum voluptate doloribus dolores iusto,
+                dignissimos saepe provident beatae accusamus, quibusdam autem.
+                Nisi optio sint tempora, totam suscipit quasi aspernatur nulla
+                vel ullam quisquam, numquam, ea commodi nostrum doloribus.
+                Laudantium architecto, autem, ad repudiandae ipsa aliquid
+                corrupti, deserunt reiciendis ipsum illum eveniet. Accusamus
+                cumque aperiam amet ratione minima doloribus veritatis ab natus
+                illo fuga, eum culpa molestias dolore nobis voluptates ipsam
+                distinctio at porro, ducimus quod! Recusandae aperiam dolore
+                laboriosam vel sint.
+              </p>
+            </details>
+
+            <details lg:open class="p-1 my-3">
+              <summary class="text-sm md:text-lg font-bold">Mission</summary>
+              <p class="border-b-2 pb-3">
+                Mission Mission Mission <br />Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Aperiam laborum ad similique eum
+                possimus cupiditate nemo numquam, suscipit earum voluptate
+                doloribus dolores iusto, dignissimos saepe provident beatae
+                accusamus, quibusdam autem. Nisi optio sint tempora, totam
+                suscipit quasi aspernatur nulla vel ullam quisquam, numquam, ea
+                commodi nostrum doloribus. Laudantium architecto, autem, ad
+                repudiandae ipsa aliquid corrupti, deserunt reiciendis ipsum
+                illum eveniet. Accusamus cumque aperiam amet ratione minima
+                doloribus veritatis ab natus illo fuga, eum culpa molestias
+                dolore nobis voluptates ipsam distinctio at porro, ducimus quod!
+                Recusandae aperiam dolore laboriosam vel sint.
+              </p>
+            </details>
+
+            <details lg:open class="p-1 my-3">
+              <summary class="mx-8 whitespace-nowrap text-sm md:text-lg font-bold">
+                Why Us
+              </summary>
+              <p class="border-b-2 pb-3">
+                Why us WHy us Why us <br />Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Aperiam laborum ad similique eum
+                possimus cupiditate nemo numquam, suscipit earum voluptate
+                doloribus dolores iusto, dignissimos saepe provident beatae
+                accusamus, quibusdam autem. Nisi optio sint tempora, totam
+                suscipit quasi aspernatur nulla vel ullam quisquam, numquam, ea
+                commodi nostrum doloribus. Laudantium architecto, autem, ad
+                repudiandae ipsa aliquid corrupti, deserunt reiciendis ipsum
+                illum eveniet. Accusamus cumque aperiam amet ratione minima
+                doloribus veritatis ab natus illo fuga, eum culpa molestias
+                dolore nobis voluptates ipsam distinctio at porro, ducimus quod!
+                Recusandae aperiam dolore laboriosam vel sint.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <div class="text-center text-2xl my-5 italic">
+          <p>Learn with passion to live with purpose</p>
+        </div>
+
+        <div class="content p-6 w-full flex flex-col gap-3 md:flex-row justify-between">
+          <form
+            action=""
+            class="w-full md:w-2/4 lg:w-[50%] p-4 border-2 border-gray-400 rounded-md bg-slate-100" id="inquiry"
+          >
+            <h2 class="text-center font-bold opacity-70">
+              Inquiry form
+            </h2>
+            <label for="name" class="my-2">Name</label>
+            <input
+              type="text" id="name"
+              placeholder="Enter your name"
+              class="rounded-sm w-11/12 lg:p-4"
+            />
+
+            <label for="email" class="my-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="janedoe@gmail.com"
+              class="rounded-sm w-11/12 lg:p-2 my-2"
+            />
+
+            <label for="year" class="my-2"
+              >Interested School Year
+            <input
+              type="text"
+              id="year"
+              placeholder="2023/2024"
+              class="w-11/12 rounded-sm lg:p-2"
+            /></label>
+
+  
+              <label for="class" class="my-2">Intended Class</label>
+            <input
+              type="text"
+              id="class"
+              placeholder="JSS 1"
+              class="mb-2 rounded-sm p-1 w-11/12 lg:p-2"/>
+
+            <label for="message" class="my-2">Message</label>
+            <textarea
+              id="message" cols="30" rows="10"
+              placeholder="Write your message"
+              class="mb-2rounded-sm p-2 w-11/12"
+            ></textarea>
+          
+
+            <button
+              class="hover:bg-blue-300 bg-blue-500 text-white font-bold rounded-md p-2"
+            >
+              Submit
+            </button>
+          </form>
+
+          <div class=" w-full md:w-2/4">
+            <div class="carousel mx-4">
+              <div class="carousel-inner">
+                  <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+                  <div class="carousel-item w-full">
+                      <img src="images/color day/topaz day.jpg" class="">
+                  </div>
+                  <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+                  <div class="carousel-item w-full">
+                      <img src="images/color day/red colour.jpg">
+                  </div>
+                  <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+                  <div class="carousel-item w-full">
+                      <img src="images/color day/pink colour.jpg">
+                  </div>
+                  <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
+                  <div class="carousel-item w-full">
+                      <img src="images/color day/green colour.jpg">
+                  </div>
+                  <label for="carousel-4" class="carousel-control prev control-1">‹</label>
+                  <label for="carousel-2" class="carousel-control next control-1">›</label>
+                  <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+                  <label for="carousel-3" class="carousel-control next control-2">›</label>
+                  <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+                  <label for="carousel-4" class="carousel-control next control-3">›</label>
+                  <label for="carousel-3" class="carousel-control next control-4">›</label>
+                  <label for="carousel-1" class="carousel-control next control-4">›</label>
+                  <ol class="carousel-indicators">
+                      <li>
+                          <label for="carousel-1" class="carousel-bullet">•</label>
+                      </li>
+                      <li>
+                          <label for="carousel-2" class="carousel-bullet">•</label>
+                      </li>
+                      <li>
+                          <label for="carousel-3" class="carousel-bullet">•</label>
+                      </li>
+                      <li>
+                          <label for="carousel-4" class="carousel-bullet">•</label>
+                    </li>
+                  </ol>
+              </div>
+            </div>
+          </div>
+                </main>
+
+      <div class="footer flex justify-between bg-slate-300 p-6">
+        <section>
+          <ul>
+          <li class="p-1"><a href="" >SCHOLA</a></li>
+          <li class="p-1"><a href="">Address</a></li>
+          <li class="p-1"><a href="" class="">Phone no</a></li>
+          <li class="p-1"><a href="" class="">Email</a></li>
+        </ul>
+        </section>
+
+        <section>
+          <ul>
+          <li><a href="">Useful Links</a></li>
+          <li><a href="">Teachers</a></li>
+          <li><a href="">Classes</a></li>
+          <li><a href="">Students</a></li>
+        </ul>
+        </section>
+
+        <section>
+          <p>Find us online</p>
+        </section>
+
+        <section>
+          <p><a href="">Subscribe</a></p>
+        </section>
       </div>
     </div>
+
+    
+    <!-- JUDITH'S CODE ENDS HERE -->
+      </div>
+    </div>
+
+   
     
   </body>
 </html>

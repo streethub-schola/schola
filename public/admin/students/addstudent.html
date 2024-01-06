@@ -94,8 +94,14 @@
                 <label for="G-Address">Guardian Address: </label>
                 <input type="text" name="guardianAddress" id="G-Address" placeholder="Adress e.g. Plot 12 Lekki Street">
                 <div>
-                    <input type="checkbox" id="G-checkboxAddress"> <span>Check the box if your adress is the same with the student</span>
-
+                    <img src="../../images/student image avatar.jpg" alt="" id="student-avatar">
+                    <!-- <i class="fa-solid fa-user-large" id="user-imgUpload"></i> -->
+                </div>
+                <!-- Student's Image Input -->
+                <div class="ImageStudentField">
+                    <label for="file-ip-1">Upload Image<small id="fieldRequired"></small> </label>
+                    <input type="file" name="" id="file-ip-1" placeholder="Image of Student" class="StudentImg" accept="Image/*"
+                        onchange="Showpreview(event)">
                 </div>
             </div>
             <!-- Taecher's Password Input -->

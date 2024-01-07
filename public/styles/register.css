@@ -15,6 +15,7 @@
     --gray-primary-NoTransparent: rgb(89, 88, 88);
     --blue-primary-main: #220fca;
     --semi-red: #e26482;
+    --dark-graySolid: rgb(210, 210, 210);
 }
 
 body {
@@ -34,11 +35,57 @@ body {
     border-radius: 10px;
     width: 900px;
 }
+.returnHomeBtn{
+    padding: 3px;
+    border: none;
+    background: transparent;
+    position: relative;
+    left: -350px;
+    bottom: 10px;
+}
+.returnHomeBtn:hover{
+    transition: .5s ease-in;
+    transform: translateX(-15px);
+    border-bottom: 2px solid var(--semi-red);
+}
+.returnHomeBtn a{
+    color: var(--green-primary);
+    font-size: 17px;
+    text-decoration: none;
+}
 
 .parent small {
     color: var(--semi-red);
 }
-
+.parentStudentProfile p, .s-details{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    background: var(--dark-graySolid);
+}
+.sudentProfile{
+    background: var(--white-primaty-main);
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.studentsD{
+    margin: 20px 0;
+}
+.studentDetailsContainer{
+    background: var(--white-primaty-main);
+    padding: 10px 15px;
+        border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+}
+#student-avatar{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    padding: 10px;
+}
 .formHeader {
     color: var(--green-primary);
 }
@@ -62,9 +109,11 @@ body {
 }
 
 form label {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     margin: 2px 0;
+    text-align: left;
+    margin-left: 15px;
 }
 
 /* ------------------------- Styling For All inputs  ------------------------ */
@@ -73,7 +122,7 @@ form label {
 #Student-L-Name,
 #ageOfStudent,
 #DOB, #addressOfStudent,
-#StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
+.StudentImg, #G-Name, #G-PhoneNo, #G-EmailID, #G-Address,
 #TeachersPasword, #password-Confirm {
     height: 40px;
     border-radius: 7px;
@@ -87,10 +136,40 @@ form label {
     background: transparent;
     color: var(--dark-primry);
 }
+#TeachersPasword,
+#password-Confirm{
+   font-weight: bolder;
+}
+#file-ip-1-preview{
+    width: 250px;
+    height: 250px;
+    margin-left: 34%;
+    border-radius: 50%;
+    display: none;
+}
+.ImageStudentField label{
+    background: var(--green-primary);
+    color: var(--white-primaty-main);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+    margin-left: 37%;
+    border-radius: 5px;
+}
+.ImageStudentField label:hover{
+    cursor: pointer;
+    background: rgb(33, 33, 162);
+    transition: .5s ease-in-out;
+}
+.StudentImg{
+    padding: 70px;
+    display: none;
+}
 #StudentReg:hover, 
 #Student-F-Name:hover,
 #Student-L-Name:hover, #ageOfStudent:hover,
- #addressOfStudent:hover, #StudentImg:hover,
+ #addressOfStudent:hover, .StudentImg:hover,
  #G-Name:hover,  #G-PhoneNo:hover, #G-EmailID:hover,
 #DOB:hover,  #G-Address:hover,
 #TeachersPasword:hover, #password-Confirm:hover {
@@ -102,13 +181,13 @@ form label {
 
 ::placeholder {
     color: var(--gray-primary-NoTransparent);
-    font-size: 15px;
+    font-size: 13px;
+    font-weight: lighter;
 }
 
 #showPassword,
 #HidePassword, #showPasswordConfirm, #HidePasswordConfirm {
     position: relative;
-    left: 95px;
     bottom: 30px;
     width: 100px;
 }
@@ -129,6 +208,7 @@ form label {
     font-size: 17px;
     font-family: 'Jost', sans-serif;
     width: 300px;
+    margin-bottom: 15px;
 }
 
 .SubmitBtn:hover {
@@ -147,15 +227,27 @@ form label {
     .parent {
         width: auto;
     }
+        .returnHomeBtn {
+            left: -60px;
+            bottom: 5px;
+        }
+                #file-ip-1-preview {
+                    width: 150px;
+                    height: 150px;
+                    margin-left: 26%;
+                }
+                .ImageStudentField label{
+                    margin-left: 17%;
+                }
 
     .SubmitBtn {
         width: auto;
     }
 
     #showPassword,
-    #HidePassword {
+    #HidePassword, #HidePasswordConfirm, #showPasswordConfirm {
         position: relative;
-        left: 2px;
+        left: -2px;
         bottom: 30px;
         width: 50px;
     }
@@ -176,21 +268,29 @@ form label {
     .parent {
         width: 500px;
     }
+         .returnHomeBtn {
+             left: -140px;
+             bottom: 5px;
+         }
+                  #file-ip-1-preview {
+                      width: 200px;
+                      height: 200px;
+                      margin-left: 26%;
+                  }
+        
+                  .ImageStudentField label {
+                      margin-left: 27%;
+                  }
 
     .SubmitBtn {
         width: auto;
     }
 
     #showPassword,
-    #HidePassword {
+    #HidePassword, #HidePasswordConfirm, #showPasswordConfirm {
         position: relative;
         left: 2px;
         bottom: 30px;
         width: 50px;
-    }
-
-    #DOB,
-    #Appointment {
-        width: 400px;
     }
 }

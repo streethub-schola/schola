@@ -4,7 +4,7 @@
   "description": "Schola is a school management portal built to reform the Educational Management space",
   "main": "tailwind.config.js",
   "scripts": {
-    "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
+    "tailwindcss": "npx tailwindcss -i ./src/styles/styles.css -o ./public/assets/styles/styles.css --watch",
     "minify": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --minify",
     "prettier": "npx prettier --write **/*{.html,.js}",
     "build": "npm run build:css"

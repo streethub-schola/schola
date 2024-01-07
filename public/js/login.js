@@ -28,6 +28,9 @@ form.addEventListener("submit", (e) => {
         alert(data.message);
         location.href = "./admin/students/view_student.html";
       }
+      else {
+        alert(data.message);
+      }
     })
     .catch((err) => console.log(err));
 });

@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="./styles/styles.css
     "
-    />
+    /> -->
+    <link rel="stylesheet" href="./assets/styles/styles.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -21,17 +22,15 @@
           <a href="index.html">Return to Home</a>
         </div>
         <div class="content">
-          <section class="text-right">
-            <a href="index.html">Return to Home</a>
-          </section>
           <section class="text-center">
             <h1 class="text-4xl">My School</h1>
             <a href="index.html">
               <img
-              src="./images/brlogo.jpeg"
+              src="./assets/images/brlogo.jpeg"
               alt=""
               class="w-10 border-2 border-blue-300 rounded-full m-auto"
             />
+            
             </a>
           </section>
           <div class="w-full bg-red-300 m-auto my-4 h-auto p-2 rounded-md hidden" id="errorMsg">
@@ -72,22 +71,7 @@
     </div>
 
 
-    <script src="./js/login.js"></script>
-
-    <!-- <script>
-      let form = document.querySelector("form");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        if (form.username.value && form.password.value == "student" || form.username.value && form.password.value == "teacher") {
-          location.href = "./admin/index.html";
-        } else if (form.username.value && form.password.value == 'admin'){
-          location.href = "./admin/admin/index.html";
-        } else {
-          alert("Default username bypassed");
-        }
-      });
-    </script> -->
+    <!-- <script src="./js/login.js"></script> -->
+    <script src="../public/assets/js/login.js"></script>
   </body>
 </html>

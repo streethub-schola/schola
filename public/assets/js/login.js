@@ -30,7 +30,8 @@ form.addEventListener("submit", (e) => {
         // Save logged in user info to session storage so you can access them in other pages
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
-        location.href = "./admin/students/view_student.html";
+        // location.href = "./admin/students/view_student.html";
+        location.href = "../../admin/students/view.html";
       }
       else {
         alert(data.message);

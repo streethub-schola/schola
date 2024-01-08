@@ -26,7 +26,8 @@ form.addEventListener("submit", (e) => {
 
 
 function logStudent(studentObject){
-  fetch("https://schola.myf2.net/api/studentapi/studentlogin.php", studentObject)
+  // fetch("https://schola.myf2.net/api/studentapi/studentlogin.php", studentObject)
+  fetch("http://localhost/api/studentapi/studentlogin.php", studentObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -48,7 +49,8 @@ function logStudent(studentObject){
 
 
 function logteacher(teacherObject){
-  fetch("https://schola.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+  // fetch("https://schola.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+  fetch("http://localhost/api/studentapi/studentlogin.php", teacherObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

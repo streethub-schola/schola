@@ -55,7 +55,7 @@ $search_stmt = $student->groupSearch($searchString, $searchColumn);
 // return;
 
 // Catch db error
-if(is_string($search_stmt)){
+if(is_string($search_stmt) || is_string(trim(strip_tags($search_stmt)))){
     // set response code - 200 ok
     http_response_code(403);
  
@@ -70,7 +70,7 @@ $search_result = $search_stmt->fetchAll(PDO::FETCH_ASSOC);
 $search_count = count($search_result);
 
 
-if(is_string($search_result)){
+if(is_string($search_result) || is_string(trim(strip_tags($search_result)))){
   
     // set response code - 200 ok
     http_response_code(400);

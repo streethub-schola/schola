@@ -4,6 +4,8 @@ let form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const url = document.URL;
+
   const userData = {
     admin_no: `${form.username.value}`,
     password: `${form.password.value}`,
@@ -18,9 +20,13 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(userData),
   };
 
-  // console.log (userData)
+  url.includes('teacher') ? logteacher(configData) : logStudent(configData);
 
-  fetch("https://schola.myf2.net/api/studentapi/studentlogin.php", configData)
+});
+
+
+function logStudent(studentObject){
+  fetch("https://schola.myf2.net/api/studentapi/studentlogin.php", studentObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -38,4 +44,26 @@ form.addEventListener("submit", (e) => {
       }
     })
     .catch((err) => console.log(err));
-});
+}
+
+
+function logteacher(teacherObject){
+  fetch("https://schola.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status == 1) {
+        alert(data.message);
+
+        // Save logged in user info to session storage so you can access them in other pages
+        sessionStorage.setItem("scola-user", JSON.stringify(data) )
+
+        // location.href = "./admin/students/view_student.html";
+        location.href = "../../admin/students/view.html";
+      }
+      else {
+        alert(data.message);
+      }
+    })
+    .catch((err) => console.log(err));
+}

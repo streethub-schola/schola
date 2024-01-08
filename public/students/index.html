@@ -1,10 +1,3 @@
-<!-- Displays all the students across all the registered schools -->
-
-<!-- This should be a table -->
-
-<!-- To contain search box and Add button -->
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,11 +7,10 @@
       rel="stylesheet"
       href="../assets/styles/styles.css"
     />
-    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Schola Project!</title>
 
-    <script src="../../js/nav.js" defer></script>
+    <script src="../assets/js/nav.js" defer></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -30,14 +22,12 @@
         </div>
         <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
           <ul class="md:flex justify-between text-right hidden" id="navbar">
-            <li><a href="staff.html" class="uppercase">staff</a></li>
-            <li>
-              <a href="./dashboard/index.html" class="uppercase">students</a>
-            </li>
+            <li><a href="#" class="uppercase">staff</a></li>
+            <li><a href="#" class="uppercase">students</a></li>
             <li><a href="#" class="uppercase">classes</a></li>
             <li><a href="#" class="uppercase">tests</a></li>
             <li><a href="#" class="uppercase">to mark</a></li>
-            <li><a href="../../index.html" class="uppercase">log out</a></li>
+            <li><a href="#" class="uppercase">marked</a></li>
           </ul>
           <button
             class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
@@ -66,11 +56,6 @@
             >staff</a
           >
           <a
-            href="./dashboard/index.html"
-            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >students</a
-          >
-          <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >classes</a
@@ -88,107 +73,208 @@
           <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >Log out</a
+            >to marked</a
           >
         </nav>
       </section>
+      <main class="md:grid md:grid-cols-3 mx-5 w-full mt-5">
+        <aside class="my-5 col-span-1 flex flex-col items-center">
+          <h3>Profile Edit Section</h3>
+          <img
+            src="../assets/images/woman_avatar.jpg"
+            alt=""
+            class="rounded-full w-36"
+          />
+          <h2 class="text-center font-semibold">Brenda Vashti</h2>
 
-      <!-- MAIN SECTION -->
+          <div class="flex gap-3">
+            <button class="bg-blue-200 border-none px-2 py-1 rounded-md">
+              Edit
+            </button>
+            <input
+              type="file"
+              name=""
+              id=""
+              class="file:bg-blue-200 file:border-none file:px-2 file:py-2 file:rounded-md file:mr-4"
+            />
+          </div>
+        </aside>
+        <div class="col-span-2 text-center md:mt-5">
+          <h2>Dashboard / Profile</h2>
+          <table
+            class="table-fixed border text-justify w-4/5 m-auto border-gray-500 md:table-fixed"
+          >
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">First Name:</td>
+              <td class="px-3 border border-gray-400">Kachi</td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">Last Name</td>
+              <td class="px-3 border border-gray-400">Godwin</td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">Email</td>
+              <td class="px-3 border border-gray-400">kachi@email.com</td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">Gender</td>
+              <td class="px-3 border border-gray-400">Male</td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">Rank</td>
+              <td class="px-3 border border-gray-400">Admin</td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">
+                Date Created
+              </td>
+              <td class="px-3 border border-gray-400">10th August, 2023</td>
+            </tr>
+          </table>
+        </div>
+      </main>
+      <section class="bg-slate-100 md:w-11/12 m-auto">
+        <!--Tabs navigation-->
+        
+        <!-- NEW TAB CODE -->
+        <!--  uses radio buttons -->
+<section class="flex flex-row flex-wrap m-8">
 
-      <div class="flex text-xs md:text-base items-center  md:w-11/12 m-auto md:py-2 flex-row md:justify-between">
-        <input type="text" name="searchBox" id="" placeholder="Search strings" class="w-10/12 p-2 m-2 rounded-md">
-        <a href="addstudent.html" class="bg-blue-200 border p-2 md:hover:text-white rounded-md mx-2 hover:bg-blue-400">Add Student</a>
-      </div>
+  <input id="tab-one" type="radio" name="tabs" class="peer/tab-one opacity-0 absolute" checked />
+  <label for="tab-one" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-one:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
+    Basic Info
+  </label>
 
-      <div class="flex flex-col shadow-lg shadow-gray-700 w-11/12 m-auto">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full text-left text-sm font-light" id="tabs">
-                <thead
-                  class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
+  <input id="tab-two" type="radio" name="tabs" class="peer/tab-two opacity-0 absolute" />
+  <label for="tab-two" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-two:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
+    My Classes
+  </label>
+
+  <input id="tab-three" type="radio" name="tabs" class="peer/tab-three opacity-0 absolute" />
+  <label for="tab-three" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-three:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
+    Tests
+  </label>
+
+  <div class="basis-full h-0"></div>
+
+  <div class="bg-slate-100 hidden peer-checked/tab-one:block p-4 w-full">
+    <!-- Table content -->
+    <h2>content of basic info not very clear yet</h2>
+
+    <!-- End of table content -->
+  </div>
+  <div class="bg-slate-100 hidden peer-checked/tab-two:block p-4 w-full">
+    <!-- The first table content goes here -->
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full text-left text-sm font-light">
+              <thead
+                class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
+              >
+                <tr>
+                  <th scope="col" class="px-6 py-4">#</th>
+                  <th scope="col" class="px-6 py-4">Class Name</th>
+                  <th scope="col" class="px-6 py-4">Created by</th>
+                  <th scope="col" class="px-6 py-4">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
                 >
-                  <tr>
-                    <th scope="col" class="p-4 border-r-gray-200 border">#</th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Admisison No
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Student Name
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Class
-                    </th>
-                    <th scope="col" class="px-6 py-4 border-r-gray-200 border">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    class="border-b dark:bg-neutral-700"
-                  >
-                    <td class="px-4">1</td>
-                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
-                      FUTO/001
-                    </td>
-                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
-                      Godwin Onyeka
-                    </td>
-                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
-                      SS 3 B
-                    </td>
-                    <td class="whitespace-nowrap px-2 pt-4 border-r-gray-200 flex flex-row">
-                      <a href="edit_student.html?studentId=001">
-                        
-                            <svg 
-                              class="w-4 mx-2 text-blue-500"
-                              tool-tip="Take Test"
-                              aria-hidden="true"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              ></path>
-                            </svg>
-                          
-                      </a>
-                      <button data-te-toggle="tooltip" title="View Result">
-                        <svg
-                          class="w-4 mr-2 text-green-500"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button data-te-toggle="tooltip" title="Delete Record">
-                        <svg aria-hidden="true" class="w-4 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    1
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">Primary 5</td>
+                  <td class="whitespace-nowrap px-6 py-4">Mr. Man</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    Dec 1, 2023
+                  </td>
+                </tr>
+                <tr
+                  class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600"
+                >
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    2
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">Basic 3</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    Mrs. Ngozi
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    Jan 5, 2023
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+    </div>
+    <!-- The first table content ends here -->
+  </div>
+  <div class="bg-slate-100 hidden peer-checked/tab-three:block p-4 w-full">
+    <!-- Tab contents goes here -->
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full text-left text-sm font-light">
+              <thead
+                class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
+              >
+                <tr>
+                  <th scope="col" class="px-6 py-4">Test Name</th>
+                  <th scope="col" class="px-6 py-4">Created By</th>
+                  <th scope="col" class="px-6 py-4">Active</th>
+                  <th scope="col" class="px-6 py-4">Date</th>
+                  <th scope="col" class="px-6 py-4">Answered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                >
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    T1 English Lang
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">Ms Rose</td>
+                  <td class="whitespace-nowrap px-6 py-4">True</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    10th Dec, 2023
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">False</td>
+                </tr>
+                <tr
+                  class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                >
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    Basic Science
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">Ms Judith</td>
+                  <td class="whitespace-nowrap px-6 py-4">False</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    10th Dec, 2023
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">True</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of tab content -->
+  </div>
+
+</section>
+
+
+
+        </div>
+      </section>
     </div>
   </body>
 </html>

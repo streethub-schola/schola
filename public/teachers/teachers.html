@@ -10,18 +10,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../assets/styles/styles.css"
-    />
-    <link rel="stylesheet" href="../../admin/students/styles/styles.css">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="stylesheet" href="../students/styles/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Schola Project!</title>
 
-    <script src="./js/nav.js" defer></script>
-    <script src="../../js/nav.js" defer></script>
+    <script src="../assets/js/nav.js" defer></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -77,7 +74,7 @@
       <div class="flex flex-col md:w-11/12 m-auto items-center md:py-2 md:flex-row md:justify-between">
         <input type="text" name="searchBox" id="" placeholder="Search strings" class="w-10/12 p-2 rounded-md">
         <!-- <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400">Add Student</a> -->
-        <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400" id="addUser"></a>
+        <a href="addteacher.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400" id="addTeacher">Add Teacher</a>
       </div>
 
       <div class="flex flex-col shadow-lg shadow-gray-700 w-11/12 m-auto">
@@ -147,6 +144,7 @@
 
         if (url.includes('teacher')) {
           userHandler.innerHTML = 'Add Teacher';
+          userHandler.href = 'addteacher.html';
         } else {
           userHandler.innerHTML = 'Add Student';
         }

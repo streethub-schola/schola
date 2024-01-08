@@ -1,305 +1,753 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="./styles/styles.css
-    "
-    />
-    <link rel="stylesheet" href="./styles/landing.css">
 
-    <title>Schola Project!</title>
+<head>
+    <meta charset="utf-8">
+    <title>Schola</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <script src="./js/nav.js" defer></script>
-  </head>
-  <body>
-    <div class="w-full bg-slate-100 min-h-screen">
-      <section
-        class="w-full sticky z-[9999] top-0 bg-blue-200 shadow flex justify-between items-center p-2"
-      >
-        <div class="brand uppercase">
-          <a href="index.html">Schola</a>
-        </div>
-        <nav class="mx-2 md:w-1/3 md:pt-1" aria-label="main-menu">
-          <ul class="lg:flex justify-between text-right hidden md:hidden" id="navbar">
-            <li><a href="login.html" class="uppercase">staff</a></li>
-            <li>
-              <a href="login.html" class="uppercase">students</a>
-            </li>
-            <li><a href="#" class="uppercase">Photo Gallery</a></li>
-          </ul>
-          <button
-            class="outline-none border-none absolute top-0 right-6 text-2xl lg:hidden"
-            id="nav_toggle"
-          >
-            &#9776;
-          </button>
-        </nav>
-      </section>
-      <section
-        id="mobile-menu"
-        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-200 z-[9999]"
-      >
-        <button
-          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
-        >
-          &times;
-        </button>
-        <nav
-          class="flex flex-col min-h-screen items-center py-8"
-          aria-label="mobile-menu"
-        >
-          <a
-            href="login.html"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
-            >staff</a
-          >
-          <a
-            href="login.html"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
-            >students</a
-          >
-          <a
-            href="#"
-            class="w-full text-center py-6 hover:bg-blue-300 uppercase"
-            >Photo Gallery</a
-          >
-        </nav>
-      </section>
-      <div class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 relative">
-         <!-- JUDITH'S CODE -->
-         <main class="bg-blue-200">
-        <div class="w-full relative">
-          <img
-            src="./images/kids pic/kids2.jpg"
-            alt="school kids pics"
-            class="w-full"
-          />
-          <blockquote
-            class="pl-4 my-4 absolute md:block top-6 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold"
-          >
-            <p class="text-sm md:text-2xl font-medium">
-              " Education is the most powerful weapon which you can use to
-              change the world. "
-            </p>
-            <cite class="block text-xs md:text-sm text-right"
-              >— Nelson Mandela <br />1918-2013</cite
-            >
-          </blockquote>
-          <!--<h2 class="absolute top-10 lg:top-20 px-4 py-3 lg:text-4xl text-xl w-2/5 italic font-bold" >
-            Education is the most powerful weapon which you can use to change the world. <br><span>Nelson Mandela <br>1918-2013</span>
-          </h2>-->
-          <button
-            class="absolute p-1 top-10 border-2 border-gray-400 right-6 lg:top-60 lg:left-85 lg:text-xl lg:p-4 bg-slate-300 font-bold rounded-md hover:bg-blue-300"
-          >
-            Check Result
-          </button>
-        </div>
+    <!-- Favicon -->
+    <!-- <link href="img/favicon.icon" rel="icon"> -->
 
-        <div
-          class="about border-2 border-gray-400 p-4 w-4/5 lg:w-2/4 m-auto -mt-4 lg:-mt-48 relative bg-gray-300 rounded-md text-sm md:text-lg"
-        >
-          <div class="abtnav flex flex-col justify-between">
-            <details class="p-1 my-1">
-              <summary class="text-sm md:text-lg font-bold">About us</summary>
-              <p class="border-b-2 pb-3">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Aperiam laborum ad similique eum possimus cupiditate nemo
-                numquam, suscipit earum voluptate doloribus dolores iusto,
-                dignissimos saepe provident beatae accusamus, quibusdam autem.
-                Nisi optio sint tempora, totam suscipit quasi aspernatur nulla
-                vel ullam quisquam, numquam, ea commodi nostrum doloribus.
-                Laudantium architecto, autem, ad repudiandae ipsa aliquid
-                corrupti, deserunt reiciendis ipsum illum eveniet. Accusamus
-                cumque aperiam amet ratione minima doloribus veritatis ab natus
-                illo fuga, eum culpa molestias dolore nobis voluptates ipsam
-                distinctio at porro, ducimus quod! Recusandae aperiam dolore
-                laboriosam vel sint.
-              </p>
-            </details>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-            <details lg:open class="p-1 my-3">
-              <summary class="text-sm md:text-lg font-bold">Mission</summary>
-              <p class="border-b-2 pb-3">
-                Mission Mission Mission <br />Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Aperiam laborum ad similique eum
-                possimus cupiditate nemo numquam, suscipit earum voluptate
-                doloribus dolores iusto, dignissimos saepe provident beatae
-                accusamus, quibusdam autem. Nisi optio sint tempora, totam
-                suscipit quasi aspernatur nulla vel ullam quisquam, numquam, ea
-                commodi nostrum doloribus. Laudantium architecto, autem, ad
-                repudiandae ipsa aliquid corrupti, deserunt reiciendis ipsum
-                illum eveniet. Accusamus cumque aperiam amet ratione minima
-                doloribus veritatis ab natus illo fuga, eum culpa molestias
-                dolore nobis voluptates ipsam distinctio at porro, ducimus quod!
-                Recusandae aperiam dolore laboriosam vel sint.
-              </p>
-            </details>
+    <!-- Libraries Stylesheet -->
+    <link href="./MaclesleySchool/maclib/animate/animate.min.css" rel="stylesheet">
+    <link href="./MaclesleySchool/maclib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-            <details lg:open class="p-1 my-3">
-              <summary class="mx-8 whitespace-nowrap text-sm md:text-lg font-bold">
-                Why Us
-              </summary>
-              <p class="border-b-2 pb-3">
-                Why us WHy us Why us <br />Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Aperiam laborum ad similique eum
-                possimus cupiditate nemo numquam, suscipit earum voluptate
-                doloribus dolores iusto, dignissimos saepe provident beatae
-                accusamus, quibusdam autem. Nisi optio sint tempora, totam
-                suscipit quasi aspernatur nulla vel ullam quisquam, numquam, ea
-                commodi nostrum doloribus. Laudantium architecto, autem, ad
-                repudiandae ipsa aliquid corrupti, deserunt reiciendis ipsum
-                illum eveniet. Accusamus cumque aperiam amet ratione minima
-                doloribus veritatis ab natus illo fuga, eum culpa molestias
-                dolore nobis voluptates ipsam distinctio at porro, ducimus quod!
-                Recusandae aperiam dolore laboriosam vel sint.
-              </p>
-            </details>
-          </div>
-        </div>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./MaclesleySchool/maccss/bootstrap.min.css" rel="stylesheet">
 
-        <div class="text-center text-2xl my-5 italic">
-          <p>Learn with passion to live with purpose</p>
-        </div>
+    <!-- Template Stylesheet -->
+    <link href="./MaclesleySchool/maccss/style.css" rel="stylesheet">
+</head>
 
-        <div class="content p-6 w-full flex flex-col gap-3 md:flex-row justify-between">
-          <form
-            action=""
-            class="w-full md:w-2/4 lg:w-[50%] p-4 border-2 border-gray-400 rounded-md bg-slate-100" id="inquiry"
-          >
-            <h2 class="text-center font-bold opacity-70">
-              Inquiry form
-            </h2>
-            <label for="name" class="my-2">Name</label>
-            <input
-              type="text" id="name"
-              placeholder="Enter your name"
-              class="rounded-sm w-11/12 lg:p-4"
-            />
-
-            <label for="email" class="my-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="janedoe@gmail.com"
-              class="rounded-sm w-11/12 lg:p-2 my-2"
-            />
-
-            <label for="year" class="my-2"
-              >Interested School Year
-            <input
-              type="text"
-              id="year"
-              placeholder="2023/2024"
-              class="w-11/12 rounded-sm lg:p-2"
-            /></label>
-
-  
-              <label for="class" class="my-2">Intended Class</label>
-            <input
-              type="text"
-              id="class"
-              placeholder="JSS 1"
-              class="mb-2 rounded-sm p-1 w-11/12 lg:p-2"/>
-
-            <label for="message" class="my-2">Message</label>
-            <textarea
-              id="message" cols="30" rows="10"
-              placeholder="Write your message"
-              class="mb-2rounded-sm p-2 w-11/12"
-            ></textarea>
-          
-
-            <button
-              class="hover:bg-blue-300 bg-blue-500 text-white font-bold rounded-md p-2"
-            >
-              Submit
-            </button>
-          </form>
-
-          <div class=" w-full md:w-2/4">
-            <div class="carousel mx-4">
-              <div class="carousel-inner">
-                  <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-                  <div class="carousel-item w-full">
-                      <img src="images/color day/topaz day.jpg" class="">
-                  </div>
-                  <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
-                      <img src="images/color day/red colour.jpg">
-                  </div>
-                  <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
-                      <img src="images/color day/pink colour.jpg">
-                  </div>
-                  <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
-                  <div class="carousel-item w-full">
-                      <img src="images/color day/green colour.jpg">
-                  </div>
-                  <label for="carousel-4" class="carousel-control prev control-1">‹</label>
-                  <label for="carousel-2" class="carousel-control next control-1">›</label>
-                  <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                  <label for="carousel-3" class="carousel-control next control-2">›</label>
-                  <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                  <label for="carousel-4" class="carousel-control next control-3">›</label>
-                  <label for="carousel-3" class="carousel-control next control-4">›</label>
-                  <label for="carousel-1" class="carousel-control next control-4">›</label>
-                  <ol class="carousel-indicators">
-                      <li>
-                          <label for="carousel-1" class="carousel-bullet">•</label>
-                      </li>
-                      <li>
-                          <label for="carousel-2" class="carousel-bullet">•</label>
-                      </li>
-                      <li>
-                          <label for="carousel-3" class="carousel-bullet">•</label>
-                      </li>
-                      <li>
-                          <label for="carousel-4" class="carousel-bullet">•</label>
-                    </li>
-                  </ol>
-              </div>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
-          </div>
-                </main>
+        </div>
+        <!-- Spinner End -->
 
-      <div class="footer flex justify-between bg-slate-300 p-6">
-        <section>
-          <ul>
-          <li class="p-1"><a href="" >SCHOLA</a></li>
-          <li class="p-1"><a href="">Address</a></li>
-          <li class="p-1"><a href="" class="">Phone no</a></li>
-          <li class="p-1"><a href="" class="">Email</a></li>
-        </ul>
-        </section>
 
-        <section>
-          <ul>
-          <li><a href="">Useful Links</a></li>
-          <li><a href="">Teachers</a></li>
-          <li><a href="">Classes</a></li>
-          <li><a href="">Students</a></li>
-        </ul>
-        </section>
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="#" class="navbar-brand">
+                <h1 class="m-0 text-primary"><img src="./assets/images/school logo.png" alt="school logo" style="width: 100px;"></h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="./teachers/login.html" class="nav-item nav-link">Staff</a>
+                    <a href="./students/login.html" class="nav-item nav-link">Students</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <div>
+                  <a href="./teachers/login.html" class="btn btn-warning rounded-pill px-3">Staff Login<i class="fa fa-arrow-right ms-3"></i></a>
+                  <a href="./students/login.html" class="btn btn-primary rounded-pill px-3">Student Login<i class="fa fa-arrow-right ms-3"></i></a>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
 
-        <section>
-          <p>Find us online</p>
-        </section>
 
-        <section>
-          <p><a href="">Subscribe</a></p>
-        </section>
-      </div>
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="./MaclesleySchool/macimg/kids1.jpg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">The Best School For Your Child</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
+                                    <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="./MaclesleySchool/macimg/banimg2.jpg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your Child</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
+                                    <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Facilities Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">School Facilities</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-primary">
+                                <span class="bg-primary"></span>
+                                <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                                <span class="bg-primary"></span>
+                            </div>
+                            <div class="facility-text bg-primary">
+                                <h3 class="text-primary mb-3">School Bus</h3>
+                                <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-success">
+                                <span class="bg-success"></span>
+                                <i class="fa fa-futbol fa-3x text-success"></i>
+                                <span class="bg-success"></span>
+                            </div>
+                            <div class="facility-text bg-success">
+                                <h3 class="text-success mb-3">Playground</h3>
+                                <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-warning">
+                                <span class="bg-warning"></span>
+                                <i class="fa fa-home fa-3x text-warning"></i>
+                                <span class="bg-warning"></span>
+                            </div>
+                            <div class="facility-text bg-warning">
+                                <h3 class="text-warning mb-3">Healthy Canteen</h3>
+                                <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-info">
+                                <span class="bg-info"></span>
+                                <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                                <span class="bg-info"></span>
+                            </div>
+                            <div class="facility-text bg-info">
+                                <h3 class="text-info mb-3">Positive Learning</h3>
+                                <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Facilities End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                    <div class="ms-3">
+                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                        <small>CEO & Founder</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="./MaclesleySchool/macimg/carousel-5.jpeg" alt="">
+                            </div>
+                            <div class="col-6 text-start" style="margin-top: -100px;">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="./MaclesleySchool/macimg/games.jpeg" alt="">
+                            </div>
+                            <div class="col-6 text-end" style="margin-top: -80px;">
+                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="./MaclesleySchool/macimg/kids2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Call To Action Start --
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="img/call-to-action.jpg" style="object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4">Become A Teacher</h1>
+                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
+                                    Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+                                </p>
+                                <a class="btn btn-primary py-3 px-5" href="">Get Started Now<i class="fa fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         Call To Action End -->
+
+
+        <!-- Classes Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">School Classes</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-1.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-2.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Color Management</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    <!--<span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>-->
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-3.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Athletic & Dance</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-4.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Language & Speaking</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-5.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Religion & History</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="./MaclesleySchool/macimg/classes-6.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">General Knowledge</a>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle flex-shrink-0" src="./MaclesleySchool/macimg/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                        <div class="ms-3">
+                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
+                                            <small>Teacher</small>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes End -->
+
+
+        <!-- Appointment Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4">Make Appointment</h1>
+                                <form>
+                                    <div class="row g-3">
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
+                                                <label for="gname">Gurdian Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
+                                                <label for="gmail">Gurdian Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
+                                                <label for="cname">Child Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="cage" placeholder="Child Age">
+                                                <label for="cage">Child Age</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                                <label for="message">Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="./MaclesleySchool/macimg/carousel-6.jpg" style="object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Appointment End -->
+
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Popular Teachers</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
+                        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item position-relative">
+                            <img class="img-fluid rounded-circle w-75" src="./MaclesleySchool/macimg/team-1.jpg" alt="">
+                            <div class="team-text">
+                                <h3>Full Name</h3>
+                                <p>Designation</p>
+                                <div class="d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item position-relative">
+                            <img class="img-fluid rounded-circle w-75" src="./MaclesleySchool/macimg/team-2.jpg" alt="">
+                            <div class="team-text">
+                                <h3>Full Name</h3>
+                                <p>Designation</p>
+                                <div class="d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item position-relative">
+                            <img class="img-fluid rounded-circle w-75" src="./MaclesleySchool/macimg/team-3.jpg" alt="">
+                            <div class="team-text">
+                                <h3>Full Name</h3>
+                                <p>Designation</p>
+                                <div class="d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Our Clients Say!</h1>
+                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="./MaclesleySchool/macimg/testimonial-1.jpg" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Client Name</h3>
+                                <span>Profession</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="./MaclesleySchool/macimg/testimonial-2.jpg" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Client Name</h3>
+                                <span>Profession</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="./MaclesleySchool/macimg/testimonial-3.jpg" style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Client Name</h3>
+                                <span>Profession</span>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Get In Touch</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Owerri, Imo State</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 809 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Quick Links</h3>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Photo Gallery</h3>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="./MaclesleySchool/macimg/classes-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Newsletter</h3>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Schola</a>, All Rights Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed with <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    
-    <!-- JUDITH'S CODE ENDS HERE -->
-      </div>
-    </div>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./MaclesleySchool/maclib/wow/wow.min.js"></script>
+    <script src="./MaclesleySchool/maclib/easing/easing.min.js"></script>
+    <script src="./MaclesleySchool/maclib/waypoints/waypoints.min.js"></script>
+    <script src="./MaclesleySchool/maclib/owlcarousel/owl.carousel.min.js"></script>
 
-   
-    
-  </body>
+    <!-- Template Javascript -->
+    <script src="./MaclesleySchool/macjs/main.js"></script>
+</body>
+
 </html>

@@ -52,7 +52,7 @@ $searchDesc = "Admission Number";
 $student_stmt = $student->searchStudent($student->admin_no, $searchCol);
 
 // Catch db error
-if(is_string($student_stmt)){
+if(is_string($student_stmt) || is_string(trim(strip_tags($student_stmt)))){
     // set response code - 200 ok
     http_response_code(403);
  

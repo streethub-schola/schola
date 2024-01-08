@@ -16,8 +16,19 @@ $student = new Student();
 // read students will be here
 // query students
 $stmt = $student->getStudents();
-    
-if($stmt){
+
+// check if more than 0 record found
+if (is_string($stmt) || is_string(trim(strip_tags($stmt)))){
+    // set response code - 200 OK
+    http_response_code(400);
+
+    // show students data in json format
+    echo json_encode(array("message" => $stmt));
+
+    return;
+
+}
+elseif($stmt){
 
   
     // students array

@@ -3,9 +3,11 @@ function getUsers() {
     let source = document.getElementById('showStudents')
     
     // fetch('data.json')
-    fetch('https://scholabe.myf2.net/api/studentapi/getstudents.php')
+    fetch('http://localhost/api/studentapi/getstudents.php')
+    // fetch('https://scholabe.myf2.net/api/studentapi/getstudents.php')
     .then((res) => res.json())
     .then(data => {
+        console.log(data.records[1])
         data.records.forEach(items => {
             let output = `
             <td class="px-4">${serialNo++}</td>

@@ -10,12 +10,12 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
     <link rel="stylesheet" href="students/styles/styles.css">
 
     <title>Schola Project!</title>
 
-    <script src="./js/nav.js" defer></script>
+    <script src="../js/edit.js" defer></script>
     <script src="../js/nav.js" defer></script>
   </head>
   <body>
@@ -67,26 +67,26 @@
         <div>
           <!-- something is wrong -->
           <h4 class="text-center">Edit Profile Page</h4>
-            <form action="" method="post">
+            <form action="" method="">
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Admission No" class="mr-2 md:w-[6%] w-[20%]">Ad No</label>
-              <input type="text" placeholder="Non Editable Admission No from DB" readonly name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Admission No from DB" name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Full Name" class="mr-2 w-[20%] md:w-[6%]">Full Name</label>
-              <input type="text" placeholder="Full name fetched from DB" readonly name="fullName" id="Full Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Full name fetched from DB"  name="fullName" id="Full Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Class" class="mr-2 md:w-[6%] w-[20%]">Class</label>
-              <input type="text" placeholder="Non Editable Class from DB" readonly name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Class from DB" name="studentClass" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
-              <input type="text" readonly placeholder="Non Editable Class from DB" name="studentAdNo" id="Date of Birth" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Class from DB" name="studentDoB" id="Date of Birth" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Address" class="mr-2 md:w-[6%] w-[20%]">Address</label>
-              <input type="text" readonly placeholder="Non Editable Address Line from the DB" name="Full Address" id="Address" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Address Line from the DB" name="Full Address" id="Address" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="About Me" class="mr-2 md:w-[6%] w-[20%]">About Me</label>
@@ -97,24 +97,24 @@
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Name" class="mr-2 md:w-[6%] w-[20%]">Guardian Name</label>
-              <input type="text" readonly placeholder="Non Editable Parents or Guardian Name from the DB" name="Parents or Guardian's Name" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Parents or Guardian Name from the DB" name="PGName" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
-              <input type="text" readonly placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Email</label>
-              <input type="text" readonly placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Address</label>
-              <input type="text" readonly placeholder="Non Editable Parents or Guardian Address from the DB" name="guardianAddress" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Non Editable Parents or Guardian Address from the DB" name="guardianAddress" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Change Password</label>
               <div class="flex flex-row justify-between w-[80%] md:w-[90%] bg-white md:mx-4 rounded-md pr-2">
-                <input type="text" placeholder="Enter your new password" name="guardianAddress" id="Guardian Name" class=" p-2 w-[90%] rounded-md focus:outline-none">
+                <input type="text" placeholder="Enter your new password" name="password" id="Guardian Name" class=" p-2 w-[90%] rounded-md focus:outline-none">
                 <input type="checkbox" name="show" id="showPassword" >
 
               </div>

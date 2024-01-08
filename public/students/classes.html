@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="../../styles/styles.css"
+      href="../assets/styles/styles.css"
     />
     <link rel="stylesheet" href="../../admin/students/styles/styles.css">
 
@@ -20,9 +20,7 @@
 
     <title>Schola Project!</title>
 
-    <script src="../../js/nav.js" defer type="text/javascript"></script>
-    <script src="../../js/viewstudents.js" defer></script>
-    <script src="../../js/search.js" defer></script>
+    <script src="../../js/nav.js" defer></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -76,15 +74,15 @@
       <!-- MAIN SECTION -->
 
       <div class="flex flex-col md:w-11/12 m-auto items-center md:py-2 md:flex-row md:justify-between">
-        <input type="text" name="searchBox" id="searchBox" placeholder="Search strings" class="w-[70%] p-2 rounded-md">
-        <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400">Add Student</a>
+        <input type="text" name="searchBox" id="" placeholder="Search strings" class="w-10/12 p-2 rounded-md">
+        <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 mx-2 hover:bg-blue-400" id="addUser"></a>
       </div>
 
       <div class="flex flex-col shadow-lg shadow-gray-700 w-11/12 m-auto">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
             <div class="overflow-hidden">
-              <table class="min-w-full text-left text-sm" >
+              <table class="min-w-full text-left text-sm font-light">
                 <thead
                   class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
                 >
@@ -104,8 +102,32 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody id="showStudents">
-                  
+                <tbody>
+                  <tr
+                    class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                  >
+                    <td class="px-4">1</td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      FUTO/001
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      Godwin Onyeka
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border">
+                      SS 3 B
+                    </td>
+                    <td class="whitespace-nowrap px-2 border-r-gray-200 border flex flex-row items-center gap-3">
+                      <a href="edit_student.html?studentId=001" data-te-toggle="tooltip" title="Edit Record">
+                        <i class="fa fa-pen-to-square text-lg text-blue-400"></i>  
+                      </a>
+                      <a href="view.html?studentId=001" data-te-toggle="tooltip" title="View Record">
+                        <i class="fa-regular fa-eye text-lg text-blue-400"></i>
+                      </a>
+                      <a href="edit_student.html?studentId=001" data-te-toggle="tooltip" title="Delete Record">
+                        <i class="fa fa-trash text-red-500 text-lg"></i>
+                      </button>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -113,5 +135,21 @@
         </div>
       </div>
     </div>
+
+    <script>
+      
+
+      window.addEventListener('load', () => {
+        const userHandler = document.getElementById('addUser');
+        const url = document.URL;
+
+        if (url.includes('classes')) {
+          userHandler.innerHTML = 'Create Class';
+        } else {
+          userHandler.innerHTML = 'Add Student';
+        }
+
+      })
+    </script>
   </body>
 </html>

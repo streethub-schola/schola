@@ -56,7 +56,7 @@ if (
     // var_dump($newStudent);
     // return;
 
-    if (is_string($newStudent) || is_string(trim(strip_tags($newStudent)))) {
+    if (is_string($newStudent)) {
         // set response code - 200 ok
         http_response_code(400);
 

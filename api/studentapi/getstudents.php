@@ -18,7 +18,7 @@ $student = new Student();
 $stmt = $student->getStudents();
 
 // check if more than 0 record found
-if (is_string($stmt) || is_string(trim(strip_tags($stmt)))){
+if (is_string($stmt)){
     // set response code - 200 OK
     http_response_code(400);
 

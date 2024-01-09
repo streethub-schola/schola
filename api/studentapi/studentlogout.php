@@ -43,15 +43,6 @@ if (is_string($logout_stmt)) {
     // tell the student
     echo json_encode(array("message" => $logout_stmt, "status" => 4));
     return;
-} elseif (is_string(trim(strip_tags($logout_stmt)))) {
-    // Handles html return
-
-    // set response code - 200 ok
-    http_response_code(503);
-
-    // tell the student
-    echo json_encode(array("message" => "api returning html", "status" => 3));
-    return;
 } elseif ($logout_stmt) {
 
     // set response code - 503 service unavailable

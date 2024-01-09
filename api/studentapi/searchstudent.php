@@ -52,7 +52,7 @@ $searchColumn = cleanData($data->searchcolumn);
 $search_stmt = $student->searchStudent($searchString, $searchColumn);
 
 // Catch db error
-if(is_string($search_stmt) || is_string(trim(strip_tags($search_stmt)))){
+if(is_string($search_stmt)){
     // set response code - 200 ok
     http_response_code(403);
  
@@ -64,7 +64,7 @@ if(is_string($search_stmt) || is_string(trim(strip_tags($search_stmt)))){
 
 $search_result = $search_stmt->fetch(PDO::FETCH_ASSOC);
 
-if(is_string($search_result) || is_string(trim(strip_tags($search_result)))){
+if(is_string($search_result)){
   
     // set response code - 200 ok
     http_response_code(400);

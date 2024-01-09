@@ -7,7 +7,7 @@ form.addEventListener("submit", (e) => {
   const url = document.URL;
 
   const userData = {
-    admin_no: `${form.username.value}`,
+    admin_no: `${form.admin_no.value}`,
     password: `${form.password.value}`,
   };
 

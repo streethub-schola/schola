@@ -61,7 +61,6 @@ if (is_string($logout_stmt)) {
     return;
 
 } else {
-
     // if student does not exist
 
     // set response code - 503 service unavailable

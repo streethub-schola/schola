@@ -122,7 +122,7 @@ class Student extends Database
             // execute query
             if ($stmt->execute()) {
 
-                $setId = $this->setLastStudentId($this->conn->lastInsertId());
+                $setId = $this->setLastStudentAdminNo($this->conn->lastInsertId());
 
                 if (is_string($setId)) {
                     return $setId;
@@ -138,55 +138,8 @@ class Student extends Database
         }
     }
 
-    function generateCode()
-    {
-        $this->user_code = substr(md5(time()), 0, 18) . substr(md5(time()), 0, 18);
 
-        return;
-    }
-
-    function setTimeNow()
-    {
-        $this->updated_at = date("Y:m:d H:i:sa");
-        return;
-    }
-
-    function generateSessionCode()
-    {
-
-        // update query
-        $query = "UPDATE " . $this->table_name . " SET
-              user_code = :user_code,
-              updated_at = :updated_at
-          WHERE
-              admin_no = :admin_no";
-
-        // prepare query statement
-        $update_stmt = $this->conn->prepare($query);
-
-        $this->setTimeNow();
-
-        // bind new values
-        $update_stmt->bindParam(':admin_no', $this->admin_no);
-        $update_stmt->bindParam(':user_code', $this->user_code);
-        $update_stmt->bindParam(':updated_at', $this->updated_at);
-
-        try {
-
-            if ($update_stmt->execute()) return true;
-
-            return false;
-
-        } catch (Exception $e) {
-
-            return $e->getMessage();
-
-        }
-     
-    }
-
-
-    // update the product
+    // update the student
     function updateStudent()
     {
 
@@ -397,9 +350,70 @@ class Student extends Database
         }
     }
 
+    public function studentLogout(){
 
-    // read a single user
-    function setLastStudentId($lastId)
+        $this->generateCode();
+
+        if($this->generateSessionCode()) return true;
+        return false;
+
+    }
+
+
+    // Generate ans set new user-code
+    function generateCode()
+    {
+        $this->user_code = substr(md5(time()), 0, 18) . substr(md5(time()), 0, 18);
+
+        return;
+    }
+
+    // Captures and set current system time
+    function setTimeNow()
+    {
+        $this->updated_at = date("Y:m:d H:i:sa");
+        return;
+    }
+
+    // Updates the new user_code of the user in db
+    function generateSessionCode()
+    {
+
+        // update query
+        $query = "UPDATE " . $this->table_name . " SET
+              user_code = :user_code,
+              updated_at = :updated_at
+          WHERE
+              admin_no = :admin_no";
+
+        // prepare query statement
+        $update_stmt = $this->conn->prepare($query);
+
+        $this->setTimeNow();
+
+        // bind new values
+        $update_stmt->bindParam(':admin_no', $this->admin_no);
+        $update_stmt->bindParam(':user_code', $this->user_code);
+        $update_stmt->bindParam(':updated_at', $this->updated_at);
+
+        try {
+
+            if ($update_stmt->execute()) return true;
+
+            return false;
+
+        } catch (Exception $e) {
+
+            return $e->getMessage();
+
+        }
+     
+    }
+
+
+
+    // Generates and set a New Admission Number for the last inserted student
+    private function setLastStudentAdminNo($lastId)
     {
         $offsetId = $lastId + 13;
         // update query

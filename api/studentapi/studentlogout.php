@@ -22,7 +22,7 @@ if (empty($data->admin_no) || $data->admin_no == null || $data->admin_no == ''  
     http_response_code(401);
 
     // tell the student
-    echo json_encode(array("message" => "Please provide both valid email and/or password"));
+    echo json_encode(array("message" => "Please provide both valid student Admission Nunber", "status"=>5));
 
     return;
 }
@@ -41,7 +41,7 @@ if (is_string($logout_stmt)) {
     http_response_code(400);
 
     // tell the student
-    echo json_encode(array("message" => $logout_stmt, "status" => 23));
+    echo json_encode(array("message" => $logout_stmt, "status" => 4));
     return;
 } elseif (is_string(trim(strip_tags($logout_stmt)))) {
     // Handles html return
@@ -50,14 +50,14 @@ if (is_string($logout_stmt)) {
     http_response_code(503);
 
     // tell the student
-    echo json_encode(array("message" => "api returning html", "status" => 23));
+    echo json_encode(array("message" => "api returning html", "status" => 3));
     return;
 } elseif ($logout_stmt) {
 
     // set response code - 503 service unavailable
     http_response_code(200);
 
-    echo json_encode(array("message" => "true", "status" => 24));
+    echo json_encode(array("message" => "true", "status" => 1));
     return;
 
 } else {
@@ -68,7 +68,7 @@ if (is_string($logout_stmt)) {
     http_response_code(400);
 
     // tell the student
-    echo json_encode(array("message" => "false", "status" => 25));
+    echo json_encode(array("message" => "false", "status" => 2));
     return;
 
 }

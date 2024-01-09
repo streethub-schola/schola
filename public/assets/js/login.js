@@ -40,7 +40,7 @@ function logStudent(studentObject){
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
         // location.href = "./admin/students/view_student.html";
-        location.href = "../../admin/students/view.html";
+        location.href = "../../admin/students/dashboard.html";
       }
       else {
         alert(data.message);

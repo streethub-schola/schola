@@ -52,7 +52,7 @@ if (is_string($login_stmt)) {
 $loggedInstudent = $login_stmt->fetch(PDO::FETCH_ASSOC);
 
 // Check if student exists
-if (is_string($loggedInstudent) || is_string(trim(strip_tags($loggedInstudent)))) {
+if (is_string($loggedInstudent)) {
 
     // set response code - 200 ok
     http_response_code(400);

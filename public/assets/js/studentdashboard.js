@@ -27,7 +27,9 @@ firstname.innerHTML = `${data.student.firstname}`;
 lastname.innerHTML = `${data.student.lastname}`;
 admin_no.innerHTML = `${data.student.admin_no}`;
 gender.innerHTML = `${data.student.gender}`;
-registered_at.innerHTML = `${data.student.registered_at}`;
+// const crdate = data.student.created_at
+// const padate = crdate.split(" ")[0]
+registered_at.innerHTML = `${data.student.created_at}`;
 
 
 

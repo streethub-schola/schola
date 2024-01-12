@@ -22,12 +22,12 @@ if (verifier) {
 
 const data = JSON.parse(verifier);
 
-fullname.innerHTML = `${data.firstname} ${data.lastname}`;
-firstname.innerHTML = `${data.firstname}`;
-lastname.innerHTML = `${data.lastname}`;
-email.innerHTML = `${data.email}`;
-gender.innerHTML = `${data.gender}`;
-registered_at.innerHTML = `${data.registered_at}`;
+fullname.innerHTML = `${data.student.firstname} ${data.student.lastname}`;
+firstname.innerHTML = `${data.student.firstname}`;
+lastname.innerHTML = `${data.student.lastname}`;
+email.innerHTML = `${data.student.email}`;
+gender.innerHTML = `${data.student.gender}`;
+registered_at.innerHTML = `${data.student.registered_at}`;
 
 
 

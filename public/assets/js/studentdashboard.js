@@ -12,11 +12,11 @@ const registered_at = document.getElementById('registered_at');
 
 const verifier = sessionStorage.getItem('schola-user');
 
-if (verifier) {
-    console.log('user is logged in')
-} else {
-    location.href = '../students/login.html';
-}
+// if (verifier) {
+//     console.log('user is logged in')
+// } else {
+//     location.href = '../students/login.html';
+// }
 
 // Get the data from the storage
 

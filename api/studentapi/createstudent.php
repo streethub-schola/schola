@@ -61,7 +61,7 @@ if (
         http_response_code(400);
 
         // tell the student
-        echo json_encode(array("message" => $newStudent, "status" => 3));
+        echo json_encode(array("message" => "'".$newStudent."'", "status" => 3));
         return;
     }
     elseif ($newStudent) {
@@ -132,4 +132,5 @@ if (
 
     // tell the student
     echo json_encode(array("message" => "Unable to create student. Fill all fields.", "status" => 3));
+    return;
 }

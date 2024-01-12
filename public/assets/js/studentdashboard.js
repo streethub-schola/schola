@@ -12,11 +12,11 @@ const registered_at = document.getElementById('registered_at');
 
 const verifier = sessionStorage.getItem('schola-user');
 
-if (verifier) {
-    console.log('user is logged in')
-} else {
-    location.href = '../students/login.html';
-}
+// if (verifier) {
+//     console.log('user is logged in')
+// } else {
+//     location.href = '../students/login.html';
+// }
 
 // Get the data from the storage
 
@@ -27,7 +27,9 @@ firstname.innerHTML = `${data.student.firstname}`;
 lastname.innerHTML = `${data.student.lastname}`;
 admin_no.innerHTML = `${data.student.admin_no}`;
 gender.innerHTML = `${data.student.gender}`;
-registered_at.innerHTML = `${data.student.registered_at}`;
+// const crdate = data.student.created_at
+// const padate = crdate.split(" ")[0]
+registered_at.innerHTML = `${data.student.created_at}`;
 
 
 

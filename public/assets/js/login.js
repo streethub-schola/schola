@@ -11,6 +11,8 @@ form.addEventListener("submit", (e) => {
     password: `${form.password.value}`,
   };
 
+  console.log(userData);
+
   const configData = {
     method: "POST",
     mode: "no-cors",
@@ -29,7 +31,7 @@ function logStudent(studentObject){
   // fetch("https://schola.myf2.net/api/studentapi/studentlogin.php", studentObject)
 
   console.log("We are trying to call the student login API here")
-  fetch("http://localhost/api/studentapi/studentlogin.php", studentObject)
+  fetch("http://localhost/oluaka/schola/api/studentapi/studentlogin.php", studentObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -54,7 +56,7 @@ function logteacher(teacherObject){
   // fetch("https://schola.myf2.net/api/staffapi/stafflogin.php", teacherObject)
 
   console.log("We are trying to call the teachers login API here")
-  fetch("http://localhost/api/studentapi/studentlogin.php", teacherObject)
+  fetch("http://localhost/oluaka/schola/api/studentapi/studentlogin.php", teacherObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

@@ -3,7 +3,7 @@ const img = document.getElementById('std_img');
 const fullname = document.getElementById('std_name');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
-const email = document.getElementById('email');
+const admin_no = document.getElementById('admin_no');
 const gender = document.getElementById('gender');
 const registered_at = document.getElementById('registered_at');
 
@@ -25,7 +25,7 @@ const data = JSON.parse(verifier);
 fullname.innerHTML = `${data.student.firstname} ${data.student.lastname}`;
 firstname.innerHTML = `${data.student.firstname}`;
 lastname.innerHTML = `${data.student.lastname}`;
-email.innerHTML = `${data.student.email}`;
+admin_no.innerHTML = `${data.student.admin_no}`;
 gender.innerHTML = `${data.student.gender}`;
 registered_at.innerHTML = `${data.student.registered_at}`;
 

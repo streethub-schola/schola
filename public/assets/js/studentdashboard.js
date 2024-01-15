@@ -28,8 +28,6 @@ lastname.innerHTML = `${data.student.lastname.toUpperCase()}`;
 admin_no.innerHTML = `${data.student.admin_no}`;
 pgname.innerHTML = `${data.student.guardian_name}`;
 pgrel.innerHTML = `${data.student.guardian_rel}`;
-// const crdate = data.student.created_at
-// const padate = crdate.split(" ")[0]
 registered_at.innerHTML = `${data.student.created_at}`;
 
 

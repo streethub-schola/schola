@@ -1,4 +1,6 @@
 const logoutBtn = document.getElementById('logout');
+const logoutMobBtn = document.getElementById('logoutmob');
+
 //CHECK IF A SESSION IS EXISTING
 
 const vericheck = sessionStorage.getItem('schola-user');
@@ -10,7 +12,7 @@ const reusable_data = JSON.parse(vericheck)
 
 const userdata = {admin_no: reusable_data.student.admin_no}
 
-console.log(userdata)
+// console.log(userdata)
 
 
 const configData = {
@@ -19,24 +21,27 @@ const configData = {
     headers: {
       "Content-Type": "application/json",
     },
-    body: userdata
+    body: JSON.stringify(userdata)
   };
 
 
-logoutBtn.addEventListener('click', ()=> {
-    
-if (verifier){
+logoutBtn.addEventListener('click', logout)
+
+logoutMobBtn.addEventListener('click', logout)
+
+
+
+function logout(){
+  if (verifier){
     fetch('https://schola.skaetch.com/api/studentapi/studentlogout.php', configData)
     .then(res => res.json())
     .then(data => {
-        if (data.status == 'ok'){
+        if (data.status == 1){
             sessionStorage.removeItem('schola-user');
             location.href = '../students/login.html'
-        }else {
-         console.log(data.message)
-       }
+        }
     })
-    .catch(err => console.log(err))
+    .catch(err => alert("There is an issue with your network. Please try again"))
     
 }
-})
+}

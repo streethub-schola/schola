@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Receipt</title>
+    <link
+      rel="stylesheet"
+      href="./styles/styles.css
+    "
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="m-auto p-2 w-3/4 lg:w-60 border-2 shadow-lg rounded-lg my-2">
+            <header class="w-full flex justify-between">
+                <h2 class="mt-7 text-2xl font-bold">RECEIPT</h2>
+                <div class="img w-10 border border-blue-300">
+                <img src="./images/brlogo.jpeg" alt="" class="w-full">
+              </div>
+            </header>
+            <div class="compDetails mt-neg">
+            <div class="brand uppercase">
+                <a href="../index.html">Schola</a>
+              </div>
+              <p>Address:</p>
+                <p>+2348023456789</p>
+                <p>www.schola.com</p>
+            </div>
+            <hr>
+
+            <div class="billdetails flex justify-between my-5">
+                <div class="paiduserDetails">
+                    <p class="paidUserName uppercase font-bold">Judith Chinenye</p>
+                    <P class="text-sm">Class: <span class="stdclass">SS3</span></P>
+                    <p class="text-sm">1st Term</p>
+                    <p class="paidUserNo text-sm">0804567890</p>
+                    <p class="paidStuMai text-sm">student@gmail.com</p>
+                </div>
+
+                <div class="receiptDetails font-bold">
+                    <p>Receipt No:  <span class="rcptNo font-light pl-4">0014678</span></p>
+                    <p>Receipt Date: <span class="rcptDate font-light pl-2">12/4/2023</span></p>
+                    <p>Payment Due: <span class="recptPymntDue font-light px-2">12/4/2023</span></p>
+                    <p>Amount Due: <span class="amtDue font-light pl-3">&#8358;737865</span></p>
+                </div>
+            </div>
+
+            <div class="table w-full my-2">
+                <table class="table-auto min-w-full leading-tight
+                ">
+                  <thead class="">
+                    <tr class="border-b-2 border-t-2 text-sm text-semibold" >
+                        <th class="p-2 text-left bg-blue-200">QTY</th>
+                        <th class="text-left bg-blue-200">DESCRIPTION</th>
+                        <th class="p-2 text-left bg-blue-200 whitespace-nowrap">UNIT PRICE</th>
+                        <th class="p-2 text-left bg-blue-200">AMOUNT</th>
+                    </tr>
+                  </thead>
+                  <tbody class="border-b-2 text-sm">
+                    <tr>
+                      <td class="p-2 text-left">1</td>
+                      <td class="text-left">School Fees jbhvjh,cg,jh hv hvhhcfPrimary</td>
+                      <td class="p-2 text-left">35,000</td>
+                      <td class="p-2 text-left">35,000</td>
+                    </tr>
+
+                    <tr >
+                      <td class="p-2 text-left">3</td>
+                      <td class="text-left">Exercise Books R/B line Pri</td>
+                      <td class="p-2 text-left">500</td>
+                      <td class="p-2 text-left">1500</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                  <div class="grid">
+                    <div class="border-b-2 flex justify-end">
+                        <p class="w-24 lg:w-36 lg:-mx-6">Subtotal </p>
+                        <p class="subtotalamt mr w-4 font-bold lg:w-36 lg:px-6">36500</p>
+                    </div>
+                    <div class="border-b-2 whitespace-nowrap flex justify-end">
+                        <p class="w-24 lg:w-36 lg:-mx-6">Paid <span class="pymmode text-xs font-bold">BT</span></p>
+                        <p class="paid font-bold mr w-4 lg:w-36 lg:px-6">36500</p>
+                      </div>
+                    <div class="border-b-2 flex justify-end">
+                        <p class="w-24 lg:w-36 lg:-mx-6">Bal. Due </p>
+                        <p class="baldue font-bold mr w-4 lg:w-36 lg:px-6">360000</p>
+                    </div>
+                  </div>
+
+                
+             </div>
+
+
+        </div>
+    </div>
+</body>
+<<<<<<< HEAD
+=======
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Receipt</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #receipt {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="receipt">
+  <h2>School Receipt</h2>
+
+  <label for="studentName">Student Name:
+  <input type="text" id="studentName" placeholder="Enter student name"></label>
+
+  <label for="courseFee">Course Fee:</label>
+  <input type="number" id="courseFee" placeholder="Enter course fee">
+
+  <label for="booksCost">Books Cost:</label>
+  <input type="number" id="booksCost" placeholder="Enter books cost">
+
+  <label for="uniformCost">Uniform Cost:</label>
+  <input type="number" id="uniformCost" placeholder="Enter uniform cost">
+
+  <button onclick="generateReceipt()">Generate Receipt</button>
+
+  <h3>Receipt Details</h3>
+  <p id="output"></p>
+
+  <div>Choose a browser from this list:</div>
+<input list="browsers" />
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Internet Explorer">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+</div>
+
+<script>
+  function generateReceipt() {
+    // Get input values
+    var studentName = document.getElementById('studentName').value;
+    var courseFee = parseFloat(document.getElementById('courseFee').value) || 0;
+    var booksCost = parseFloat(document.getElementById('booksCost').value) || 0;
+    var uniformCost = parseFloat(document.getElementById('uniformCost').value) || 0;
+
+    // Calculate total cost
+    var totalCost = courseFee + booksCost + uniformCost;
+
+    // Display receipt details
+    var receiptDetails = `
+      Student Name: ${studentName}
+      <br>
+      Course Fee: $${courseFee.toFixed(2)}
+      <br>
+      Books Cost: $${booksCost.toFixed(2)}
+      <br>
+      Uniform Cost: $${uniformCost.toFixed(2)}
+      <br>
+      <strong>Total Cost: $${totalCost.toFixed(2)}</strong>
+    `;
+
+    document.getElementById('output').innerHTML = receiptDetails;
+  }
+</script>
+
+</body>
+>>>>>>> bafa541c9e7036cae393cf882e066dfbfb1b39c7
+</html>

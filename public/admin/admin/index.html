@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Schola Project!</title>
+
+    <script src="../../js/nav.js" defer></script>
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="/public/index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+          <ul
+            class="md:flex justify-end text-right hidden"
+            id="navbar"
+          >
+            <!-- <li><a href="../staff.html" class="uppercase">staff</a></li>
+            <li><a href="#" class="uppercase">students</a></li> -->
+            <li><a href="profile.html" class="uppercase  hover:bg-blue-300 p-2">My profile</a></li>
+            <li><a href="../../index.html" class="uppercase hover:bg-blue-300 p-2">Logout</a></li>
+            <!-- <li><a href="#" class="uppercase">to mark</a></li>
+            <li><a href="#" class="uppercase">marked</a></li> -->
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8"
+          aria-label="mobile-menu"
+        >
+          <a
+            href="../staff.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >staff</a
+          >
+          <a
+            href="profile.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >My Profile</a
+          >
+          <a
+            href="tests.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >test</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to mark</a
+          >
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >to marked</a
+          >
+        </nav>
+      </section>
+
+      <div class="grid md:grid-cols-3 gap-2 pt-4 w-3/4 m-auto">
+        <div class="card">
+<<<<<<< HEAD
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              teachers
+            </h6>
+          </div>
+          <div class="p-6 text-center">
+            <i class="fa fa-person-chalkboard text-5xl text-slate-400"></i>
+            
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../../admin/students/teachers.html">View all teachers</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              students
+            </h6>
+          </div>
+          <div class="p-6 text-center">
+            <i class="fa fa-chalkboard-user text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../../admin/students/students.html">View all students</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              classes
+            </h6>
+          </div>
+          <div class="p-6 text-center">
+            <i class="fa fa-chalkboard text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all classes</a>
+            </p>
+          </div>
+=======
+          <a href="../../admin/students/teachers.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                teachers
+              </h6>
+            </div>
+            <div class="p-6 text-center">
+              <i class="fa fa-person-chalkboard text-5xl text-slate-400"></i>
+              
+            </div>
+            <div class="border-t-2 p-2 border-gray-300">
+              <p class="text-slate-400 text-sm font-sans px-3">
+                <a href="../../admin/students/teachers.html">View all teachers</a>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="../../admin/students/students.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                students
+              </h6>
+            </div>
+            <div class="p-6 text-center">
+              <i class="fa fa-chalkboard-user text-5xl text-slate-400"></i>
+            </div>
+            <div class="border-t-2 p-2 border-gray-300">
+              <p class="text-slate-400 text-sm font-sans px-3">
+                <a href="../../admin/students/students.html">View all students</a>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="../../admin/students/classes.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                classes
+              </h6>
+          </div>
+            <div class="p-6 text-center">
+              <i class="fa fa-chalkboard text-5xl text-slate-400"></i>
+            </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../../admin/students/classes.html">View all classes</a>
+            </p>
+          </div>
+        </a>
+>>>>>>> 801088631bb5cfbdf9d45370f78ff8cf8c819275
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              tests
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-square-root-variable text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../assignments.html">View all tests</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              statistics
+            </h6>
+          </div>
+          <div class="p-6 text-center">
+            <i class="fa fa-chart-pie text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all statistics</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              settings
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-sliders text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all settings</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              profile
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-id-card text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all profiles</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              Logout
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-right-from-bracket text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">Terminate session</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

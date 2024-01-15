@@ -32,7 +32,7 @@ function logStudent(studentObject){
 
   console.log("We are trying to call the student login API here")
   // fetch("http://localhost/api/studentapi/studentlogin.php", studentObject)
-  fetch("http://localhost/schola-2/api/studentapi/studentlogin.php", studentObject)
+  fetch("https://schola-2.myf2.net/api/studentapi/studentlogin.php", studentObject)
     .then(res => res.json())
     .then(data => {
       console.log(data);

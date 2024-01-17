@@ -1,3 +1,11 @@
+const showPassword = document.getElementById('showPassword');
+
+console.log
+
+showPassword.addEventListener('change', ()=>{
+    showPassword.previousElementSibling.type = 'password' ? showPassword.previousElementSibling.type = 'text' : showPassword.previousElementSibling.type = 'password';
+})
+
 // const form = document.querySelector('#form');
 
 // form.addEventListener('submit', (e)=> {

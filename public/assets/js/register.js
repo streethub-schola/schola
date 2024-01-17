@@ -115,37 +115,38 @@ SubmitFormBtn.addEventListener("click", (event)=>{
   }
 })
 
-guardian_AddressCheck.addEventListener("click", function () {
-  if (guardian_AddressCheck.checked) {
-    let G_Address = document.getElementById("G-Address");
-    let address_Of_Student = document.getElementById("addressOfStudent");
-    G_Address.value = address_Of_Student.value;
-    // alert("Adress has been autofiled");
-  } else if (address_Of_Student.value == 0) {
-    alert("Cannot autofil empty Address");
-    event.preventDefault();
-  } else {
-    alert("address removed");
-    let address_Of_Student = document.getElementById("addressOfStudent");
-    let G_Address = document.getElementById("G-Address");
-    G_Address.value = " ";
-    console.log(address_Of_Student.value);
-    // console.log(guardian_AddressCheck.unchecked);
-  }
-});
-
-console.log(guardian_AddressCheck);
-if (guardian_AddressCheck.checked) {
-  let G_Address = document.getElementById("G-Address");
-  let address_Of_Student = document.getElementById("addressOfStudent");
-  G_Address.value = address_Of_Student.value;
-  // alert("Adress has been autofiled");
-}
+// guardian_AddressCheck.addEventListener("click", function () {
+//   if (guardian_AddressCheck.checked) {
+//     let G_Address = document.getElementById("G-Address");
+//     let address_Of_Student = document.getElementById("addressOfStudent");
+//     G_Address.value = address_Of_Student.value;
+//     // alert("Adress has been autofiled");
+//   } else if (address_Of_Student.value == 0) {
+//     alert("Cannot autofil empty Address");
+//     event.preventDefault();
+//   } else {
+//     alert("address removed");
+//     let address_Of_Student = document.getElementById("addressOfStudent");
+//     let G_Address = document.getElementById("G-Address");
+//     G_Address.value = " ";
+//     console.log(address_Of_Student.value);
+//     // console.log(guardian_AddressCheck.unchecked);
+//   }
+// });
+ 
+// console.log(guardian_AddressCheck);
+// if (guardian_AddressCheck.checked) {
+//   let G_Address = document.getElementById("G-Address");
+//   let address_Of_Student = document.getElementById("addressOfStudent");
+//   G_Address.value = address_Of_Student.value;
+//   // alert("Adress has been autofiled");
+// }
 // else if (address_Of_Student.value == 0) {
 //   alert("Cannot autofil empty Address");
 //   event.preventDefault()
 // }
 
+var imageSRC = document.getElementById("StudentImg")
 // Function for uploading student's image
 function Showpreview(event) {
   if (event.target.files.length > 0) {
@@ -154,7 +155,9 @@ function Showpreview(event) {
         let student_Avatar = document.getElementById("student-avatar");
     preview.src = src;
     preview.style.display = "block"
-    student_Avatar.style.display = "none"
+    // student_Avatar.style.display = "none";
+    // student_Avatar.src = 
+    console.log(preview)
   }
 }
 
@@ -199,3 +202,5 @@ function confirmPasscodeHide() {
     confirm_Hide_passcode.style.display = "block";
   }
 }
+
+console.log(preview)

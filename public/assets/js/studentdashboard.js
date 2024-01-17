@@ -29,8 +29,3 @@ admin_no.innerHTML = `${data.student.admin_no}`;
 pgname.innerHTML = `${data.student.guardian_name}`;
 pgrel.innerHTML = `${data.student.guardian_rel}`;
 registered_at.innerHTML = `${data.student.created_at}`;
-
-
-
-
-

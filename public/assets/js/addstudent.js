@@ -24,4 +24,5 @@ form.addEventListener('submit', (e)=> {
     ${guardianAddress},
     ${studentPassword}
     `)
+    
 })

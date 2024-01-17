@@ -23,6 +23,14 @@ closer.addEventListener('click', () =>{
 form.addEventListener('submit', (e)=>{
     e.preventDefault()
 
+    const password = form.newPassword.value;
+    const confirmPassword = form.confirmPassword.value;
+    const msg = document.getElementById('message');
+
+
+
+    let message = " ";
+
     
 const userData = {
     admin_no: `${reusable_data.student.admin_no}`,
@@ -33,7 +41,7 @@ const userData = {
 
 
 const configData = {
-    method: "POST",
+    method: "PATCH",
     mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
@@ -41,13 +49,7 @@ const configData = {
     body: JSON.stringify(userData),
   };
 
-    const password = form.newPassword.value;
-    const confirmPassword = form.confirmPassword.value;
-    const msg = document.getElementById('message');
-
-
-
-    let message = " ";
+    
 
     if(confirmPassword == password) {
         fetch('https://schola.skaetch.com/api/studentapi/changepassword.php', configData)
@@ -70,10 +72,4 @@ const configData = {
     }
 
 })
-
-
-function changePassword(e) {
-    
-    
-}
 

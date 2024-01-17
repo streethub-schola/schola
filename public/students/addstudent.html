@@ -38,13 +38,13 @@
             <!-- Students'First Name Input -->
             <div class="StudentFName">
                 <label for="Student-F-Name">Student's First Name: <small id="fieldRequired">*</small> </label>
-                <input type="text" name="studentFName" id="Student-F-Name" placeholder="First Name e.g. Samuel">
+                <input type="text" name="studentFName" id="Student-F-Name" placeholder="  Samuel">
                 <small class="Validate-F-Name"></small>
             </div>
             <!-- Student's Last Name Input -->
             <div class="StudentLName">
                 <label for="Student-L-Name">Student's Last Name: <small id="fieldRequired">*</small></label>
-                <input type="text" name="studentLName" id="Student-L-Name" placeholder="Last Name. e.g. Chidiebere">
+                <input type="text" name="studentLName" id="Student-L-Name" placeholder=" Chidiebere">
                 <small class="Validate-L-Name"></small>
             </div>
             <!-- Student's Age Input -->
@@ -94,12 +94,12 @@
                 <label for="G-Address">Guardian Address: </label>
                 <input type="text" name="guardianAddress" id="G-Address" placeholder="Adress e.g. Plot 12 Lekki Street">
                 <div>
-                    <img src="../../images/student image avatar.jpg" alt="" id="student-avatar">
+                    <img src="" alt="" id="student-avatar">
                     <!-- <i class="fa-solid fa-user-large" id="user-imgUpload"></i> -->
                 </div>
                 <!-- Student's Image Input -->
                 <div class="ImageStudentField">
-                    <label for="file-ip-1">Upload Image<small id="fieldRequired"></small> </label>
+                    <label for="file-ip-1">Preview Image<small id="fieldRequired"></small> </label>
                     <input type="file" name="" id="file-ip-1" placeholder="Image of Student" class="StudentImg" accept="Image/*"
                         onchange="Showpreview(event)">
                 </div>
@@ -107,14 +107,14 @@
             <!-- Taecher's Password Input -->
             <div class="PasswordInput">
                 <label for="TeachersPasword">Set Password: <small id="fieldRequired">*</small></label>
-                <input type="password" name="password" id="TeachersPasword">
+                <input type="password" name="password" id="TeachersPasword" placeholder="Create a password">
                 <i class="fa-solid fa-eye" id="showPassword"></i>
                 <i class="fa-solid fa-eye-slash" id="HidePassword"></i>
                 <small class="ValidatePassword"></small>
             </div>
             <div class="PasswordInput">
                 <label for="password-Confirm">Confirm Password <small id="fieldRequired">*</small></label>
-                <input type="password" name="" id="password-Confirm">
+                <input type="password" name="" id="password-Confirm" placeholder="Retype password">
                 <i class="fa-solid fa-eye" id="showPasswordConfirm" onclick="confirmPasscodeHide()"></i>
                 <i class="fa-solid fa-eye-slash" id="HidePasswordConfirm"  onclick="confirmpasscodeShow()"></i>
                 <small class="ValidateNewPassword"></small>
@@ -132,10 +132,10 @@
 
     <!------------------ Font Awesome JS Link  -->
     <script src="https://kit.fontawesome.com/9b5c4c6b23.js" crossorigin="anonymous"></script>
-    <script src="../../js/edit.js"></script>
+    <!-- <script src="../../js/edit.js"></script> -->
 
     <!-- Custom JS Link -->
-    <!-- <script src="../../js/register.js "></script> -->
+    <script src="../../public/assets/js/register.js"></script>
 </body>
 
 </html>

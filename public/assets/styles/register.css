@@ -15,6 +15,7 @@
     --gray-primary-NoTransparent: rgb(89, 88, 88);
     --blue-primary-main: #220fca;
     --semi-red: #e26482;
+    --main-red: #ff0000;
     --dark-graySolid: rgb(210, 210, 210);
 }
 
@@ -55,7 +56,8 @@ body {
 }
 
 .parent small {
-    color: var(--semi-red);
+    color: var(--main-red);
+    font-size: 15px;
 }
 .parentStudentProfile p, .s-details{
     font-size: 20px;

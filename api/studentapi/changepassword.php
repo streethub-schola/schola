@@ -51,7 +51,7 @@ if (empty($data->new_password) || $data->new_password == null || $data->new_pass
 
 // set properies of student to be edited
 $student->admin_no = cleanData($data->admin_no);
-$student->password = cleanData($data->password);
+$student->password = $data->password;
 $data->new_password = cleanData($data->new_password);
 $student->updated_at = date("d-m-Y H:s:ia");
 
@@ -61,7 +61,7 @@ $searchCol = "admin_no";
 $searchDesc = "Admission Number";
 
 // Get the student whose details are to be updated 
-$student_stmt = $student->studentLogin($student->admin_no, $searchCol);
+$student_stmt = $student->studentLogin();
 
 // Catch db error
 if (is_string($student_stmt)) {
@@ -75,6 +75,10 @@ if (is_string($student_stmt)) {
 }
 
 $student_to_update = $student_stmt->fetch(PDO::FETCH_ASSOC);
+
+http_response_code(404);
+echo json_encode(array("message" => $student_to_update, "status" => 500));
+return;
 
 if (!$student_to_update) {
     // set response code - 200 ok

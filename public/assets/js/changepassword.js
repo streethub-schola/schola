@@ -34,10 +34,9 @@ form.addEventListener('submit', (e)=>{
     
 const userData = {
     admin_no: `${reusable_data.student.admin_no}`,
-    password: `${form.oldPassword}`,
-    new_password: `${form.newPassword}`
+    password: `${form.oldPassword.value}`,
+    new_password: `${form.newPassword.value}`
 }
-
 
 
 const configData = {

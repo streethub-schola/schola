@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./styles/styles.css
+    "
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="../styles/styles.css">
+
+    <title>Schola Project!</title>
+
+    <script src="./js/nav.js" defer></script>
+    <script src="../js/nav.js" defer></script>
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+          <ul class="md:flex justify-end text-right hidden" id="navbar">
+            <li><a href="./index.html" class="uppercase mx-4">home</a></li>
+            <li><a href="#" class="uppercase">Logout</a></li>
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8 md:hidden"
+          aria-label="mobile-menu"
+        >
+        <a href="./index.html" class="w-full text-center py-6 hover:bg-blue-500 uppercase">
+            Home
+        </a>
+          <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >Logout</a
+          >
+        </nav>
+      </section>
+
+      <main class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-slate-300 md:p-4 p-2">
+        <div>
+          <!-- something is wrong -->
+          <h4 class="text-center">Edit Profile Page</h4>
+            <form action="" method="post">
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Admission No" class="mr-2 md:w-[6%] w-[20%]">Ad No</label>
+              <input type="text" placeholder="Non Editable Admission No from DB" readonly name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Full Name" class="mr-2 w-[20%] md:w-[6%]">Full Name</label>
+              <input type="text" placeholder="Full name fetched from DB" readonly name="fullName" id="Full Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Class" class="mr-2 md:w-[6%] w-[20%]">Class</label>
+              <input type="text" placeholder="Non Editable Class from DB" readonly name="studentAdNo" id="Admission No" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
+              <input type="text" readonly placeholder="Non Editable Class from DB" name="studentAdNo" id="Date of Birth" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Address" class="mr-2 md:w-[6%] w-[20%]">Address</label>
+              <input type="text" readonly placeholder="Non Editable Address Line from the DB" name="Full Address" id="Address" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="w-full text-center m-2 mt-8">
+                <h4>Parents or Guardian Details</h4>
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Name" class="mr-2 md:w-[6%] w-[20%]">Guardian Name</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Name from the DB" name="Parents or Guardian's Name" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
+              <input type="text" readonly placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+
+            </form>
+        </div>
+
+      </main>
+
+ 
+      <script src="../../node_modules/tw-elements/dist/js/tw-elements.umd.min.js" type="text/javascript"></script>
+      <script src="../js/telements.js" type="module"></script>
+</body>
+</html>

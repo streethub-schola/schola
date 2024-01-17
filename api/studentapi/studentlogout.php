@@ -17,7 +17,7 @@ $student = new Student();
 $data = json_decode(file_get_contents("php://input"));
 
 // Check for valid ID
-if (empty($data->admin_no) || $data->admin_no == null || $data->admin_no == ''  || $data->admin_no == ' ' || empty($data->password) || $data->password == null || $data->password == '' || $data->password == ' ') {
+if (empty($data->admin_no) || $data->admin_no == null || $data->admin_no == ''  || $data->admin_no == ' ') {
     // set response code - 503 service unavailable
     http_response_code(401);
 

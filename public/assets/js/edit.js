@@ -1,15 +1,15 @@
-const form = document.querySelector('#form');
+// const form = document.querySelector('#form');
 
-form.addEventListener('submit', (e)=> {
-    e.preventDefault()
+// form.addEventListener('submit', (e)=> {
+//     e.preventDefault()
 
-    const formdata = new FormData(form);
+//     const formdata = new FormData(form);
 
-    // console.log(formdata)
+//     // console.log(formdata)
 
-    for (let [key, values] of formdata){
-        console.log(`${key} : ${values}`)
-    }
+//     for (let [key, values] of formdata){
+//         console.log(`${key} : ${values}`)
+//     }
 
     // console.log(formdata[4])
 
@@ -65,4 +65,4 @@ form.addEventListener('submit', (e)=> {
     //         }
     //     })
     //     .catch(error => error);
-})
+// })

@@ -457,8 +457,12 @@ class Student extends Database
     function verifyPass($user_pass, $db_pass)
     {
 
-        if (password_verify($user_pass, $db_pass)) return true;
+        if (password_verify($user_pass, $db_pass)){
+            return true;
+        }
+        else{
+            return false;
+        } 
 
-        return false;
     }
 }

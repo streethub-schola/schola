@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+/* ------------ Root Selectors -------------------------- */
+:root {
+    --green-primary: #0c5239;
+    --green-TransparentMain: #077b26f5;
+    --white-primaty-main: #fff;
+    --gray-Transparent: rgb(230, 230, 230);
+    --dark-primry: #090909;
+    --gray-primary-NoTransparent: rgb(89, 88, 88);
+    --blue-primary-main: #220fca;
+    --semi-red: #e26482;
+    --main-red: #ff0000;
+    --background_color: #eaf6f6;
+    --dark-graySolid: rgb(210, 210, 210);
+}
+body{
+    background: var(--background_color);
+}
+/* parentContainer */
+.parentContainer{
+    padding: 0 15px;
+}
+#logo{
+    width: 150px;
+    height: 150;
+}
+/* Styling for the first table date - Student's Personal data */
+.table1, .table2, .table3{
+    text-transform: uppercase;
+}
+.table1 th{
+    padding: 10px;
+    text-align: center;
+}
+.table1, tr, td {
+    border-collapse: collapse;
+    border: 1px solid var(--dark-primry);
+    padding: 10px;
+}
+
+.School-Info{
+    display: flex;
+    justify-content: space-evenly;
+}
+.leftContent{
+    display: flex;
+        justify-content: space-evenly;
+}
+.table2, tr, td{
+    border-collapse: collapse;
+        border: 1px solid var(--dark-primry);
+        padding: 10px;
+}
+.table3, th, td{
+    border-collapse: collapse;
+        border: 1px solid var(--dark-primry);
+        padding: 10px;
+}
+.table3{
+    margin: 10px 0;
+}
+/* Media Querry Secrion */
+/* For Smaller Screens */
+@media screen and (min-width: 0) and (max-width: 750px) {
+    .School-Info {
+            display: block;
+            text-align: center;
+        }
+                .leftContent {
+                    display:  block;
+                   margin: 40px 0;
+                }
+                .attendanceTable{
+                    margin: 20px 0;
+                }
+}

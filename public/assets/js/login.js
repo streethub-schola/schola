@@ -13,15 +13,6 @@ form.addEventListener("submit", (e) => {
 
   console.log(userData);
 
-  const configData = {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  };
-
   url.includes('teacher') ? logteacher(configData) : logStudent(configData);
 
 });

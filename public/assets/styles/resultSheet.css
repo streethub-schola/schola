@@ -25,6 +25,7 @@ body{
 /* parentContainer */
 .parentContainer{
     padding: 0 15px;
+    margin: 15px;
 }
 #logo{
     width: 150px;
@@ -47,6 +48,10 @@ body{
 .School-Info{
     display: flex;
     justify-content: space-evenly;
+    margin: 20px 0;
+}
+.school-Details{
+    margin-top: 25px;
 }
 .leftContent{
     display: flex;
@@ -65,6 +70,55 @@ body{
 .table3{
     margin: 10px 0;
 }
+/* Academic Table */
+.academicDetails{
+    margin: 25px;
+}
+.performanceHeading{
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 20px 0;
+    text-decoration: underline;
+}
+.termSheetHeading{
+    margin: 10px 25px;
+}
+.Academic_PerformanceTable, tr, th, td{
+    border-collapse: collapse;
+        border: 1px solid var(--dark-primry);
+        padding: 10px;
+}
+.legend, .rating{
+    text-align: center;
+}
+.legend div, .rating div{
+    margin: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* Skills Development */
+.Skills{
+    margin: 50px 5px;
+}
+.Skills h3{
+    margin: 10px 25px;
+}
+.skillsContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+.PersonalDevTable, tr, th, td, .SocilaDevTable, tr, th, td, .RespTable, tr, th, td, .psychomotorTable, tr, th, td{
+    border-collapse: collapse;
+        border: 1px solid var(--dark-primry);
+        padding: 10px;
+}
+.ConclusionComments h3{
+    text-align: center;
+    margin: 20px 0;
+}
+.ConclusionComments div{
+    margin: 15px 5px;
+}
 /* Media Querry Secrion */
 /* For Smaller Screens */
 @media screen and (min-width: 0) and (max-width: 750px) {
@@ -79,4 +133,32 @@ body{
                 .attendanceTable{
                     margin: 20px 0;
                 }
+                /* Academic Table */
+                                .mainAcademicTable {
+                                    overflow-x: scroll;
+                                }
+                /* Skills Development */
+                .skillsContainer{
+                    display: grid;
+                    grid-template-columns: 1 auto;
+                }
+                .skillsContainer div{
+                    margin: 15px 0;
+                }
+}
+
+/* For iPads */
+@media screen and (min-width:768px ) and (max-width: 820px) {
+    /* Academic Table */
+        .mainAcademicTable {
+            overflow-x: scroll;
+        }
+    .skillsContainer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        .skillsContainer div {
+            margin: 15px 10px;
+        }
 }

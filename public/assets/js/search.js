@@ -8,7 +8,7 @@ content.addEventListener("input", (e) => {
     e.preventDefault();
 
     if(content.value.length == 0 && count == 1){
-    	//alert("input is empty");
+    	console.log("input is empty");
             count = 0;
             location.reload();
            

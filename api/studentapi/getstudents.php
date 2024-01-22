@@ -17,18 +17,23 @@ $student = new Student();
 // query students
 $stmt = $student->getStudents();
 
+ http_response_code(200);
+ echo json_encode("mixed");
+ return;
+
 // check if more than 0 record found
-if (is_string($stmt)){
-    // set response code - 200 OK
-    http_response_code(400);
+// if (is_string($stmt)){
+//     // set response code - 200 OK
+//     http_response_code(400);
 
-    // show students data in json format
-    echo json_encode(array("message" => $stmt));
+//     // show students data in json format
+//     echo json_encode(array("message" => $stmt));
 
-    return;
+//     return;
 
-}
-elseif($stmt){
+// }
+// else
+if($stmt){
 
   
     // students array

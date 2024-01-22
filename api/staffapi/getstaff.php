@@ -19,7 +19,7 @@ $staff_id = $_GET['staff_id'] ?? null;
 $staff_no = $_GET['staff_no'] ?? null;
 
 
-if ((empty($staff_id) || $staff_id == null || !is_numeric($staff_id) || $staff_id=='' || $staff_id==' ') && (empty($staff_no) || $staff_no == null || $staff_no=='' || $staff_no==' ')) {
+if ((empty($staff_id) || $staff_id == null || !is_numeric($staff_id) || $staff_id == '' || $staff_id == ' ') && (empty($staff_no) || $staff_no == null || $staff_no == '' || $staff_no == ' ')) {
     // No valid staff id provided
 
     // set response code - 404 Not found
@@ -27,7 +27,7 @@ if ((empty($staff_id) || $staff_id == null || !is_numeric($staff_id) || $staff_i
 
     // tell the staff no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid staff ID or staff number")
+        array("message" => "Plaese provide a valid staff ID or staff number", "status"=>55)
     );
 
     return;
@@ -45,17 +45,15 @@ $stmt = $staff->getstaff();
 // $num = $stmt->rowCount();
 
 // check if more than 0 record found
-if (is_string($stmt)){
+if (is_string($stmt)) {
     // set response code - 200 OK
     http_response_code(400);
 
     // show staffs data in json format
-    echo json_encode(array("message" => $stmt));
+    echo json_encode(array("message" => $stmt, "status"=>44));
 
     return;
-
-}
-elseif($stmt) {
+} elseif ($stmt) {
 
     // staffs array
     $staffs_arr = array();
@@ -71,6 +69,7 @@ elseif($stmt) {
         extract($row);
 
         $staff_item = array(
+
             "staff_id" => $staff_id,
             "staff_no" => $staff_no,
             "firstname" => $firstname,
@@ -100,19 +99,18 @@ elseif($stmt) {
 
         array_push($staffs_arr["records"], $staff_item);
     }
-    //  print_r(count($staffs_arr['records']));
-    //   return;
+
     if (count($staffs_arr['records']) == 0) {
+
         // set response code - 200 OK
         http_response_code(200);
 
-        if($staff_id != null){
-        // show staffs data in json format
-        echo json_encode(array("message" => "No staff found with this ID."));
-        }
-        elseif($staff_admin_no != null){
-        // show staffs data in json format
-        echo json_encode(array("message" => "No staff found with this Admission Number."));
+        if ($staff_id != null) {
+            // show staffs data in json format
+            echo json_encode(array("message" => "No staff found with this ID.", "status"=>0));
+        } elseif ($staff_admin_no != null) {
+            // show staffs data in json format
+            echo json_encode(array("message" => "No staff found with this Admission Number.", "status"=>0));
         }
 
         return;
@@ -122,7 +120,8 @@ elseif($stmt) {
     http_response_code(200);
 
     // show staffs data in json format
-    echo json_encode($staffs_arr);
+    echo json_encode(array("message"=>$staffs_arr, "status"=>1));
+
 } else {
     // no staffs found will be here
 
@@ -130,7 +129,6 @@ elseif($stmt) {
     http_response_code(404);
 
     // tell the staff no products found
-    echo json_encode(
-        array("message" => "Something went wrong. Not able to fetch staff.")
-    );
+    echo json_encode(array("message" => "Something went wrong. Not able to fetch staff.", "status"=>22));
+
 }

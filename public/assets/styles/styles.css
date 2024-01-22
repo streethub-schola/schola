@@ -690,6 +690,11 @@ video {
   margin-right: 1.25rem;
 }
 
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -931,6 +936,18 @@ video {
   width: 100%;
 }
 
+.w-\[50\%\] {
+  width: 50%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
+.w-\[0\%\] {
+  width: 0%;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1033,6 +1050,10 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -1225,6 +1246,10 @@ video {
   padding: 0.25rem;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -1243,6 +1268,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-1 {
@@ -1652,6 +1681,21 @@ video {
   padding-right: 0.5rem;
 }
 
+.file\:mx-4::file-selector-button {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.file\:mx-8::file-selector-button {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.file\:mx-12::file-selector-button {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
 .file\:mr-4::file-selector-button {
   margin-right: 1rem;
 }
@@ -1667,6 +1711,11 @@ video {
 
 .file\:border-none::file-selector-button {
   border-style: none;
+}
+
+.file\:border-blue-200::file-selector-button {
+  --tw-border-opacity: 1;
+  border-color: rgb(191 219 254 / var(--tw-border-opacity));
 }
 
 .file\:bg-blue-200::file-selector-button {
@@ -1754,10 +1803,6 @@ video {
   display: block;
 }
 
-.peer\/tab-one:checked ~ .peer-checked\/tab-one\:block {
-  display: block;
-}
-
 .peer\/tab-three:checked ~ .peer-checked\/tab-three\:block {
   display: block;
 }
@@ -1767,11 +1812,6 @@ video {
 }
 
 .peer\/tab-four:checked ~ .peer-checked\/tab-four\:bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
-}
-
-.peer\/tab-one:checked ~ .peer-checked\/tab-one\:bg-blue-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
@@ -1895,6 +1935,10 @@ video {
     margin-right: 1rem;
   }
 
+  .md\:mr-8 {
+    margin-right: 2rem;
+  }
+
   .md\:mt-5 {
     margin-top: 1.25rem;
   }
@@ -1923,12 +1967,32 @@ video {
     width: 60%;
   }
 
+  .md\:w-\[30\%\] {
+    width: 30%;
+  }
+
+  .md\:w-\[40\%\] {
+    width: 40%;
+  }
+
   .md\:w-\[50\%\] {
     width: 50%;
   }
 
   .md\:w-\[6\%\] {
     width: 6%;
+  }
+
+  .md\:w-\[8\%\] {
+    width: 8%;
+  }
+
+  .md\:w-\[80\%\] {
+    width: 80%;
+  }
+
+  .md\:w-\[83\%\] {
+    width: 83%;
   }
 
   .md\:w-\[90\%\] {

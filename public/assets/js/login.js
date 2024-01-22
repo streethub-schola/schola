@@ -13,7 +13,7 @@ form.addEventListener("submit", (e) => {
 
   console.log(userData);
 
-  url.includes('teacher') ? logteacher(configData) : logStudent(configData);
+  url.includes('teacher') ? logteacher(userData) : logStudent(userData);
 
 });
 
@@ -59,7 +59,7 @@ function logteacher(teacherObject){
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
         // location.href = "./admin/students/view_student.html";
-        location.href = "../../admin/students/view.html";
+        location.href = "../../teachers/index.html";
       }
       else {
         alert(data.message);

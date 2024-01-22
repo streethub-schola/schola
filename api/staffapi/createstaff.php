@@ -59,8 +59,8 @@ if (
     // create the staff
     $newstaff = $staff->createStaff();
 
-    var_dump($newstaff);
-    return;
+    // var_dump($newstaff);
+    // return;
 
     if (is_string($newstaff)) {
         // set response code - 200 ok

@@ -27,7 +27,7 @@ searchController.addEventListener("click", (e) => {
   if (content.value == "" || content.value == " ") {
     alert("Please enter a valid student firstname");
   } else {
-    console.log(content.value);
+    // console.log(content.value);
 
     const searchData = {
       searchstring: content.value,

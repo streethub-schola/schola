@@ -20,7 +20,7 @@
     
     <script src="../assets/js/nav.js" defer type="text/javascript"></script>
     <script src="../assets/js/viewstudents.js" defer></script>
-    <script src="../../js/search.js" defer></script>
+    <script src="../assets/js/search.js" defer type="text/javascript"></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -34,7 +34,7 @@
           <ul class="md:flex justify-between text-right hidden" id="navbar">
             <li><a href="../admin/index.html" class="uppercase hover:bg-blue-400 md:p-2 md:mx-2">Home</a></li>
             <li>
-              <a href="../../login.html" class="uppercase hover:bg-blue-400 md:p-2 md:mx-2">Logout</a>
+              <a href="" class="uppercase hover:bg-blue-400 md:p-2 md:mx-2">Logout</a>
             </li>
           </ul>
           <button
@@ -74,7 +74,7 @@
       <!-- MAIN SECTION -->
 
       <div class="flex flex-row md:w-11/12 mx-2 items-center md:justify-between">
-        <input type="text" name="searchBox" id="searchBox" placeholder="Search strings" class="w-[80%] p-2 rounded-md">
+        <input type="text" name="searchBox" id="searchBox" placeholder="Enter Student's Firstname" class="w-[80%] p-2 rounded-md">
         <button type="submit" class="bg-green-300 border rounded-md p-2 mx-2" id="searchNow">search</button>
         <a href="addstudent.html" class="bg-blue-200 border rounded-md p-2 my-2 md:text-md text-xs hover:bg-blue-400">Add Student</a>
       </div>
@@ -104,7 +104,7 @@
                   </tr>
                 </thead>
                 <tbody id="showStudents">
-                  
+               
                 </tbody>
               </table>
             </div>
@@ -112,5 +112,7 @@
         </div>
       </div>
     </div>
+
+    
   </body>
 </html>

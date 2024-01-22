@@ -1,0 +1,138 @@
+<!-- MOVE THIS PAGE TO THE ADMIN FOLDER -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="stylesheet" href="../assets/styles/student.css">
+
+
+    <title>Schola Project!</title>
+
+
+    <script src="../assets/js/edit.js" defer></script>
+    <script src="../assets/js/nav.js" defer></script>
+
+  </head>
+  <body>
+    <div class="w-full bg-slate-100 min-h-screen">
+      <section
+        class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
+      >
+        <div class="brand uppercase">
+          <a href="index.html">Schola</a>
+        </div>
+        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+          <ul class="md:flex justify-end text-right hidden" id="navbar">
+            <li><a href="./index.html" class="uppercase mx-4">home</a></li>
+            <li><a href="../login.html" class="uppercase">Logout</a></li>
+          </ul>
+          <button
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
+            id="nav_toggle"
+          >
+            &#9776;
+          </button>
+        </nav>
+      </section>
+      <section
+        id="mobile-menu"
+        class="absolute hidden top-0 w-full flex-col justify-center bg-blue-300"
+      >
+        <button
+          class="outline-none border-none absolute top-0 right-0 text-4xl self-end px-6"
+        >
+          &times;
+        </button>
+        <nav
+          class="flex flex-col min-h-screen items-center py-8 md:hidden"
+          aria-label="mobile-menu"
+        >
+        <a href="./index.html" class="w-full text-center py-6 hover:bg-blue-500 uppercase">
+            Home
+        </a>
+          <a
+            href="../index.html"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            >Logout</a
+          >
+        </nav>
+      </section>
+
+      <main class="w-11/12 mx-auto mt-2 rounded-md shadow-md bg-blue-100 md:p-4 p-2">
+        <div>
+          <!-- something is wrong -->
+          <h4 class="text-center">Add/Edit Profile Page</h4>
+            <form action="" method="post">
+             
+              <div class="form_element flex-col flex md:flex-row items-center text-sm my-2">
+                <div class="flex w-full pr-2">
+                  <label for="Full Name" class="mr-2 w-[20%] md:mr-8 md:w-[8%]">First Name</label>
+                  <input required type="text" placeholder="Full name fetched from DB"  name="firstName" id="First Name" class="w-[80%] md:w-[80%] md:mx-4 rounded-md p-2">
+                </div>
+               <div class="w-full flex my-2">
+                <label for="Full Name" class="mr-2 w-[20%] md:w-[8%]">Last Name</label>
+                <input required type="text" placeholder="Full name fetched from DB"  name="lastName" id="Last Name" class="w-[80%] md:w-[83%] md:mx-4  rounded-md p-2">
+               </div>
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
+              <input required type="date" placeholder="Non Editable Class from DB" name="studentDoB" id="Date of Birth" class="w-[30%] md:w-[30%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex-col w-fit flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class=" mr-2 md:w-[6%] w-[20%]">Passport</label>
+              <input required type="file" placeholder="Non Editable Parents or Guardian Email from the DB" name="studentPassport" id="studentPassport" class="file:bg-blue-200 file:mx-4 file:border-blue-200 file:rounded-md file:p-2 md:w-[40%]  w-full md:mx-4 rounded-md p-2">
+              <div class="p-8">
+                <input type="button" id="preview" value="preview" class="mx-1 border bg-blue-200 p-2 rounded-md cursor-pointer">
+              </div>
+              <div class="preview">
+                <img src="https://placehold.co/160" alt="" class="rounded-lg" id="img_upload">
+              </div>
+              </div>
+              <!-- <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="About Me" class="mr-2 md:w-[6%] w-[20%]">About Me</label>
+              <textarea name="aboutMe" id="About Me" cols="30" rows="10" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2"></textarea>
+              </div> -->
+              <div class="w-full text-center m-2 mt-8">
+                <h4>Parents or Guardian Details</h4>
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Name" class="mr-2 md:w-[6%] w-[20%]">Guardian Name</label>
+              <input required type="text" placeholder="Non Editable Parents or Guardian Name from the DB" name="PGName" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <!-- <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
+              <input type="text" placeholder="Non Editable Parents or Guardian Phone Number from the DB" name="guardianPhone" id="Guardian Phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div> -->
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Email</label>
+              <input required type="text" placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Relationship</label>
+              <input required type="text" placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianRel" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Address</label>
+              <input required type="text" placeholder="Non Editable Parents or Guardian Address from the DB" name="guardianAddress" id="Guardian Name" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row justify-end text-sm my-2">
+              <input required type="submit" name="update" value="Update Records" class="md:mx-4 bg-blue-300 rounded-md p-2">
+              </div>
+              
+
+
+            </form>
+        </div>
+
+      </main>
+
+ 
+</body>
+</html>

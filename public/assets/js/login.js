@@ -11,20 +11,9 @@ form.addEventListener("submit", (e) => {
     password: `${form.password.value}`,
   };
 
-<<<<<<< HEAD
-  const configData = {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  };
-=======
   console.log(userData);
->>>>>>> 9223e890b5424388c1417d82bc10f14a066d12c7
 
-  url.includes('teacher') ? logteacher(configData) : logStudent(configData);
+  url.includes('teacher') ? logteacher(userData) : logStudent(userData);
 
 });
 
@@ -66,7 +55,8 @@ function logteacher(teacherObject){
         // Save logged in user info to session storage so you can access them in other pages
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
-        location.href = "../../admin/students/view.html";
+        // location.href = "./admin/students/view_student.html";
+        location.href = "../../teachers/index.html";
       }
       else {
         alert(data.message);

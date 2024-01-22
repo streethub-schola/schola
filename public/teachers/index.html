@@ -7,10 +7,16 @@
       rel="stylesheet"
       href="../assets/styles/styles.css"
     />
+    <!-- <link rel="stylesheet" href="../../admin/students/styles/styles.css"> -->
+    <link rel="stylesheet" href="../assets/styles/student.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Schola Project!</title>
 
     <script src="../assets/js/nav.js" defer></script>
+          <script src="../assets/js/studentlogout.js" defer></script>
+          
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -20,14 +26,10 @@
         <div class="brand uppercase">
           <a href="index.html">Schola</a>
         </div>
-        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+        <nav class="mx-2 md:pt-1" aria-label="main-menu">
           <ul class="md:flex justify-between text-right hidden" id="navbar">
-            <li><a href="#" class="uppercase">staff</a></li>
-            <li><a href="#" class="uppercase">students</a></li>
-            <li><a href="#" class="uppercase">classes</a></li>
-            <li><a href="#" class="uppercase">tests</a></li>
-            <li><a href="#" class="uppercase">to mark</a></li>
-            <li><a href="#" class="uppercase">marked</a></li>
+            <li><a href="./changepassword.html" class="uppercase mx-2">Change Password</a></li>
+            <li><a href="#" id="logout" class="uppercase">Logout</a></li>
           </ul>
           <button
             class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
@@ -51,11 +53,18 @@
           aria-label="mobile-menu"
         >
           <a
-            href="staff.html"
+            href="./changepassword.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >staff</a
+            id="logoutmob"
+            >Change Password</a
           >
           <a
+            href="#"
+            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
+            id="logoutmob"
+            >Logout</a
+          >
+          <!-- <a
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >classes</a
@@ -74,20 +83,20 @@
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >to marked</a
-          >
+          > -->
         </nav>
       </section>
       <main class="md:grid md:grid-cols-3 mx-5 w-full mt-5">
         <aside class="my-5 col-span-1 flex flex-col items-center">
           <h3>Profile Edit Section</h3>
-          <img
+          <img 
             src="../assets/images/woman_avatar.jpg"
             alt=""
             class="rounded-full w-36"
-          />
-          <h2 class="text-center font-semibold">Brenda Vashti</h2>
+            id="std_img"/>
+          <h2 id="std_name" class="text-center font-semibold">Brenda Vashti</h2>
 
-          <div class="flex gap-3">
+          <!-- <div class="flex gap-3">
             <button class="bg-blue-200 border-none px-2 py-1 rounded-md">
               Edit
             </button>
@@ -97,7 +106,7 @@
               id=""
               class="file:bg-blue-200 file:border-none file:px-2 file:py-2 file:rounded-md file:mr-4"
             />
-          </div>
+          </div> -->
         </aside>
         <div class="col-span-2 text-center md:mt-5">
           <h2>Dashboard / Profile</h2>
@@ -106,29 +115,33 @@
           >
             <tr>
               <td class="px-3 border border-gray-400 font-bold">First Name:</td>
-              <td class="px-3 border border-gray-400">Kachi</td>
+              <td id="firstname" class="px-3 border border-gray-400"></td>
             </tr>
             <tr>
               <td class="px-3 border border-gray-400 font-bold">Last Name</td>
-              <td class="px-3 border border-gray-400">Godwin</td>
+              <td id="lastname" class="px-3 border border-gray-400"></td>
             </tr>
             <tr>
-              <td class="px-3 border border-gray-400 font-bold">Email</td>
-              <td class="px-3 border border-gray-400">kachi@email.com</td>
+              <td class="px-3 border border-gray-400 font-bold">Admission Number</td>
+              <td id="admin_no" class="px-3 border border-gray-400"></td>
             </tr>
             <tr>
-              <td class="px-3 border border-gray-400 font-bold">Gender</td>
-              <td class="px-3 border border-gray-400">Male</td>
+              <td class="px-3 border border-gray-400 font-bold">Guardian's Name</td>
+              <td id="pgname" class="px-3 border border-gray-400"></td>
+            </tr>
+            <tr>
+              <td class="px-3 border border-gray-400 font-bold">Guardian Relationship</td>
+              <td id="pgrel" class="px-3 border border-gray-400"></td>
             </tr>
             <tr>
               <td class="px-3 border border-gray-400 font-bold">Rank</td>
-              <td class="px-3 border border-gray-400">Admin</td>
+              <td class="px-3 border border-gray-400">Class Teacher</td>
             </tr>
             <tr>
               <td class="px-3 border border-gray-400 font-bold">
-                Date Created
+                Date Registered
               </td>
-              <td class="px-3 border border-gray-400">10th August, 2023</td>
+              <td id="registered_at" class="px-3 border border-gray-400"></td>
             </tr>
           </table>
         </div>
@@ -140,10 +153,6 @@
         <!--  uses radio buttons -->
 <section class="flex flex-row flex-wrap m-8">
 
-  <input id="tab-one" type="radio" name="tabs" class="peer/tab-one opacity-0 absolute" checked />
-  <label for="tab-one" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-one:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
-    Basic Info
-  </label>
 
   <input id="tab-two" type="radio" name="tabs" class="peer/tab-two opacity-0 absolute" />
   <label for="tab-two" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-two:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
@@ -155,15 +164,14 @@
     Tests
   </label>
 
+  <input id="tab-four" type="radio" name="tabs" class="peer/tab-four opacity-0 absolute" />
+  <label for="tab-four" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-four:bg-blue-400 cursor-default p-2 mx-2 rounded-t-md block">
+    Result
+  </label>
+
   <div class="basis-full h-0"></div>
 
-  <div class="bg-slate-100 hidden peer-checked/tab-one:block p-4 w-full">
-    <!-- Table content -->
-    <h2>content of basic info not very clear yet</h2>
-
-    <!-- End of table content -->
-  </div>
-  <div class="bg-slate-100 hidden peer-checked/tab-two:block p-4 w-full">
+    <div class="bg-slate-100 hidden peer-checked/tab-two:block p-4 w-full">
     <!-- The first table content goes here -->
     <div class="flex flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -269,6 +277,83 @@
     <!-- End of tab content -->
   </div>
 
+  <div class="bg-slate-100 hidden peer-checked/tab-four:block p-4 w-full">
+    <!-- Tab contents goes here -->
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full text-left text-sm font-light">
+              <thead
+                class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
+              >
+                <tr>
+                  <th scope="col" class="px-6 py-4">#</th>
+                  <th scope="col" class="px-6 py-4">Student's Name</th>
+                  <th scope="col" class="px-6 py-4">Year</th>
+                  <th scope="col" class="px-6 py-4">Class</th>
+                  <th scope="col" class="px-6 py-4">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                >
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    1
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">Nkechinyere Edmund</td>
+                  <td class="whitespace-nowrap px-6 py-4">2023/2024</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    Basic 3
+                  </td>
+                  <td class="tbody_td_controller whitespace-nowrap px-6 py-4 font-medium" id="controller">
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-regular fa-eye text-lg text-blue-400"></i> View
+                    </a>
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-solid fa-trash text-lg text-blue-400"></i> View
+                    </a>
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-regular fa-pen-to-square text-lg text-blue-400"></i> View
+                    </a>
+                    </td>
+                </tr>
+                <tr
+                  class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
+                >
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    2
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">2023/2024</td>
+                  <td class="whitespace-nowrap px-6 py-4">First Term</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    Ms Rose
+                  </td>
+                  <td class="tbody_td_controller whitespace-nowrap px-6 py-4 font-medium" id="controller">
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-regular fa-eye text-lg text-blue-400"></i> View
+                    </a>
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-solid fa-trash text-lg text-blue-400"></i> View
+                    </a>
+                    <a href="view.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="View Record">
+                    <i class="fa-regular fa-pen-to-square text-lg text-blue-400"></i> View
+                    </a>
+                    </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of tab content -->
+  </div>
+
+  
+
 </section>
 
 
@@ -276,5 +361,6 @@
         </div>
       </section>
     </div>
+    <script src="../assets/js/studentdashboard.js"></script>
   </body>
 </html>

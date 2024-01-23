@@ -44,8 +44,7 @@ searchController.addEventListener("click", (e) => {
     };
 
     // fetch('http://localhost/api/studentapi/groupsearch.php', configData)
-    fetch(
-      "https://schola-2.myf2.net/api/studentapi/groupsearch.php",
+    fetch("https://schola-2.myf2.net/api/studentapi/groupsearch.php",
       configData
     )
       .then((res) => res.json())

@@ -11,7 +11,8 @@ form.addEventListener("submit", (e) => {
     password: `${form.password.value}`,
   };
 
-  const configData = {
+
+ const configData = {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -20,7 +21,10 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(userData),
   };
 
-  url.includes('teacher') ? logteacher(configData) : logStudent(configData);
+  console.log(userData);
+
+
+  url.includes('teacher') ? logteacher(userData) : logStudent(userData);
 
 });
 
@@ -62,7 +66,8 @@ function logteacher(teacherObject){
         // Save logged in user info to session storage so you can access them in other pages
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
-        location.href = "../../admin/students/view.html";
+        // location.href = "./admin/students/view_student.html";
+        location.href = "../../teachers/index.html";
       }
       else {
         alert(data.message);

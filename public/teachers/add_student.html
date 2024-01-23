@@ -15,7 +15,7 @@
     <title>Schola Project!</title>
 
 
-    <script src="../assets/js/edit.js" defer></script>
+    <script src="../assets/js/addstudent.js" defer></script>
     <script src="../assets/js/nav.js" defer></script>
 
   </head>
@@ -30,7 +30,7 @@
         <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
           <ul class="md:flex justify-end text-right hidden" id="navbar">
             <li><a href="./index.html" class="uppercase mx-4">home</a></li>
-            <li><a href="../login.html" class="uppercase">Logout</a></li>
+            <li><a href="#" id="logout" class="uppercase">Logout</a></li>
           </ul>
           <button
             class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
@@ -57,7 +57,7 @@
             Home
         </a>
           <a
-            href="../index.html"
+            href="#" id="logoutmob"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >Logout</a
           >
@@ -84,14 +84,17 @@
                 <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
               <input required type="date" placeholder="Non Editable Class from DB" name="studentDoB" id="Date of Birth" class="w-[30%] md:w-[30%] md:mx-4 rounded-md p-2">
               </div>
-              <div class="form_element flex-col w-fit flex md:flex-row items-center text-sm my-2">
-                <label for="Guardian Phone Number" class=" mr-2 md:w-[6%] w-[20%]">Passport</label>
-              <input required type="file" placeholder="Non Editable Parents or Guardian Email from the DB" name="studentPassport" id="studentPassport" class="file:bg-blue-200 file:mx-4 file:border-blue-200 file:rounded-md file:p-2 md:w-[40%]  w-full md:mx-4 rounded-md p-2">
-              <div class="p-8">
-                <input type="button" id="preview" value="preview" class="mx-1 border bg-blue-200 p-2 rounded-md cursor-pointer">
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="class" class="mr-2 md:w-[6%] w-[20%]">Class to be admitted to</label>
+                <select name="class" id="class" class="w-[30%] md:w-[30%] md:mx-4 rounded-md p-2">
+                  <option value="primary">Primary</option>
+                </select>
               </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class=" mr-2 md:w-[6%] w-[20%]">Passport</label>
+              <input required type="file" name="studentPassport" id="studentPassport" class="file:bg-blue-200 file:border-blue-200 file:rounded-md file:p-2 md:w-[70%]  w-full md:mx-4 rounded-md p-2" accept=".jpg, .png" onchange="loadPreview(event)">
               <div class="preview">
-                <img src="https://placehold.co/160" alt="" class="rounded-lg" id="img_upload">
+                <img src="" alt="" class="rounded-lg max-h-16 max-w-16" id="img_upload">
               </div>
               </div>
               <!-- <div class="form_element flex md:flex-row items-center text-sm my-2">
@@ -111,12 +114,16 @@
               </div> -->
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Email</label>
-              <input required type="text" placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="If your guardian has an email, please supply it here" name="guardianEmail" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Relationship</label>
-              <input required type="text" placeholder="Non Editable Parents or Guardian Email from the DB" name="guardianRel" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input required type="text" placeholder="What is the relationship with your guardian" name="guardianRel" id="Guardian Email" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              </div>
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Phone</label>
+              <input required type="text" placeholder="Parents or Guardian Phone " name="guardianPhone" id="Guardian Phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="Guardian Phone Number" class="mr-2 md:w-[6%] w-[20%]">Guardian's Address</label>

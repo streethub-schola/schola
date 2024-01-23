@@ -1,76 +1,72 @@
-const showPassword = document.getElementById('showPassword');
+const form = document.querySelector('form');
+const preview = document.querySelector('#preview');
 
-console.log
+let img_preview, email;
+const formdata = new FormData(form);
 
-showPassword.addEventListener('change', ()=>{
-    showPassword.previousElementSibling.type = 'password' ? showPassword.previousElementSibling.type = 'text' : showPassword.previousElementSibling.type = 'password';
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    const guardian_email = form.guardianEmail.value;
+    console.log(guardian_email)
+    
+
+    if (guardian_email == ''){
+        email = null;
+    } else {
+        email = guardian_email;
+    }
+    
+
+    const newStudent = {
+        'firstname': form.firstName.value,
+        'lastname': form.lastName.value,
+        'dob': form.studentDoB.value,
+        'image': form.studentPassport.files[0].name,
+        'guardian_name': form.PGName.value,
+        'guardian_phone': form.guardianPhone.value,
+        'guardian_rel': form.guardianRel.value,
+        'guardian_address': form.guardianAddress.value,
+        'guardian_email': email
+    }
+
+    console.log(newStudent)
+
+    const configData = {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newStudent)
+    }
+
+    function addStudent(){
+        fetch("url")
+        .then(res => res.json())
+        .then(data => {
+            if (data.status == 1){
+                alert(data.message);
+            } 
+        })
+        .catch(err => alert(`${err}`))
+    }
+
+
+    // 
+    
 })
 
-// const form = document.querySelector('#form');
+function loadPreview(event) {
+    img_preview = URL.createObjectURL(event.target.files[0])
+    let img_view = document.getElementById('img_upload');
+    img_view.src = img_preview;
+    return img_preview;
+}
 
-// form.addEventListener('submit', (e)=> {
-//     e.preventDefault()
 
-//     const formdata = new FormData(form);
+function editStudent(){
+    
+}
 
-//     // console.log(formdata)
-
-//     for (let [key, values] of formdata){
-//         console.log(`${key} : ${values}`)
-//     }
-
-    // console.log(formdata[4])
-
-    // const firstName =form.studentFName.value; 
-    // const lastName =form.studentLName.value; 
-    // const studentDoB = form.studentDOB.value;
-    // // const stdAddress = form.studentAddress.value;
-    // const PGName = form.guardianName.value;
-    // const guardianPhone = form.guardianPhone.value;
-    // const guardianEmail = form.guardianEmail.value;
-    // const guardianAddress = form.guardianAddress.value;
-    // const password = form.password.value;
-
-    // console.log(`
-    // ${firstName}
-    // ${lastName}
-    // ${studentDoB}
-    // ${PGName}
-    // ${guardianPhone}
-    // ${guardianAddress}
-    // ${guardianEmail}
-    // ${password}
-    // `)
-
-    // const userData = {
-    //    firstname: `${firstName}`,
-    //    lastname: `${lastName}`,
-    //    dob: `${studentDoB}`,
-    //    guardian_name: `${PGName}`,
-    //    guardian_phone: `${guardianPhone}`,
-    //    guardian_email: `${guardianEmail}`,
-    //    guardian_address: `${guardianAddress}`,
-    //    password: `${password}`
-    // }
-
-    // const configData ={
-    //         method: 'POST',
-    //         mode: 'no-cors',
-    //         headers: {
-    //             'Content-Type':'application/json',
-    //             'Accept':'application/json'
-    //         },
-    //         body: JSON.stringify(formdata)
-    //     };
-
-    //     fetch('http://localhost/api/studentapi/createstudent.php', configData)
-    //     .then(res => {
-    //         // console.log('What have you done?')
-    //         if(res.status != 'ok'){
-    //             console.log(res.json())
-    //         }else {
-    //             console.log('student record created successfully')
-    //         }
-    //     })
-    //     .catch(error => error);
-// })

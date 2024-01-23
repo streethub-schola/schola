@@ -11,7 +11,6 @@ form.addEventListener("submit", (e) => {
     password: `${form.password.value}`,
   };
 
-<<<<<<< HEAD
   const configData = {
     method: "POST",
     mode: "no-cors",
@@ -20,9 +19,6 @@ form.addEventListener("submit", (e) => {
     },
     body: JSON.stringify(userData),
   };
-=======
-  console.log(userData);
->>>>>>> 9223e890b5424388c1417d82bc10f14a066d12c7
 
   url.includes('teacher') ? logteacher(configData) : logStudent(configData);
 

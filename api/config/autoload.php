@@ -10,6 +10,8 @@ include('xfunctions.php');
 include('../models/User.php');
 include('../models/Student.php');
 include('../models/Staff.php');
+include('../models/Classes.php');
+
 
 include('../models/Mail.php');
 

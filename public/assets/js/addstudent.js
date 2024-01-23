@@ -20,17 +20,17 @@ form.addEventListener('submit', (e)=>{
     
 
     const newStudent = {
-        'firstname': form.firstName.value,
-        'lastname': form.lastName.value,
-        'dob': form.studentDoB.value,
-        'image': form.studentPassport.files[0].name,
-        'guardian_name': form.PGName.value,
-        'guardian_phone': form.guardianPhone.value,
-        'guardian_rel': form.guardianRel.value,
-        'guardian_address': form.guardianAddress.value,
-        'guardian_email': email
-    }
-    
+        'firstname': `${form.firstName.value}`,
+        'lastname': `${form.lastName.value}`,
+        'dob': `${form.studentDoB.value}`,
+        'image': `${form.studentPassport.files[0].name}`,
+        'guardian_name': `${form.PGName.value}`,
+        'guardian_phone': `${form.guardianPhone.value}`,
+        'guardian_rel': `${form.guardianRel.value}`,
+        'guardian_address': `${form.guardianAddress.value}`,
+        'guardian_email': `${email}`,
+            'password':'explain'
+    }  
 
     console.log(newStudent)
 
@@ -42,11 +42,14 @@ form.addEventListener('submit', (e)=>{
         },
         body: JSON.stringify(newStudent)
     }
+    
+    addStudent()
 
     function addStudent(){
-        fetch("https://schola-2.myf2.net/api/studentapi/createstudent.php", configData)
+        fetch("https://schola.skaetch.com/api/studentapi/createstudent.php", configData)
         .then(res => res.json())
         .then(data => {
+                console.log(data);
             if (data.status == 1){
                 alert(data.message);
             } 

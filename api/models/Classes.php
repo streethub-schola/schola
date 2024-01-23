@@ -55,27 +55,18 @@ class Classes extends Database
         $stmt = $this->conn->prepare($query);
 
         // bind values
-        $stmt->bindParam(":class_name", );
-        $stmt->bindParam(":firstname", $this->firstname);
-        $stmt->bindParam(":lastname", $this->lastname);
+        $stmt->bindParam(":class_name", $this->class_name);
+        $stmt->bindParam(":class_level", $this->class_level);
+        $stmt->bindParam(":class_extension", $this->class_extension);
 
         try {
             // execute query
-            if ($stmt->execute()) {
-
-                $setId = $this->setLastStudentAdminNo($this->conn->lastInsertId());
-
-                if (is_string($setId)) {
-                    return $setId;
-                } elseif ($setId) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+            if ($stmt->execute()) return true;
+            return false;
         } catch (Exception $e) {
 
-            return $e->getMessage();
+            // return $e->getMessage();
+            return "Network issue, please try again";
         }
     }
 

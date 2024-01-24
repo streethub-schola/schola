@@ -29,6 +29,7 @@ form.addEventListener('submit', (e)=>{
     
 
     const newStudent = {
+
         'firstname': form.firstName.value,
         'lastname': form.lastName.value,
         'dob': form.studentDoB.value,
@@ -42,6 +43,7 @@ form.addEventListener('submit', (e)=>{
     }
     
 
+
     console.log(newStudent)
 
     const configData = {
@@ -52,12 +54,16 @@ form.addEventListener('submit', (e)=>{
         },
         body: JSON.stringify(newStudent)
     }
+    
+    addStudent()
+
 
     // function addStudent(){
         fetch("https://schola-2.myf2.net/api/studentapi/createstudent.php", configData)
         .then(res => res.json())
         .then(data => {
             console.log(data);
+
 
             if (data.status == 1){
                 alert("New student admitted successfully");

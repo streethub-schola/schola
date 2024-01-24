@@ -23,6 +23,7 @@ if (
     !empty($data->lastname) &&
     !empty($data->dob) &&
     !empty($data->image) &&
+    !empty($data->class) &&
     !empty($data->guardian_name) &&
     !empty($data->guardian_phone) &&
     !empty($data->guardian_address) &&
@@ -37,10 +38,13 @@ if (
     $student->lastname = cleanData($data->lastname);
     $student->dob = cleanData($data->dob);
     $student->image = cleanData($data->image);
+
+    $student->class = cleanData($data->class);
+
     $student->guardian_name = cleanData($data->guardian_name);
     $student->guardian_phone = cleanData($data->guardian_phone);
 
-    $guardian_email = $data->guardian_email ?? null;
+    $guardian_email = empty($data->guardian_email) ? null : $data->guardian_email;
 
     $student->guardian_email = cleanData($guardian_email);
 
@@ -94,20 +98,21 @@ if (
             $subject = "WELCOME TO SCHOLA";
 
             $message = "<h3>Dear $student->firstname,</h3>";
-            $message .= "<h3>Dear $student->firstname,</h3><p>We are so happy to annouce to you that you have passed all statutory requirement with flying colours and You have been offered admission into our noble school.</p><br>
-                             <p>Kindly visit our online website at https://schola-2.myf2.net/public.</p><br> 
-                             <p>Your login details arr below:</p><br>
-                               <p>Admission Number : $studentAdminNo</p><br>
-                             <p>Password : $data->password</p><br>
-                                <p>Warm Regards</p>
-                                <p>Schola Team</p>";
+            $message .= "<h3>Dear $student->firstname,</h3>";
+            $message .= "<p>We are so happy to annouce to you that you have passed all statutory requirement with flying colours and You have been offered admission into our noble school.</p><br>";
+            $message .=  "<p>Kindly visit our online website at https://schola-2.myf2.net/public.</p><br> ";
+            $message .= "<p>Your login details arr below:</p><br>";
+            $message .= "<p>Admission Number : $studentAdminNo</p><br>";
+            $message .= "<p>Password : $data->password</p><br>";
+            $message .=  ` <p>Warm Regards</p>
+                                <p>Schola Team</p>`;
 
             $header = "From:test@fuelalert.myf2.net \r\n";
            $header .= "Cc:iounachukwu@gmail.com \r\n";
             $header .= "MIME-Version: 1.0\r\n";
             $header .= "Content-type: text/html\r\n";
 
-            $mailSent = mail ($to,$subject,$message,$header);
+            $mailSent = mail($to,$subject,$message,$header);
 
         /*
         if( $mailSent == true ) {
@@ -126,7 +131,7 @@ if (
             "message" => "New student was created successfully",
             "newstudent" => $newStudentDetails,
             "newpassword" => $data->password,
-            "mailSent"=>$mailsent,
+            "mailSent"=>$mailSent,
             "status" => 1
         ));
         return;

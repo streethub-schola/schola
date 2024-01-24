@@ -12,6 +12,11 @@ populateClass();
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
 
+    if(form.class.value == ""){
+        alert("Please select a class to admit the student");
+        return;
+    }
+
     const guardian_email = form.guardianEmail.value;
     console.log(guardian_email)
     
@@ -28,6 +33,7 @@ form.addEventListener('submit', (e)=>{
         'lastname': form.lastName.value,
         'dob': form.studentDoB.value,
         'image': form.studentPassport.files[0].name,
+        'class': form.class.value,
         'guardian_name': form.PGName.value,
         'guardian_phone': form.guardianPhone.value,
         'guardian_rel': form.guardianRel.value,
@@ -47,16 +53,18 @@ form.addEventListener('submit', (e)=>{
         body: JSON.stringify(newStudent)
     }
 
-    function addStudent(){
+    // function addStudent(){
         fetch("https://schola-2.myf2.net/api/studentapi/createstudent.php", configData)
         .then(res => res.json())
         .then(data => {
+            console.log(data);
+
             if (data.status == 1){
-                alert(data);
+                alert("New student admitted successfully");
             } 
         })
-        .catch(err => alert(`${err}`))
-    }
+        .catch(err => console.log(`${err}`))
+    // }
 
     
     // 

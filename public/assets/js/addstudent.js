@@ -4,18 +4,6 @@ const preview = document.querySelector('#preview');
 let img_preview, email;
 const formdata = new FormData(form);
 
-<<<<<<< HEAD
-    const stdFName = form.studenFName.value;
-    const stdLName =form.studentLName.value;
-    const stdDoB = form.studentDOB.value;
-    const stdAddress = form.studentAddress.value;
-    const guardianName = form.guardianName.value;
-    const guardianPhone = form.guardianPhone.value;
-    const guardianEmail = form.guardianEmail.value;
-    const guardianAddress = form.guardianAddress.value;
-    const studentPassword = form.studentPassword.value;
-=======
->>>>>>> eb759d951c89a96e16ae73abe91d0e5f5b09cb04
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();

@@ -80,7 +80,7 @@ class Classes extends Database
                  class_name = :class_name,
                  class_level = :class_level,
                  class_extension = :class_extension,
-                 updated_at = :updated_at,
+                 updated_at = :updated_at
                  WHERE
                  class_id = :class_id";
 
@@ -91,10 +91,14 @@ class Classes extends Database
         $update_stmt->bindParam(':class_name', $this->class_name);
         $update_stmt->bindParam(':class_level', $this->class_level);
         $update_stmt->bindParam(':class_extension', $this->class_extension);
+        $update_stmt->bindParam(':updated_at', $this->updated_at);
+
         $update_stmt->bindParam(':class_id', $this->class_id);
 
         try {
-            if ($update_stmt->execute()) return true;
+            if ($update_stmt->execute()) {
+                return true;
+            }
 
             return false;
         } catch (Exception $e) {
@@ -108,7 +112,7 @@ class Classes extends Database
     }
 
     // delete a user
-    function deleteStudent()
+    function deleteClass()
     {
         // delete query
         $query = "DELETE FROM " . $this->table_name . " WHERE class_id = ?";

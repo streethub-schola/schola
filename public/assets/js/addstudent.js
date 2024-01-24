@@ -1,9 +1,13 @@
 const form = document.querySelector('form');
 const preview = document.querySelector('#preview');
+const selectclass = document.querySelector('#adclass');
+
 
 let img_preview, email;
 const formdata = new FormData(form);
 
+// call get all classes api
+populateClass();
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -77,3 +81,19 @@ function loadPreview(event) {
 }
 
 
+// Get populate class select input
+function populateClass(){
+
+    // Change to your own server api
+    // fetch('https://schola-2.myf2.net/api/classapi/getclasses.php')
+    fetch('http://localhost/oluaka/schola/api/classapi/getclasses.php')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+
+        data.forEach(claxx => {
+            selectclass.innerHTML += `<option value="${claxx.class_id}">${claxx.class_name} ${claxx.class_level} ${claxx.class_extension}</option>`
+        })
+        
+    })
+}

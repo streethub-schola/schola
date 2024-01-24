@@ -76,6 +76,7 @@ elseif($stmt) {
             "lastname" => $lastname,
             "dob" => $dob,
             "image" => $image,
+            "class" => $class,
             "guardian_name" => $guardian_name,
             "guardian_phone" => $guardian_phone,
             "guardian_email" => $guardian_email,

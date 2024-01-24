@@ -77,7 +77,7 @@ if (
         if ($guardian_email != null) {
             
 
-            // $studentAdminNo = $newStudentDetails['admin_no'];
+            $studentAdminNo = $newStudentDetails['admin_no'];
 
 
             // $mail->to = "oiunachukwu@gmail.com";  // $student->guardian_email;  //"oiunachukwu@gmail.com"; //This will be $student->email

@@ -51,7 +51,7 @@ form.addEventListener('submit', (e)=>{
         .then(data => {
                 console.log(data);
             if (data.status == 1){
-                alert(data.message);
+                alert(data);
             } 
         })
         .catch(err => alert(`${err}`))

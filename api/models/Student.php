@@ -122,14 +122,19 @@ class Student extends Database
             // execute query
             if ($stmt->execute()) {
 
-                $setId = $this->setLastStudentAdminNo($this->conn->lastInsertId());
+                $lastStudentId = $this->conn->lastInsertId();
+                $setId = $this->setLastStudentAdminNo($lastStudentId);
 
-                if (is_string($setId)) {
-                    return $setId;
-                } elseif ($setId) {
-                    return true;
-                } else {
+                if ($setId) {
+                    // return true;
+                    $this->student_id = $lastStudentId;
+
+                    return $this->getStudent();
+                } elseif (!$setId) {
                     return false;
+                }
+                else {
+                    return $setId;
                 }
             }
         } catch (Exception $e) {
@@ -465,4 +470,13 @@ class Student extends Database
         } 
 
     }
+
+
+      // Auto generate new user password
+      function genPass($pass)
+      {
+        $symbolsArray = ["!", "@", "#", "%", "&", "*"];
+        return $pass . $symbolsArray[rand(0,5)] . rand(1234, 9876);
+  
+      }
 }

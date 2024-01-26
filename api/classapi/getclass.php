@@ -14,10 +14,25 @@ $class = new Classes();
 // return;
 
 // read class id will be here
-$class_id = $_GET['class_id'] ?? null;
+$class_id = null;
+
+if (!empty($_GET['class_id'])) {
+    $class_id = $_GET['class_id'];
+}
+else{
 
 
-if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id=='' || $class_id==' ') && (empty($class_admin_no) || $class_admin_no == null || $class_admin_no=='' || $class_admin_no==' ')) {
+$data = json_decode(file_get_contents("php://input"));
+
+if (!empty($data->class_id)) {
+    $class_id = $data->class_id;
+}
+}
+
+
+
+
+if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id == '' || $class_id == ' ') && (empty($class_admin_no) || $class_admin_no == null || $class_admin_no == '' || $class_admin_no == ' ')) {
     // No valid class id provided
 
     // set response code - 404 Not found
@@ -42,7 +57,7 @@ $stmt = $class->getclass();
 // $num = $stmt->rowCount();
 
 // check if more than 0 record found
-if($stmt) {
+if ($stmt) {
 
     $result_class = $stmt->fetch(PDO::FETCH_ASSOC);
     //  print_r(count($classs_arr['records']));

@@ -1,12 +1,21 @@
 const form = document.querySelector('form');
 const preview = document.querySelector('#preview');
+const selectclass = document.querySelector('#adclass');
+
 
 let img_preview, email;
 const formdata = new FormData(form);
 
+// call get all classes api
+populateClass();
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
+
+    if(form.class.value == ""){
+        alert("Please select a class to admit the student");
+        return;
+    }
 
     const guardian_email = form.guardianEmail.value;
     console.log(guardian_email)
@@ -20,17 +29,20 @@ form.addEventListener('submit', (e)=>{
     
 
     const newStudent = {
-        'firstname': `${form.firstName.value}`,
-        'lastname': `${form.lastName.value}`,
-        'dob': `${form.studentDoB.value}`,
-        'image': `${form.studentPassport.files[0].name}`,
-        'guardian_name': `${form.PGName.value}`,
-        'guardian_phone': `${form.guardianPhone.value}`,
-        'guardian_rel': `${form.guardianRel.value}`,
-        'guardian_address': `${form.guardianAddress.value}`,
-        'guardian_email': `${email}`,
-            'password':'explain'
-    }  
+
+        'firstname': form.firstName.value,
+        'lastname': form.lastName.value,
+        'dob': form.studentDoB.value,
+        'image': form.studentPassport.files[0].name,
+        'class': form.class.value,
+        'guardian_name': form.PGName.value,
+        'guardian_phone': form.guardianPhone.value,
+        'guardian_rel': form.guardianRel.value,
+        'guardian_address': form.guardianAddress.value,
+        'guardian_email': email
+    }
+    
+
 
     console.log(newStudent)
 
@@ -45,17 +57,20 @@ form.addEventListener('submit', (e)=>{
     
     addStudent()
 
-    function addStudent(){
-        fetch("https://schola.skaetch.com/api/studentapi/createstudent.php", configData)
+
+    // function addStudent(){
+        fetch("https://schola-2.myf2.net/api/studentapi/createstudent.php", configData)
         .then(res => res.json())
         .then(data => {
-                console.log(data);
+            console.log(data);
+
+
             if (data.status == 1){
-                alert(data.message);
+                alert("New student admitted successfully");
             } 
         })
-        .catch(err => alert(`${err}`))
-    }
+        .catch(err => console.log(`${err}`))
+    // }
 
     
     // 
@@ -77,3 +92,19 @@ function loadPreview(event) {
 }
 
 
+// Get populate class select input
+function populateClass(){
+
+    // Change to your own server api
+    // fetch('https://schola-2.myf2.net/api/classapi/getclasses.php')
+    fetch('http://localhost/oluaka/schola/api/classapi/getclasses.php')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+
+        data.forEach(claxx => {
+            selectclass.innerHTML += `<option value="${claxx.class_id}">${claxx.class_name} ${claxx.class_level} ${claxx.class_extension}</option>`
+        })
+        
+    })
+}

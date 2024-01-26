@@ -15,6 +15,7 @@ class Student extends Database
     public $lastname;
     public $dob;
     public $image;
+    public $class;
     public $guardian_name;
     public $guardian_phone;
     public $guardian_email;
@@ -41,7 +42,7 @@ class Student extends Database
         if ($this->student_id != NULL) {
 
             // select query if student ID is provided
-            $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name . " WHERE student_id=" . $this->student_id;
+            $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name . " WHERE student_id=" . $this->student_id;
 
             // prepare query statement
             $stmt = $this->conn->prepare($query);
@@ -53,7 +54,7 @@ class Student extends Database
         } elseif ($this->admin_no != null) {
 
             // select query if student admin no is provided 
-            $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name . " WHERE admin_no=:admin_no";
+            $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name . " WHERE admin_no=:admin_no";
 
             // prepare query statement
             $stmt = $this->conn->prepare($query);
@@ -76,7 +77,7 @@ class Student extends Database
     function getStudents()
     {
         // select all query
-        $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name;
+        $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at  FROM " . $this->table_name;
 
 
         // prepare query statement
@@ -96,7 +97,7 @@ class Student extends Database
         $this->generateCode();
 
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (admin_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, password, user_code) VALUES (:admin_no, :firstname, :lastname, :dob, :image, :guardian_name, :guardian_phone, :guardian_email, :guardian_address, :guardian_rel, :password, :user_code) ";
+        $query = "INSERT INTO " . $this->table_name . " (admin_no, firstname, lastname, dob, image, class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, password, user_code) VALUES (:admin_no, :firstname, :lastname, :dob, :image, :class, :guardian_name, :guardian_phone, :guardian_email, :guardian_address, :guardian_rel, :password, :user_code) ";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -109,6 +110,7 @@ class Student extends Database
         $stmt->bindParam(":lastname", $this->lastname);
         $stmt->bindParam(":dob", $this->dob);
         $stmt->bindParam(":image", $this->image);
+        $stmt->bindParam(":class", $this->class);
         $stmt->bindParam(":guardian_name", $this->guardian_name);
         $stmt->bindParam(":guardian_phone", $this->guardian_phone);
         $stmt->bindParam(":guardian_email", $this->guardian_email);
@@ -122,14 +124,18 @@ class Student extends Database
             // execute query
             if ($stmt->execute()) {
 
-                $setId = $this->setLastStudentAdminNo($this->conn->lastInsertId());
+                $lastStudentId = $this->conn->lastInsertId();
+                $setId = $this->setLastStudentAdminNo($lastStudentId);
 
-                if (is_string($setId)) {
-                    return $setId;
-                } elseif ($setId) {
-                    return true;
-                } else {
+                if ($setId) {
+                    // return true;
+                    $this->student_id = $lastStudentId;
+
+                    return $this->getStudent();
+                } elseif (!$setId) {
                     return false;
+                } else {
+                    return $setId;
                 }
             }
         } catch (Exception $e) {
@@ -150,6 +156,8 @@ class Student extends Database
                     lastname = :lastname,
                     dob = :dob,
                     image = :image,
+                    image = :image,
+                    class = :class,
                     guardian_name = :guardian_name,
                     guardian_phone = :guardian_phone,
                     guardian_email = :guardian_email,
@@ -168,6 +176,7 @@ class Student extends Database
         $update_stmt->bindParam(':lastname', $this->lastname);
         $update_stmt->bindParam(':dob', $this->dob);
         $update_stmt->bindParam(':image', $this->image);
+        $update_stmt->bindParam(':class', $this->class);
         $update_stmt->bindParam(':guardian_name', $this->guardian_name);
         $update_stmt->bindParam(':guardian_phone', $this->guardian_phone);
         $update_stmt->bindParam(':guardian_email', $this->guardian_email);
@@ -213,7 +222,7 @@ class Student extends Database
     function searchStudent($searchstring, $col)
     {
         // select all query
-        $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE " . $col . "=:searchstring";
+        $query = "SELECT student_id, admin_no, firstname, lastname, dob, image, class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE " . $col . "=:searchstring";
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
@@ -231,35 +240,32 @@ class Student extends Database
     }
 
 
-     // search for a particular in a given column
-     function groupSearch($searchstring, $col)
-     {
+    // search for a particular in a given column
+    function groupSearch($searchstring, $col)
+    {
 
-         // select all query
-         $query = "SELECT student_id, admin_no, firstname, lastname, dob, 'image', guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
+        // select all query
+        $query = "SELECT student_id, admin_no, firstname, lastname, dob, 'image', class, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
 
         //  $query = "SELECT * FROM $this->table_name WHERE $col LIKE '%$searchstring%'";
 
-        
-         // prepare query statement
-         $update_stmt = $this->conn->prepare($query);
- 
+
+        // prepare query statement
+        $update_stmt = $this->conn->prepare($query);
+
         //  $update_stmt->bindParam(':searchstring', $searchstring);
- 
-         try {
 
-             // execute query
-             $update_stmt->execute();
+        try {
 
-             return $update_stmt;
+            // execute query
+            $update_stmt->execute();
 
-         } catch (Exception $e) {
+            return $update_stmt;
+        } catch (Exception $e) {
 
-             return $e->getMessage();
-
-         }
-
-     }
+            return $e->getMessage();
+        }
+    }
 
 
     // update the product
@@ -350,13 +356,13 @@ class Student extends Database
         }
     }
 
-    public function studentLogout(){
+    public function studentLogout()
+    {
 
         $this->generateCode();
 
-        if($this->generateSessionCode()) return true;
+        if ($this->generateSessionCode()) return true;
         return false;
-
     }
 
 
@@ -401,13 +407,10 @@ class Student extends Database
             if ($update_stmt->execute()) return true;
 
             return false;
-
         } catch (Exception $e) {
 
             return $e->getMessage();
-
         }
-     
     }
 
 
@@ -444,11 +447,9 @@ class Student extends Database
 
             if ($update_stmt->execute()) return true;
             return false;
-
         } catch (Exception $e) {
 
             return $e->getMessage();
-
         }
     }
 
@@ -457,12 +458,18 @@ class Student extends Database
     function verifyPass($user_pass, $db_pass)
     {
 
-        if (password_verify($user_pass, $db_pass)){
+        if (password_verify($user_pass, $db_pass)) {
             return true;
-        }
-        else{
+        } else {
             return false;
-        } 
+        }
+    }
 
+
+    // Auto generate new user password
+    function genPass($pass)
+    {
+        $symbolsArray = ["!", "@", "#", "%", "&", "*"];
+        return $pass . $symbolsArray[rand(0, 5)] . rand(1234, 9876);
     }
 }

@@ -17,9 +17,9 @@ $student = new Student();
 // query students
 $stmt = $student->getStudents();
 
- http_response_code(200);
- echo json_encode("mixed");
- return;
+//  http_response_code(200);
+//  echo json_encode("mixed");
+//  return;
 
 // check if more than 0 record found
 // if (is_string($stmt)){
@@ -55,6 +55,7 @@ if($stmt){
             "lastname" => $lastname,
             "dob" => $dob,
             "image" => $image,
+            "class" => $class,
             "guardian_name" => $guardian_name,
             "guardian_phone" => $guardian_phone,
             "guardian_email" => $guardian_email,

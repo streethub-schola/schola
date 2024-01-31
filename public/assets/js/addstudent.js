@@ -1,6 +1,12 @@
 const form = document.querySelector('form');
 const preview = document.querySelector('#preview');
 const selectclass = document.querySelector('#adclass');
+const url =document.URL
+
+
+url.includes('add') ? form.update.value = 'Register' : form.update.value = 'Update';
+
+
 
 
 let img_preview, email;

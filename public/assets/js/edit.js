@@ -42,19 +42,8 @@ form.addEventListener('submit', (e)=>{
         body: JSON.stringify(newStudent)
     }
 
-    function addStudent(){
-        fetch("url")
-        .then(res => res.json())
-        .then(data => {
-            if (data.status == 1){
-                alert(data.message);
-            } 
-        })
-        .catch(err => alert(`${err}`))
-    }
-
-
-    // 
+    fetch("url", configData)
+    
     
 })
 
@@ -66,7 +55,5 @@ function loadPreview(event) {
 }
 
 
-function editStudent(){
-    
-}
+
 

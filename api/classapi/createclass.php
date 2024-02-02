@@ -26,7 +26,7 @@ if (
     // Sanitize & set class property values
     $class->class_name = cleanData($data->class_name);
     $class->class_level = cleanData($data->class_level);
-    $class->class_extension = $data->class->class_extension ?? null;
+    $class->class_extension = $data->class_extension ?? null;
 
     // create the class
     $newclass = $class->createClass();

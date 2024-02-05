@@ -662,16 +662,16 @@ video {
   margin: 0.5rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .m-8 {
   margin: 2rem;
 }
 
 .m-auto {
   margin: auto;
-}
-
-.m-4 {
-  margin: 1rem;
 }
 
 .mx-1 {
@@ -874,10 +874,6 @@ video {
   width: 91.666667%;
 }
 
-.w-12 {
-  width: 3rem;
-}
-
 .w-24 {
   width: 6rem;
 }
@@ -910,16 +906,16 @@ video {
   width: 15rem;
 }
 
+.w-\[15\%\] {
+  width: 15%;
+}
+
 .w-\[20\%\] {
   width: 20%;
 }
 
 .w-\[30\%\] {
   width: 30%;
-}
-
-.w-\[50\%\] {
-  width: 50%;
 }
 
 .w-\[80\%\] {
@@ -1021,10 +1017,6 @@ video {
 
 .self-end {
   align-self: flex-end;
-}
-
-.self-center {
-  align-self: center;
 }
 
 .overflow-hidden {
@@ -1850,29 +1842,13 @@ video {
 }
 
 @media print {
-  .print\:m-auto {
-    margin: auto;
-  }
-
   .print\:mx-auto {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .print\:mt-4 {
-    margin-top: 1rem;
-  }
-
   .print\:max-h-\[400px\] {
     max-height: 400px;
-  }
-
-  .print\:max-h-\[500px\] {
-    max-height: 500px;
-  }
-
-  .print\:max-h-\[00px\] {
-    max-height: 00px;
   }
 
   .print\:w-\[95\%\] {
@@ -1890,10 +1866,6 @@ video {
   .print\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
-  .print\:pt-4 {
-    padding-top: 1rem;
   }
 
   .print\:pt-12 {
@@ -1957,10 +1929,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:m-auto {
-    margin: auto;
-  }
-
   .md\:mx-1 {
     margin-left: 0.25rem;
     margin-right: 0.25rem;
@@ -1985,20 +1953,12 @@ video {
     margin-right: 2rem;
   }
 
-  .md\:mt-5 {
-    margin-top: 1.25rem;
-  }
-
-  .md\:mt-20 {
-    margin-top: 5rem;
-  }
-
-  .md\:mt-28 {
-    margin-top: 7rem;
-  }
-
   .md\:mt-32 {
     margin-top: 8rem;
+  }
+
+  .md\:mt-5 {
+    margin-top: 1.25rem;
   }
 
   .md\:flex {
@@ -2023,6 +1983,10 @@ video {
 
   .md\:w-3\/5 {
     width: 60%;
+  }
+
+  .md\:w-\[20\%\] {
+    width: 20%;
   }
 
   .md\:w-\[30\%\] {
@@ -2057,10 +2021,6 @@ video {
     width: 90%;
   }
 
-  .md\:w-\[50\] {
-    width: 50;
-  }
-
   .md\:table-fixed {
     table-layout: fixed;
   }
@@ -2073,20 +2033,8 @@ video {
     flex-direction: row;
   }
 
-  .md\:items-center {
-    align-items: center;
-  }
-
-  .md\:justify-center {
-    justify-content: center;
-  }
-
   .md\:justify-between {
     justify-content: space-between;
-  }
-
-  .md\:self-center {
-    align-self: center;
   }
 
   .md\:p-2 {

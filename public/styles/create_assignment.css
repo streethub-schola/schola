@@ -26,6 +26,13 @@ body {
     margin: 15px 10px;
     padding: 10px 5px;
 }
+.intro{
+    margin: 20px;
+    text-align: justify;
+}
+.title{
+    font-size: 1.8rem;
+}
 .central{
     display: flex;
     justify-content: space-evenly;
@@ -77,6 +84,28 @@ small{
         cursor: pointer;
         transition: .5s ease-in-out;
 }
+#del{
+    display: none;
+ 
+}
+#deleteAssignment, #deleteAss{
+    position: relative;
+    bottom: 30px;
+    right: 390px;
+    background: var(--dark-graySolid);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 9px 0;
+    z-index: 100;
+}
+#deleteAssignment:hover{
+    background: var(--main-red);
+    cursor: pointer;
+    color: var(--white-primaty-main);
+    transition: .3s ease-in;
+}
 .addQuestions{
     text-align: center;
     margin: 20px 0;
@@ -87,14 +116,14 @@ small{
 .fa-right-to-bracket{
     margin: 0 5px;
 }
-#Add{
+#AddAss{
     padding: 7px 15px;
         border-radius: 4px;
         border: none;
         background: var(--green-primary);
         color: var(--white-primaty-main);
 }
-#Add:hover{
+#AddAss:hover{
     cursor: pointer;
 }
 #remove{
@@ -136,4 +165,11 @@ small{
             border: 2px solid var(--dark-graySolid);
             font-size: 17px;
         }
+                #deleteAssignment {
+                    position: relative;
+                    bottom: 50px;
+                    right: 290px;
+                    z-index: 100;
+                    /* display: none; */
+                }
 }

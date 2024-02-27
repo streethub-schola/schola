@@ -1,21 +1,22 @@
 <?php
 
-class Classes extends Database
+class Subject extends Database
 {
 
-    private $table_name = "classes";
+    private $table_name = "subjects";
 
-    public $class_id;
-    public $class_name;
+    public $subject_id;
+    public $subject_name;
+    public $subject_code;
     public $created_at;
     public $updated_at;
 
 
-    public function getClass()
+    public function getSubject()
     {
 
         // select query if student ID is provided
-        $query = "SELECT *  FROM " . $this->table_name . " WHERE class_id=" . $this->class_id;
+        $query = "SELECT *  FROM " . $this->table_name . " WHERE subject_id=" . $this->subject_id;
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -30,12 +31,15 @@ class Classes extends Database
     }
 
 
-    // Get all classes
-    public function getAllClasses()
+    // Get all subjectes
+    public function getAllSubjects()
     {
 
         // select query if student ID is provided
         $query = "SELECT *  FROM " . $this->table_name;
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -50,16 +54,17 @@ class Classes extends Database
     }
 
     // create user
-    function createClass()
+    function createSubject()
     {
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (class_name) VALUES (:class_name) ";
+        $query = "INSERT INTO " . $this->table_name . " (subject_name, subject_code) VALUES (:subject_name, :subject_code) ";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // bind values
-        $stmt->bindParam(":class_name", $this->class_name);
+        $stmt->bindParam(":subject_name", $this->subject_name);
+        $stmt->bindParam(":subject_code", $this->subject_code);
 
         try {
             $stmt->execute();
@@ -71,24 +76,28 @@ class Classes extends Database
 
 
     // update the student
-    function updateClass()
+    function updateSubject()
     {
+        $this->subject_code = strtoupper($this->subject_code);
         $this->updated_at = date("Y:m:d H:i:sa");
+
         // update query
         $query = "UPDATE " . $this->table_name . " SET
-                 class_name = :class_name,
+                 subject_name = :subject_name,
+                 subject_code = :subject_code,
                  updated_at = :updated_at
                  WHERE
-                 class_id = :class_id";
+                 subject_id = :subject_id";
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
 
         // bind new values
-        $update_stmt->bindParam(':class_name', $this->class_name);
+        $update_stmt->bindParam(':subject_name', $this->subject_name);
+        $update_stmt->bindParam(':subject_code', $this->subject_code);
         $update_stmt->bindParam(':updated_at', $this->updated_at);
 
-        $update_stmt->bindParam(':class_id', $this->class_id);
+        $update_stmt->bindParam(':subject_id', $this->subject_id);
 
         try {
             $update_stmt->execute();
@@ -99,41 +108,44 @@ class Classes extends Database
     }
 
     // delete a user
-    function deleteClass()
+    function deleteSubject()
     {
         // delete query
-        $query = "DELETE FROM " . $this->table_name . " WHERE class_id = ?";
+        $query = "DELETE FROM " . $this->table_name . " WHERE subject_id = ?";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
-        // bind class_id of record to delete
-        $stmt->bindParam(1, $this->class_id);
+        // bind subject_id of record to delete
+        $stmt->bindParam(1, $this->subject_id);
 
-        // execute query
         try {
+
             $stmt->execute();
             return array("output" => $stmt, "outputStatus" => 1000);
         } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+
+            return array("output" => $e->getMessage(), "outputStatus" => 1200);
+        }
     }
 
 
-    // search for a particular class(es) in a given column
-    function searchClass($searchstring, $col)
+    // search for a particular subject(s) in a given column
+    function searchSubject($searchstring, $col)
     {
 
         // select all query
-        $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%";
+        // $query = "SELECT * FROM " . $this->table_name . " WHERE '$col' LIKE '%$searchstring%'";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
 
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
 
         try {
-
+            // execute query
             $update_stmt->execute();
+
             return array("output" => $update_stmt, "outputStatus" => 1000);
         } catch (Exception $e) {
 

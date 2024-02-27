@@ -1,21 +1,21 @@
 <?php
 
-class Classes extends Database
+class Term extends Database
 {
 
-    private $table_name = "classes";
+    private $table_name = "terms";
 
-    public $class_id;
-    public $class_name;
+    public $term_id;
+    public $term_name;
     public $created_at;
     public $updated_at;
 
 
-    public function getClass()
+    public function getTerm()
     {
 
         // select query if student ID is provided
-        $query = "SELECT *  FROM " . $this->table_name . " WHERE class_id=" . $this->class_id;
+        $query = "SELECT *  FROM " . $this->table_name . " WHERE term_id=" . $this->term_id;
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -30,8 +30,8 @@ class Classes extends Database
     }
 
 
-    // Get all classes
-    public function getAllClasses()
+    // Get all termes
+    public function getAllTerms()
     {
 
         // select query if student ID is provided
@@ -50,16 +50,16 @@ class Classes extends Database
     }
 
     // create user
-    function createClass()
+    function createTerm()
     {
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (class_name) VALUES (:class_name) ";
+        $query = "INSERT INTO " . $this->table_name . " (term_name) VALUES (:term_name) ";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // bind values
-        $stmt->bindParam(":class_name", $this->class_name);
+        $stmt->bindParam(":term_name", $this->term_name);
 
         try {
             $stmt->execute();
@@ -71,24 +71,24 @@ class Classes extends Database
 
 
     // update the student
-    function updateClass()
+    function updateTerm()
     {
         $this->updated_at = date("Y:m:d H:i:sa");
         // update query
         $query = "UPDATE " . $this->table_name . " SET
-                 class_name = :class_name,
+                 term_name = :term_name,
                  updated_at = :updated_at
                  WHERE
-                 class_id = :class_id";
+                 term_id = :term_id";
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
 
         // bind new values
-        $update_stmt->bindParam(':class_name', $this->class_name);
+        $update_stmt->bindParam(':term_name', $this->term_name);
         $update_stmt->bindParam(':updated_at', $this->updated_at);
 
-        $update_stmt->bindParam(':class_id', $this->class_id);
+        $update_stmt->bindParam(':term_id', $this->term_id);
 
         try {
             $update_stmt->execute();
@@ -99,16 +99,16 @@ class Classes extends Database
     }
 
     // delete a user
-    function deleteClass()
+    function deleteTerm()
     {
         // delete query
-        $query = "DELETE FROM " . $this->table_name . " WHERE class_id = ?";
+        $query = "DELETE FROM " . $this->table_name . " WHERE term_id = ?";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
-        // bind class_id of record to delete
-        $stmt->bindParam(1, $this->class_id);
+        // bind term_id of record to delete
+        $stmt->bindParam(1, $this->term_id);
 
         // execute query
         try {
@@ -120,12 +120,12 @@ class Classes extends Database
     }
 
 
-    // search for a particular class(es) in a given column
-    function searchClass($searchstring, $col)
+    // search for a particular term(es) in a given column
+    function searchTerm($searchstring, $col)
     {
 
         // select all query
-        $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
 
 
         // prepare query statement

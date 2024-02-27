@@ -11,6 +11,10 @@ include('../models/User.php');
 include('../models/Student.php');
 include('../models/Staff.php');
 include('../models/Classes.php');
+include('../models/Subject.php');
+include('../models/Term.php');
+include('../models/Session.php');
+
 
 
 include('../models/Mail.php');

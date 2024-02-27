@@ -17,17 +17,6 @@ $data = json_decode(file_get_contents("php://input"));
 // return;
 
 // Check for valstudent_id student_id
-if (empty($data->student_id) && empty($data->admin_no)) {
-    // set response code - 503 service unavailable
-    http_response_code(403);
-
-    // tell the user
-    echo json_encode(array("message" => "Please provide a valid student_id or Admission Number", "status" => 2));
-
-    return;
-}
-
-// Check for valstudent_id student_id
 if ($data->student_id == null || $data->student_id == '' || !is_numeric($data->student_id)) {
     // set response code - 503 service unavailable
     http_response_code(403);
@@ -62,16 +51,16 @@ if ($student_stmt['outputStatus'] == 1000) {
 
     // If student with id exists
     // set student property values
-    $student->admin_no = (empty($data->admin_no)  || $data->admin_no == NULL || $data->admin_no == " ") ? $student_to_update['admin_no'] : cleanData($data->admin_no);
-    $student->firstname = (empty($data->firstname) || $data->firstname == NULL || $data->firstname == " ") ? $student_to_update['firstname'] : cleanData($data->firstname);
-    $student->lastname = (empty($data->lastname) || $data->lastname == NULL || $data->lastname == " ") ? $student_to_update['lastname'] : cleanData($data->lastname);
-    $student->dob = (empty($data->dob) || $data->dob == NULL || $data->dob == " ") ? $student_to_update['dob'] : cleanData($data->dob);
-    $student->image = (empty($data->image) || $data->image == NULL || $data->image == " ") ? $student_to_update['image'] : cleanData($data->image);
-    $student->guardian_name = (empty($data->guardian_name) || $data->guardian_name == NULL || $data->guardian_name == " ") ? $student_to_update['guardian_name'] : cleanData($data->guardian_name);
-    $student->guardian_phone = (empty($data->guardian_phone) || $data->guardian_phone == NULL || $data->guardian_phone == " ") ? $student_to_update['guardian_phone'] : cleanData($data->guardian_phone);
-    $student->guardian_email = (empty($data->guardian_email) || $data->guardian_email == NULL || $data->guardian_email == " ") ? $student_to_update['guardian_email'] : cleanData($data->guardian_email);
-    $student->guardian_address = (empty($data->guardian_address) || $data->guardian_address == NULL || $data->guardian_address == " ") ? $student_to_update['guardian_address'] : cleanData($data->guardian_address);
-    $student->guardian_rel = (empty($data->guardian_rel) || $data->guardian_rel == NULL || $data->guardian_rel == " ") ? $student_to_update['guardian_rel'] : cleanData($data->guardian_rel);
+    $student->admin_no = (empty($data->admin_no)  || $data->admin_no == NULL || $data->admin_no == "") ? $student_to_update['admin_no'] : cleanData($data->admin_no);
+    $student->firstname = (empty($data->firstname) || $data->firstname == NULL || $data->firstname == "") ? $student_to_update['firstname'] : cleanData($data->firstname);
+    $student->lastname = (empty($data->lastname) || $data->lastname == NULL || $data->lastname == "") ? $student_to_update['lastname'] : cleanData($data->lastname);
+    $student->dob = (empty($data->dob) || $data->dob == NULL || $data->dob == "") ? $student_to_update['dob'] : cleanData($data->dob);
+    $student->image = (empty($data->image) || $data->image == NULL || $data->image == "") ? $student_to_update['image'] : cleanData($data->image);
+    $student->guardian_name = (empty($data->guardian_name) || $data->guardian_name == NULL || $data->guardian_name == "") ? $student_to_update['guardian_name'] : cleanData($data->guardian_name);
+    $student->guardian_phone = (empty($data->guardian_phone) || $data->guardian_phone == NULL || $data->guardian_phone == "") ? $student_to_update['guardian_phone'] : cleanData($data->guardian_phone);
+    $student->guardian_email = (empty($data->guardian_email) || $data->guardian_email == NULL || $data->guardian_email == "") ? $student_to_update['guardian_email'] : cleanData($data->guardian_email);
+    $student->guardian_address = (empty($data->guardian_address) || $data->guardian_address == NULL || $data->guardian_address == "") ? $student_to_update['guardian_address'] : cleanData($data->guardian_address);
+    $student->guardian_rel = (empty($data->guardian_rel) || $data->guardian_rel == NULL || $data->guardian_rel == "") ? $student_to_update['guardian_rel'] : cleanData($data->guardian_rel);
     $student->setTimeNow();
 
 

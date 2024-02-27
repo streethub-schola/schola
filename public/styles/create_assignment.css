@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+/* Root selectors */
+:root {
+    --green-primary: #0c5239;
+    --green-TransparentMain: #077b26f5;
+    --white-primaty-main: #fff;
+    --gray-Transparent: rgb(230, 230, 230);
+    --dark-primry: #090909;
+    --gray-primary-NoTransparent: rgb(89, 88, 88);
+    --blue-primary-main: #220fca;
+    --semi-red: #e26482;
+    --main-red: #ff0000;
+    --background_color: #eaf6f6;
+    --dark-graySolid: rgb(210, 210, 210);
+}
+
+body {
+    background: var(--background_color);
+}
+.hero{
+    margin: 15px 10px;
+    padding: 10px 5px;
+}
+.intro{
+    margin: 20px;
+    text-align: justify;
+}
+.title{
+    font-size: 1.8rem;
+}
+.central{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.S-Name, .subjects, .class, .year, .term{
+    margin: 10px 0;
+}
+small{
+    font-size: 18px;
+        font-weight: bold;
+        margin: 2px 0;
+        color: var(--main-red);
+}
+#staff-name, #sub, #class, #terms{
+     height: 40px;
+      outline: none;
+      border-radius: 7px;
+      border: 2px solid var(--dark-graySolid);
+      padding: 10px;
+      margin: 5px;
+      text-align: center;
+      font-size: 18px;
+      background: var(--white-primaty-main);
+      color: var(--dark-primry);
+}
+#staff-name:hover, #sub:hover, #class:hover, #terms:hover{
+    border: 2px solid var(--semi-red);
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+#class, #terms{
+    padding: 5px 10px;
+}
+.textBox{
+    text-align: center;
+    margin: 10px 0;
+}
+#assignmentText{
+    width: 400px;
+    padding: 15px 24px;
+    outline: none;
+        border-radius: 7px;
+        border: 2px solid var(--dark-graySolid);
+        font-size: 17px;
+}
+#assignmentText:hover{
+    border: 2px solid var(--semi-red);
+        cursor: pointer;
+        transition: .5s ease-in-out;
+}
+#del{
+    display: none;
+ 
+}
+#deleteAssignment, #deleteAss{
+    position: relative;
+    bottom: 30px;
+    right: 390px;
+    background: var(--dark-graySolid);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 9px 0;
+    z-index: 100;
+}
+#deleteAssignment:hover{
+    background: var(--main-red);
+    cursor: pointer;
+    color: var(--white-primaty-main);
+    transition: .3s ease-in;
+}
+.addQuestions{
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.fa-right-to-bracket{
+    margin: 0 5px;
+}
+#AddAss{
+    padding: 7px 15px;
+        border-radius: 4px;
+        border: none;
+        background: var(--green-primary);
+        color: var(--white-primaty-main);
+}
+#AddAss:hover{
+    cursor: pointer;
+}
+#remove{
+    padding: 7px 15px;
+        border-radius: 4px;
+        border: none;
+        background: var(--main-red);
+        color: var(--white-primaty-main);
+}
+#remove:hover{
+    cursor: pointer;
+}
+#submitBtn{
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: none;
+    background: var(--semi-red);
+    color: var(--white-primaty-main);
+}
+#submitBtn:hover{
+    cursor: pointer;
+    background: var(--green-primary);
+    transition: .4s ease;
+}
+.sub{
+    text-align: center;
+    margin: 15px 0;
+}
+@media screen and (min-width: 0) and (max-width: 750px) {
+    .central {
+            display: flex;
+            flex-direction: column;
+        }
+    #assignmentText {
+            width: 300px;
+            padding: 15px 24px;
+            outline: none;
+            border-radius: 7px;
+            border: 2px solid var(--dark-graySolid);
+            font-size: 17px;
+        }
+                #deleteAssignment {
+                    position: relative;
+                    bottom: 50px;
+                    right: 290px;
+                    z-index: 100;
+                    /* display: none; */
+                }
+}

@@ -27,7 +27,7 @@ function displayStudents(studentList){
         <td class="px-4">${serialNo++}</td>
         <td class="tbody_td">${items.admin_no}</td>
         <td class="tbody_td">${items.firstname} ${items.lastname}</td>
-        <td class="tbody_td">${items.usercode}</td>
+        <td class="tbody_td">${items.class}</td>
         <td class="tbody_td_controller" id="controller">
         <a href="edit_student.html?studentId=${items.admin_no}" data-te-toggle="tooltip" title="Edit Record">
         <i class="fa fa-pen-to-square text-lg text-blue-400"></i>  

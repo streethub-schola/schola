@@ -32,7 +32,9 @@ class Staff extends Database
     public $guarantor_address;
     public $guarantor_rel;
 
+    public $rank;
     public $role;
+
     public $password;
     public $user_code;
     public $active;

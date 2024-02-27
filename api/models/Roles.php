@@ -7,6 +7,8 @@ class Classes extends Database
 
     public $class_id;
     public $class_name;
+    public $class_level;
+    public $class_extension;
     public $created_at;
     public $updated_at;
 
@@ -20,13 +22,10 @@ class Classes extends Database
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        try {
-            // execute query
-            $stmt->execute();
-            return array("output" => $stmt, "outputStatus" => 1000);
-        } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
     }
 
 
@@ -40,33 +39,35 @@ class Classes extends Database
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        try {
-            // execute query
-            $stmt->execute();
-            return array("output" => $stmt, "outputStatus" => 1000);
-        } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
     }
 
     // create user
     function createClass()
     {
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (class_name) VALUES (:class_name) ";
+        $query = "INSERT INTO " . $this->table_name . " (class_name, class_level, class_extension) VALUES (:class_name, :class_level, :class_extension) ";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
 
         // bind values
         $stmt->bindParam(":class_name", $this->class_name);
+        $stmt->bindParam(":class_level", $this->class_level);
+        $stmt->bindParam(":class_extension", $this->class_extension);
 
         try {
-            $stmt->execute();
-            return array("output" => $stmt, "outputStatus" => 1000);
+            // execute query
+            if ($stmt->execute()) return true;
+            return false;
         } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+
+            // return $e->getMessage();
+            return "Network issue, please try again";
+        }
     }
 
 
@@ -77,6 +78,8 @@ class Classes extends Database
         // update query
         $query = "UPDATE " . $this->table_name . " SET
                  class_name = :class_name,
+                 class_level = :class_level,
+                 class_extension = :class_extension,
                  updated_at = :updated_at
                  WHERE
                  class_id = :class_id";
@@ -86,16 +89,26 @@ class Classes extends Database
 
         // bind new values
         $update_stmt->bindParam(':class_name', $this->class_name);
+        $update_stmt->bindParam(':class_level', $this->class_level);
+        $update_stmt->bindParam(':class_extension', $this->class_extension);
         $update_stmt->bindParam(':updated_at', $this->updated_at);
 
         $update_stmt->bindParam(':class_id', $this->class_id);
 
         try {
-            $update_stmt->execute();
-            return array("output" => $update_stmt, "outputStatus" => 1000);
+            if ($update_stmt->execute()) {
+                return true;
+            }
+
+            return false;
         } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+            // return $e->getMessage();
+            return "Network issue, please try again";
+
+        }
+        // execute the query
+
+
     }
 
     // delete a user
@@ -111,33 +124,31 @@ class Classes extends Database
         $stmt->bindParam(1, $this->class_id);
 
         // execute query
-        try {
-            $stmt->execute();
-            return array("output" => $stmt, "outputStatus" => 1000);
-        } catch (Exception $e) {
-            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
-        };
+        if ($stmt->execute()) return true;
+           return false;
     }
 
 
-    // search for a particular class(es) in a given column
-    function searchClass($searchstring, $col)
-    {
-
-        // select all query
-        $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%";
-
-
-        // prepare query statement
-        $update_stmt = $this->conn->prepare($query);
-
-        try {
-
-            $update_stmt->execute();
-            return array("output" => $update_stmt, "outputStatus" => 1000);
-        } catch (Exception $e) {
-
-            return array("output" => $e->getMessage(), "outputStatus" => 1200);
-        }
-    }
+         // search for a particular class(es) in a given column
+         function searchClass($searchstring, $col)
+         {
+     
+             // select all query
+             $query = "SELECT * FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
+     
+             // prepare query statement
+             $update_stmt = $this->conn->prepare($query);
+     
+             try {
+     
+                 // execute query
+                 $update_stmt->execute();
+     
+                 return $update_stmt;
+             } catch (Exception $e) {
+     
+                 return $e->getMessage();
+             }
+         }
+    
 }

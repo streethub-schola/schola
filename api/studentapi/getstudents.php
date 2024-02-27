@@ -17,23 +17,7 @@ $student = new Student();
 // query students
 $stmt = $student->getStudents();
 
-//  http_response_code(200);
-//  echo json_encode("mixed");
-//  return;
-
-// check if more than 0 record found
-// if (is_string($stmt)){
-//     // set response code - 200 OK
-//     http_response_code(400);
-
-//     // show students data in json format
-//     echo json_encode(array("message" => $stmt));
-
-//     return;
-
-// }
-// else
-if($stmt){
+if($stmt['outputStatus'] == 1000){
 
   
     // students array
@@ -42,7 +26,7 @@ if($stmt){
   
     // retrieve our table contents
     // fetch() is faster than fetchAll()
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $stmt['output']->fetch(PDO::FETCH_ASSOC)){
         // extract row
         // this will make $row['name'] to
         // just $name only
@@ -75,6 +59,9 @@ if($stmt){
     // show students data in json format
     echo json_encode($students_arr);
 }
+elseif($stmt['outputStatus'] == 1200){
+    errorDiag($stmt['output']);
+}
 else{
     // no students found will be here
   
@@ -83,7 +70,7 @@ else{
   
     // tell the student no products found
     echo json_encode(
-        array("message" => "No students found.")
+        array("message" => "No students found.", "status"=>0)
     );
 }
   

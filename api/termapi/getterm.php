@@ -8,45 +8,45 @@ header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // initialize object
-$class = new Classes();
+$term = new Term();
 
-// var_dump($class);
+// var_dump($term);
 // return;
 
-// read class id will be here
-$class_id = null;
+// read term id will be here
+$term_id = null;
 
-if (!empty($_GET['class_id'])) {
-    $class_id = $_GET['class_id'];
+if (!empty($_GET['term_id'])) {
+    $term_id = $_GET['term_id'];
 } else {
 
 
     $data = json_decode(file_get_contents("php://input"));
 
-    if (!empty($data->class_id)) {
-        $class_id = $data->class_id;
+    if (!empty($data->term_id)) {
+        $term_id = $data->term_id;
     }
 }
 
 
-if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id == '' || $class_id == ' ') && (empty($class_admin_no) || $class_admin_no == null || $class_admin_no == '' || $class_admin_no == ' ')) {
-    // No valid class id provided
+if ((empty($term_id) || $term_id == null || !is_numeric($term_id) || $term_id == '' || $term_id == ' ') && (empty($term_admin_no) || $term_admin_no == null || $term_admin_no == '' || $term_admin_no == ' ')) {
+    // No valid term id provided
 
     // set response code - 404 Not found
     http_response_code(404);
 
-    // tell the class no products found
+    // tell the term no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid class ID")
+        array("message" => "Plaese provide a valid term ID")
     );
 
     return;
 }
 
-// query classs
-$class->class_id = $class_id;
+// query terms
+$term->term_id = $term_id;
 
-$stmt = $class->getClass();
+$stmt = $term->getTerm();
 // var_dump($stmt);
 // return;
 
@@ -60,7 +60,7 @@ if ($stmt['outputStatus'] == 1000) {
         http_response_code(404);
 
         // show subjects data in json format
-        echo json_encode(array("message" => "No subject found with this ID.", "status"=>0));
+        echo json_encode(array("message" => "Nothing found with this ID.", "status"=>0));
 
         return;
     }

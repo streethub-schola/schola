@@ -17,7 +17,9 @@ function isStaff($role){
 // checks for admin
 function isTeacher($role){
 
-    if($role != null && !empty($role) && $role == "teacher") return true;
+    if($role != null && !empty($role) && $role == "teacher"){
+        return true;
+    } 
     return false;
 }
 

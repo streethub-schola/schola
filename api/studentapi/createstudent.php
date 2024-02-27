@@ -11,7 +11,6 @@ header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 // Initiatialise 
 $student = new Student();
 
-
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
 // var_dump($data);
@@ -56,29 +55,20 @@ if (
 
     // create the student
     $newStudent = $student->admitStudent();
+    // var_dump($newStudent);
+    // return;
 
+    if ($newStudent['outputStatus'] == 1000) {
 
-
-    if (is_string($newStudent)) {
-        // set response code - 200 ok
-        http_response_code(400);
-
-        // tell the student
-        echo json_encode(array("message" => $newStudent, "status" => 3));
-        return;
-    } elseif ($newStudent) {
-
-        $newStudentDetails = $newStudent->fetch(PDO::FETCH_ASSOC);
+        $newStudentDetails = $newStudent['output']->fetch(PDO::FETCH_ASSOC);
 
         // Send welcome message and email verification code
         // $mail = new Mail();
         $mailSent = false;
 
         if ($guardian_email != null) {
-            
 
             $studentAdminNo = $newStudentDetails['admin_no'];
-
 
             // $mail->to = "oiunachukwu@gmail.com";  // $student->guardian_email;  //"oiunachukwu@gmail.com"; //This will be $student->email
             // $mail->message = "<h3>Dear $student->firstname,</h3><p>We are so happy to annouce to you that you have passed all statutory requirement with flying colours and You have been offered admission into our noble school.</p><br>
@@ -90,10 +80,9 @@ if (
             //                     <p>Schola Team</p>";
 
             // $mail->sendMail();
-        
 
 
-        // using mailto inbuilt function
+            // using mailto inbuilt function
             $to = "oiunachukwu@gmail.com";  // $student->guardian_email;
             $subject = "WELCOME TO SCHOLA";
 
@@ -108,20 +97,20 @@ if (
                                 <p>Schola Team</p>`;
 
             $header = "From:test@fuelalert.myf2.net \r\n";
-           $header .= "Cc:iounachukwu@gmail.com \r\n";
+            $header .= "Cc:iounachukwu@gmail.com \r\n";
             $header .= "MIME-Version: 1.0\r\n";
             $header .= "Content-type: text/html\r\n";
 
-            $mailSent = mail($to,$subject,$message,$header);
+            $mailSent = mail($to, $subject, $message, $header);
 
-        /*
+            /*
         if( $mailSent == true ) {
                 echo "Message sent successfully...";
         }else {
                 echo "Message could not be sent...";
         }
         */
-    }
+        }
         // set response code - 201 created
         http_response_code(201);
 
@@ -131,11 +120,15 @@ if (
             "message" => "New student was created successfully",
             "newstudent" => $newStudentDetails,
             "newpassword" => $data->password,
-            "mailSent"=>$mailSent,
+            "mailSent" => $mailSent,
             "status" => 1
         ));
         return;
-    } else {
+    } 
+    elseif ($newStudent['outputStatus'] == 1200) {
+        errorDiag($newStudent['output']);
+    }
+    else {
 
         // if unable to create the student, tell the student
 

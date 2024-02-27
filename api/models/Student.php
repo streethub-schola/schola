@@ -47,10 +47,14 @@ class Student extends Database
             // prepare query statement
             $stmt = $this->conn->prepare($query);
 
-            // execute query
-            $stmt->execute();
+            try {
+                // execute query
+                $stmt->execute();
 
-            return $stmt;
+                return array("output" => $stmt, "outputStatus" => 1000);
+            } catch (Exception $e) {
+                return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+            }
         } elseif ($this->admin_no != null) {
 
             // select query if student admin no is provided 
@@ -63,13 +67,17 @@ class Student extends Database
             $stmt->bindParam(":admin_no", $this->admin_no);
 
 
-            // execute query
-            $stmt->execute();
+            try {
+                // execute query
+                $stmt->execute();
 
-            return $stmt;
+                return array("output" => $stmt, "outputStatus" => 1000);
+            } catch (Exception $e) {
+                return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+            }
         } else {
 
-            return "No valid Student ID or Admission number provided";
+            return "Please provide a valid Student ID or Admission number";
         }
     }
 
@@ -83,10 +91,14 @@ class Student extends Database
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        // execute query
-        $stmt->execute();
+        try {
+            // execute query
+            $stmt->execute();
 
-        return $stmt;
+            return array("output" => $stmt, "outputStatus" => 1000);
+        } catch (Exception $e) {
+            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+        }
     }
 
 
@@ -130,17 +142,18 @@ class Student extends Database
                 if ($setId) {
                     // return true;
                     $this->student_id = $lastStudentId;
+                    $student_stmt = $this->getStudent();
 
-                    return $this->getStudent();
+                    return $student_stmt;
                 } elseif (!$setId) {
-                    return false;
+                    return array("output"=>false, "error"=>"Student created but Admission Number generation failed. Please update manually", "outputStatus"=>1200);
                 } else {
                     return $setId;
                 }
             }
         } catch (Exception $e) {
 
-            return $e->getMessage();
+            return array("output"=>$e->getMessage(), "outputStatus"=>1200);
         }
     }
 
@@ -186,14 +199,12 @@ class Student extends Database
         $update_stmt->bindParam(':student_id', $this->student_id);
 
         try {
-            if ($update_stmt->execute()) return true;
+            $update_stmt->execute();
+            return array("output"=>$update_stmt, "outputStatus"=>1000);
 
-            return false;
         } catch (Exception $e) {
-            return $e->getMessage();
+            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
         }
-        // execute the query
-
 
     }
 
@@ -209,12 +220,13 @@ class Student extends Database
         // bind student_id of record to delete
         $stmt->bindParam(1, $this->student_id);
 
-        // execute query
-        if ($stmt->execute()) {
-            return true;
-        }
+        try {
+            $stmt->execute();
+            return array("output"=>$stmt, "outputStatus"=>1000);
 
-        return false;
+        } catch (Exception $e) {
+            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+        }
     }
 
 
@@ -406,7 +418,6 @@ class Student extends Database
 
             if ($update_stmt->execute()) return true;
 
-            return false;
         } catch (Exception $e) {
 
             return $e->getMessage();
@@ -428,11 +439,11 @@ class Student extends Database
 
         $admission_no = "";
 
-        if ($lastId < 10) {
+        if ($offsetId < 10) {
             $admission_no = "MIS/" . date("Y") . "/000" . $offsetId;
-        } elseif ($lastId >= 10 && $lastId < 100) {
+        } elseif ($offsetId >= 10 && $offsetId < 100) {
             $admission_no = "MIS/" . date("Y") . "/00" . $offsetId;
-        } elseif ($lastId >= 100) {
+        } elseif ($offsetId >= 100 && $offsetId < 1000) {
             $admission_no = "MIS/" . date("Y") . "/0" . $offsetId;
         } else {
             $admission_no = "MIS/" . date("Y") . "/" . $offsetId;
@@ -445,8 +456,8 @@ class Student extends Database
 
         try {
 
-            if ($update_stmt->execute()) return true;
-            return false;
+            $update_stmt->execute();
+            return true;
         } catch (Exception $e) {
 
             return $e->getMessage();

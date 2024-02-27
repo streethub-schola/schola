@@ -8,15 +8,11 @@ header("Access-Control-Allow-Methods:" . $POST_METHOD);
 header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
-// class
-$class = new Classes();
+// term
+$term = new Term();
 
 // get admin_no of user to be edited
 $data = json_decode(file_get_contents("php://input"));
-
-// http_response_code(200);
-// echo json_encode(array("message" => $data, "status"=>2));
-// return;
 
 // Check for valid admin_no
 if (empty($data->searchstring) || $data->searchstring == null || $data->searchstring == '' || $data->searchstring == ' ') {
@@ -43,8 +39,8 @@ if (empty($data->searchcolumn) || $data->searchcolumn == null || $data->searchco
 $searchString = cleanData($data->searchstring);
 $searchColumn = cleanData($data->searchcolumn);
 
-// Get the class whose details are to be updated 
-$search_stmt = $class->searchClass($searchString, $searchColumn);
+// Get the term whose details are to be updated 
+$search_stmt = $term->searchTerm($searchString, $searchColumn);
 
 // var_dump($search_stmt);
 // return;
@@ -57,15 +53,15 @@ if ($search_stmt['outputStatus'] == 1000) {
         // set response code -
         http_response_code(404);
 
-        // tell the class
-        echo json_encode(array("message" => "No Class found for this search word : $searchString", "status" => 0));
+        // tell the term
+        echo json_encode(array("message" => "No term found for this search word : $searchString", "status" => 0));
         return;
     }
 
     // set response code - 200 ok
     http_response_code(400);
 
-    // tell the class
+    // tell the term
     echo json_encode(array("message" => "Success","result"=>$search_result, "status" => 1));
     return;
 } elseif ($search_stmt['outputStatus'] == 1200) {
@@ -76,6 +72,6 @@ if ($search_stmt['outputStatus'] == 1000) {
     // set response code - 503 service unavailable
     http_response_code(503);
 
-    // tell the class
-    echo json_encode(array("message" => "No class found for this search item", "status" => 200));
+    // tell the term
+    echo json_encode(array("message" => "No term found for this search item", "status" => 200));
 }

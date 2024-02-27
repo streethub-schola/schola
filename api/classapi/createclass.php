@@ -19,14 +19,11 @@ $data = json_decode(file_get_contents("php://input"));
 
 // make sure data is not empty
 if (
-    !empty($data->class_name) &&
-    !empty($data->class_level)
+    !empty($data->class_name)
 ) {
 
     // Sanitize & set class property values
     $class->class_name = cleanData($data->class_name);
-    $class->class_level = cleanData($data->class_level);
-    $class->class_extension = $data->class->class_extension ?? null;
 
     // create the class
     $newclass = $class->createClass();
@@ -34,8 +31,7 @@ if (
     // var_dump($newclass);
     // return;
 
-    if ($newclass) {
-
+    if ($newclass['outputStatus'] == 1000) {
 
         // set response code - 201 created
         http_response_code(201);
@@ -44,23 +40,17 @@ if (
         // echo json_encode(array("message" => "class was created. Please check your email for your verification link","mailSent"=>$mailSent));
         echo json_encode(array("message" => "class was created successfully", "status" => 1));
         return;
-    } elseif(!$newclass) {
+    }
+    elseif ($newclass['outputStatus'] == 1200) {
 
-        // if unable to create the class, tell the class
-
-        // set response code - 503 service unavailable
-        http_response_code(503);
-
-        // tell the class
-        echo json_encode(array("message" => "Unable to create class. Try again.", "status" => 0));
-        return;
+        errorDiag($newclass['output']);
     }
     else {
         // set response code - 200 ok
         http_response_code(400);
 
         // tell the class
-        echo json_encode(array("message" => $newclass, "status" => 2));
+        echo json_encode(array("message" => $newclass['output'], "status" => 0));
         return;
     }
     
@@ -72,6 +62,6 @@ if (
     http_response_code(400);
 
     // tell the class
-    echo json_encode(array("message" => "Unable to create class. Fill all fields.", "status" => 3));
+    echo json_encode(array("message" => "Unable to create class. Fill all fields.", "status" => 2));
     return;
 }

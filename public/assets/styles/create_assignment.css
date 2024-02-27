@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Jost', sans-serif;
+    font-size: 14px;
 }
 /* Root selectors */
 :root {
@@ -29,6 +30,7 @@ body {
 .intro{
     margin: 20px;
     text-align: justify;
+    line-height: 30px;
 }
 .title{
     font-size: 1.8rem;
@@ -54,7 +56,6 @@ small{
       border: 2px solid var(--dark-graySolid);
       padding: 10px;
       margin: 5px;
-      text-align: center;
       font-size: 18px;
       background: var(--white-primaty-main);
       color: var(--dark-primry);
@@ -69,10 +70,10 @@ small{
 }
 .textBox{
     text-align: center;
-    margin: 10px 0;
+    /* margin: 10px 0; */
 }
 #assignmentText{
-    width: 400px;
+    /* width: 400px; */
     padding: 15px 24px;
     outline: none;
         border-radius: 7px;
@@ -136,13 +137,42 @@ small{
 #remove:hover{
     cursor: pointer;
 }
-#submitBtn{
+#clearBtn{
     padding: 7px 15px;
     border-radius: 4px;
     border: none;
     background: var(--semi-red);
     color: var(--white-primaty-main);
+    cursor: pointer;
 }
+
+#cBtn{
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: none;
+    background: var(--semi-red);
+    color: var(--white-primaty-main);
+    cursor: pointer;
+}
+
+#postBtn{
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: none;
+    background: var(--green-TransparentMain);
+    color: var(--white-primaty-main);
+    cursor: pointer;
+}
+
+#pBtn{
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: none;
+    background: var(--green-TransparentMain);
+    color: var(--white-primaty-main);
+    cursor: pointer;
+}
+
 #submitBtn:hover{
     cursor: pointer;
     background: var(--green-primary);

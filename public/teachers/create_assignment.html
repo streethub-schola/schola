@@ -30,27 +30,23 @@
             <div class="organize">
                 <!-- for teachers's name -->
                 <div class="S-Name">
-                    <label for="staff-name">Staff Name: <small>*</small></label>
-                    <input type="text" id="staff-name" readonly>
+                    <label for="staff-name">Staff Name: </label>
+                    <input type="text" id="staff-name" readonly required>
                 </div>
                 <!-- For Subject -->
                 <div class="subjects">
-                    <label for="subjects">Subject: <small>*</small></label>
+                    <label for="subjects">Subject: </label>
                     <!-- <input type="text" id="sub" readonly> -->
-                    <select name="subjects" id="class">
+                    <select name="subjects" class="subjectsT" id="class" required>
                         <option value="" selected>My subject</option>
-                        <option value="English" >English</option>
+                        <!-- <option value="English" >English</option> -->
                     </select>
                 </div>
                 <!-- for classes -->
                 <div class="class">
-                    <label for="classSelect">Classes: <small>*</small></label>
-                    <select name="" id="class" class="class">
+                    <label for="classSelect">Classes: </label>
+                    <select name="" id="class" class="classT" required>
                         <option value="" selected>Choose Class</option>
-                        <option value="Primary 1">Primary 1</option>
-                        <option value="Primary 1">Primary 2</option>
-                        <option value="Primary 1">Primary 3</option>
-                        <option value="Primary 1">Primary 4</option>
                     </select>
                 </div>
             </div>
@@ -59,9 +55,9 @@
                     <label for="Academice-year">Year: 2023/2024</label>
                 </div>
                 <div class="term">
-                    <label for="Academic-Term">Term: <small>*</small></label>
-                    <select name="" id="terms">
-                        <option value="" selected>Choose Term</option>
+                    <label for="Academic-Term">Term: </label>
+                    <select name="" id="terms" required>
+                        <option value="" selected >Choose Term</option>
                         <option value="1st Term">1st Term</option>
                         <option value="2nd Term">2nd Ter</option>
                         <option value="3rd Term">3rd Term</option>

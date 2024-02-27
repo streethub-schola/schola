@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Jost', sans-serif;
-    font-size: regular;
+    font-size: 14px;
 }
 /* Root selectors */
 :root {
@@ -56,7 +56,6 @@ small{
       border: 2px solid var(--dark-graySolid);
       padding: 10px;
       margin: 5px;
-      text-align: center;
       font-size: 18px;
       background: var(--white-primaty-main);
       color: var(--dark-primry);

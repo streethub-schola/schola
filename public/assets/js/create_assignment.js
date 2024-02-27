@@ -9,53 +9,45 @@ var sname = document.getElementById("staff-name");
  
 const delete_Assignment = document.getElementById("deleteAssignment");
 
-// delete_Assignment.addEventListener("click", ()=>{
-//     messageContainer.style.display = "none";
-// })
-// add_Question.addEventListener("click", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  const staffName = document.getElementById("staff-name");
+  const subject = document.querySelector(".subjectsT");
 
-//     //  textBox.innerHTML += `
-//     //      <div class="message">
-//     //             <textarea name="" id="assignmentText" cols="30" rows="10" placeholder="Type your questions"></textarea>
-//     //              <i class="fa-solid fa-trash-can" id="deleteAssignment"></i>
-//     //         </div>
-//     //     `;
-//       textBox.addEventListener("click", (event) => {
-//         if (event.target.matches(".fa-solid.fa-trash-can")) {
-//           const closestMessage = event.target.closest(".message");
-//           closestMessage.parentNode.removeChild(closestMessage);
-//         }
-//       });
-   
-        
-// });
+  console.log(subject);
+  const studentClass = document.querySelector(".classT");
+  const terms = document.getElementById("terms");
 
-// remove_Question.addEventListener("click", ()=>{
-//     if (textBox.innerHTML == 0) {
-//         alert("Add a question to remove");
-//         return false
-//         updateMessage()
-//     } 
-//     function updateMessage() {
-//          let actionMessage = prompt(
-//            "conform you want to delete all questions",
-//            "yes/no"
-//          );
-//          actionMessage = actionMessage.toLowerCase();
-//          console.log(actionMessage);
-//          if (actionMessage == "yes") {
-//             textBox.innerHTML = "";
-//             alert("All assignments have been deleted as per your request")
-//          }else if (actionMessage == "no") {
-//             alert("Keep working")
-//          }
-           
-//     }
-//     updateMessage()
+  // Fetch the staff details
+  staffName.value = sessionStorage.getItem("staff-name");
 
-    
+  // Get the subjects
+  fetch("https://schola.skaetch.com/api/subjectapi/getsubjects.php")
+  .then((response) => response.json())
+  .then((responseData) => {
+    // console.log(responseData);
+    responseData.map((subj) => {
+      // console.log(subject);
+      subject.innerHTML += `
+      <option value="${subj.subject_id}">${subj.subject_name}</option>`
+    });
+  })
 
-// })
+
+    // Get the classes
+  fetch("https://schola.skaetch.com/api/classapi/getclasses.php")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+
+    data.map((claxx) => {
+      // console.log(claxx);
+      studentClass.innerHTML += `
+      <option value="${claxx.class_id}">${claxx.class_name}</option>`
+    });
+  })
+
+
+});
 
 btn_Submit.addEventListener("click", ()=>{
   // e.preventDefault()

@@ -15,11 +15,8 @@ add_Question.addEventListener("click", ()=>{
 
      textBox.innerHTML += `
          <div class="message">
-                <textarea name="" id="assignmentText" cols="30" rows="10" placeholder="Type your questions">
-
-                        </textarea>
+                <textarea name="" id="assignmentText" cols="30" rows="10" placeholder="Type your questions"></textarea>
                  <i class="fa-solid fa-trash-can" id="deleteAssignment"></i>
-
             </div>
         `;
       textBox.addEventListener("click", (event) => {

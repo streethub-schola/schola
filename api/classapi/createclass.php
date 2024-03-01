@@ -25,10 +25,6 @@ if (
     // Sanitize & set class property values
     $class->class_name = cleanData($data->class_name);
 
-
-  
-
-
     // create the class
     $newclass = $class->createClass();
 

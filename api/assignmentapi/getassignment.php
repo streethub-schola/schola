@@ -8,45 +8,45 @@ header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // initialize object
-$class = new Classes();
+$assignment = new Assignment();
 
-// var_dump($class);
+// var_dump($assignment);
 // return;
 
-// read class id will be here
-$class_id = null;
+// read assignment id will be here
+$assignment_id = null;
 
-if (!empty($_GET['class_id'])) {
-    $class_id = $_GET['class_id'];
+if (!empty($_GET['assignment_id'])) {
+    $assignment_id = $_GET['assignment_id'];
 } else {
 
 
     $data = json_decode(file_get_contents("php://input"));
 
-    if (!empty($data->class_id)) {
-        $class_id = $data->class_id;
+    if (!empty($data->assignment_id)) {
+        $assignment_id = $data->assignment_id;
     }
 }
 
 
-if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id == '' || $class_id == ' ')) {
-    // No valid class id provided
+if ((empty($assignment_id) || $assignment_id == null || !is_numeric($assignment_id) || $assignment_id == '' || $assignment_id == ' ')) {
+    // No valid assignment id provided
 
     // set response code - 404 Not found
     http_response_code(404);
 
-    // tell the class no products found
+    // tell the assignment no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid class ID")
+        array("message" => "Plaese provide a valid assignment ID")
     );
 
     return;
 }
 
-// query classs
-$class->class_id = $class_id;
+// query assignments
+$assignment->assignment_id = $assignment_id;
 
-$stmt = $class->getClass();
+$stmt = $assignment->getassignment();
 // var_dump($stmt);
 // return;
 
@@ -72,7 +72,12 @@ if ($stmt['outputStatus'] == 1000) {
     // show subjects data in json format
     echo json_encode(array("result"=>$result, "status"=>1));
     return;
-} elseif ($stmt['outputStatus'] == 1100) {
+} 
+elseif ($stmt['outputStatus'] == 1200) {
+    // no subjects found will be here
+    errorDiag($stmt['output']);
+}
+else{
     // no subjects found will be here
 
     // set response code - 404 Not found
@@ -82,8 +87,4 @@ if ($stmt['outputStatus'] == 1000) {
     echo json_encode(
         array("message" => "Something went wrong. Not able to fetch subject.")
     );
-}
-elseif ($stmt['outputStatus'] == 1200) {
-    // no subjects found will be here
-    errorDiag($stmt['output']);
 }

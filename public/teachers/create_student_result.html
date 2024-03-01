@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Result</title>
+    <!-- ----------------- Google Font -------------------->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Asap+Condensed&family=Dancing+Script&family=Jost&family=Kalam&family=Kanit&family=Noto+Sans+Display:wght@600&family=PT+Sans+Narrow&family=Slabo+27px&family=Ubuntu:wght@500&display=swap");
+    </style>
+    <!-- custom CSS -->
+    <link
+      rel="stylesheet"
+      href="../../public/assets/styles/create_student_result.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="innerContents">
+        <h2 class="title">CREATE STUDENT RESULT</h2>
+        <div class="contentsGrid">
+          <!-- for year -->
+          <div class="Aca-year">
+            <label for="Year-Academic">Year: 2023/2024 </label>
+          </div>
+          <!-- for term -->
+          <div class="Aca-Term">
+            <label for="academic-term">Term</label>
+            <select name="" id="academic-term">
+              <option value="1st Term" selected>Choose Term</option>
+              <option value="1st Term">1st Term</option>
+              <option value="2nd Term">2nd Term</option>
+              <option value="3rd Term">3rd Term</option>
+            </select>
+          </div>
+          <!-- for student-name -fetch from DB -->
+          <div class="s-name">
+            <label for="student-name">Name of Student:</label>
+            <input type="text" id="student-name" required readonly />
+          </div>
+          <!-- for student-class -->
+          <div class="s-class">
+            <label for="student-class">Class:</label>
+            <input type="text" id="student-class" required readonly />
+          </div>
+          <!-- for Admission no -->
+          <div class="ad-no">
+            <label for="admission-no">Admission:</label>
+            <input type="text" id="admission-no" required readonly />
+          </div>
+          <!-- for student gender -->
+          <div class="s-gender">
+            <label for="student-gender">Gender:</label>
+            <input type="text" id="student-gender" required readonly />
+          </div>
+          <!-- resumption date -->
+          <div class="resumption-dt">
+            <label for="school-resume-date">School Opens: </label>
+            <input type="text" id="school-resume-date" required readonly />
+          </div>
+        </div>
+
+        <!-- table to display the results -->
+        <div class="s-result-table">
+          <table cellspacing="15px" class="mainTable">
+            <tr>
+              <th>Subject</th>
+              <th>Test</th>
+              <th>Exam</th>
+              <th>Assignment</th>
+            </tr>
+            <tr>
+              <td>English Studies</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Mathematics</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>National values</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>P.V.S</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Business Studies</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Basic Science & Tech</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>French</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>History</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Igbo</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.R.S</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Business Studies</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 12</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 13</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 14</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 15</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 16</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 17</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>C.C.A 18</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

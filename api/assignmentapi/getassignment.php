@@ -46,7 +46,7 @@ if ((empty($assignment_id) || $assignment_id == null || !is_numeric($assignment_
 // query assignments
 $assignment->assignment_id = $assignment_id;
 
-$stmt = $assignment->getassignment();
+$stmt = $assignment->getAssignment();
 // var_dump($stmt);
 // return;
 

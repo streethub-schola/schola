@@ -65,7 +65,7 @@ if($stmt){
     http_response_code(200);
   
     // show students data in json format
-    echo json_encode($students_arr);
+    echo json_encode(array("message"=>$students_arr, "status"=>1));
 }
 else{
     // no students found will be here
@@ -74,9 +74,8 @@ else{
     http_response_code(404);
   
     // tell the student no products found
-    echo json_encode(
-        array("message" => "No students found.")
-    );
+    echo json_encode(array("message" => "No students found.", "status"=>0));
+    
 }
   
 

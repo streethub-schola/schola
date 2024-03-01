@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Assignment Page</title>
+    <!-- ----------------- Google Font -------------------->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&family=Dancing+Script&family=Jost&family=Kalam&family=Kanit&family=Noto+Sans+Display:wght@600&family=PT+Sans+Narrow&family=Slabo+27px&family=Ubuntu:wght@500&display=swap');
+    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../public/assets/styles/create_assignment.css">
+</head>
+<body>
+    <div class="hero">
+        <h2 class="title">Create Assignments</h2>
+        <div class="intro">
+            <p><strong>Guidelines:</strong></p>
+            <ul>
+                <li>Your class, subject and term are preloaded for you. </li>
+                <li>If you are temporarily managing a class, please select the class you are managing from the drop down list</li>
+                <li>Type all your questions in the text box provided seperating each question with a line break as shown in the template.</li>
+                <li>If you desire not to post the questions again, please use the <span id="cBtn">clear</span> button.</li>
+                <li>If your questions are complete and ready to be published, please use the green <span id="pBtn">submit</span> button.</li>
+            </ul>
+        </div>
+       
+     <!-- <form action=""> -->
+        <div class="central">
+            <div class="organize">
+                <!-- for teachers's name -->
+                <div class="S-Name">
+                    <label for="staff-name">Staff Name: </label>
+                    <input type="text" id="staff-name" readonly required>
+                </div>
+                <!-- For Subject -->
+                <div class="subjects">
+                    <label for="subjects">Subject: </label>
+                    <!-- <input type="text" id="sub" readonly> -->
+                    <select name="subjects" class="subjectsT" id="class" required>
+                        <option value="" selected>My subject</option>
+                        <!-- <option value="English" >English</option> -->
+                    </select>
+                </div>
+                <!-- for classes -->
+                <div class="class">
+                    <label for="classSelect">Classes: </label>
+                    <select name="" id="class" class="classT" required>
+                        <option value="" selected>Choose Class</option>
+                    </select>
+                </div>
+            </div>
+            <div class="organize2">
+                <div class="year">
+                    <label for="Academice-year">Year: 2023/2024</label>
+                </div>
+                <div class="term">
+                    <label for="Academic-Term">Term: </label>
+                    <select name="" id="terms" required>
+                        <option value="" selected >Choose Term</option>
+                        <option value="1st Term">1st Term</option>
+                        <option value="2nd Term">2nd Ter</option>
+                        <option value="3rd Term">3rd Term</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Text Box Area for typing in Assignments -->
+        <!-- <div class="addQuestions">
+            <button id="AddAss">Add Question <i class="fa-solid fa-plus"></i></button>
+            <button id="remove">Remove <i class="fa-solid fa-trash"></i></button>
+        </div> -->
+        <div class="textBox">
+            <div class="message">
+                <textarea name="" id="assignmentText" cols="50" rows="10" placeholder="Type your questions"></textarea>
+                 <!-- <i class="fa-solid fa-trash-can" id="deleteAssignment"></i> -->
+            </div>
+           
+        </div>
+        <!-- Submit -->
+        <div class="sub">
+            <button type="submit" id="postBtn"> Submit <i class="fa-solid fa-right-to-bracket"></i></button>
+            <button type="submit" id="clearBtn"> Clear <i class="fa-regular fa-circle-xmark"></i></button>
+        </div>
+     <!-- </form> -->
+       
+    </div>
+
+    <!-- Font-Awesome Kit -->
+    <script src="https://kit.fontawesome.com/a0d92fbbd6.js" crossorigin="anonymous"></script>
+
+    <!-- custom JS -->
+    <script src="../../public/assets/js/create_assignment.js"></script>
+</body>
+</html>

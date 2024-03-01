@@ -4,7 +4,7 @@ include('../config/autoload.php');
 // required headers
 header("Access-Control-Allow-Origin:".$ORIGIN);
 header("Content-Type:".$CONTENT_TYPE);
-header("Access-Control-Allow-Methods:".$GET_METHOD);
+header("Access-Control-Allow-Methods:".$POST_METHOD);
 header("Access-Control-Max-Age:".$MAX_AGE);
 header("Access-Control-Allow-Headers:".$ALLOWED_HEADERS);
   
@@ -13,8 +13,10 @@ $student = new Student();
   
 // get admin_no of user to be edited
 $data = json_decode(file_get_contents("php://input"));
-// var_dump($data);
-// return;
+
+http_response_code(200);
+echo json_encode(array("message" => $data, "status"=>2));
+return;
 
 // Check for valid admin_no
 if(empty($data->searchstring) || $data->searchstring == null || $data->searchstring == '' || $data->searchstring == ' '){

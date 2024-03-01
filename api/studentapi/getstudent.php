@@ -26,7 +26,7 @@ if ((empty($student_id) || $student_id == null || !is_numeric($student_id) || $s
 
     // tell the student no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid student ID or Admission number")
+        array("message" => "Plaese provide a valid student ID or Admission number", "status"=>2)
     );
 
     return;
@@ -42,19 +42,11 @@ $student->admin_no = $student_admin_no;
 
 $stmt = $student->getStudent();
 // $num = $stmt->rowCount();
+// var_dump($stmt);
+// return;
 
 // check if more than 0 record found
-if (is_string($stmt)){
-    // set response code - 200 OK
-    http_response_code(400);
-
-    // show students data in json format
-    echo json_encode(array("message" => $stmt));
-
-    return;
-
-}
-elseif($stmt) {
+if($stmt['outputStatus'] == 1000) {
 
     // students array
     $students_arr = array();
@@ -63,7 +55,7 @@ elseif($stmt) {
     // retrieve our table contents
     // fetch() is faster than fetchAll()
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $stmt['output']->fetch(PDO::FETCH_ASSOC)) {
         // extract row
         // this will make $row['name'] to
         // just $name only
@@ -76,6 +68,7 @@ elseif($stmt) {
             "lastname" => $lastname,
             "dob" => $dob,
             "image" => $image,
+            "class" => $class,
             "guardian_name" => $guardian_name,
             "guardian_phone" => $guardian_phone,
             "guardian_email" => $guardian_email,
@@ -97,11 +90,11 @@ elseif($stmt) {
 
         if($student_id != null){
         // show students data in json format
-        echo json_encode(array("message" => "No student found with this ID."));
+        echo json_encode(array("message" => "No student found with this ID.", "status"=>3));
         }
         elseif($student_admin_no != null){
         // show students data in json format
-        echo json_encode(array("message" => "No student found with this Admission Number."));
+        echo json_encode(array("message" => "No student found with this Admission Number.", "status"=>3));
         }
 
         return;
@@ -112,7 +105,11 @@ elseif($stmt) {
 
     // show students data in json format
     echo json_encode($students_arr);
-} else {
+} 
+elseif($stmt['outputStatus'] == 1200) {
+    errorDiag($stmt['output']);
+}
+else {
     // no students found will be here
 
     // set response code - 404 Not found
@@ -120,6 +117,6 @@ elseif($stmt) {
 
     // tell the student no products found
     echo json_encode(
-        array("message" => "Something went wrong. Not able to fetch student.")
+        array("message" => "Something went wrong. Not able to fetch student.", "status"=>4)
     );
 }

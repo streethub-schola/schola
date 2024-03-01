@@ -8,13 +8,13 @@ header("Access-Control-Max-Age:".$MAX_AGE);
 header("Access-Control-Allow-Headers:".$ALLOWED_HEADERS);
   
 // prepare user object
-$student = new Student();
+$staff = new Staff();
   
-// get student id
+// get staff id
 $data = json_decode(file_get_contents("php://input"));
   
-// set student id to be deleted
-$student_id = cleanData($data->student_id);
+// set staff id to be deleted
+$staff_id = cleanData($data->staff_id);
 
 
 // Restrict delete access for admin only
@@ -22,67 +22,67 @@ if(!isAdmin($data->role)){
       // set response code - 404 Not found
       http_response_code(403);
   
-      // tell the student no products found
+      // tell the staff no products found
       echo json_encode(
-          array("message" => "You dont have accessright to delete a student.")
+          array("message" => "You dont have accessright to delete a staff.")
       );
   
       return;
 
 }
 
-// Check if student_id provided is valid
-if($student_id == null || !is_numeric($student_id) || $student_id == "" || $student_id == " " ){
-    // No valid student id provided
+// Check if staff_id provided is valid
+if($staff_id == null || !is_numeric($staff_id) || $staff_id == "" || $staff_id == " " ){
+    // No valid staff id provided
   
     // set response code - 404 Not found
     http_response_code(404);
   
-    // tell the student no products found
+    // tell the staff no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid student ID")
+        array("message" => "Plaese provide a valid staff ID")
     );
 
     return;
 }
 
-$student->student_id = $student_id;
-// Check if student exists
-$student_stmt = $student->getStudent();
+$staff->staff_id = $staff_id;
+// Check if staff exists
+$staff_stmt = $staff->getstaff();
 
-$studentToDelete = $student_stmt->fetch(PDO::FETCH_ASSOC);
+$staffToDelete = $staff_stmt->fetch(PDO::FETCH_ASSOC);
 
-if(!$studentToDelete){
-    // No valid student id provided
+if(!$staffToDelete){
+    // No valid staff id provided
   
     // set response code - 404 Not found
     http_response_code(404);
   
-    // tell the student no products found
+    // tell the staff no products found
     echo json_encode(
-        array("message" => "student with ID:$student_id does not exist")
+        array("message" => "staff with ID:$staff_id does not exist")
     );
 
     return;
 }
   
-// delete the student
-if($student->deleteStudent()){
+// delete the staff
+if($staff->deletestaff()){
   
     // set response code - 200 ok
     http_response_code(200);
   
-    // tell the student
-    echo json_encode(array("message" => "student was deleted successfully."));
+    // tell the staff
+    echo json_encode(array("message" => "staff was deleted successfully."));
 }
   
-// if unable to delete the student
+// if unable to delete the staff
 else{
   
     // set response code - 503 service unavailable
     http_response_code(503);
   
-    // tell the student
-    echo json_encode(array("message" => "Unable to delete student."));
+    // tell the staff
+    echo json_encode(array("message" => "Unable to delete staff."));
 }
 ?>

@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../styles/styles.css"
-    />
+    <link rel="stylesheet" href="../assets/styles/styles.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <title>Schola Project!</title>
 
-    <script src="../js/nav.js" defer></script>
+  
+    <script src="../assets/js/nav.js" defer></script>
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -18,21 +19,22 @@
         class="w-full sticky top-0 bg-blue-200 shadow flex justify-between items-center p-2"
       >
         <div class="brand uppercase">
-          <a href="../index.html">Schola</a>
+          <a href="/public/index.html">Schola</a>
         </div>
-        <nav class="mx-2 md:w-1/3 md:pt-1" aria-label="main-menu">
-          <ul class="lg:flex justify-between text-right hidden md:hidden" id="navbar">
-            <li><a href="../login.html" class="uppercase">staff</a></li>
-            <li>
-              <a href="../login.html" class="uppercase">students</a>
-            </li>
-            <li><a href="#" class="uppercase">Photo Gallery</a></li>
-            <!-- <li><a href="#" class="uppercase">tests</a></li>
-            <li><a href="#" class="uppercase">to mark</a></li>
+        <nav class="mx-2 md:w-1/2 md:pt-1" aria-label="main-menu">
+          <ul
+            class="md:flex justify-end text-right hidden"
+            id="navbar"
+          >
+            <!-- <li><a href="../staff.html" class="uppercase">staff</a></li>
+            <li><a href="#" class="uppercase">students</a></li> -->
+            <li><a href="profile.html" class="uppercase  hover:bg-blue-300 p-2">My profile</a></li>
+            <li><a href="../../index.html" class="uppercase hover:bg-blue-300 p-2">Logout</a></li>
+            <!-- <li><a href="#" class="uppercase">to mark</a></li>
             <li><a href="#" class="uppercase">marked</a></li> -->
           </ul>
           <button
-            class="outline-none border-none absolute top-0 right-6 text-2xl lg:hidden"
+            class="outline-none border-none absolute top-0 right-6 text-2xl md:hidden"
             id="nav_toggle"
           >
             &#9776;
@@ -53,22 +55,17 @@
           aria-label="mobile-menu"
         >
           <a
-            href="../login.html"
+            href="../staff.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >staff</a
           >
           <a
-            href="../login.html"
+            href="profile.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >students</a
+            >My Profile</a
           >
           <a
-            href="#"
-            class="w-full text-center py-6 hover:bg-blue-500 uppercase"
-            >Photo Gallery</a
-          >
-          <!-- <a
-            href="#"
+            href="tests.html"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >test</a
           >
@@ -81,216 +78,139 @@
             href="#"
             class="w-full text-center py-6 hover:bg-blue-500 uppercase"
             >to marked</a
-          > -->
+          >
         </nav>
       </section>
-      <main class="md:grid md:grid-cols-3 mx-5 w-full mt-5">
-        <aside class="my-5 col-span-1 flex flex-col items-center">
-          <h3>Welcome {{ username }}</h3>
-          <img src="../images/woman_avatar.jpg" class="rounded-full w-36" alt="">
-          <h2 class="text-center font-semibold m-2">{{ Full Name }}</h2>
 
-          <div class="flex gap-3">
-            <a href="editprofile.html" class="bg-blue-200 border-none px-2 py-1 rounded-md">Edit</a>
-            <input
-              type="file"
-              name=""
-              id=""
-              class="file:bg-blue-200 file:border-none file:px-2 file:py-2 file:rounded-md file:mr-4"
-            />
-          </div>
-        </aside>
-        <div class="col-span-2 text-center md:mt-5">
-          <h2>Dashboard / Profile</h2>
-          <table
-            class="table-fixed border text-justify w-4/5 m-auto border-gray-500 md:table-fixed"
-          >
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">First Name:</td>
-              <td class="px-3 border border-gray-400">Kachi</td>
-            </tr>
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">Last Name</td>
-              <td class="px-3 border border-gray-400">Godwin</td>
-            </tr>
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">Email</td>
-              <td class="px-3 border border-gray-400">kachi@email.com</td>
-            </tr>
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">Gender</td>
-              <td class="px-3 border border-gray-400">Male</td>
-            </tr>
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">Rank</td>
-              <td class="px-3 border border-gray-400">Admin</td>
-            </tr>
-            <tr>
-              <td class="px-3 border border-gray-400 font-bold">
-                Date Created
-              </td>
-              <td class="px-3 border border-gray-400">10th August, 2023</td>
-            </tr>
-          </table>
+      <div class="grid md:grid-cols-3 gap-2 pt-4 w-3/4 m-auto">
+        <div class="card">
+          <a href="../../admin/students/teachers.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                teachers
+              </h6>
+            </div>
+            <div class="p-6 text-center">
+              <i class="fa fa-person-chalkboard text-5xl text-slate-400"></i>
+              
+            </div>
+            <div class="border-t-2 p-2 border-gray-300">
+              <p class="text-slate-400 text-sm font-sans px-3">
+                <a href="../../admin/students/teachers.html">View all teachers</a>
+              </p>
+            </div>
+          </a>
         </div>
-      </main>
-      <section class="bg-slate-100 md:w-11/12 m-auto">
-        <!--Tabs navigation-->
-
-        <!--Tabs content-->
-
-            <!-- something -->
-            <section class="flex flex-row flex-wrap">
-
-              <input id="tab-one" type="radio" name="tabs" class="peer/tab-one opacity-0 absolute" checked />
-              <label for="tab-one" class="bg-blue-200 font-medium hover:bg-blue-3blue-20000 peer-checked/tab-one:bg-blue-100 mx-1 cursor-pointer p-2 rounded-t-lg block">
-                Basic Info
-              </label>
-            
-              <input id="tab-two" type="radio" name="tabs" class="peer/tab-two opacity-0 absolute" />
-              <label for="tab-two" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-two:bg-blue-100 cursor-pointer mx-1 p-2 rounded-t-lg block">
-                My classes
-              </label>
-            
-              <input id="tab-three" type="radio" name="tabs" class="peer/tab-three opacity-0 absolute" />
-              <label for="tab-three" class="bg-blue-200 hover:bg-blue-300 peer-checked/tab-three:bg-blue-100 mx-1 cursor-pointer p-2 rounded-t-lg block">
-                Tests
-              </label>
-            
-              <div class="basis-full h-0"></div>
-            
-              <div class="bg-white hidden peer-checked/tab-one:block p-4 w-full">
-                <h2>content of basic info not very clear yet</h2>
-              </div>
-              <div class="bg-white hidden peer-checked/tab-two:block p-4 w-full">
-                <!-- Classes -->
-                <div class="flex flex-col">
-                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                      <div class="overflow-hidden">
-                        <table class="min-w-full text-left text-sm font-light">
-                          <thead
-                            class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
-                          >
-                            <tr>
-                              <th scope="col" class="px-6 py-4">#</th>
-                              <th scope="col" class="px-6 py-4">Class Name</th>
-                              <th scope="col" class="px-6 py-4">Created by</th>
-                              <th scope="col" class="px-6 py-4">Date</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr
-                              class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
-                            >
-                              <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                1
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">Primary 5</td>
-                              <td class="whitespace-nowrap px-6 py-4">Mr. Man</td>
-                              <td class="whitespace-nowrap px-6 py-4">
-                                Dec 1, 2023
-                              </td>
-                            </tr>
-                            <tr
-                              class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600"
-                            >
-                              <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                2
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">Basic 3</td>
-                              <td class="whitespace-nowrap px-6 py-4">
-                                Mrs. Ngozi
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">
-                                Jan 5, 2023
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Classes Ends here -->
-              </div>
-              <div class="bg-white hidden peer-checked/tab-three:block p-4 w-full">
-                <!-- Tests contents goes here -->
-                <div class="flex flex-col">
-                  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                      <div class="overflow-hidden">
-                        <table class="min-w-full text-left text-sm font-light">
-                          <thead
-                            class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600"
-                          >
-                            <tr>
-                              <th scope="col" class="px-6 py-4">Test Name</th>
-                              <th scope="col" class="px-6 py-4">Created By</th>
-                              <th scope="col" class="px-6 py-4">Active</th>
-                              <th scope="col" class="px-6 py-4">Date</th>
-                              <th scope="col" class="px-6 py-4">Answered</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr
-                              class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
-                            >
-                              <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                T1 English Lang
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">Ms Rose</td>
-                              <td class="whitespace-nowrap px-6 py-4">True</td>
-                              <td class="whitespace-nowrap px-6 py-4">
-                                10th Dec, 2023
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">False</td>
-                            </tr>
-                            <tr
-                              class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
-                            >
-                              <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Basic Science
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">Ms Judith</td>
-                              <td class="whitespace-nowrap px-6 py-4">False</td>
-                              <td class="whitespace-nowrap px-6 py-4">
-                                10th Dec, 2023
-                              </td>
-                              <td class="whitespace-nowrap px-6 py-4">True</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Test content ends here -->
-              </div>
-            
-            </section>
-
-            <!-- end of something -->
-          <div
-            class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-            id="tabs-messages02"
-            role="tabpanel"
-            aria-labelledby="tabs-profile-tab02"
-          >
-            <!-- Tab contents goes here -->
-            
-            <!-- End of tab content -->
+        <div class="card">
+          <a href="../../admin/students/students.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                students
+              </h6>
+            </div>
+            <div class="p-6 text-center">
+              <i class="fa fa-chalkboard-user text-5xl text-slate-400"></i>
+            </div>
+            <div class="border-t-2 p-2 border-gray-300">
+              <p class="text-slate-400 text-sm font-sans px-3">
+                <a href="../../admin/students/students.html">View all students</a>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="../../admin/students/classes.html">
+            <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+              <h6 class="text-slate-400 uppercase font-sans font-semibold">
+                classes
+              </h6>
           </div>
-          <div
-            class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-            id="tabs-contact02"
-            role="tabpanel"
-            aria-labelledby="tabs-contact-tab02"
-          >
-            Tab 4 content
+            <div class="p-6 text-center">
+              <i class="fa fa-chalkboard text-5xl text-slate-400"></i>
+            </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../../admin/students/classes.html">View all classes</a>
+            </p>
+          </div>
+        </a>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              tests
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-square-root-variable text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="../assignments.html">View all tests</a>
+            </p>
           </div>
         </div>
-      </section>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              statistics
+            </h6>
+          </div>
+          <div class="p-6 text-center">
+            <i class="fa fa-chart-pie text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all statistics</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              settings
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-sliders text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all settings</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              profile
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-id-card text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">View all profiles</a>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="rounded-t-md border-b-2 p-2 border-gray-300">
+            <h6 class="text-slate-400 uppercase font-sans font-semibold">
+              Logout
+            </h6>
+          </div>
+          <div class="text-center p-6">
+            <i class="fa fa-right-from-bracket text-5xl text-slate-400"></i>
+          </div>
+          <div class="border-t-2 p-2 border-gray-300">
+            <p class="text-slate-400 text-sm font-sans px-3">
+              <a href="#">Terminate session</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

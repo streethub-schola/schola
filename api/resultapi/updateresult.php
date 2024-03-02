@@ -72,6 +72,7 @@ if ($result_stmt['outputStatus'] == 1000) {
     } 
     elseif ($updateStatus['outputStatus'] = 1200) {
         errorDiag($updateStatus['output']);
+        return;
     }
     else {
 
@@ -84,6 +85,7 @@ if ($result_stmt['outputStatus'] == 1000) {
     }
 } elseif ($result_stmt['outputStatus'] = 1200) {
     errorDiag($result_stmt['output']);
+    return;
 }
 else {
 

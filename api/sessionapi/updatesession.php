@@ -91,6 +91,7 @@ if ($session_stmt['outputStatus'] == 1000) {
     } 
     elseif ($updateStatus['outputStatus'] = 1200) {
         errorDiag($updateStatus['output']);
+        return;
     }
     else {
 
@@ -103,6 +104,7 @@ if ($session_stmt['outputStatus'] == 1000) {
     }
 } elseif ($session_stmt['outputStatus'] = 1200) {
     errorDiag($session_stmt['output']);
+    return;
 }
 else {
 

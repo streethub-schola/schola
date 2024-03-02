@@ -105,7 +105,7 @@ if ($class_stmt['outputStatus'] == 1000) {
     } elseif ($class_deleted['outputStatus'] == 1200) {
 
         errorDiag($class_deleted['output']);
-        
+        return;
     } else {
         // if unable to delete the class
 

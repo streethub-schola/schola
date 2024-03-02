@@ -93,6 +93,7 @@ if ($subject_stmt['outputStatus'] == 1000) {
         echo json_encode(array("message" => "subject was deleted successfully."));
     } elseif ($subject_stmt['outputStatus'] == 1200) {
         errorDiag($subject_stmt['output']);
+        return;
     }
     // if unable to delete the subject
     else {
@@ -105,6 +106,7 @@ if ($subject_stmt['outputStatus'] == 1000) {
     }
 } elseif ($subject_stmt['outputStatus'] == 1200) {
     errorDiag($subject_stmt['output']);
+    return;
 } else {
     // set response code - 503 service unavailable
     http_response_code(503);

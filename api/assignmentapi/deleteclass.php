@@ -105,6 +105,7 @@ if ($class_stmt['outputStatus'] == 1000) {
     } elseif ($class_deleted['outputStatus'] == 1200) {
 
         errorDiag($class_deleted['output']);
+        return;
         
     } else {
         // if unable to delete the class
@@ -117,6 +118,7 @@ if ($class_stmt['outputStatus'] == 1000) {
     }
 } elseif ($class_stmt['outputStatus'] == 1200) {
     errorDiag($class_stmt['output']);
+    return;
 } else {
 
     // set response code - 503 service unavailable

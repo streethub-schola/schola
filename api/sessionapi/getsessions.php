@@ -38,6 +38,7 @@ if($stmt['outputStatus'] == 1000) {
 elseif ($stmt['outputStatus'] == 1200) {
     // no subjects found will be here
     errorDiag($stmt['output']);
+    return;
 }
 else {
     // no subjects found will be here

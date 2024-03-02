@@ -14,6 +14,8 @@ include('../models/Classes.php');
 include('../models/Subject.php');
 include('../models/Term.php');
 include('../models/Session.php');
+include('../models/Assignment.php');
+
 
 
 

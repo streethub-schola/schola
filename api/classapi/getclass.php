@@ -29,7 +29,7 @@ if (!empty($_GET['class_id'])) {
 }
 
 
-if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id == '' || $class_id == ' ') && (empty($class_admin_no) || $class_admin_no == null || $class_admin_no == '' || $class_admin_no == ' ')) {
+if ((empty($class_id) || $class_id == null || !is_numeric($class_id) || $class_id == '' || $class_id == ' ')) {
     // No valid class id provided
 
     // set response code - 404 Not found
@@ -72,7 +72,13 @@ if ($stmt['outputStatus'] == 1000) {
     // show subjects data in json format
     echo json_encode(array("result"=>$result, "status"=>1));
     return;
-} elseif ($stmt['outputStatus'] == 1100) {
+} 
+elseif ($stmt['outputStatus'] == 1200) {
+    // no subjects found will be here
+    errorDiag($stmt['output']);
+    return;
+}
+else {
     // no subjects found will be here
 
     // set response code - 404 Not found
@@ -82,8 +88,4 @@ if ($stmt['outputStatus'] == 1000) {
     echo json_encode(
         array("message" => "Something went wrong. Not able to fetch subject.")
     );
-}
-elseif ($stmt['outputStatus'] == 1200) {
-    // no subjects found will be here
-    errorDiag($stmt['output']);
 }

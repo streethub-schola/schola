@@ -105,6 +105,7 @@ if ($term_stmt['outputStatus'] == 1000) {
     } elseif ($term_deleted['outputStatus'] == 1200) {
 
         errorDiag($term_deleted['output']);
+        return;
         
     } else {
         // if unable to delete the term
@@ -117,6 +118,7 @@ if ($term_stmt['outputStatus'] == 1000) {
     }
 } elseif ($term_stmt['outputStatus'] == 1200) {
     errorDiag($term_stmt['output']);
+    return;
 } else {
 
     // set response code - 503 service unavailable

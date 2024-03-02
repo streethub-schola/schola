@@ -61,7 +61,7 @@ git push origin <name your branch>
 
 CLASSES
 1) Get a Class
-url: https://schola-2.myf2.net/api/classapi/getclass.php
+url: domain-name/api/classapi/getclass.php
 
 method: GET
 
@@ -71,7 +71,7 @@ api rersponse:
 json data of class if found or not
 
 2) Get All Classes
-url: https://schola-2.myf2.net/api/classapi/getclasses.php
+url: domain-name/api/classapi/getclasses.php
 
 method: GET
 
@@ -81,7 +81,7 @@ api rersponse:
 json data of class if found or not
 
 3) Create a Class
-#url: https://schola-2.myf2.net/api/classapi/createclass.php
+#url: domain-name/api/classapi/createclass.php
 
 method: POST
 
@@ -92,7 +92,7 @@ api rersponse:
 json data of class if found or not
 
 4) Update a Class
-#url: https://schola-2.myf2.net/api/classapi/updateclass.php
+#url: domain-name/api/classapi/updateclass.php
 
 method: PATCH or PUT
 
@@ -104,7 +104,7 @@ api rersponse:
 json data of class if found or not
 
 5) Delete a Class
-#url: https://schola-2.myf2.net/api/classapi/deleteclass.php
+#url: domain-name/api/classapi/deleteclass.php
 
 method: DELETE
 
@@ -115,7 +115,7 @@ api rersponse:
 json data of TRUE OR FALSE
 
 6) Search for a Class
-URL: https://schola-2.myf2.net/api/classapi/searchclass.php
+URL: domain-name/api/classapi/searchclass.php
 method: GET
 
 frontend input
@@ -133,7 +133,7 @@ json data of class if found or not
 ------------------------------------------------------
 
 1) Get a assignment
-url: https://schola-2.myf2.net/api/assignmentapi/getassignment.php
+url: domain-name/api/assignmentapi/getassignment.php
 
 method: GET
 
@@ -143,7 +143,7 @@ api rersponse:
 json data of assignment if found or not
 
 2) Get All assignmentes
-url: https://schola-2.myf2.net/api/assignmentapi/getassignmentes.php
+url: domain-name/api/assignmentapi/getassignmentes.php
 
 method: GET
 
@@ -153,7 +153,7 @@ api rersponse:
 json data of assignment if found or not
 
 3) Create a assignment
-#url: https://schola-2.myf2.net/api/assignmentapi/createassignment.php
+#url: domain-name/api/assignmentapi/createassignment.php
 
 method: POST
 
@@ -169,7 +169,7 @@ api rersponse:
 json data of assignment if found or not
 
 4) Update a assignment
-#url: https://schola-2.myf2.net/api/assignmentapi/updateassignment.php
+#url: domain-name/api/assignmentapi/updateassignment.php
 
 method: PATCH or PUT
 
@@ -185,7 +185,7 @@ api rersponse:
 json data of assignment if found or not
 
 5) Delete a assignment
-#url: https://schola-2.myf2.net/api/assignmentapi/deleteassignment.php
+#url: domain-name/api/assignmentapi/deleteassignment.php
 
 method: DELETE
 
@@ -196,7 +196,7 @@ api rersponse:
 json data of TRUE OR FALSE
 
 6) Search for a assignment
-URL: https://schola-2.myf2.net/api/assignmentapi/searchassignment.php
+URL: domain-name/api/assignmentapi/searchassignment.php
 method: GET
 
 frontend input

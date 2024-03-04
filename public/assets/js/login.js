@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
   console.log(userData);
 
 
-  url.includes('teacher') ? logteacher(userData) : logStudent(userData);
+  url.includes('teacher') ? logteacher(configData) : logStudent(configData);
 
 });
 
@@ -38,7 +38,9 @@ function logStudent(studentObject){
     .then(data => {
       console.log(data);
       if (data.status == 1) {
-        alert(data.message);
+
+        // fetch(`https://schola-2.myf2.net/api/classapi/getclass.php?class_id=${}`)
+        // alert(data.message);
 
         // Save logged in user info to session storage so you can access them in other pages
         sessionStorage.setItem("schola-user", JSON.stringify(data) )

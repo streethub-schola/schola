@@ -8,10 +8,12 @@ var btn_Submit = document.getElementById("postBtn");
 var sname = document.getElementById("staff-name");
  
 const delete_Assignment = document.getElementById("deleteAssignment");
+const subject = document.querySelector(".subjectsT");
+const staffName = document.getElementById("staff-name");
+const session = document.querySelector("#session");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const staffName = document.getElementById("staff-name");
-  const subject = document.querySelector(".subjectsT");
+console.log(session)
+  // const subject = document.querySelector(".subjectsT");
 
   console.log(subject);
   const studentClass = document.querySelector(".classT");
@@ -19,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch the staff details
   staffName.value = sessionStorage.getItem("staff-name");
+
+document.addEventListener("DOMContentLoaded", () => {
+  
 
   // Get the subjects
   fetch("https://schola.skaetch.com/api/subjectapi/getsubjects.php")
@@ -56,7 +61,39 @@ btn_Submit.addEventListener("click", ()=>{
     alert("Please enter a question");
     return false;
   } else {
-    return
+
+    //this line to 69 is for debugging
+    console.log(
+      `${textMessage.value}
+      ${subject.value}
+      ${terms.value}`
+    )
+
+
+    let configData = {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "class_id": studentClass.value,
+        "subject_id": subject.value,
+        "term_id": terms.value,
+        "session_id": session.value,
+        "staff_id": 1,
+        "assignment":textMessage.value
+      })
+    }
+
+    fetch("https://schola-2.myf2.net/api/assignmentapi/createassignment.php", configData)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
     
   }
 

@@ -8,22 +8,22 @@ header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // initialize object
-$term = new Term();
+$result = new Result();
 
-$stmt = $term->getAllTerms();
+$stmt = $result->getAllresults();
 // $num = $stmt->rowCount();
 
 // check if more than 0 record found
 if($stmt['outputStatus'] == 1000) {
 
-    $result_term = $stmt['output']->fetchAll(PDO::FETCH_ASSOC);
+    $result_result = $stmt['output']->fetchAll(PDO::FETCH_ASSOC);
    
-    if (count($result_term) == 0) {
+    if (count($result_result) == 0) {
         // set response code - 200 OK
         http_response_code(404);
 
-        // show terms data in json format
-        echo json_encode(array("message" => "No term found.", "status"=>1));
+        // show results data in json format
+        echo json_encode(array("message" => "No result found.", "status"=>1));
 
         return;
     }
@@ -31,8 +31,8 @@ if($stmt['outputStatus'] == 1000) {
     // set response code - 200 OK
     http_response_code(200);
 
-    // show terms data in json format
-    echo json_encode(array("result"=>$result_term, "status"=>1));
+    // show results data in json format
+    echo json_encode(array("result"=>$result_result, "status"=>1));
     return;
 } 
 elseif ($stmt['outputStatus'] == 1200) {

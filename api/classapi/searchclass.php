@@ -70,7 +70,7 @@ if ($search_stmt['outputStatus'] == 1000) {
     return;
 } elseif ($search_stmt['outputStatus'] == 1200) {
     errorDiag($search_stmt['output']);
-    
+    return;
 } else {
 
     // set response code - 503 service unavailable

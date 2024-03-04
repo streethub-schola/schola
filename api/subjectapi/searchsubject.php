@@ -67,6 +67,7 @@ elseif($search_stmt['outputStatus'] == 1000){
   
     // tell the student
     echo json_encode(array("message"=>"Fetched succesful","result"=> $search_result, "status"=>1));
+    return;
 
 }else{
   

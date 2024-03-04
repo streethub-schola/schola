@@ -22,6 +22,8 @@
 
 body {
     background: var(--background_color);
+    /* width: 90%;
+    margin: auto; */
 }
 .hero{
     margin: 15px 10px;
@@ -38,25 +40,31 @@ body {
 .central{
     display: flex;
     justify-content: space-evenly;
+    /* width: 80%;  */
 }
 
 .S-Name, .subjects, .class, .year, .term{
     margin: 10px 0;
 }
-small{
+/* small{
     font-size: 18px;
         font-weight: bold;
         margin: 2px 0;
         color: var(--main-red);
+} */
+
+label {
+    width: 80px;
+    display: inline-block;
 }
 #staff-name, #sub, #class, #terms{
-     height: 40px;
+     /* height: 40px; */
       outline: none;
       border-radius: 7px;
       border: 2px solid var(--dark-graySolid);
       padding: 10px;
       margin: 5px;
-      font-size: 18px;
+      /* font-size: 14px; */
       background: var(--white-primaty-main);
       color: var(--dark-primry);
 }

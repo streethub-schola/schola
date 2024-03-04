@@ -56,6 +56,7 @@ btn_Submit.addEventListener("click", ()=>{
     alert("Please enter a question");
     return false;
   } else {
+    return
     
   }
 

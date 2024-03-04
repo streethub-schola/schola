@@ -39,17 +39,17 @@ if (
     $staff->email = cleanData($data->email);
     $staff->address = cleanData($data->address);
 
-    $staff->nok_name = !empty($data->nok_name) ?? cleanData($data->nok_name) ?? null;
-    $staff->nok_phone = !empty($data->nok_phone) ?? cleanData($data->nok_phone) ?? null;
-    $staff->nok_email = !empty($nok_email) ?? cleanData($nok_email) ?? null;
-    $staff->nok_address = !empty($nok_address) ?? cleanData($nok_address) ?? null;
-    $staff->nok_rel = !empty($data->nok_rel) ?? cleanData($data->nok_rel) ?? null;
+    $staff->nok_name = !empty($data->nok_name) ? cleanData($data->nok_name) : null;
+    $staff->nok_phone = !empty($data->nok_phone) ? cleanData($data->nok_phone) : null;
+    $staff->nok_email = !empty($nok_email) ? cleanData($nok_email) : null;
+    $staff->nok_address = !empty($nok_address) ? cleanData($nok_address) : null;
+    $staff->nok_rel = !empty($data->nok_rel) ? cleanData($data->nok_rel) : null;
 
-    $staff->guarantor_name = !empty($data->guarantor_name) ?? cleanData($data->guarantor_name) ?? null;
-    $staff->guarantor_phone = !empty($data->guarantor_phone) ?? cleanData($data->guarantor_phone) ?? null;
-    $staff->guarantor_email = !empty($data->guarantor_email) ?? cleanData($data->guarantor_email) ?? null;
-    $staff->guarantor_address = !empty($data->guarantor_address) ?? cleanData($data->guarantor_address) ?? null;
-    $staff->guarantor_rel = !empty($data->guarantor_re) ?? cleanData($data->guarantor_re) ?? null;
+    $staff->guarantor_name = !empty($data->guarantor_name) ? cleanData($data->guarantor_name) : null;
+    $staff->guarantor_phone = !empty($data->guarantor_phone) ? cleanData($data->guarantor_phone) : null;
+    $staff->guarantor_email = !empty($data->guarantor_email) ? cleanData($data->guarantor_email) : null;
+    $staff->guarantor_address = !empty($data->guarantor_address) ? cleanData($data->guarantor_address) : null;
+    $staff->guarantor_rel = !empty($data->guarantor_rel) ? cleanData($data->guarantor_rel) : null;
 
     $staff->password = cleanData($data->password);
 

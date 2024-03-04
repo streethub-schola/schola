@@ -69,4 +69,7 @@ if (
     // tell the assignment
     echo json_encode(array("message" => "Unable to create assignment. Fill all fields.", "status" => 2));
     return;
+
 }
+
+

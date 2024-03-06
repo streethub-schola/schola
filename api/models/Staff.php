@@ -49,7 +49,7 @@ class Staff extends Database
 
 
     // read a single user
-    function getstaff()
+    function getStaff()
     {
         $query = '';
         $search_id = "";
@@ -141,7 +141,7 @@ class Staff extends Database
             // execute query
             if ($stmt->execute()) {
 
-                $setId = $this->setLaststaffId($this->conn->lastInsertId());
+                $setId = $this->setLastStaffId($this->conn->lastInsertId());
 
                 if (is_string($setId)) {
                     return $setId;
@@ -206,7 +206,7 @@ class Staff extends Database
 
 
     // update the product
-    function updatestaff()
+    function updateStaff()
     {
 
         // update query
@@ -255,7 +255,7 @@ class Staff extends Database
     }
 
     // delete a user
-    function deletestaff()
+    function deleteStaff()
     {
         // delete query
         $query = "DELETE FROM " . $this->table_name . " WHERE staff_id = ?";
@@ -276,7 +276,7 @@ class Staff extends Database
 
 
     // search for a particular in a given column
-    function searchstaff($searchstring, $col)
+    function searchStaff($searchstring, $col)
     {
         // select all query
         $query = "SELECT staff_id, staff_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE " . $col . "=:searchstring";
@@ -418,7 +418,7 @@ class Staff extends Database
 
 
     // read a single user
-    function setLaststaffId($lastId)
+    function setLastStaffId($lastId)
     {
         $offsetId = $lastId + 13;
         // update query

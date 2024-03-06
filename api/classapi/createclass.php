@@ -25,10 +25,6 @@ if (
     // Sanitize & set class property values
     $class->class_name = cleanData($data->class_name);
 
-
-  
-
-
     // create the class
     $newclass = $class->createClass();
 
@@ -48,6 +44,7 @@ if (
     elseif ($newclass['outputStatus'] == 1200) {
 
         errorDiag($newclass['output']);
+        return;
     }
     else {
         // set response code - 200 ok

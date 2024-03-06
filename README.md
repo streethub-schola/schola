@@ -61,7 +61,7 @@ git push origin <name your branch>
 
 CLASSES
 1) Get a Class
-url: https://schola-2.myf2.net/api/classapi/getclass.php
+url: domain-name/api/classapi/getclass.php
 
 method: GET
 
@@ -71,7 +71,7 @@ api rersponse:
 json data of class if found or not
 
 2) Get All Classes
-url: api/classapi/getclasses.php
+url: domain-name/api/classapi/getclasses.php
 
 method: GET
 
@@ -81,34 +81,30 @@ api rersponse:
 json data of class if found or not
 
 3) Create a Class
-#url: api/classapi/createclass.php
+#url: domain-name/api/classapi/createclass.php
 
 method: POST
 
 frontend input:
 - class_name: e.g JSS or SSS or Primary etc (string / mandatory)
-- class_level: e.g 1 or 2 or 5 etc (number or number string / mandatory)
-- class_extension: e.g. A or B or Gold or Tiger (string / optional)
 
 api rersponse:
 json data of class if found or not
 
 4) Update a Class
-#url: api/classapi/updateclass.php
+#url: domain-name/api/classapi/updateclass.php
 
 method: PATCH or PUT
 
 frontend input:
 - class_id: (number or number string / mandatory)
 - class_name: e.g JSS or SSS or Primary etc (string / optional)
-- class_level: e.g 1 or 2 or 5 etc (string / optional)
-- class_extension: e.g. A or B or Gold or Tiger (string / optional)
 
 api rersponse:
 json data of class if found or not
 
 5) Delete a Class
-#url: api/classapi/deleteclass.php
+#url: domain-name/api/classapi/deleteclass.php
 
 method: DELETE
 
@@ -119,6 +115,7 @@ api rersponse:
 json data of TRUE OR FALSE
 
 6) Search for a Class
+URL: domain-name/api/classapi/searchclass.php
 method: GET
 
 frontend input
@@ -129,5 +126,86 @@ api rersponse:
 json data of class if found or not
 
 ### Class api ends here
+------------------------------------------------------
+
+
+### ASSIGNMENT api begins here
+------------------------------------------------------
+
+1) Get a assignment
+url: domain-name/api/assignmentapi/getassignment.php
+
+method: GET
+
+frontend input: assignment_id (string / mandatory)
+
+api rersponse:
+json data of assignment if found or not
+
+2) Get All assignmentes
+url: domain-name/api/assignmentapi/getassignmentes.php
+
+method: GET
+
+frontend input: nil
+
+api rersponse:
+json data of assignment if found or not
+
+3) Create a assignment
+#url: domain-name/api/assignmentapi/createassignment.php
+
+method: POST
+
+frontend input:
+- class_id : (integer / mandatory)
+- subject_id : (integer / mandatory)
+- term_id : (integer / mandatory)
+- session_id : (integer / mandatory)
+- staff_id : (integer / mandatory)
+- assignment: the assignment (string / mandatory)
+
+api rersponse:
+json data of assignment if found or not
+
+4) Update a assignment
+#url: domain-name/api/assignmentapi/updateassignment.php
+
+method: PATCH or PUT
+
+frontend input:
+- assignment_id: (number or number string / mandatory)
+- class_id : (integer / mandatory)
+- subject_id : (integer / mandatory)
+- term_id : (integer / mandatory)
+- session_id : (integer / mandatory)
+- staff_id : (integer / mandatory)
+
+api rersponse:
+json data of assignment if found or not
+
+5) Delete a assignment
+#url: domain-name/api/assignmentapi/deleteassignment.php
+
+method: DELETE
+
+frontend input:
+- assignment_id: (number or number string / mandatory)
+
+api rersponse:
+json data of TRUE OR FALSE
+
+6) Search for a assignment
+URL: domain-name/api/assignmentapi/searchassignment.php
+method: GET
+
+frontend input
+a. searchstring (string / mandatory) : the item you are searching for
+b. searchcolumn (string / mandatory): the column on the assignmentes table you ant to search in
+
+api rersponse:
+json data of assignment if found or not
+
+### assignment api ends here
 ------------------------------------------------------
 

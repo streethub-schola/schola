@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+}
+
+/* Root selectors */
+:root {
+    --bg-main: rgb(59 130 246 / 0.5);
+    --green-primary: #0c5239;
+    --green-TransparentMain: #077b26f5;
+    --white-primaty-main: #fff;
+    --gray-Transparent: rgb(230, 230, 230);
+    --dark-primry: #090909;
+    --gray-primary-NoTransparent: rgb(89, 88, 88);
+    --blue-primary-main: #220fca;
+    --semi-red: #e26482;
+    --main-red: #ff0000;
+    --background_color: #eaf6f6;
+    --dark-graySolid: rgb(210, 210, 210);
+}
+
+/* hero section */
+body{
+    background: var(--bg-main);
+}
+.hero{
+    margin: 15px 20px;
+}
+.innerContents{
+    margin: 10px 4px;
+    background: var(--white-primaty-main);
+    border-radius: 5px;
+    padding: 10px 5px;
+    box-shadow: 0 0 30px var(--dark-primry);
+}
+.title{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.contentsGrid{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+}
+
+.Aca-year, .Aca-Term, .s-name, .s-class, .ad-no, .s-gender, .resumption-dt{
+    margin: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#academic-term, #student-name, #student-class, #admission-no, 
+#student-gender, #school-resume-date{
+    height: 40px;
+        outline: none;
+        border-radius: 7px;
+        border: 2px solid var(--bg-main);
+        padding: 10px;
+        margin: 5px;
+        font-size: 18px;
+        background: var(--white-primaty-main);
+        color: var(--dark-primry);
+}
+#academic-term{
+    font-size: 15px;
+}
+#academic-term:hover, #student-name:hover,  #student-class:hover, 
+#admission-no:hover, #student-gender:hover, #school-resume-date:hover{
+    border: 2px solid var(--semi-red);
+        cursor: pointer;
+        transition: .5s ease-in-out;
+}
+
+/* for tables in our page */
+.s-result-table{
+    /* margin: 20px 10px; */
+    display: flex;
+    justify-content: center;
+}
+.mainTable th{
+    padding: 15px;
+        text-align: center;
+}
+ .mainTable{
+    border-collapse: collapse;
+ }
+
+.mainTable th, tr, td{
+        border: 1px solid var(--dark-primry);
+        padding: 15px;
+        /* border-collapse: collapse; */
+}
+
+@media screen and (min-width: 0) and (max-width: 750px) {
+    .contentsGrid {
+            
+            
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 15px;
+        }
+                .s-result-table {
+                    margin: 20px 10px;
+                }
+                .mainTable th,
+                tr,
+                td {
+                    border: 1px solid var(--dark-primry);
+                    padding: 10px;
+                    /* border-collapse: collapse; */
+                }
+}
+

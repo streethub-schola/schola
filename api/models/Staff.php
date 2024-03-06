@@ -17,6 +17,8 @@ class Staff extends Database
     public $address;
     public $phone;
     public $email;
+    public $class_id;
+
 
     // Next of Kin info
     public $nok_name;
@@ -41,42 +43,53 @@ class Staff extends Database
     public $created_at;
     public $updated_at;
 
-    // constructor with $db as database connection
-    // public function __construct($db)
-    // {
-    //     $this->conn = $db;
-    // }
-
-
     // read a single user
     function getStaff()
     {
-        $query = '';
-        $search_id = "";
 
         if ($this->staff_id != NULL) {
 
-           $search_id = $this->staff_id;
-        } 
-        elseif ($this->staff_no != NULL) {
+            // select query if student ID is provided
+            $query = "SELECT * FROM " . $this->table_name . " WHERE staff_id=:staff_id";
 
-            $search_id = $this->staff_no;
-         }
-        else {
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
 
-            return "No valid staff ID or Admission number provided";
+            // bind values
+            $stmt->bindParam(":staff_id", $this->staff_id);
+
+            try {
+                // execute query
+                $stmt->execute();
+
+                return array("output" => $stmt, "outputStatus" => 1000);
+            } catch (Exception $e) {
+                return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+            }
+        } elseif ($this->staff_no != null) {
+
+            // select query if student staff no is provided 
+            $query = "SELECT *  FROM " . $this->table_name . " WHERE staff_no=:staff_no";
+
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+
+            // bind values
+            $stmt->bindParam(":staff_no", $this->staff_no);
+
+
+            try {
+                // execute query
+                $stmt->execute();
+
+                return array("output" => $stmt, "outputStatus" => 1000);
+            } catch (Exception $e) {
+                return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+            }
+        } else {
+
+            return array("output" => "Please provide a valid Student ID or Admission number", "outputStatus" => 1400);
         }
-
-         // select query if staff ID is provided
-         $query = "SELECT * FROM " . $this->table_name . " WHERE staff_id=" . $search_id;
-
-         // prepare query statement
-         $stmt = $this->conn->prepare($query);
-
-         // execute query
-         $stmt->execute();
-
-         return $stmt;
     }
 
     // read users
@@ -85,14 +98,17 @@ class Staff extends Database
         // select all query
         $query = "SELECT * FROM " . $this->table_name;
 
-
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        // execute query
-        $stmt->execute();
+        try {
+            // execute query
+            $stmt->execute();
 
-        return $stmt;
+            return array("output" => $stmt, "outputStatus" => 1000);
+        } catch (Exception $e) {
+            return array("output" => $e->getMessage(), "eror" => "Netork issue. Please try again.", "outputStatus" => 1200);
+        }
     }
 
 
@@ -102,11 +118,12 @@ class Staff extends Database
         // Generate and set defualt properties
         $this->staff_no = "MIS/TS/" . date("Y") . "/";
         $this->generateCode();
+
+        // Generate new student default password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email, :address, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, :password, :user_code) ";
+        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, rank, role, password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :rank, :role,:password, :user_code) ";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -117,9 +134,11 @@ class Staff extends Database
         $stmt->bindParam(":lastname", $this->lastname);
         $stmt->bindParam(":dob", $this->dob);
         $stmt->bindParam(":image", $this->image);
+        $stmt->bindParam(":address", $this->address);
         $stmt->bindParam(":phone", $this->phone);
         $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":address", $this->address);
+        $stmt->bindParam(":class_id", $this->class_id);
+
 
         $stmt->bindParam(":nok_name", $this->nok_name);
         $stmt->bindParam(":nok_phone", $this->nok_phone);
@@ -133,6 +152,8 @@ class Staff extends Database
         $stmt->bindParam(":guarantor_address", $this->guarantor_address);
         $stmt->bindParam(":guarantor_rel", $this->guarantor_rel);
 
+        $stmt->bindParam(":rank", $this->rank);
+        $stmt->bindParam(":role", $this->role);
         $stmt->bindParam(":password", $this->password);
         $stmt->bindParam(":user_code", $this->user_code);
 
@@ -140,12 +161,12 @@ class Staff extends Database
         try {
             // execute query
             if ($stmt->execute()) {
+                $lastInsertedId = $this->conn->lastInsertId();
+                $this->staff_id = $lastInsertedId;
+                $staff_id_Set = $this->setLastStaffNo($lastInsertedId);
 
-                $setId = $this->setLastStaffId($this->conn->lastInsertId());
-
-                if (is_string($setId)) {
-                    return $setId;
-                } elseif ($setId) {
+               if ($staff_id_Set) {
+            //   return $this;
                     return true;
                 } else {
                     return false;
@@ -170,7 +191,7 @@ class Staff extends Database
         return;
     }
 
-    function generateSessionCode()
+    function regenerateCode()
     {
 
         // update query
@@ -192,22 +213,29 @@ class Staff extends Database
 
         try {
 
-            if ($update_stmt->execute()) return true;
+            if ($update_stmt->execute()) {
+                return true;
+            }
 
             return false;
-
         } catch (Exception $e) {
 
             return $e->getMessage();
-
         }
-     
     }
 
 
     // update the product
     function updateStaff()
     {
+        $querystring = "";
+
+        if ($this->staff_id != null) {
+            $querystring = "staff_id=" . $this->staff_id;
+        } else {
+            $querystring = "staff_no=" . $this->staff_no;
+        }
+
 
         // update query
         $query = "UPDATE " . $this->table_name . " SET
@@ -222,8 +250,7 @@ class Staff extends Database
                     guardian_address = :guardian_address,
                     guardian_rel = :guardian_rel,
                     updated_at = :updated_at
-                WHERE
-                    staff_id = :staff_id";
+                WHERE" . $querystring;
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
@@ -257,21 +284,37 @@ class Staff extends Database
     // delete a user
     function deleteStaff()
     {
-        // delete query
-        $query = "DELETE FROM " . $this->table_name . " WHERE staff_id = ?";
+        $stmt = null;
 
-        // prepare query
-        $stmt = $this->conn->prepare($query);
+        if ($this->staff_id != null) {
+            // delete query
+            $query = "DELETE FROM " . $this->table_name . " WHERE staff_id = ?";
 
-        // bind staff_id of record to delete
-        $stmt->bindParam(1, $this->staff_id);
+            // prepare query
+            $stmt = $this->conn->prepare($query);
 
-        // execute query
-        if ($stmt->execute()) {
-            return true;
+            // bind staff_id of record to delete
+            $stmt->bindParam(1, $this->staff_id);
+        } else {
+            $query = "DELETE FROM " . $this->table_name . " WHERE staff_no = ?";
+
+            // prepare query
+            $stmt = $this->conn->prepare($query);
+
+            // bind staff_id of record to delete
+            $stmt->bindParam(1, $this->staff_no);
         }
 
-        return false;
+        try {
+            // execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            return false;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 
@@ -279,7 +322,7 @@ class Staff extends Database
     function searchStaff($searchstring, $col)
     {
         // select all query
-        $query = "SELECT staff_id, staff_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE " . $col . "=:searchstring";
+        $query = "SELECT staff_id, staff_no, firstname, lastname, dob, image, guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at EXCEPT password, user_code FROM " . $this->table_name . " WHERE '$col'=:searchstring";
 
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
@@ -297,35 +340,32 @@ class Staff extends Database
     }
 
 
-     // search for a particular in a given column
-     function groupSearch($searchstring, $col)
-     {
+    // search for a particular in a given column
+    function groupSearch($searchstring, $col)
+    {
 
-         // select all query
-         $query = "SELECT staff_id, staff_no, firstname, lastname, dob, 'image', guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
+        // select all query
+        $query = "SELECT staff_id, staff_no, firstname, lastname, dob, 'image', guardian_name, guardian_phone, guardian_email, guardian_address, guardian_rel, active, created_at, updated_at FROM " . $this->table_name . " WHERE $col LIKE '%$searchstring%'";
 
         //  $query = "SELECT * FROM $this->table_name WHERE $col LIKE '%$searchstring%'";
 
-        
-         // prepare query statement
-         $update_stmt = $this->conn->prepare($query);
- 
+
+        // prepare query statement
+        $update_stmt = $this->conn->prepare($query);
+
         //  $update_stmt->bindParam(':searchstring', $searchstring);
- 
-         try {
 
-             // execute query
-             $update_stmt->execute();
+        try {
 
-             return $update_stmt;
+            // execute query
+            $update_stmt->execute();
 
-         } catch (Exception $e) {
+            return $update_stmt;
+        } catch (Exception $e) {
 
-             return $e->getMessage();
-
-         }
-
-     }
+            return $e->getMessage();
+        }
+    }
 
 
     // update the product
@@ -418,7 +458,7 @@ class Staff extends Database
 
 
     // read a single user
-    function setLastStaffId($lastId)
+    function setLastStaffNo($lastId)
     {
         $offsetId = $lastId + 13;
         // update query
@@ -428,32 +468,32 @@ class Staff extends Database
         // prepare query statement
         $update_stmt = $this->conn->prepare($query);
 
-        $admission_no = "";
+        $staff_no = "";
 
-        if ($lastId < 10) {
-            $admission_no = "MIS/" . date("Y") . "/000" . $offsetId;
-        } elseif ($lastId >= 10 && $lastId < 100) {
-            $admission_no = "MIS/" . date("Y") . "/00" . $offsetId;
-        } elseif ($lastId >= 100) {
-            $admission_no = "MIS/" . date("Y") . "/0" . $offsetId;
+        if ($offsetId < 10) {
+            $staff_no = "MIS/TS" . date("Y") . "/000" . $offsetId;
+        } elseif ($offsetId >= 10 && $offsetId < 100) {
+            $staff_no = "MIS/TS" . date("Y") . "/00" . $offsetId;
+        } elseif ($offsetId >= 100) {
+            $staff_no = "MIS/TS" . date("Y") . "/0" . $offsetId;
         } else {
-            $admission_no = "MIS/" . date("Y") . "/" . $offsetId;
+            $staff_no = "MIS/TS" . date("Y") . "/" . $offsetId;
         }
 
         // bind new values
         $update_stmt->bindParam(':staff_id', $lastId);
-        $update_stmt->bindParam(':staff_no', $admission_no);
+        $update_stmt->bindParam(':staff_no', $staff_no);
 
 
         try {
 
-            if ($update_stmt->execute()) return true;
+            if ($update_stmt->execute()) {
+                return true;
+            }
             return false;
-
         } catch (Exception $e) {
 
             return $e->getMessage();
-
         }
     }
 
@@ -465,5 +505,13 @@ class Staff extends Database
         if (password_verify($user_pass, $db_pass)) return true;
 
         return false;
+    }
+
+
+    // Auto generate new user password
+    function genPass($pass)
+    {
+        $symbolsArray = ["!", "@", "#", "%", "&", "*"];
+        return $pass . $symbolsArray[rand(0, 5)] . rand(1234, 9876);
     }
 }

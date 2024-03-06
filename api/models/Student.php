@@ -144,7 +144,7 @@ class Student extends Database
                     $this->student_id = $lastStudentId;
                     $student_stmt = $this->getStudent();
 
-                    return array("output"=>$student_stmt,  "outputStatus"=>1000);
+                    return array("output"=>$student_stmt['output'],  "outputStatus"=>1000);
                 } elseif (!$setId) {
                     return array("output"=>false, "error"=>"Student created but Admission Number generation failed. Please update manually", "outputStatus"=>1200);
                 } else {

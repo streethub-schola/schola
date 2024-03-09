@@ -7,6 +7,51 @@ const admin_no = document.getElementById('admin_no');
 const pgname = document.getElementById('pgname');
 const pgrel = document.getElementById('pgrel');
 const registered_at = document.getElementById('registered_at');
+let serialNo = 1;
+
+// LOAD THE RESOURCES FROM THE BACKEND
+
+// ASSIGNMENTS
+
+document.addEventListener('DOMContentLoaded', () => {
+    //ASSIGNMENTS
+    fetch('https://schola.skaetch.com/api/assignmentapi/getassignments.php')
+ .then((response) => response.json())
+ .then((data) => {
+    console.log(data);
+    callAssignments(data);
+
+ })
+
+ //RESULTS
+ fetch('https://schola.skaetch.com/api/resultapi/getresults.php')
+ .then((response) => response.json())
+ .then((data) => {
+    console.log(data);
+ })
+ 
+})
+
+function callAssignments(assignments){
+   let source = document.getElementById('showAssignments');
+
+   source.innerHTML = "";
+
+   assignments.forEach(items => {
+      let view = `
+      <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700>
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    ${items.subject_id}
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">${items.staff_id}</td>
+                  <td class="whitespace-nowrap px-6 py-4">True</td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    10th Dec, 2023
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4">False</td>
+                </tr>`
+   });
+}
 
 
 // CHECK IF THERE IS A CONTENT IN THE STORAGE

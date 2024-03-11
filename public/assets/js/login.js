@@ -6,10 +6,20 @@ form.addEventListener("submit", (e) => {
 
   const url = document.URL;
 
-  const userData = {
-    admin_no: `${form.admin_no.value}`,
-    password: `${form.password.value}`,
-  };
+  let userData = null;
+
+  if (url.includes('teacher')){
+    userData = {
+      staff_no: `${form.admin_no.value}`,
+      password: `${form.password.value}`,
+    }
+  }
+  else{
+    userData = {
+      admin_no: `${form.admin_no.value}`,
+      password: `${form.password.value}`,
+    };
+  }
 
 
  const configData = {
@@ -56,9 +66,8 @@ function logStudent(studentObject){
 
 
 function logteacher(teacherObject){
-  // fetch("https://schola.myf2.net/api/staffapi/stafflogin.php", teacherObject)
-
-  fetch("http://localhost/oluaka/schola/api/studentapi/studentlogin.php", teacherObject)
+  fetch("https://schola-2.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+  // fetch("http://localhost/oluaka/schola/api/staffapi/stafflogin.php", teacherObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

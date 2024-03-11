@@ -78,7 +78,7 @@ function logteacher(teacherObject){
         sessionStorage.setItem("scola-user", JSON.stringify(data) )
 
         // location.href = "./admin/students/view_student.html";
-        location.href = "../../teachers/index.html";
+        location.href = "../../teachers/teacher_dashboard.html";
       }
       else {
         alert(data.message);

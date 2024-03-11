@@ -37,7 +37,6 @@ class Student extends Database
     // read a single user
     function getStudent()
     {
-        $query = '';
 
         if ($this->student_id != NULL) {
 
@@ -77,7 +76,8 @@ class Student extends Database
             }
         } else {
 
-            return "Please provide a valid Student ID or Admission number";
+            return array("output"=>"Please provide a valid Student ID or Admission number","outputStatus"=>1400);
+
         }
     }
 
@@ -144,7 +144,7 @@ class Student extends Database
                     $this->student_id = $lastStudentId;
                     $student_stmt = $this->getStudent();
 
-                    return $student_stmt;
+                    return array("output"=>$student_stmt['output'],  "outputStatus"=>1000);
                 } elseif (!$setId) {
                     return array("output"=>false, "error"=>"Student created but Admission Number generation failed. Please update manually", "outputStatus"=>1200);
                 } else {

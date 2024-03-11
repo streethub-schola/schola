@@ -8,45 +8,45 @@ header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // initialize object
-$assignment = new Assignment();
+$result = new Result();
 
-// var_dump($assignment);
+// var_dump($result);
 // return;
 
-// read assignment id will be here
-$assignment_id = null;
+// read result id will be here
+$result_id = null;
 
-if (!empty($_GET['assignment_id'])) {
-    $assignment_id = $_GET['assignment_id'];
+if (!empty($_GET['result_id'])) {
+    $result_id = $_GET['result_id'];
 } else {
 
 
     $data = json_decode(file_get_contents("php://input"));
 
-    if (!empty($data->assignment_id)) {
-        $assignment_id = $data->assignment_id;
+    if (!empty($data->result_id)) {
+        $result_id = $data->result_id;
     }
 }
 
 
-if ((empty($assignment_id) || $assignment_id == null || !is_numeric($assignment_id) || $assignment_id == '' || $assignment_id == ' ')) {
-    // No valid assignment id provided
+if ((empty($result_id) || $result_id == null || !is_numeric($result_id) || $result_id == '' || $result_id == ' ')) {
+    // No valid result id provided
 
     // set response code - 404 Not found
     http_response_code(404);
 
-    // tell the assignment no products found
+    // tell the result no products found
     echo json_encode(
-        array("message" => "Plaese provide a valid assignment ID")
+        array("message" => "Plaese provide a valid result ID")
     );
 
     return;
 }
 
-// query assignments
-$assignment->assignment_id = $assignment_id;
+// query results
+$result->result_id = $result_id;
 
-$stmt = $assignment->getAssignment();
+$stmt = $result->getresult();
 // var_dump($stmt);
 // return;
 

@@ -83,6 +83,7 @@ if ($subject_stmt['outputStatus'] == 1000) {
         } elseif ($updateStatus['outputStatus'] == 1200) {
 
             errorDiag($updateStatus['output']);
+            return;
         } else {
 
             // set response code - 503 service unavailable
@@ -94,7 +95,9 @@ if ($subject_stmt['outputStatus'] == 1000) {
         }
     } else {
         errorDiag($subject_stmt);
+        return;
     }
 } elseif ($subject_stmt['outputStatus'] == 1200) {
     errorDiag($subject_stmt['output']);
+    
 }

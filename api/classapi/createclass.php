@@ -44,6 +44,7 @@ if (
     elseif ($newclass['outputStatus'] == 1200) {
 
         errorDiag($newclass['output']);
+        return;
     }
     else {
         // set response code - 200 ok

@@ -15,6 +15,9 @@ $assignment = new Assignment();
 $data = json_decode(file_get_contents("php://input"));
 // var_dump($data);
 // return;
+http_response_code(201);
+echo json_encode(array("message" => $data, "status" => 1));
+return;
 
 // make sure data is not empty
 if (
@@ -48,6 +51,7 @@ if (
     elseif ($newassignment['outputStatus'] == 1200) {
 
         errorDiag($newassignment['output']);
+        return;
     }
     else {
         // set response code - 200 ok
@@ -68,4 +72,7 @@ if (
     // tell the assignment
     echo json_encode(array("message" => "Unable to create assignment. Fill all fields.", "status" => 2));
     return;
+
 }
+
+

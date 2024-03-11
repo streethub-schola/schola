@@ -52,6 +52,7 @@ if (
         return;
     } elseif ($newsubject['outputStatus'] == 1200) {
         errorDiag($newsubject['output']);
+        return;
     }
 } else {
 

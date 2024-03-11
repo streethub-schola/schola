@@ -26,9 +26,16 @@ if (
     !empty($data->phone) &&
     !empty($data->email) &&
     !empty($data->address) && 
-    !empty($data->password)
+    !empty($data->rank) && 
+    !empty($data->role) 
+
    
 ) {
+
+    // Generated and conserve new staff password
+    $data->password = $staff->genPass($data->firstname);
+    $staff->password = $data->password;
+
 
     // Sanitize & set staff property values
     $staff->firstname = cleanData($data->firstname);
@@ -39,38 +46,43 @@ if (
     $staff->email = cleanData($data->email);
     $staff->address = cleanData($data->address);
 
-    $staff->nok_name = !empty($data->nok_name) ?? cleanData($data->nok_name) ?? null;
-    $staff->nok_phone = !empty($data->nok_phone) ?? cleanData($data->nok_phone) ?? null;
-    $staff->nok_email = !empty($nok_email) ?? cleanData($nok_email) ?? null;
-    $staff->nok_address = !empty($nok_address) ?? cleanData($nok_address) ?? null;
-    $staff->nok_rel = !empty($data->nok_rel) ?? cleanData($data->nok_rel) ?? null;
+    $staff->class_id = !empty($data->class_id) ? cleanData($data->class_id) : null;
 
-    $staff->guarantor_name = !empty($data->guarantor_name) ?? cleanData($data->guarantor_name) ?? null;
-    $staff->guarantor_phone = !empty($data->guarantor_phone) ?? cleanData($data->guarantor_phone) ?? null;
-    $staff->guarantor_email = !empty($data->guarantor_email) ?? cleanData($data->guarantor_email) ?? null;
-    $staff->guarantor_address = !empty($data->guarantor_address) ?? cleanData($data->guarantor_address) ?? null;
-    $staff->guarantor_rel = !empty($data->guarantor_re) ?? cleanData($data->guarantor_re) ?? null;
+    $staff->nok_name = !empty($data->nok_name) ? cleanData($data->nok_name) : null;
+    $staff->nok_phone = !empty($data->nok_phone) ? cleanData($data->nok_phone) : null;
+    $staff->nok_email = !empty($nok_email) ? cleanData($nok_email) : null;
+    $staff->nok_address = !empty($nok_address) ? cleanData($nok_address) : null;
+    $staff->nok_rel = !empty($data->nok_rel) ? cleanData($data->nok_rel) : null;
 
-    $staff->password = cleanData($data->password);
+    $staff->guarantor_name = !empty($data->guarantor_name) ? cleanData($data->guarantor_name) : null;
+    $staff->guarantor_phone = !empty($data->guarantor_phone) ? cleanData($data->guarantor_phone) : null;
+    $staff->guarantor_email = !empty($data->guarantor_email) ? cleanData($data->guarantor_email) : null;
+    $staff->guarantor_address = !empty($data->guarantor_address) ? cleanData($data->guarantor_address) : null;
+    $staff->guarantor_rel = !empty($data->guarantor_rel) ? cleanData($data->guarantor_rel) : null;
 
-    // print_r($staff);
-    // return;
+    $staff->rank = !empty($data->rank) ? cleanData($data->rank) : null;
+    $staff->role = !empty($data->role) ? cleanData($data->role) : null;
+
+// var_dump($staff);
+// return;
 
     // create the staff
-    $newstaff = $staff->createStaff();
+    $newstaff_created = $staff->createStaff();
 
     // var_dump($newstaff);
     // return;
 
-    if (is_string($newstaff)) {
-        // set response code - 200 ok
-        http_response_code(400);
+   if ($newstaff_created) {
 
-        // tell the staff
-        echo json_encode(array("message" => $newstaff, "status" => 3));
-        return;
-    }
-    elseif ($newstaff) {
+    $newStaff_stmt = $staff->getStaff();
+
+    // var_dump($newStaff_stmt);
+    // return;
+
+    $newStaff = $newStaff_stmt['output']->fetch(PDO::FETCH_ASSOC);
+
+    $newStaff['password'] = $data->password;
+
 
         // Send welcome message and email verification code
         // $mail = new Mail();
@@ -116,7 +128,7 @@ if (
 
         // tell the staff
         // echo json_encode(array("message" => "staff was created. Please check your email for your verification link","mailSent"=>$mailSent));
-        echo json_encode(array("message" => "staff was created successfully", "status" => 1));
+        echo json_encode(array("new_staff"=>$newStaff, "message" => "staff was created successfully", "status" => 1));
         return;
         
     } else {

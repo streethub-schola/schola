@@ -71,6 +71,7 @@ if ($session_stmt['outputStatus'] == 1000) {
             return;
         } elseif ($insert_stmt['outputStatus'] = 1200) {
             errorDiag($insert_stmt['output']);
+            return;
         } else {
 
             // set response code - 503 service unavailable
@@ -97,6 +98,7 @@ if ($session_stmt['outputStatus'] == 1000) {
         return;
     } elseif ($update_stmt['outputStatus'] = 1200) {
         errorDiag($update_stmt['output']);
+        return;
     } else {
 
         // set response code - 503 service unavailable
@@ -108,6 +110,7 @@ if ($session_stmt['outputStatus'] == 1000) {
     }
 } elseif ($session_stmt['outputStatus'] = 1200) {
     errorDiag($session_stmt['output']);
+    return;
 } else {
 
     // set response code - 503 service unavailable

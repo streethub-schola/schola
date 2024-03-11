@@ -8,22 +8,22 @@ header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // initialize object
-$term = new Term();
+$role = new Role();
 
-$stmt = $term->getAllTerms();
+$stmt = $role->getAllRoles();
 // $num = $stmt->rowCount();
 
 // check if more than 0 record found
 if($stmt['outputStatus'] == 1000) {
 
-    $result_term = $stmt['output']->fetchAll(PDO::FETCH_ASSOC);
+    $result_role = $stmt['output']->fetchAll(PDO::FETCH_ASSOC);
    
-    if (count($result_term) == 0) {
+    if (count($result_role) == 0) {
         // set response code - 200 OK
         http_response_code(404);
 
-        // show terms data in json format
-        echo json_encode(array("message" => "No term found.", "status"=>1));
+        // show roles data in json format
+        echo json_encode(array("message" => "No role found.", "status"=>1));
 
         return;
     }
@@ -31,8 +31,8 @@ if($stmt['outputStatus'] == 1000) {
     // set response code - 200 OK
     http_response_code(200);
 
-    // show terms data in json format
-    echo json_encode(array("result"=>$result_term, "status"=>1));
+    // show roles data in json format
+    echo json_encode(array("result"=>$result_role, "status"=>1));
     return;
 } 
 elseif ($stmt['outputStatus'] == 1200) {

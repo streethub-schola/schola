@@ -49,6 +49,7 @@ if (
     elseif ($newsession['outputStatus'] == 1200) {
 
         errorDiag($newsession['output']);
+        return;
     }
     else {
         // set response code - 200 ok

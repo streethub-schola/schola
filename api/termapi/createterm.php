@@ -44,6 +44,7 @@ if (
     elseif ($newterm['outputStatus'] == 1200) {
 
         errorDiag($newterm['output']);
+        return;
     }
     else {
         // set response code - 200 ok

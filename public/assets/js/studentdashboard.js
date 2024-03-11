@@ -9,6 +9,8 @@ const pgrel = document.getElementById('pgrel');
 const registered_at = document.getElementById('registered_at');
 let serialNo = 1;
 
+let classes = null;
+
 // LOAD THE RESOURCES FROM THE BACKEND
 
 // ASSIGNMENTS
@@ -28,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
  .then((response) => response.json())
  .then((data) => {
     console.log(data);
+    callResults(data);
+
+ })
+ 
+
+ //CLASSES
+ fetch('https://schola.skaetch.com/api/classapi/getclasses.php')
+ .then((response) => response.json())
+ .then((data) => {
+    console.log(data);
+    classes = data;
  })
  
 })

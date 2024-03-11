@@ -117,7 +117,7 @@ class Staff extends Database
     {
         // Generate and set defualt properties
         $this->staff_no = "MIS/TS/" . date("Y") . "/";
-        $this->generateCode();
+        $this->generateUserCode();
 
         // Generate new student default password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
@@ -178,7 +178,7 @@ class Staff extends Database
         }
     }
 
-    function generateCode()
+    function generateUserCode()
     {
         $this->user_code = substr(md5(time()), 0, 18) . substr(md5(time()), 0, 18);
 
@@ -191,7 +191,7 @@ class Staff extends Database
         return;
     }
 
-    function regenerateCode()
+    function regenerateUserCode()
     {
 
         // update query

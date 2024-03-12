@@ -7,9 +7,16 @@ const admin_no = document.getElementById('admin_no');
 const pgname = document.getElementById('pgname');
 const pgrel = document.getElementById('pgrel');
 const registered_at = document.getElementById('registered_at');
+
 let serialNo = 1;
 
-let classes = null;
+let classes ;
+let staff ;
+let subject;
+
+
+
+
 
 // LOAD THE RESOURCES FROM THE BACKEND
 
@@ -17,52 +24,67 @@ let classes = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     //ASSIGNMENTS
-    fetch('https://schola.skaetch.com/api/assignmentapi/getassignments.php')
- .then((response) => response.json())
- .then((data) => {
-    console.log(data);
-    callAssignments(data);
+//     fetch('https://schola-2.myf2.net/api/assignmentapi/getassignments.php')
+//  .then((response) => response.json())
+//  .then((assignment_data) => {
 
- })
+//    // console.log(assignment_data);
+//     callAssignments(assignment_data.result);
+//  })
 
- //RESULTS
- fetch('https://schola.skaetch.com/api/resultapi/getresults.php')
- .then((response) => response.json())
- .then((data) => {
-    console.log(data);
-    callResults(data);
-
- })
- 
-
- //CLASSES
- fetch('https://schola.skaetch.com/api/classapi/getclasses.php')
- .then((response) => response.json())
- .then((data) => {
-    console.log(data);
-    classes = data;
- })
- 
+ Promise.all([
+   fetch('https://schola-2.myf2.net/api/subjectapi/getsubjects.php'),
+   fetch('https://schola-2.myf2.net/api/assignmentapi/getassignments.php'),
+   fetch('https://schola-2.myf2.net/api/classapi/getclasses.php')
+]).then((responses) => {
+   return Promise.all(responses.map(function (response){
+      return response.json();
+   }))
+})
+.then ((assignment_data) => {
+   console.log(assignment_data);
+   console.log(assignment_data[1]);
+   console.log(assignment_data[0]);
+   callAssignments(assignment_data)
+})
+.catch((err) => {
+   console.log(err);
 })
 
+//  .catch(err => console.log(err));
+
+ //RESULTS
+//  fetch('https://schola.skaetch.com/api/resultapi/getresults.php')
+//  .then((response) => response.json())
+//  .then((result_data) => {
+//     console.log(result_data);
+//    //  callResults(data);
+
+//  })
+
+})
+
+// console.log(classes);
+// console.log(subject);
+// console.log(staff);
+
+
+
 function callAssignments(assignments){
-   let source = document.getElementById('showAssignments');
+   let source = document.getElementById('showAssighments');
 
    source.innerHTML = "";
 
    assignments.forEach(items => {
       let view = `
-      <tr class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700>
-                  <td class="whitespace-nowrap px-6 py-4 font-medium">
-                    ${items.subject_id}
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4">${items.staff_id}</td>
-                  <td class="whitespace-nowrap px-6 py-4">True</td>
-                  <td class="whitespace-nowrap px-6 py-4">
-                    10th Dec, 2023
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4">False</td>
-                </tr>`
+      <td class="whitespace-nowrap px-6 py-4 font-medium"> ${items[1].assignment_id}</td>
+      <td class="whitespace-nowrap px-6 py-4">${items[1].created_at.slice(0, 11)}</td>
+      <td class="whitespace-nowrap px-6 py-4">${items[1].subject_id}</td>
+      <td class="whitespace-nowrap px-6 py-4">10th Dec, 2023</td>
+      <td class="whitespace-nowrap px-6 py-4">False</td>`;
+                  
+      source.insertAdjacentHTML("beforeend", view)
+                
    });
 }
 

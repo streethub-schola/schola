@@ -122,6 +122,9 @@ class Staff extends Database
         // Generate new student default password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
+        // var_dump($this);
+        // return;
+
         // query to insert record
         $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, rank, role, password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :rank, :role,:password, :user_code) ";
 
@@ -163,6 +166,7 @@ class Staff extends Database
             if ($stmt->execute()) {
                 $lastInsertedId = $this->conn->lastInsertId();
                 $this->staff_id = $lastInsertedId;
+
                 $staff_id_Set = $this->setLastStaffNo($lastInsertedId);
 
                if ($staff_id_Set) {
@@ -490,7 +494,9 @@ class Staff extends Database
             if ($update_stmt->execute()) {
                 return true;
             }
-            return false;
+            else{
+                return false;
+            }
         } catch (Exception $e) {
 
             return $e->getMessage();

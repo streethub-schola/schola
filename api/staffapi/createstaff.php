@@ -69,7 +69,7 @@ if (
     // create the staff
     $newstaff_created = $staff->createStaff();
 
-    // var_dump($newstaff);
+    // var_dump($newstaff_created);
     // return;
 
    if ($newstaff_created) {
@@ -81,7 +81,19 @@ if (
 
     $newStaff = $newStaff_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-    $newStaff['password'] = $data->password;
+    if(!$newStaff){
+                // set response code - 201 created
+                http_response_code(404);
+
+                // tell the staff
+                // echo json_encode(array("message" => "staff was created. Please check your email for your verification link","mailSent"=>$mailSent));
+                echo json_encode(array("message" => "No staff was created. Please try again", "status" => 0));
+                return;
+        
+    }
+
+    $new_created_staff = ["Staff Number"=>$newStaff['staff_no'],"staff Password"=>$data->password];
+    // $newStaff['password'] = $data->password;
 
 
         // Send welcome message and email verification code
@@ -128,7 +140,7 @@ if (
 
         // tell the staff
         // echo json_encode(array("message" => "staff was created. Please check your email for your verification link","mailSent"=>$mailSent));
-        echo json_encode(array("new_staff"=>$newStaff, "message" => "staff was created successfully", "status" => 1));
+        echo json_encode(array("new_staff"=>$new_created_staff, "message" => "staff was created successfully", "status" => 1));
         return;
         
     } else {

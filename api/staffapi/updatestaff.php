@@ -8,88 +8,88 @@ header("Access-Control-Allow-Methods:".$PATCH_METHOD);
 header("Access-Control-Max-Age:".$MAX_AGE);
 header("Access-Control-Allow-Headers:".$ALLOWED_HEADERS);
   
-// Student
-$student = new Student();
+// staff
+$staff = new Staff();
   
-// get student_id of user to be edited
+// get staff_id of user to be edited
 $data = json_decode(file_get_contents("php://input"));
 // var_dump($data);
 // return;
 
-// Check for valstudent_id student_id
-if($data->student_id == null || $data->student_id == '' || !is_numeric($data->student_id)){
+// Check for valstaff_id staff_id
+if($data->staff_id == null || $data->staff_id == '' || !is_numeric($data->staff_id)){
       // set response code - 503 service unavailable
       http_response_code(403);
   
       // tell the user
-      echo json_encode(array("message" => "Please provide a valid student_id", "status"=>2));
+      echo json_encode(array("message" => "Please provide a valid staff_id", "status"=>2));
 
       return;
 }
   
-// set student_id property of student to be edited
-$student->student_id = cleanData($data->student_id);
+// set staff_id property of staff to be edited
+$staff->staff_id = cleanData($data->staff_id);
 
-// Get the student whose details are to be updated 
-$student_stmt = $student->getStudent();
+// Get the staff whose details are to be updated 
+$staff_stmt = $staff->getStaff();
 
     
-$student_to_update = $student_stmt->fetch(PDO::FETCH_ASSOC);
+$staff_to_update = $staff_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-// If student does not exist
-if(!$student_to_update){
+// If staff does not exist
+if(!$staff_to_update){
      // set response code - 200 ok
      http_response_code(404);
   
-     // tell the student
-     echo json_encode(array("message" => "No student found with this ID.", "status"=>0));
+     // tell the staff
+     echo json_encode(array("message" => "No staff found with this ID.", "status"=>0));
 
      return;
 }
 
-// If student with id exists
-// set student property values
-$student->admin_no = (empty($data->admin_no)  || $data->admin_no == NULL || $data->admin_no == "") ? $student_to_update['admin_no'] : cleanData($data->admin_no);
-$student->firstname = (empty($data->firstname) || $data->firstname == NULL || $data->firstname == "") ? $student_to_update['firstname'] : cleanData($data->firstname);
-$student->lastname = (empty($data->lastname) || $data->lastname == NULL || $data->lastname == "") ? $student_to_update['lastname'] : cleanData($data->lastname);
-$student->dob = (empty($data->dob) || $data->dob == NULL || $data->dob == "") ? $student_to_update['dob'] : cleanData($data->dob);
-$student->image = (empty($data->image) || $data->image == NULL || $data->image == "") ? $student_to_update['image'] : cleanData($data->image);
-$student->guardian_name = (empty($data->guardian_name) || $data->guardian_name == NULL || $data->guardian_name == "") ? $student_to_update['guardian_name'] : cleanData($data->guardian_name);
-$student->guardian_phone = (empty($data->guardian_phone) || $data->guardian_phone == NULL || $data->guardian_phone == "") ? $student_to_update['guardian_phone'] : cleanData($data->guardian_phone);
-$student->guardian_email = (empty($data->guardian_email) || $data->guardian_email == NULL || $data->guardian_email == "") ? $student_to_update['guardian_email'] : cleanData($data->guardian_email);
-$student->guardian_address = (empty($data->guardian_address) || $data->guardian_address == NULL || $data->guardian_address == "") ? $student_to_update['guardian_address'] : cleanData($data->guardian_address);
-$student->guardian_rel = (empty($data->guardian_rel) || $data->guardian_rel == NULL || $data->guardian_rel == "") ? $student_to_update['guardian_rel'] : cleanData($data->guardian_rel);
-$student->setTimeNow();
+// If staff with id exists
+// set staff property values
+$staff->staff_no = (empty($data->staff_no)  || $data->staff_no == NULL || $data->staff_no == " ") ? $staff_to_update['staff_no'] : cleanData($data->staff_no);
+$staff->firstname = (empty($data->firstname) || $data->firstname == NULL || $data->firstname == " ") ? $staff_to_update['firstname'] : cleanData($data->firstname);
+$staff->lastname = (empty($data->lastname) || $data->lastname == NULL || $data->lastname == " ") ? $staff_to_update['lastname'] : cleanData($data->lastname);
+$staff->dob = (empty($data->dob) || $data->dob == NULL || $data->dob == " ") ? $staff_to_update['dob'] : cleanData($data->dob);
+$staff->image = (empty($data->image) || $data->image == NULL || $data->image == " ") ? $staff_to_update['image'] : cleanData($data->image);
+
+$staff->guarantor_name = (empty($data->guarantor_name) || $data->guarantor_name == NULL || $data->guarantor_name == " ") ? $staff_to_update['guarantor_name'] : cleanData($data->guarantor_name);
+$staff->guarantor_phone = (empty($data->guarantor_phone) || $data->guarantor_phone == NULL || $data->guarantor_phone == " ") ? $staff_to_update['guarantor_phone'] : cleanData($data->guarantor_phone);
+$staff->guarantor_email = (empty($data->guarantor_email) || $data->guarantor_email == NULL || $data->guarantor_email == " ") ? $staff_to_update['guarantor_email'] : cleanData($data->guarantor_email);
+$staff->guarantor_address = (empty($data->guarantor_address) || $data->guarantor_address == NULL || $data->guarantor_address == " ") ? $staff_to_update['guarantor_address'] : cleanData($data->guarantor_address);
+$staff->guarantor_rel = (empty($data->guarantor_rel) || $data->guarantor_rel == NULL || $data->guarantor_rel == " ") ? $staff_to_update['guarantor_rel'] : cleanData($data->guarantor_rel);
+
+$staff->nok_name = (empty($data->nok_name) || $data->nok_name == NULL || $data->nok_name == " ") ? $staff_to_update['nok_name'] : cleanData($data->nok_name);
+$staff->nok_phone = (empty($data->nok_phone) || $data->nok_phone == NULL || $data->nok_phone == " ") ? $staff_to_update['nok_phone'] : cleanData($data->nok_phone);
+$staff->nok_email = (empty($data->nok_email) || $data->nok_email == NULL || $data->nok_email == " ") ? $staff_to_update['nok_email'] : cleanData($data->nok_email);
+$staff->nok_address = (empty($data->nok_address) || $data->nok_address == NULL || $data->nok_address == "") ? $staff_to_update['nok_address'] : cleanData($data->nok_address);
+$staff->nok_rel = (empty($data->nok_rel) || $data->nok_rel == NULL || $data->nok_rel == " ") ? $staff_to_update['nok_rel'] : cleanData($data->nok_rel);
+
+$staff->setTimeNow();
 
 
-// update the student
-$updateStatus = $student->updateStudent();
+// update the staff
+$updateStatus = $staff->updatestaff();
 
 
-
-if(is_string($updateStatus)){
-  
-    // set response code - 200 ok
-    http_response_code(400);
-  
-    // tell the student
-    echo json_encode(array("message" =>$updateStatus, "status"=>3));
-    return;
-}
-elseif($updateStatus){
+if($updateStatus){
   
     // set response code - 200 ok
     http_response_code(200);
   
-    // tell the student
-    echo json_encode(array("message" => "student was updated successfully.", "status"=>1));
+    // tell the staff
+    echo json_encode(array("message" => "staff was updated successfully.", "status"=>1));
+
+    return;
 }else{
   
     // set response code - 503 service unavailable
     http_response_code(503);
   
-    // tell the student
-    echo json_encode(array("message" => "Unable to update student. Please try again.", "status"=>2));
+    // tell the staff
+    echo json_encode(array("message" => "Unable to update staff. Please try again.", "status"=>2));
 }
 
 

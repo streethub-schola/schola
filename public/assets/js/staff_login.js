@@ -32,8 +32,8 @@ form.addEventListener("submit", (e) => {
 
 
 function logteacher(teacherObject){
-  fetch("https://schola-2.myf2.net/api/staffapi/stafflogin.php", teacherObject)
-  // fetch("http://localhost/oluaka/schola/api/staffapi/stafflogin.php", teacherObject)
+  // fetch("https://schola-2.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+  fetch("http://localhost/schola-2/api/staffapi/stafflogin.php", teacherObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -43,7 +43,6 @@ function logteacher(teacherObject){
         // Save logged in user info to session storage so you can access them in other pages
         sessionStorage.setItem("scola-staff", JSON.stringify(data) )
 
-        // location.href = "./admin/students/view_student.html";
         location.href = "../../teachers/teacher_dashboard.html";
       }
       else {

@@ -65,7 +65,7 @@
             >Logout</a>
         </nav>
       </section>
-      <a href="#" class="rounded-md bg-green-400 p-2 mx-4 hover:bg-red-200">
+      <a href="teacher_dashboard.html#tab-two" class="rounded-md bg-green-400 p-2 mx-4 hover:bg-red-200">
         <i class="fa-solid fa-arrow-left mx-2"></i>back</a>
       <main class="md:grid md:grid-cols-3 mx-5 w-full mt-5">
         <aside class="my-5 col-span-1 flex flex-col items-center">
@@ -176,6 +176,13 @@
                     <p>1/5</p>
                   </div>
 
+                    
+                    <button
+                        class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60 hover:bg-blue-200" disabled >Mark Attendance
+                    </button>
+                    <button
+                        class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60 hover:bg-blue-200" id="mark_assignments">Mark Assignments
+                    </button>
                     <button
                         class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60 hover:bg-blue-200">Upload Result
                     </button>
@@ -203,6 +210,14 @@
       const modal = document.querySelector('#std-details-popup');
       const close_btn = document.querySelector('#close_modal');
       const view_details = document.querySelector('#view_details');
+      const mark_assignment = document.querySelector('#mark_assignments');
+
+      mark_assignment.addEventListener('click',() => {
+        //write the script that will load a new page and populate 
+        //it with the submitted assignments from this specific 
+        //student.
+        location.href ='view_assignments.html';
+      })
 
       view_details.addEventListener('click', () => {
         modal.style.display = 'block';

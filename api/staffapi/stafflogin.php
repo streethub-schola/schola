@@ -19,7 +19,7 @@ if (empty($data->staff_no) || $data->staff_no == null || $data->staff_no == ''  
     http_response_code(401);
 
     // tell the staff
-    echo json_encode(array("message" => "Please provide both valid staff No and/or password"));
+    echo json_encode(array("message" => "Please provide both valid staff No and/or password", "status" => 33));
 
     return;
 }
@@ -32,44 +32,34 @@ $staff->password = cleanData($data->password);
 $login_stmt = $staff->staffLogin();
 
 
-
-if (is_string($login_stmt)) {
-
-    // set response code - 200 ok
-    http_response_code(400);
-
-    // tell the staff
-    echo json_encode(array("message" => $login_stmt, "status" => 23));
-    return;
-}
-
-// var_dump($login_stmt);
-// return;
-
-$loggedInstaff = $login_stmt->fetch(PDO::FETCH_ASSOC);
-
 // Check if staff exists
-if (is_string($loggedInstaff)) {
+if ($login_stmt['outputStatus'] == 1000) {
 
-    // set response code - 200 ok
-    http_response_code(400);
+    $loggedInstaff = $login_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-    // tell the staff
-    echo json_encode(array("message" => $loggedInstaff, "status" => 3));
-    return;
-} elseif ($loggedInstaff) {
+    if (!$loggedInstaff) {
+        // set response code - 200 ok
+        http_response_code(404);
+
+        // tell the staff
+        echo json_encode(array("message" => "No Stff found.", "status" => 0));
+
+        return;
+    }
+
 
     // if staff does exist
     $passCheck = $staff->verifyPass($staff->password, $loggedInstaff['password']);
+
     if ($passCheck) {
         $loggedInstaff['password'] = "xxxxxxxxxxxxxxxxxx";
 
-        // Generate new session usercode
-        $staff->generateUserCode();
+        $newSessionSet = $staff->regenerateUserCode();
 
-        $newSessionSet = $staff->generateUserCode();
+        // var_dump($newSessionSet['output']);
+        // return;
 
-        if ($newSessionSet) {
+        if ($newSessionSet['outputStatus'] == 1000 && $newSessionSet['output'] == true) {
 
             $loggedInstaff['user_code'] = $staff->user_code;
 
@@ -80,7 +70,8 @@ if (is_string($loggedInstaff)) {
             echo json_encode(array("message" => "staff Login successful.", "staff" => $loggedInstaff, "status" => 1));
 
             return;
-
+        } elseif ($newSessionSet['outputStatus'] == 1000) {
+            errorDiag($newSessionSet['output']);
         } else {
 
             // set response code - 200 ok
@@ -98,7 +89,13 @@ if (is_string($loggedInstaff)) {
 
         // tell the staff
         echo json_encode(array("message" => "Wrong login details. Please try again or register", "status" => 4));
+
+        return;
     }
+} elseif ($login_stmt['outputStatus'] == 1200) {
+
+    errorDiag($login_stmt['output']);
+    return;
 } else {
 
     // if staff does not exist
@@ -107,5 +104,5 @@ if (is_string($loggedInstaff)) {
     http_response_code(404);
 
     // tell the staff
-    echo json_encode(array("message" => "Wrong login details. Please try again or register"));
+    echo json_encode(array("message" => "Something went wrong with network. Please try again or register", "status" => 55));
 }

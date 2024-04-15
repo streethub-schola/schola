@@ -7,7 +7,7 @@ form.addEventListener("submit", (e) => {
 
 
     const userData = {
-      staff_no: `${form.admin_no.value}`,
+      staff_no: `${form.staff_no.value}`,
       password: `${form.password.value}`,
     }
     

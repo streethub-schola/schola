@@ -29,15 +29,9 @@ form.addEventListener("submit", (e) => {
 
 
 
-    // const userData = {
-    //   staff_no: `${form.admin_no.value}`,
-    //   password: `${form.password.value}`,
-    // }
-    if (form.admin_no.value == dummyValidator.staff_no && form.password.value == dummyValidator.password)  {
-      sessionStorage.setItem('schola-staff', JSON.stringify(staff))
-
-      location.href = '../teachers/teacher_dashboard.html';
-      
+    const userData = {
+      staff_no: `${form.staff_no.value}`,
+      password: `${form.password.value}`,
     }
     
 

@@ -169,8 +169,8 @@ class Staff extends Database
 
                 $staff_id_Set = $this->setLastStaffNo($lastInsertedId);
 
-               if ($staff_id_Set) {
-            //   return $this;
+                if ($staff_id_Set) {
+                    //   return $this;
                     return true;
                 } else {
                     return false;
@@ -182,51 +182,6 @@ class Staff extends Database
         }
     }
 
-    function generateUserCode()
-    {
-        $this->user_code = substr(md5(time()), 0, 18) . substr(md5(time()), 0, 18);
-
-        return;
-    }
-
-    function setTimeNow()
-    {
-        $this->updated_at = date("Y:m:d H:i:sa");
-        return;
-    }
-
-    function regenerateUserCode()
-    {
-
-        // update query
-        $query = "UPDATE " . $this->table_name . " SET
-              user_code = :user_code,
-              updated_at = :updated_at
-          WHERE
-              staff_no = :staff_no";
-
-        // prepare query statement
-        $update_stmt = $this->conn->prepare($query);
-
-        $this->setTimeNow();
-
-        // bind new values
-        $update_stmt->bindParam(':staff_no', $this->staff_no);
-        $update_stmt->bindParam(':user_code', $this->user_code);
-        $update_stmt->bindParam(':updated_at', $this->updated_at);
-
-        try {
-
-            if ($update_stmt->execute()) {
-                return true;
-            }
-
-            return false;
-        } catch (Exception $e) {
-
-            return $e->getMessage();
-        }
-    }
 
 
     // update the product
@@ -448,17 +403,61 @@ class Staff extends Database
 
         try {
             // execute the query
-            if ($login_stmt->execute()) {
+            $login_stmt->execute();
 
-                return $login_stmt;
-            } else {
-
-                return false;
-            }
+            return array("output" => $login_stmt, "outputStatus" => 1000);
         } catch (Exception $e) {
-            return $e->getMessage();
+            return array("output" => $e->getMessage(), "error" => "Netork issue. Please try again.", "outputStatus" => 1200);
         }
     }
+
+
+    function generateUserCode()
+    {
+        $this->user_code = substr(md5(time()), 0, 18) . substr(md5(time()), 0, 18);
+
+        return;
+    }
+
+    function setTimeNow()
+    {
+        $this->updated_at = date("Y:m:d H:i:sa");
+        return;
+    }
+
+    function regenerateUserCode()
+    {
+        // Generate new User Code
+        $this->generateUserCode();
+
+        // Capture current time
+        $this->setTimeNow();
+
+        // update query
+        $query = "UPDATE " . $this->table_name . " SET
+              user_code = :user_code,
+              updated_at = :updated_at
+          WHERE
+              staff_no = :staff_no";
+
+        // prepare query statement
+        $update_stmt = $this->conn->prepare($query);
+
+        // bind new values
+        $update_stmt->bindParam(':staff_no', $this->staff_no);
+        $update_stmt->bindParam(':user_code', $this->user_code);
+        $update_stmt->bindParam(':updated_at', $this->updated_at);
+
+        try {
+
+            $result = $update_stmt->execute();
+
+            return array("output" => $result, "outputStatus" => 1000);
+        } catch (Exception $e) {
+            return array("output" => $e->getMessage(), "error" => "Netork issue. Please try again.", "outputStatus" => 1200);
+        }
+    }
+
 
 
     // read a single user
@@ -475,13 +474,13 @@ class Staff extends Database
         $staff_no = "";
 
         if ($offsetId < 10) {
-            $staff_no = "MIS/TS" . date("Y") . "/000" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/000" . $offsetId;
         } elseif ($offsetId >= 10 && $offsetId < 100) {
-            $staff_no = "MIS/TS" . date("Y") . "/00" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/00" . $offsetId;
         } elseif ($offsetId >= 100) {
-            $staff_no = "MIS/TS" . date("Y") . "/0" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/0" . $offsetId;
         } else {
-            $staff_no = "MIS/TS" . date("Y") . "/" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/" . $offsetId;
         }
 
         // bind new values
@@ -493,8 +492,7 @@ class Staff extends Database
 
             if ($update_stmt->execute()) {
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
         } catch (Exception $e) {
@@ -505,10 +503,12 @@ class Staff extends Database
 
 
     // Verify password
-    function verifyPass($user_pass, $db_pass)
+    function verifyPass($user_pass, $hash_pass)
     {
 
-        if (password_verify($user_pass, $db_pass)) return true;
+        if (password_verify($user_pass, $hash_pass)){
+            return true;
+        } 
 
         return false;
     }

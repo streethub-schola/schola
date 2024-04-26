@@ -65,9 +65,9 @@ if (is_string($loggedInstaff)) {
         $loggedInstaff['password'] = "xxxxxxxxxxxxxxxxxx";
 
         // Generate new session usercode
-        $staff->generateUserCode();
+        // $staff->generateUserCode();
 
-        $newSessionSet = $staff->generateUserCode();
+        $newSessionSet = $staff->regenerateUserCode();
 
         if ($newSessionSet) {
 

@@ -1,6 +1,5 @@
-// https://scholabe.myf2.net/api/studentapi/studentlogin.php
 let form = document.querySelector("form");
-
+console.log(form)
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -18,14 +17,33 @@ form.addEventListener("submit", (e) => {
     mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json"
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify(userData)
   };
 
   console.log(userData);
 
+  fetch("http://localhost/schola/api/staffapi/stafflogin.php", configData)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    if (data.status == 1) {
+      alert(data.message);
 
-  logteacher(userData)
+      // Save logged in user info to session storage so you can access them in other pages
+      sessionStorage.setItem("scola-staff", JSON.stringify(data) )
+
+      location.href = "../../teachers/teacher_dashboard.html";
+    }
+    else {
+      alert(data.message);
+    }
+  })
+  .catch((err) => console.log(err));
+
+
+  // logteacher(userData)
 
 });
 

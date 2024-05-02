@@ -477,7 +477,7 @@ class Staff extends Database
             $staff_no = "MIS/TS/" . date("Y") . "/000" . $offsetId;
         } elseif ($offsetId >= 10 && $offsetId < 100) {
             $staff_no = "MIS/TS/" . date("Y") . "/00" . $offsetId;
-        } elseif ($offsetId >= 100) {
+        } elseif ($offsetId >= 100 & $offsetId < 1000) {
             $staff_no = "MIS/TS/" . date("Y") . "/0" . $offsetId;
         } else {
             $staff_no = "MIS/TS/" . date("Y") . "/" . $offsetId;

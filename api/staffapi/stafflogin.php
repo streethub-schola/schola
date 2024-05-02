@@ -44,7 +44,7 @@ if ($login_stmt['outputStatus'] == 1000) {
         http_response_code(404);
 
         // tell the staff
-        echo json_encode(array("message" => "No Stff found.", "status" => 0));
+        echo json_encode(array("message" => "No Staff found.", "status" => 0));
 
         return;
     }

@@ -1,16 +1,14 @@
 let form = document.querySelector("form");
-console.log(form)
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-
 
     const userData = {
       staff_no: `${form.staff_no.value}`,
       password: `${form.password.value}`,
     }
     
-
+    console.log(userData);
 
  const configData = {
     method: "POST",
@@ -22,22 +20,21 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(userData)
   };
 
-  console.log(userData);
 
   fetch("http://localhost/schola/api/staffapi/stafflogin.php", configData)
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
     if (data.status == 1) {
-      alert(data.message);
+      alert(data);
 
       // Save logged in user info to session storage so you can access them in other pages
-      sessionStorage.setItem("scola-staff", JSON.stringify(data) )
+      sessionStorage.setItem("schola-staff", JSON.stringify(data) )
 
       location.href = "../../teachers/teacher_dashboard.html";
     }
     else {
-      alert(data.message);
+      alert(data);
     }
   })
   .catch((err) => console.log(err));

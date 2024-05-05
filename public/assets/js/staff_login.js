@@ -21,34 +21,15 @@ form.addEventListener("submit", (e) => {
   };
 
 
-  fetch("http://localhost/schola/api/staffapi/stafflogin.php", configData)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    if (data.status == 1) {
-      alert(data);
-
-      // Save logged in user info to session storage so you can access them in other pages
-      sessionStorage.setItem("schola-staff", JSON.stringify(data) )
-
-      location.href = "../../teachers/teacher_dashboard.html";
-    }
-    else {
-      alert(data);
-    }
-  })
-  .catch((err) => console.log(err));
-
-
-  // logteacher(userData)
+  logteacher(configData)
 
 });
 
 
 
 function logteacher(teacherObject){
-  // fetch("https://schola-2.myf2.net/api/staffapi/stafflogin.php", teacherObject)
-  fetch("http://localhost/schola-2/api/staffapi/stafflogin.php", teacherObject)
+  fetch("https://schola-2.myf2.net/api/staffapi/stafflogin.php", teacherObject)
+  // fetch("http://localhost/schola-2/api/staffapi/stafflogin.php", teacherObject)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

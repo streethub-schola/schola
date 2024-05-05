@@ -16,10 +16,6 @@
 
     <title>Schola Project!</title>
 
-
-    <script src="../assets/js/addteacher.js" defer></script>
-    <script src="../assets/js/nav.js" defer></script>
-
   </head>
   <body>
     <div class="w-full bg-slate-100 min-h-screen">
@@ -74,21 +70,21 @@
              
               <div class="form_element flex-col flex md:flex-row items-center text-sm my-2">
                 <div class="flex w-full pr-2">
-                  <label for="First Name" class="mr-2 w-[20%] md:mr-8 md:w-[8%]">First Name</label>
-                  <input required type="text" placeholder="Staff First Name"  name="firstname" id="First Name" class="w-[80%] md:w-[80%] md:mx-4 rounded-md p-2">
+                  <label for="firstname" class="mr-2 w-[20%] md:mr-8 md:w-[8%]">First Name</label>
+                  <input required type="text" placeholder="Staff First Name"  name="firstname" id="firstname" class="w-[80%] md:w-[80%] md:mx-4 rounded-md p-2">
                 </div>
                <div class="w-full flex my-2">
-                <label for="Last Name" class="mr-2 w-[20%] md:w-[8%]">Last Name</label>
-                <input required type="text" placeholder="Last Name"  name="lastname" id="Last Name" class="w-[80%] md:w-[83%] md:mx-4  rounded-md p-2">
+                <label for="lastname" class="mr-2 w-[20%] md:w-[8%]">Last Name</label>
+                <input required type="text" placeholder="Last Name"  name="lastname" id="lastname" class="w-[80%] md:w-[83%] md:mx-4  rounded-md p-2">
                </div>
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="Date of Birth" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
-              <input required type="date" placeholder="Staff Date of Birth" name="dob" id="Date of Birth" class="w-[30%] md:w-[30%] md:mx-4 rounded-md p-2">
+                <label for="dob" class="mr-2 md:w-[6%] w-[20%]">Date of Birth</label>
+              <input required type="date" placeholder="Staff Date of Birth" name="dob" id="dob" class="w-[30%] md:w-[30%] md:mx-4 rounded-md p-2">
               </div>
               <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="staffPassport" class=" mr-2 md:w-[6%] w-[20%]">Passport</label>
-              <input required type="file" name="image" id="studentPassport" class="file:bg-blue-200 file:border-blue-200 file:rounded-md file:p-2 md:w-[70%]  w-full md:mx-4 rounded-md p-2" accept=".jpg, .png" onchange="loadPreview(event)">
+                <label for="staff_passport" class=" mr-2 md:w-[6%] w-[20%]">Passport</label>
+              <input required type="file" name="image" id="staff_passport" class="file:bg-blue-200 file:border-blue-200 file:rounded-md file:p-2 md:w-[70%]  w-full md:mx-4 rounded-md p-2" accept=".jpg, .png" onchange="loadPreview(event)">
               <div class="preview">
                 <img src="" alt="" class="rounded-lg max-h-16 max-w-16" id="img_upload">
               </div>
@@ -99,20 +95,22 @@
               <input required type="text" placeholder="Mobile Phone Number" name="phone" id="phone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
 
-              </div>
-              <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="password" class="mr-2 md:w-[6%] w-[20%]">Staff Password</label>
-              <input required type="password" placeholder="Default Login Password" name="password" id="password" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
-              </div>
-             
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="staffemail" class="mr-2 md:w-[6%] w-[20%]">Staff's Email</label>
-              <input type="text" placeholder="Supply a valid email" name="email" id="staffmail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              <input type="text" placeholder="Supply a valid email" name="email" id="staffemail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="staffaddress" class="mr-2 md:w-[6%] w-[20%]">Staff's Address</label>
               <input type="text" placeholder="Residential Address" name="address" id="staffaddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              </div>
+
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="assignedclass" class="mr-2 md:w-[6%] w-[20%]">Assigned Class</label>
+              <!-- <input type="text" placeholder="Enter Class only if Teaching staff" name="assignedclass" id="assignedclass" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2"> -->
+              <select type="text" name="assignedclass" id="assignedclass" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+                <option value="">Choose Class only if Teaching Staff</option>
+              </select>
               </div>
 
               <div>
@@ -121,27 +119,27 @@
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="nokname" class="mr-2 md:w-[6%] w-[20%]">Next of Kin Name</label>
-              <input type="text" placeholder="Full Name of the Next of Kin" name="nok_name" id="nokname" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              <input type="text" placeholder="Full Name of the Next of Kin" name="nok_name" id="nokname" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="nokphone" class="mr-2 md:w-[6%] w-[20%]">Next of Kin Phone</label>
-              <input type="text" placeholder="Next of Kin Phone Number" name="nok_phone" id="nokphone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              <input type="text" placeholder="Next of Kin Phone Number" name="nok_phone" id="nokphone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="nokemail" class="mr-2 md:w-[6%] w-[20%]">Next of Kin Email</label>
-              <input type="text" placeholder="Next of Kin Email" name="nok_email" id="nokemail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              <input type="text" placeholder="Next of Kin Email" name="nok_email" id="nokemail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="nokaddress" class="mr-2 md:w-[6%] w-[20%]">Next of Kin Address</label>
-              <input type="text" placeholder="Next of Kin Address" name="nok_address" id="nokaddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              <input type="text" placeholder="Next of Kin Address" name="nok_address" id="nokaddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="nok_rel" class="mr-2 md:w-[6%] w-[20%]">Relationship with Next of Kin</label>
-              <input type="text" placeholder="Relationship with Next of Kin" name="nok_rel" id="nok_rel" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+                <label for="nokrel" class="mr-2 md:w-[6%] w-[20%]">Relationship with Next of Kin</label>
+              <input type="text" placeholder="Relationship with Next of Kin" name="nok_rel" id="nokrel" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
 
               <div>
@@ -150,27 +148,27 @@
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="guarantorname" class="mr-2 md:w-[6%] w-[20%]">Guarantors Name</label>
-              <input required type="text" placeholder="Full name of the Guarantor" name="guarantor_name" id="guarantorname" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Full name of the Guarantor" name="guarantor_name" id="guarantorname" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="guarantorphone" class="mr-2 md:w-[6%] w-[20%]">Guarantors Phone</label>
-              <input required type="text" placeholder="Phone Number of the Guarantor" name="guarantor_phone" id="guarantorphone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Phone Number of the Guarantor" name="guarantor_phone" id="guarantorphone" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="guarantoremail" class="mr-2 md:w-[6%] w-[20%]">Guarantors Email</label>
-              <input required type="text" placeholder="Valid Email of the Guarantor" name="guarantor_email" id="guarantoremail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Valid Email of the Guarantor" name="guarantor_email" id="guarantoremail" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="guarantoraddress" class="mr-2 md:w-[6%] w-[20%]">Guarantors Address</label>
-              <input required type="text" placeholder="Guarantor's Residential Address" name="guarantor_address" id="guarantoraddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Guarantor's Residential Address" name="guarantor_address" id="guarantoraddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
               
               <div class="form_element flex md:flex-row items-center text-sm my-2">
                 <label for="guarantorrel" class="mr-2 md:w-[6%] w-[20%]">Guarantors Relationship</label>
-              <input required type="text" placeholder="Guarantor's relationship with staff" name="guarantor_re" id="guarantorrel" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
+              <input type="text" placeholder="Guarantor's relationship with staff" name="guarantor_rel" id="guarantorrel" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
               </div>
              
               <div class="form_element flex md:flex-row justify-end text-sm my-2">
@@ -185,5 +183,8 @@
       </main>
 
  
+
+      <script src="../assets/js/addteacher.js"></script>
+      <script src="../assets/js/nav.js"></script>
 </body>
 </html>

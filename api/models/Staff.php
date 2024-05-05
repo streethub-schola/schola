@@ -122,9 +122,6 @@ class Staff extends Database
         // Generate new student default password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        // var_dump($this);
-        // return;
-
         // query to insert record
         $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, rank, role, password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :rank, :role,:password, :user_code) ";
 

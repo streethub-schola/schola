@@ -105,13 +105,27 @@
               <input type="text" placeholder="Residential Address" name="address" id="staffaddress" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
               </div>
 
+              <!-- Role -->
               <div class="form_element flex md:flex-row items-center text-sm my-2">
-                <label for="assignedclass" class="mr-2 md:w-[6%] w-[20%]">Assigned Class</label>
-              <!-- <input type="text" placeholder="Enter Class only if Teaching staff" name="assignedclass" id="assignedclass" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2"> -->
-              <select type="text" name="assignedclass" id="assignedclass" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2">
-                <option value="">Choose Class only if Teaching Staff</option>
+                <label for="staffrole" class="mr-2 md:w-[6%] w-[20%]">Staff Role</label>
+              <select type="text" name="staff_role" id="staffrole" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+                <option >Choose Staff Role</option>
               </select>
               </div>
+
+               <!-- Teaching staff assigned class -->
+               <div class="form_element flex md:flex-row items-center text-sm my-2">
+                <label for="assignedclass" class="mr-2 md:w-[6%] w-[20%]">Assigned Class</label>
+              <select type="text" name="assignedclass" id="assignedclass" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+                <option>Choose Class only if Teaching Staff</option>
+              </select>
+              </div>
+
+              <!-- Rank -->
+              <div class="form_element flex md:flex-row items-center text-sm my-2">
+              <input type="text" placeholder="Staff rank" name="staff_rank" id="staffrank" class="w-[80%] md:w-[90%] md:mx-4 rounded-md p-2" required>
+              </div>
+
 
               <div>
                 <h4 class="text-center">Next of Kin Details</h4>

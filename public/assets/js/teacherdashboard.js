@@ -36,5 +36,14 @@ function findStudents(item, field, id){
 }
 
 function fetchStudent(){
+    fetch('http://localhost/schola-2/api/student/getstudents.php')
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
     
 }
+fetchStudent()

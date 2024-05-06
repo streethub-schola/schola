@@ -107,10 +107,10 @@ function findData(item, field, id) {
 
 const verifier = sessionStorage.getItem('schola-user');
 
-if (!verifier) {
-        location.href = '../students/student_login.html';
-   //console.log('user is logged in')
-}
+// if (!verifier) {
+//         location.href = '../students/student_login.html';
+//    //console.log('user is logged in')
+// }
 
 // Get the data from the storage
 

@@ -3,7 +3,7 @@ include('../config/autoload.php');
 // required headers
 header("Access-Control-Allow-Origin:" . $ORIGIN);
 header("Content-Type:" . $CONTENT_TYPE);
-header("Access-Control-Allow-Methods:" . $DEL_METHOD);
+header("Access-Control-Allow-Methods:" . $POST_METHOD);
 header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
@@ -31,6 +31,8 @@ $staff->password = cleanData($data->password);
 // Check if staff with this login details exists
 $login_stmt = $staff->staffLogin();
 
+// var_dump($login_stmt);
+// return;
 
 // Check if staff exists
 if ($login_stmt['outputStatus'] == 1000) {
@@ -42,7 +44,7 @@ if ($login_stmt['outputStatus'] == 1000) {
         http_response_code(404);
 
         // tell the staff
-        echo json_encode(array("message" => "No Stff found.", "status" => 0));
+        echo json_encode(array("message" => "No Staff found.", "status" => 0));
 
         return;
     }
@@ -105,4 +107,5 @@ if ($login_stmt['outputStatus'] == 1000) {
 
     // tell the staff
     echo json_encode(array("message" => "Something went wrong with network. Please try again or register", "status" => 55));
+return;
 }

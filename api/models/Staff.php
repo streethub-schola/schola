@@ -123,7 +123,7 @@ class Staff extends Database
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, rank, role, password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :rank, :role,:password, :user_code) ";
+        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, role, 'rank', password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :role, :rank, :password, :user_code)";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -167,7 +167,6 @@ class Staff extends Database
                 $staff_id_Set = $this->setLastStaffNo($lastInsertedId);
 
                 if ($staff_id_Set) {
-                    //   return $this;
                     return true;
                 } else {
                     return false;

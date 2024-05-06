@@ -62,22 +62,22 @@ form.addEventListener('submit', (e) => {
     }
 
 console.log(formData)
-    // const configData = {
-    //     method: 'POST',
-    //     mode: 'no-cors',
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(formData)
-    // }
-    // fetch("https://schola-2.myf2.net/api/staffapi/createstaff.php", configData)
-    // .then(res => res.json())
-    // .then((data) => {
-    //     console.log(data);
-    // })
-    // .catch((err) => {
-    //     console.log('something went wrong with your request');
-    // })
+    const configData = {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    }
+    fetch("https://schola-2.myf2.net/api/staffapi/createstaff.php", configData)
+    .then(res => res.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((err) => {
+        console.log('something went wrong with your request');
+    })
 
 });
 

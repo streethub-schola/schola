@@ -116,21 +116,14 @@ class Staff extends Database
     function createStaff()
     {
         // Generate and set defualt properties
-        $this->staff_no = "MIS/TS/" . date("Y") . "/901";
+        $this->staff_no = "MIS/TS/" . date("Y") . "/";
         $this->generateUserCode();
-        $this->active = 1;
 
         // Generate new student default password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        //var_dump($this);
-        //return;
-
         // query to insert record
-        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, 
-        nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, `rank`, role, active, password, user_code) 
-        VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, 
-        :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :rank, :role, :active, :password, :user_code)";
+        $query = "INSERT INTO " . $this->table_name . " (staff_no, firstname, lastname, dob, image, phone, email, address, class_id, nok_name, nok_phone, nok_email, nok_address, nok_rel, guarantor_name, guarantor_phone, guarantor_email, guarantor_address, guarantor_rel, role, 'rank', password, user_code) VALUES (:staff_no, :firstname, :lastname, :dob, :image, :phone, :email,:address, :class_id, :nok_name, :nok_phone, :nok_email, :nok_address, :nok_rel, :guarantor_name, :guarantor_phone, :guarantor_email, :guarantor_address, :guarantor_rel, :role, :rank, :password, :user_code)";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -161,7 +154,6 @@ class Staff extends Database
 
         $stmt->bindParam(":rank", $this->rank);
         $stmt->bindParam(":role", $this->role);
-        $stmt->bindParam(":active", $this->active);
         $stmt->bindParam(":password", $this->password);
         $stmt->bindParam(":user_code", $this->user_code);
 
@@ -169,16 +161,12 @@ class Staff extends Database
         try {
             // execute query
             if ($stmt->execute()) {
-                    //return $stmt;
                 $lastInsertedId = $this->conn->lastInsertId();
                 $this->staff_id = $lastInsertedId;
-                
+
                 $staff_id_Set = $this->setLastStaffNo($lastInsertedId);
-                    
-                   // return $staff_id_set;
 
                 if ($staff_id_Set) {
-                    //   return $this;
                     return true;
                 } else {
                     return false;
@@ -186,7 +174,7 @@ class Staff extends Database
             }
         } catch (Exception $e) {
 
-            return array("catch mes"=>$e->getMessage());
+            return $e->getMessage();
         }
     }
 
@@ -473,34 +461,36 @@ class Staff extends Database
     {
         $offsetId = $lastId + 13;
         // update query
-        $id_query = "UPDATE " . $this->table_name . " SET
+        $query = "UPDATE " . $this->table_name . " SET
         staff_no = :staff_no WHERE staff_id = :staff_id";
 
         // prepare query statement
-        $update_stmt = $this->conn->prepare($id_query);
+        $update_stmt = $this->conn->prepare($query);
 
-        $gen_staff_no = "";
+        $staff_no = "";
 
         if ($offsetId < 10) {
-            $gen_staff_no = "MIS/TS/" . date("Y") . "/000" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/000" . $offsetId;
         } elseif ($offsetId >= 10 && $offsetId < 100) {
-            $gen_staff_no = "MIS/TS/" . date("Y") . "/00" . $offsetId;
-        } elseif ($offsetId >= 100) {
-            $gen_staff_no = "MIS/TS/" . date("Y") . "/0" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/00" . $offsetId;
+        } elseif ($offsetId >= 100 & $offsetId < 1000) {
+            $staff_no = "MIS/TS/" . date("Y") . "/0" . $offsetId;
         } else {
-            $gen_staff_no = "MIS/TS/" . date("Y") . "/" . $offsetId;
+            $staff_no = "MIS/TS/" . date("Y") . "/" . $offsetId;
         }
 
         // bind new values
         $update_stmt->bindParam(':staff_id', $lastId);
-        $update_stmt->bindParam(':staff_no', $gen_staff_no);
+        $update_stmt->bindParam(':staff_no', $staff_no);
 
 
         try {
 
-            $update_stmt->execute();
-            return $update_stmt;
-          
+            if ($update_stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception $e) {
 
             return $e->getMessage();

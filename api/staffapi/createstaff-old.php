@@ -14,8 +14,6 @@ $staff = new Staff();
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
-
-
 // var_dump($data);
 // return;
 
@@ -27,15 +25,12 @@ if (
     !empty($data->image) &&
     !empty($data->phone) &&
     !empty($data->email) &&
-    !empty($data->address)&& 
-   	!empty($data->rank) && 
+    !empty($data->address) && 
+    !empty($data->rank) && 
     !empty($data->role) 
-      
 
    
 ) {
-        
-   
 
     // Generated and conserve new staff password
     $data->password = $staff->genPass($data->firstname);
@@ -68,18 +63,14 @@ if (
     $staff->rank = !empty($data->rank) ? cleanData($data->rank) : null;
     $staff->role = !empty($data->role) ? cleanData($data->role) : null;
 
- //var_dump($staff);
- //return;
+// var_dump($staff);
+// return;
 
     // create the staff
     $newstaff_created = $staff->createStaff();
-        
-         //http_response_code(200);
-		 //echo json_encode(array("message" => $newstaff_created, "status" => 0));
-         //return;
 
-     //var_dump($newstaff_created);
-     //return;
+    // var_dump($newstaff_created);
+    // return;
 
    if ($newstaff_created) {
 
@@ -101,7 +92,7 @@ if (
         
     }
 
-    $new_created_staff = ["staff_number"=>$newStaff['staff_no'],"staff_password"=>$data->password];
+    $new_created_staff = ["Staff Number"=>$newStaff['staff_no'],"staff Password"=>$data->password];
     // $newStaff['password'] = $data->password;
 
 

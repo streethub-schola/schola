@@ -15,6 +15,12 @@ $ALLOWED_HEADERS = "Content-Type, Access-Control-Allow-Headers, Authorization, X
 
 
 // Development MYSQL
+// $HOST = "localhost";
+// $DB_NAME = "scholabe_db";
+// $USERNAME = "root";
+// $PASSWORD = "";
+
+// Development MYSQL
 $HOST = "localhost";
 $DB_NAME = "schola_db";
 $USERNAME = "root";

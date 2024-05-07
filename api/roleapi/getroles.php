@@ -18,7 +18,7 @@ if($stmt['outputStatus'] == 1000) {
 
     $result_role = $stmt['output']->fetchAll(PDO::FETCH_ASSOC);
    
-    if (count($result_role) == 0) {
+    if (count($result_role) == 0 || !$result_role) {
         // set response code - 200 OK
         http_response_code(404);
 

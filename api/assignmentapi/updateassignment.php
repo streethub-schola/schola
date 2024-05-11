@@ -29,13 +29,6 @@ if (empty($data->assignment_id) || $data->assignment_id == null || $data->assign
 
 // set assignment_id property of assignment to be edited
 $assignment->assignment_id = cleanData($data->assignment_id);
-$assignment->class_id = cleanData($data->class_id);
-$assignment->subject_id = cleanData($data->subject_id);
-$assignment->term_id = cleanData($data->term_id);
-$assignment->session_id = cleanData($data->session_id);
-$assignment->staff_id = cleanData($data->staff_id);
-
-$assignment->assignment = cleanData($data->assignment);
 
 // Get the assignment whose details are to be updated 
 $assignment_stmt = $assignment->getAssignment();
@@ -44,7 +37,7 @@ if ($assignment_stmt['outputStatus'] == 1000) {
 
     $assignment_to_update = $assignment_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-    // var_dump($assignment_stmt);
+    // var_dump($assignment_to_update);
     // return;
 
     // If assignment does not exist
@@ -57,6 +50,14 @@ if ($assignment_stmt['outputStatus'] == 1000) {
 
         return;
     }
+
+    $assignment->class_id = empty($data->class_id) ? $assignment_to_update['class_id'] : cleanData($data->class_id);
+    $assignment->subject_id = empty($data->subject_id) ? $assignment_to_update['subject_id'] :  cleanData($data->subject_id);
+    $assignment->term_id = empty($data->term_id) ? $assignment_to_update['term_id'] :  cleanData($data->term_id);
+    $assignment->session_id = empty($data->session_id) ? $assignment_to_update['session_id'] :  cleanData($data->session_id);
+    $assignment->staff_id = empty($data->staff_id) ? $assignment_to_update['staff_id'] :  cleanData($data->staff_id);
+
+    $assignment->assignment = empty($data->assignment) ? $assignment_to_update['assignment'] :  cleanData($data->assignment);
 
     // update the assignment
     $updateStatus = $assignment->updateAssignment();

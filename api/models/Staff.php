@@ -458,9 +458,9 @@ class Staff extends Database
 
         try {
 
-            $result = $update_stmt->execute();
+            $update_stmt->execute();
 
-            return array("output" => $result, "outputStatus" => 1000);
+            return array("output" => $update_stmt, "outputStatus" => 1000);
         } catch (Exception $e) {
             return array("output" => $e->getMessage(), "error" => "Netork issue. Please try again.", "outputStatus" => 1200);
         }
@@ -511,12 +511,13 @@ class Staff extends Database
     // Verify password
     function verifyPass($user_pass, $hash_pass)
     {
+        $verify_result = password_verify($user_pass, $hash_pass);
+        // if (password_verify($user_pass, $hash_pass)){
+        //     return true;
+        // } 
+        return $verify_result;
 
-        if (password_verify($user_pass, $hash_pass)){
-            return true;
-        } 
-
-        return false;
+        // return false;
     }
 
 

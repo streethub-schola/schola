@@ -22,7 +22,7 @@ if (empty($data->assignment_id) || $data->assignment_id == null || $data->assign
     http_response_code(403);
 
     // tell the user
-    echo json_encode(array("message" => "Please provide a valid assignment_id", "status" => 2));
+    echo json_encode(array("message" => "Please provide a valid assignment id", "status" => 2));
 
     return;
 }

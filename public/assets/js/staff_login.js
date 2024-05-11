@@ -49,4 +49,4 @@ function logteacher(teacherObject){
       })
       
       .catch((err) => console.log("Error is on", err));
-  });
+  };

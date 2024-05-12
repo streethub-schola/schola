@@ -51,9 +51,6 @@ if (empty($data->role_no) || $data->role_no == null || $data->role_no == ' ' || 
 
 // set role_id property of role to be edited
 $role->role_id = cleanData($data->role_id);
-$role->role_name = cleanData($data->role_name);
-$role->role_no = cleanData($data->role_no);
-
 
 // Get the role whose details are to be updated 
 $role_stmt = $role->getRole();
@@ -73,8 +70,11 @@ if ($role_stmt['outputStatus'] == 1000) {
         return;
     }
 
-   
+    // set role_id property of role to be edited
+    $role->role_name = empty($data->role_name) ? $role_to_update['role_name'] : cleanData($data->role_name);
+    $role->role_no = empty($data->role_no) ? $role_to_update['role_no'] : cleanData($data->role_no);
 
+   
     // update the role
     $updateStatus = $role->updateRole();
 

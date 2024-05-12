@@ -29,13 +29,6 @@ if (empty($data->result_id) || $data->result_id == null || $data->result_id == '
 
 // set result_id property of result to be edited
 $result->result_id = cleanData($data->result_id);
-$result->class_id = cleanData($data->class_id);
-$result->subject_id = cleanData($data->subject_id);
-$result->term_id = cleanData($data->term_id);
-$result->session_id = cleanData($data->session_id);
-$result->staff_id = cleanData($data->staff_id);
-
-$result->result = cleanData($data->result);
 
 // Get the result whose details are to be updated 
 $result_stmt = $result->getresult();
@@ -44,10 +37,7 @@ if ($result_stmt['outputStatus'] == 1000) {
 
     $result_to_update = $result_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-    // var_dump($result_stmt);
-    // return;
-
-    // If result does not exist
+      // If result does not exist
     if (!$result_to_update) {
         // set response code - 200 ok
         http_response_code(404);
@@ -58,8 +48,16 @@ if ($result_stmt['outputStatus'] == 1000) {
         return;
     }
 
+    // Set other parameters before updating
+    $result->class_id = empty($data->class_id) ? $result_to_update['class_id'] : cleanData($data->class_id);
+    $result->subject_id = empty($data->subject_id) ? $result_to_update['subject_id'] : cleanData($data->subject_id);
+    $result->term_id = empty($data->term_id) ? $result_to_update['term_id'] : cleanData($data->term_id);
+    $result->session_id = empty($data->session_id) ? $result_to_update['session_id'] : cleanData($data->session_id);
+    $result->staff_id = empty($data->staff_id) ? $result_to_update['staff_id'] : cleanData($data->staff_id);
+    $result->result = empty($data->result) ? $result_to_update['result'] : cleanData($data->result);
+
     // update the result
-    $updateStatus = $result->updateresult();
+    $updateStatus = $result->updateResult();
 
     if ($updateStatus['outputStatus'] == 1000) {
 

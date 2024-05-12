@@ -38,9 +38,8 @@ if (empty($data->class_name) || $data->class_name == null || $data->class_name =
     return;
 }
 
-// set class_id property of class to be edited
+// Set class id
 $class->class_id = cleanData($data->class_id);
-$class->class_name = cleanData($data->class_name);
 
 
 
@@ -62,7 +61,8 @@ if ($class_stmt['outputStatus'] == 1000) {
         return;
     }
 
-   
+   // set class_id property of class to be edited
+$class->class_name = empty($data->class_name) ? $class_to_update['class_name'] : cleanData($data->class_name);
 
     // update the class
     $updateStatus = $class->updateClass();

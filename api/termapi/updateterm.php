@@ -40,8 +40,6 @@ if (empty($data->term_name) || $data->term_name == null || $data->term_name == '
 
 // set term_id property of term to be edited
 $term->term_id = cleanData($data->term_id);
-$term->term_name = cleanData($data->term_name);
-
 
 
 // Get the term whose details are to be updated 
@@ -73,6 +71,10 @@ if ($term_stmt['outputStatus'] == 1000) {
 
         return;
     }
+
+
+    $term->term_name = (empty($data->term_name)  || $data->term_name == NULL || $data->term_name == "") ? $term_to_update['term_name'] : cleanData($data->term_name);
+
    
 
     // update the term

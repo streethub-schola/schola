@@ -41,5 +41,23 @@ function logteacher(teacherObject) {
       }
     })
 
-    .catch((err) => console.log("Error is on", err));
-}
+
+      fetch("http://localhost/schola-2/api/staffapi/stafflogin.php", configData)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status == 1) {
+          alert(data.message);
+          
+          // Save logged in user info to session storage so you can access them in other pages
+          sessionStorage.setItem("scola-staff", JSON.stringify(data) )
+          
+          location.href = "../../teachers/teacher_dashboard.html";
+        }
+        else {
+          alert(data.message);
+        }
+      })
+      
+      .catch((err) => console.log("Error is on", err));
+  };

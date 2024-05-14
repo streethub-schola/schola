@@ -25,8 +25,8 @@ if (empty($data->staff_no) || $data->staff_no == null || $data->staff_no == ''  
 }
 
 // Sanitize and set staff property values
-$staff->staff_no = $data->staff_no;
-$staff->password = $data->password;
+$staff->staff_no = cleanData($data->staff_no);
+$staff->password = cleanData($data->password);
 
 // Check if staff with this login details exists
 $login_stmt = $staff->staffLogin();
@@ -52,7 +52,6 @@ if ($login_stmt['outputStatus'] == 1000) {
 
     // if staff does exist
     $passCheck = $staff->verifyPass($staff->password, $loggedInstaff['password']);
-    
 
     if ($passCheck) {
         $loggedInstaff['password'] = "xxxxxxxxxxxxxxxxxx";

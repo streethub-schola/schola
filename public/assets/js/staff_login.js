@@ -1,4 +1,4 @@
-portal_frontend
+
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
@@ -22,31 +22,26 @@ form.addEventListener("submit", (e) => {
   };
 
 
-  logteacher(configData)
+  fetch(API_DOMAIN+"/api/staffapi/stafflogin.php", configData)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    if (data.status == 1) {
+      alert(data.message);
+      
+      // Save logged in user info to session storage so you can access them in other pages
+      sessionStorage.setItem("schola-staff", JSON.stringify(data) )
+      
+      location.href = "../../public/teachers/teacher_dashboard.html";
+    }
+    else {
+      alert(data.message);
+    }
+  })
+  .catch((err) => console.log("Error is on", err));
 
 });
 
 
 
-function logteacher(teacherObject){
 
-
-      fetch("http://localhost/schola-2/api/staffapi/stafflogin.php", configData)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.status == 1) {
-          alert(data.message);
-          
-          // Save logged in user info to session storage so you can access them in other pages
-          sessionStorage.setItem("scola-staff", JSON.stringify(data) )
-          
-          location.href = "../../teachers/teacher_dashboard.html";
-        }
-        else {
-          alert(data.message);
-        }
-      })
-      
-      .catch((err) => console.log("Error is on", err));
-  };

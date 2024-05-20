@@ -2,8 +2,11 @@
 include('../config/autoload.php');
 
 // required headers
+// header('Referrer-Policy: no-referrer');
+
 header("Access-Control-Allow-Origin:" . $ORIGIN);
 header("Content-Type:" . $CONTENT_TYPE);
+header("Accept:" . $ACCEPT_TYPE);
 header("Access-Control-Allow-Methods:" . $POST_METHOD);
 header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);

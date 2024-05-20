@@ -9,15 +9,15 @@ const registered_at = document.getElementById('registered_at');
 
 //CHECK IF THE TEACHER IS LOGGED IN 
 
-const check = sessionStorage.getItem('schola-staff')
+const staff_data = JSON.parse(sessionStorage.getItem('schola-staff'));
 
-if(!check){
+const isStaff = staff_data.hasOwnProperty('staff_no') && staff_data.hasOwnProperty('staff_id');
+
+if(!isStaff){
     alert('You do not have permission to view this page.');
     location.href = '../teachers/teacher_login.html';
 }
 
-const staff_data = JSON.parse(check)
-console.log(staff_data);
 
 // FILL IN THE TEMPLATES WITH THE DATA FROM THE SESSION
 
@@ -41,4 +41,5 @@ function fetchStudent(){
     });
     
 }
+
 fetchStudent()

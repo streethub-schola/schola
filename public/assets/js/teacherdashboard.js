@@ -30,11 +30,6 @@ staffemail.innerHTML = staff_data.email;
 // registered_a
 
 
-// FETCH THE DATA OF SPECIFIC CLASS LIST
-function findStudents(item, field, id){
-    return item.find((data) => data[field]=== id);
-}
-
 function fetchStudent(){
     fetch('http://localhost/schola-2/api/student/getstudents.php')
     .then((response) => response.json())

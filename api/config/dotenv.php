@@ -1,7 +1,8 @@
 <?php
 // Headers
 $ORIGIN = "*";
-$CONTENT_TYPE = "application/json; charset=UTF-8";
+$CONTENT_TYPE = "application/json";
+$ACCEPT_TYPE = "application/json";
 $GET_METHOD = "GET";
 $POST_METHOD = "POST";
 $PUT_METHOD = "PUT";
@@ -11,7 +12,7 @@ $DEL_METHOD = "DELETE";
 
 
 $MAX_AGE = 3600;
-$ALLOWED_HEADERS = "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With";
+$ALLOWED_HEADERS = "Content-Type, Accept, Access-Control-Allow-Headers, Authorization, X-Requested-With";
 
 
 // Development MYSQL

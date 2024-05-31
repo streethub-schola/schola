@@ -32,16 +32,16 @@ logoutMobBtn.addEventListener('click', logout)
 
 
 function logout(){
-  if (verifier){
-    fetch('https://schola.skaetch.com/api/studentapi/studentlogout.php', configData)
+
+  fetch(API_DOMAIN+'/api/staffapi/stafflogout.php', configData)
     .then(res => res.json())
     .then(data => {
         if (data.status == 1){
             sessionStorage.removeItem('schola-user');
-            location.href = '../students/login.html'
+          location.href = '../students/login.html'
+          
         }
     })
     .catch(err => alert("There is an issue with your network. Please try again"))
     
-}
 }

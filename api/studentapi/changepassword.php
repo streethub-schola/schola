@@ -56,7 +56,6 @@ $data->new_password = cleanData($data->new_password);
 $student->updated_at = date("d-m-Y H:s:ia");
 
 
-
 $searchCol = "admin_no";
 $searchDesc = "Admission Number";
 

@@ -51,29 +51,19 @@ $searchColumn = cleanData($data->searchcolumn);
 // Get the student whose details are to be updated 
 $search_stmt = $student->searchStudent($searchString, $searchColumn);
 
-// Catch db error
-if(is_string($search_stmt)){
-    // set response code - 200 ok
-    http_response_code(403);
- 
-    // tell the student
-    echo json_encode(array("message" => $search_stmt, "status"=>22));
+$search_result = $search_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    return;
-}
-
-$search_result = $search_stmt->fetch(PDO::FETCH_ASSOC);
-
-if(is_string($search_result)){
+if($search_result == "No student found for this search item"){
   
     // set response code - 200 ok
-    http_response_code(400);
+    http_response_code(200);
   
     // tell the student
-    echo json_encode(array("message" =>$search_result, "status"=>23));
+    echo json_encode(array("message" => "No student found for this search item", "status"=>1));
+
     return;
-}
-elseif($search_result){
+
+}elseif($search_result){
   
     // set response code - 200 ok
     http_response_code(200);
@@ -81,14 +71,11 @@ elseif($search_result){
     // tell the student
     echo json_encode(array("message" => $search_result, "status"=>1));
 
+    return;
+
 }else{
-  
-    // set response code - 503 service unavailable
-    http_response_code(503);
-  
-    // tell the student
-    echo json_encode(array("message" => "No student found for this search item", "status"=>2));
+    errorDiag($search_result);
+    return;
 }
 
 
-?>

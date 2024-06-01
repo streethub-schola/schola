@@ -1,4 +1,6 @@
 <?php
+// For student
+
 include('../config/autoload.php');
 
 // required headers
@@ -55,7 +57,10 @@ $student->password = $data->password;
 $data->new_password = cleanData($data->new_password);
 $student->updated_at = date("d-m-Y H:s:ia");
 
-
+// var_dump($student->admin_no);
+// var_dump($student->password);
+// var_dump($data->new_password);
+// return;
 
 $searchCol = "admin_no";
 $searchDesc = "Admission Number";
@@ -63,22 +68,14 @@ $searchDesc = "Admission Number";
 // Get the student whose details are to be updated 
 $student_stmt = $student->studentLogin();
 
-// Catch db error
-if (is_string($student_stmt)) {
-    // set response code - 200 ok
-    http_response_code(403);
-
-    // tell the student
-    echo json_encode(array("message" => $student_stmt, "status" => 22));
-
-    return;
-}
+// var_dump($student_stmt);
+// return;
 
 $student_to_update = $student_stmt->fetch(PDO::FETCH_ASSOC);
 
-http_response_code(404);
-echo json_encode(array("message" => $student_to_update, "status" => 500));
-return;
+// http_response_code(404);
+// echo json_encode(array("message" => $student_to_update, "status" => 500));
+// return;
 
 if (!$student_to_update) {
     // set response code - 200 ok
@@ -92,37 +89,40 @@ if (!$student_to_update) {
 
 // Check if password is correct for the user
 $passCheck = $student->verifyPass($student->password, $student_to_update['password']);
+
 if ($passCheck) {
     $student_to_update['password'] = "xxxxxxxxxxxxxxxxxx";
 
     // Update the new password
     $student->password = $data->new_password;
+
     
     // update the student
     $updateStatus = $student->changePassword();
 
-    if (is_string($updateStatus)) {
+    
 
-        // set response code - 200 ok
-        http_response_code(400);
-
-        // tell the student
-        echo json_encode(array("message" => $updateStatus, "status" => 23));
-        return;
-    } elseif ($updateStatus) {
+   if ($updateStatus) {
 
         // set response code - 200 ok
         http_response_code(200);
 
         // tell the student
         echo json_encode(array("message" => "student password was updated successfully.", "status" => 1));
-    } else {
+        return;
+    } elseif(!$updateStatus) {
+
+        errorDiag($update_stmt);
+        return;
+    }
+    else {
 
         // set response code - 503 service unavailable
         http_response_code(503);
 
         // tell the student
         echo json_encode(array("message" => "Unable to update student password. Please try again.", "status" => 2));
+        return;
     }
 } else {
     // set response code - 503 service unavailable
@@ -132,5 +132,3 @@ if ($passCheck) {
     echo json_encode(array("message" => "Wrong password. Password can not be updated", "status" => 4));
 }
 
-// If student with id exists
-// set student property values

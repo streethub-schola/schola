@@ -30,7 +30,6 @@ form.addEventListener("submit", (e) => {
   // logStudent(configData);
 
   fetch(API_DOMAIN+"/api/studentapi/studentlogin.php", configData)
-  // fetch("https://schola-2.myf2.net/api/studentapi/studentlogin.php", studentObject)
     .then(res => res.json())
     .then(data => {
       console.log(data);

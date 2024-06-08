@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
    getResource('http://localhost/schola-2/api/classapi/getclasses.php')
    // getResource('https://schola-2.myf2.net/api/staffapi/getstaffs.php')
 ]).then ((assignment_data) => {
-   console.log(assignment_data);
+  //  console.log(assignment_data);
 
 
 let subjects = assignment_data[0];
@@ -45,6 +45,9 @@ let assignments = assignment_data[1].result;
 
 
 const newData = joinOtherResourcesToBase(assignments, subjects, classes);
+
+
+
 
 
 

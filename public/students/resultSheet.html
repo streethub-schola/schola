@@ -17,54 +17,61 @@
 <body>
     <!-- Main Container -->
     <div class="parentContainer">
+        <!-- Set to re-size the contents to better fit in -->
+         <div class="control_Headre">
             <div class="School-Info">
+             <div class="left_MainHeader">
                 <div class="Schoollogo">
                     <!-- <p><strong><em>School Logo Goes Here</em></strong></p> -->
                     <img src="../MaclesleySchool/macimg/school logo.png" alt="" id="logo">
                     <!-- Replace with Actual School Logo -->
                 </div>
-                <div class="school-Details">
-                    <h2 class="schoolName">Maclesley International School</h2>
-                    <h4 class="schoolAddress">
-                        Address: 1st Bus stop Umuoyo, Irete Owerri West L.G.A, Imo State Nigeria. <br>
-                        END OF: 2022/2023 Academic Session, Third Term.
-                    </h4>
+                <!-- For Students Personal data -->
+                <div class="studentsData">
+                    <table cellspacing="1px" class="table1" id="Personal_data">
+                        <tr>
+                            <th colspan="2">Student's Personal Data</th>
+                        </tr>
+                        <tr>
+                            <td>Name Of Student</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Admission No:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sex:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Class:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Age:</td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </div>
+             </div>
+             
+            </div>
+           <div class="re_Size">
+            <!-- Work here -->
+            <div class="school-Details">
+                <h2 class="schoolName">Maclesley International School</h2>
+                <h4 class="schoolAddress">
+                    Address: 1st Bus stop Umuoyo, Irete Owerri West L.G.A, Imo State Nigeria. <br>
+                    END OF: 2022/2023 Academic Session, Third Term.
+                </h4>
             </div>
             <div class="Student-Data">
                 <div class="leftContent">
-                    <!-- For Students Personal data -->
-                    <div class="studentsData">
-                        <table cellspacing="10px" class="table1">
-                            <tr>
-                                <th colspan="2">Student's Personal Data</th>
-                            </tr>
-                            <tr>
-                                <td>Name Of Student</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Admission No:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Sex:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Class:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Age:</td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-            
+                    <!-- Replace the appropriate code here -->
                     <!-- For attendance table -->
                     <div class="attendanceTable">
-                        <table cellspacing="20px" class="table2">
+                        <table cellspacing="5px" class="table2" id="Attendance_Data">
                             <tr>
                                 <th colspan="2">ATTENDANCE</th>
                             <tr>
@@ -91,7 +98,7 @@
                             </tr>
                         </table>
                         <!-- for positon table -->
-                        <table cellspacing=20px class="table3">
+                        <table cellspacing=5px class="table3" id="position_Data">
                             <tr>
                                 <th>Position:</th>
                                 <td></td>
@@ -105,13 +112,17 @@
                 </div>
             
             </div>
+           </div>
+         </div>
+           
+            <!-- Copy above here and re-work -->
 
             <!-- Academic Performance Table -->
             <div class="academicDetails">
                 <h3 class="performanceHeading">Academic Performance</h3>
                 <h4 class="termSheetHeading">Third Term Result Sheet</h4>
                <div class="mainAcademicTable">
-                <table cellspacing="20px" class="Academic_PerformanceTable">
+                <table cellspacing="1px" class="Academic_PerformanceTable">
                     <tr>
                         <th>Subject</th>
                         <th>Test</th>
@@ -424,8 +435,8 @@
                 </table>
                </div>
                 <!-- Grades/Legend -->
-                <div class="legend">
-                    <div class="gradeA">
+                <div class="legend" id="Legend_Grade">
+                    <div class="gradeA" id="Grade_rate">
                         <span>Legend: A = 80-Above Excellent |</span>
                         <span>B = 70-79 Very Good |</span>
                         <span>C = 60-69 Good |</span>
@@ -435,11 +446,13 @@
                     </div>
                 </div>
                 <!-- Skills Development -->
-                <div class="Skills">
+                <div class="skill_headre">
                     <h3>Skills Development</h3>
+                </div>
+                <div class="Skills" id="Skill_Resize">
                    <div class="skillsContainer">
                      <div class="personal">
-                        <table cellspacing = "10px" class="PersonalDevTable">
+                        <table cellspacing = "1px" class="PersonalDevTable">
                             <tr>
                         <th>Personal Development</th>
                         <th>3rd Term </th>
@@ -468,7 +481,7 @@
                     </div>
                     <!-- Social Development -->
                     <div class="socialDev">
-                        <table cellspacing = "10px" class="SocilaDevTable">
+                        <table cellspacing = "1px" class="SocilaDevTable">
                             <tr>
                                 <th>Social Development</th>
                                 <th>3rd Term</th>
@@ -497,7 +510,7 @@
                     </div>
                     <!-- Sense of Resp -->
                     <div class="ResponsibilitySense">
-                        <table cellspacing = "10px" class="RespTable">
+                        <table cellspacing = "1px" class="RespTable">
                             <tr>
                                 <th>Sense of Resp.</th>
                                 <th>3rd Term</th>
@@ -526,7 +539,7 @@
                     </div>
                     <!-- Psychoomotor Skills Dev -->
                     <div class="psychomotor">
-                        <table cellspacing = "10px" class="psychomotorTable">
+                        <table cellspacing = "1px" class="psychomotorTable">
                             <tr>
                                 <th>Psychomotor (Skills) Dev.</th>
                                 <th>3rd Term</th>
@@ -554,21 +567,20 @@
                         </table>
                     </div>
                    </div>
-
-                    <!-- Key rating -->
-                    <div class="rating">
-                        <div class="Key-ratings">
-                            <span>Key to Rating: 5 = Excellent Performance |</span>
-                            <span>4 = Excellent Expectation |</span>
-                            <span>3 = Meets Expectations |</span>
-                            <span>2 = Needs Improvement</span>
-                        </div>
+                </div>
+                <!-- Key rating -->
+                <div class="rating" id="Academic_ratings">
+                    <div class="Key-ratings">
+                        <span>Key to Rating: 5 = Excellent Performance |</span>
+                        <span>4 = Excellent Expectation |</span>
+                        <span>3 = Meets Expectations |</span>
+                        <span>2 = Needs Improvement</span>
                     </div>
                 </div>
 
                 <!-- Remarks and Conlusions -->
-                <div class="ConclusionComments">
-                    <h3>Remarks and Conclusions</h3>
+                <div class="ConclusionComments" id="Remarks_Conlusion">
+                    <h3 id="remarks">Remarks and Conclusions</h3>
                     <h4>Class Teacher's Remarks</h4>
                     <div class="TeachersComment">
                         <span>Replace with Teacher's Remark here</span>

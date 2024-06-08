@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Jost', sans-serif;
+    font-size: 8px;
 }
 
 /* ------------ Root Selectors -------------------------- */
@@ -25,54 +26,164 @@ body{
 /* parentContainer */
 .parentContainer{
     padding: 0 15px;
-    margin: 15px;
 }
 #logo{
     width: 150px;
     height: 150;
 }
-/* Styling for the first table date - Student's Personal data */
-.table1, .table2, .table3{
-    text-transform: uppercase;
+.schoolName{
+    font-size: 2rem;
 }
+/* Styling for the first table date - Student's Personal data */
+/* .table1, .table2, .table3{
+    text-transform: uppercase;
+} */
 .table1 th{
-    padding: 10px;
+    padding: 2px;
     text-align: center;
 }
 .table1, tr, td {
     border-collapse: collapse;
     border: 1px solid var(--dark-primry);
-    padding: 10px;
+    padding: 1px;
 }
+/* *********************************************************
+
+Codes that go in here is to achieve the re-sizing of the result sheet page
+
+************************************************************
+ */
+ #Personal_data tr td{
+    padding: 2px;
+ }
+  #Attendance_Data tr td{
+    padding: 1px;
+  }
+  #position_Data tr td{
+    padding: 1px;
+  }
+ .control_Headre{
+    display: flex;
+    justify-content: center;
+ }
+.left_MainHeader{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.re_Size{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainAcademicTable{
+    text-align: center;
+}
+
+.Academic_PerformanceTable tr td{
+    padding: 1px;
+}
+.gradeA{
+    text-align: left;
+    position: relative;
+    left: 10px;
+}
+
+
+#Skill_Resize{
+    display: flex;
+    position: relative;
+    bottom: 50px;
+
+}
+
+.skill_headre{
+    position: relative;
+    /* top: 10px; */
+    left: 10px;
+}
+.PersonalDevTable tr td, .SocilaDevTable tr td, .RespTable tr td, .psychomotorTable tr td{
+    padding: 1px;
+}
+
+#Academic_ratings{
+    text-align: left;
+    position: relative;
+    bottom: 100px;
+    left: 10px;
+    /* background: var(--semi-red); */
+}
+
+#Remarks_Conlusion{
+     /* text-align: left; */
+    position: relative;
+    bottom: 100px;
+    left: 10px;
+}
+#remarks{
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .School-Info{
     display: flex;
-    justify-content: space-evenly;
-    margin: 20px 0;
+    /* justify-content: space-evenly; */
+    /* margin: 20px 0; */
 }
-.school-Details{
-    margin-top: 25px;
-}
+/* .school-Details{ */
+    /* margin-top: 25px; */
+/* } */
 .leftContent{
     display: flex;
-        justify-content: space-evenly;
+        /* justify-content: space-evenly; */
 }
 .table2, tr, td{
     border-collapse: collapse;
         border: 1px solid var(--dark-primry);
-        padding: 10px;
+        padding: 1px;
 }
 .table3, th, td{
     border-collapse: collapse;
         border: 1px solid var(--dark-primry);
-        padding: 10px;
+        padding: 1px;
 }
 .table3{
-    margin: 10px 0;
+    margin: 1px 0;
 }
 /* Academic Table */
 .academicDetails{
-    margin: 25px;
+    margin: 2px;
 }
 .performanceHeading{
     text-align: center;
@@ -81,12 +192,12 @@ body{
     text-decoration: underline;
 }
 .termSheetHeading{
-    margin: 10px 25px;
+    margin: 0
 }
 .Academic_PerformanceTable, tr, th, td{
     border-collapse: collapse;
         border: 1px solid var(--dark-primry);
-        padding: 10px;
+        padding: 1px;
 }
 .legend, .rating{
     text-align: center;
@@ -128,7 +239,7 @@ body{
         }
                 .leftContent {
                     display:  block;
-                   margin: 40px 0;
+                   margin: 10px 0;
                 }
                 .attendanceTable{
                     margin: 20px 0;

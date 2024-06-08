@@ -87,6 +87,7 @@ btn_Submit.addEventListener("click", ()=>{
     }
 
     fetch("https://schola-2.myf2.net/api/assignmentapi/createassignment.php", configData)
+    // fetch("http://localhost/oluaka/schola/api/assignmentapi/createassignment.php", configData)
     .then(res => res.json())
     .then(data => {
       console.log(data)

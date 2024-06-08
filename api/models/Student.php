@@ -37,7 +37,6 @@ class Student extends Database
     // read a single user
     function getStudent()
     {
-        $query = '';
 
         if ($this->student_id != NULL) {
 
@@ -77,7 +76,8 @@ class Student extends Database
             }
         } else {
 
-            return "Please provide a valid Student ID or Admission number";
+            return array("output"=>"Please provide a valid Student ID or Admission number","outputStatus"=>1400);
+
         }
     }
 
@@ -144,7 +144,7 @@ class Student extends Database
                     $this->student_id = $lastStudentId;
                     $student_stmt = $this->getStudent();
 
-                    return $student_stmt;
+                    return array("output"=>$student_stmt['output'],  "outputStatus"=>1000);
                 } elseif (!$setId) {
                     return array("output"=>false, "error"=>"Student created but Admission Number generation failed. Please update manually", "outputStatus"=>1200);
                 } else {
@@ -284,20 +284,20 @@ class Student extends Database
     function changePassword()
     {
 
-        // update query
+        // Update query
         $query = "UPDATE " . $this->table_name . " SET
                     password = :password,
                     updated_at = :updated_at
                 WHERE
                     admin_no = :admin_no";
 
-        // prepare query statement
+        // Prepare query statement
         $update_stmt = $this->conn->prepare($query);
 
-        // Emcrypt password
+        // Encrypt password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        // bind new values
+        // Bind new values
         $update_stmt->bindParam(':admin_no', $this->admin_no);
         $update_stmt->bindParam(':password', $this->password);
         $update_stmt->bindParam(':updated_at', $this->updated_at);
@@ -356,13 +356,10 @@ class Student extends Database
 
         try {
             // execute the query
-            if ($login_stmt->execute()) {
+            $login_stmt->execute();
 
                 return $login_stmt;
-            } else {
-
-                return false;
-            }
+          
         } catch (Exception $e) {
             return $e->getMessage();
         }

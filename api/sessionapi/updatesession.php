@@ -41,9 +41,6 @@ if (empty(cleanData($data->session_name)) && empty(cleanData($data->strat_date))
 
 // set session_id property of session to be edited
 $session->session_id = cleanData($data->session_id);
-$session->session_name = cleanData($data->session_name);
-$session->start_date = cleanData($data->start_date);
-$session->end_date = cleanData($data->end_date);
 
 
 // Get the session whose details are to be updated 
@@ -63,6 +60,13 @@ if ($session_stmt['outputStatus'] == 1000) {
 
         return;
     }
+
+
+    // set session_id property of session to be edited
+    $session->session_name = empty($data->session_name) ? $session_to_update['session_name'] : cleanData($data->session_name);
+    $session->start_date = empty($data->start_date) ? $session_to_update['start_date'] : cleanData($data->start_date);
+    $session->end_date = empty($data->end_date) ? $session_to_update['end_date'] : cleanData($data->end_date);
+
 
     // Check if new update is the same as current tern name
     // just send ok response : no need to waste broadband

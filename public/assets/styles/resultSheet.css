@@ -6,6 +6,7 @@
     font-size: 8px;
 }
 
+
 /* ------------ Root Selectors -------------------------- */
 :root {
     --green-primary: #0c5239;
@@ -40,7 +41,6 @@ body{
 } */
 .table1 th{
     padding: 2px;
-    text-align: center;
 }
 .table1, tr, td {
     border-collapse: collapse;

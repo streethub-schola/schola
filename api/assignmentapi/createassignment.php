@@ -15,6 +15,9 @@ $assignment = new Assignment();
 $data = json_decode(file_get_contents("php://input"));
 // var_dump($data);
 // return;
+http_response_code(201);
+echo json_encode(array("message" => $data, "status" => 1));
+return;
 
 // make sure data is not empty
 if (

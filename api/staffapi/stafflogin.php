@@ -3,90 +3,84 @@ include('../config/autoload.php');
 // required headers
 header("Access-Control-Allow-Origin:" . $ORIGIN);
 header("Content-Type:" . $CONTENT_TYPE);
-header("Access-Control-Allow-Methods:" . $DEL_METHOD);
+header("Access-Control-Allow-Methods:" . $POST_METHOD);
 header("Access-Control-Max-Age:" . $MAX_AGE);
 header("Access-Control-Allow-Headers:" . $ALLOWED_HEADERS);
 
 // prepare product object
-$student = new Student();
+$staff = new Staff();
 
-// get id of student to be edited
+// get id of staff to be edited
 $data = json_decode(file_get_contents("php://input"));
 
 // Check for valid ID
-if (empty($data->admin_no) || $data->admin_no == null || $data->admin_no == ''  || $data->admin_no == ' ' || empty($data->password) || $data->password == null || $data->password == '' || $data->password == ' ') {
+if (empty($data->staff_no) || $data->staff_no == null || $data->staff_no == ''  || $data->staff_no == ' ' || empty($data->password) || $data->password == null || $data->password == '' || $data->password == ' ') {
     // set response code - 503 service unavailable
     http_response_code(401);
 
-    // tell the student
-    echo json_encode(array("message" => "Please provide both valid email and/or password"));
+    // tell the staff
+    echo json_encode(array("message" => "Please provide both valid staff No and/or password", "status" => 33));
 
     return;
 }
 
-// Sanitize and set student property values
-$student->admin_no = cleanData($data->admin_no);
-$student->password = cleanData($data->password);
+// Sanitize and set staff property values
+$staff->staff_no = $data->staff_no;
+$staff->password = $data->password;
 
-// Check if student with this login details exists
-$login_stmt = $student->studentLogin();
-
-
-
-if (is_string($login_stmt)) {
-
-    // set response code - 200 ok
-    http_response_code(400);
-
-    // tell the student
-    echo json_encode(array("message" => $login_stmt, "status" => 23));
-    return;
-}
+// Check if staff with this login details exists
+$login_stmt = $staff->staffLogin();
 
 // var_dump($login_stmt);
 // return;
 
-$loggedInstudent = $login_stmt->fetch(PDO::FETCH_ASSOC);
+// Check if staff exists
+if ($login_stmt['outputStatus'] == 1000) {
 
-// Check if student exists
-if (is_string($loggedInstudent)) {
+    $loggedInstaff = $login_stmt['output']->fetch(PDO::FETCH_ASSOC);
 
-    // set response code - 200 ok
-    http_response_code(400);
+    if (!$loggedInstaff) {
+        // set response code - 200 ok
+        http_response_code(404);
 
-    // tell the student
-    echo json_encode(array("message" => $loggedInstudent, "status" => 3));
-    return;
-} elseif ($loggedInstudent) {
+        // tell the staff
+        echo json_encode(array("message" => "No Staff found.", "status" => 0));
 
-    // if student does exist
-    $passCheck = $student->verifyPass($student->password, $loggedInstudent['password']);
+        return;
+    }
+
+
+    // if staff does exist
+    $passCheck = $staff->verifyPass($staff->password, $loggedInstaff['password']);
+    
+
     if ($passCheck) {
-        $loggedInstudent['password'] = "xxxxxxxxxxxxxxxxxx";
+        $loggedInstaff['password'] = "xxxxxxxxxxxxxxxxxx";
 
-        // Generate new session usercode
-        $student->generateCode();
+        $newSessionSet = $staff->regenerateUserCode();
 
-        $newSessionSet = $student->generateSessionCode();
+        // var_dump($newSessionSet['output']);
+        // return;
 
-        if ($newSessionSet) {
+        if ($newSessionSet['outputStatus'] == 1000 && $newSessionSet['output'] == true) {
 
-            $loggedInstudent['user_code'] = $student->user_code;
+            $loggedInstaff['user_code'] = $staff->user_code;
 
             // set response code - 200 ok
             http_response_code(200);
 
-            // tell the student
-            echo json_encode(array("message" => "student Login successful.", "student" => $loggedInstudent, "status" => 1));
+            // tell the staff
+            echo json_encode(array("message" => "staff Login successful.", "staff" => $loggedInstaff, "status" => 1));
 
             return;
-
+        } elseif ($newSessionSet['outputStatus'] == 1000) {
+            errorDiag($newSessionSet['output']);
         } else {
 
             // set response code - 200 ok
             http_response_code(200);
 
-            // tell the student
+            // tell the staff
             echo json_encode(array("message" => "Login failed due to network session failure. Try again", "status" => 11));
 
             return;
@@ -96,16 +90,23 @@ if (is_string($loggedInstudent)) {
         // set response code - 503 service unavailable
         http_response_code(403);
 
-        // tell the student
+        // tell the staff
         echo json_encode(array("message" => "Wrong login details. Please try again or register", "status" => 4));
+
+        return;
     }
+} elseif ($login_stmt['outputStatus'] == 1200) {
+
+    errorDiag($login_stmt['output']);
+    return;
 } else {
 
-    // if student does not exist
+    // if staff does not exist
 
     // set response code - 503 service unavailable
     http_response_code(404);
 
-    // tell the student
-    echo json_encode(array("message" => "Wrong login details. Please try again or register"));
+    // tell the staff
+    echo json_encode(array("message" => "Something went wrong with network. Please try again or register", "status" => 55));
+return;
 }

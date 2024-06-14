@@ -38,7 +38,7 @@ function logout(){
     .then(data => {
         if (data.status == 1){
             sessionStorage.removeItem('schola-user');
-            location.href = '../students/login.html'
+            location.href = '../students/student_login.html'
         }
     })
     .catch(err => alert("There is an issue with your network. Please try again"))

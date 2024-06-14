@@ -7,6 +7,14 @@ const form = document.querySelector("form");
 
 const reusable_data = JSON.parse(sessionStorage.getItem("schola-user"));
 
+console.log(reusable_data);
+
+if (reusable_data == null || reusable_data.hasOwnProperty("staff_no")) {
+  alert("Please login");
+  location.href = "../students/student_login.html";
+}
+
+
 const closer = document.getElementById("close");
 
 closer.addEventListener("click", () => {
@@ -45,13 +53,14 @@ form.addEventListener("submit", (e) => {
         if (data.status == 1) {
           sessionStorage.removeItem("schola-user");
           alert("Your Password has been changed successfully");
-          location.href = "../students/login.html";
+          location.href = "../students/student_login.html";
         }
       })
       .catch((err) => console.log(err));
   } else {
-    flag.style.display = "flex";
+    flag.style.display = "block";
     message = "Your New password does not match";
     msg.innerHTML = message;
   }
+
 });

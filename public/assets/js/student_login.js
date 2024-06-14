@@ -1,54 +1,51 @@
-let form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  let form = document.querySelector("form");
 
-  const url = document.URL;
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  let userData = null;
+    const url = document.URL;
 
+    let userData = null;
 
     userData = {
       admin_no: `${form.admin_no.value}`,
-      password: `${form.password.value}`,
+      password: `${form.password.value}`
     };
 
+    const configData = {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(userData)
+    };
 
- const configData = {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(userData),
-  };
-
-  console.log(userData);
+    console.log(userData);
 
 
-  // logStudent(configData);
+    // logStudent(configData);
 
-  fetch(API_DOMAIN+"/api/studentapi/studentlogin.php", configData)
-  // fetch("https://schola-2.myf2.net/api/studentapi/studentlogin.php", studentObject)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if (data.status == 1) {
+    fetch(API_DOMAIN + "/api/studentapi/studentlogin.php", configData)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.status == 1) {
 
-        // Save logged in user info to session storage so you can access them in other pages
-        sessionStorage.setItem("schola-user", JSON.stringify(data) )
+          // Save logged in user info to session storage so you can access them in other pages
+          sessionStorage.setItem("schola-user", JSON.stringify(data));
 
-        location.href = "../students/dashboard.html";
-      }
-      else {
-        alert(data.message);
-      }
-    })
-    .catch((err) => console.log(err));
+          location.href = "../students/dashboard.html";
+        }
+        else {
+          alert(data.message);
+        }
+      })
+      .catch((err) => console.log(err));
 
-});
-
+  });
 
 
 

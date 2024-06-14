@@ -1,136 +1,95 @@
 //Grab all the elements to parse
-const img = document.getElementById('std_img');
-const fullname = document.getElementById('std_name');
-const firstname = document.getElementById('firstname');
-const lastname = document.getElementById('lastname');
-const admin_no = document.getElementById('admin_no');
-const pgname = document.getElementById('pgname');
-const pgrel = document.getElementById('pgrel');
-const registered_at = document.getElementById('registered_at');
-const modalX = document.getElementById('view_detail_assignment');
-const showModal = document.getElementById('view_details');
-const question_container = document.getElementById('questions');
+const img = document.getElementById("std_img");
+const fullname = document.getElementById("std_name");
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("lastname");
+const admin_no = document.getElementById("admin_no");
+const pgname = document.getElementById("pgname");
+const pgrel = document.getElementById("pgrel");
+const registered_at = document.getElementById("registered_at");
+const modalX = document.getElementById("view_detail_assignment");
+const showModal = document.getElementById("view_details");
+const question_container = document.getElementById("questions");
 
-
+const showAssighments = document.getElementById("showAssighments");
 
 let serialNo = 1;
 let newAssignments;
 
-// LOAD THE RESOURCES FROM THE BACKEND
-
-// ASSIGNMENTS
-
-document.addEventListener('DOMContentLoaded', () => {
-
-   modalX.style.display = 'none';
-   // var classes ;
-   let staff ;
-   let subject;
-
- Promise.all([
-  //  getResource('https://schola.skaetch.com/api/subjectapi/getsubjects.php'),
-  //  getResource('https://schola.skaetch.com/api/assignmentapi/getassignments.php'),
-  //  getResource('https://schola.skaetch.com/api/classapi/getclasses.php')
-   getResource('http://localhost/schola-2/api/subjectapi/getsubjects.php'),
-   getResource('http://localhost/schola-2/api/assignmentapi/getassignments.php'),
-   getResource('http://localhost/schola-2/api/classapi/getclasses.php')
-   // getResource('https://schola-2.myf2.net/api/staffapi/getstaffs.php')
-]).then ((assignment_data) => {
-   console.log(assignment_data);
-
-
-let subjects = assignment_data[0];
-let classes = assignment_data[2];
-let assignments = assignment_data[1].result;
-
-
-const newData = joinOtherResourcesToBase(assignments, subjects, classes);
-
-
-
-function joinOtherResourcesToBase(base, ...resources) {
-  console.log(resources);
-
-  newAssignments = base.map((item) => {
-    const subject = findData(resources[0], 'subject_id', item.subject_id)
-    const classItem = findData(resources[1], 'class_id', item.class_id)
-    // const term = findData(resources[2], 'term_id', item.term_id)
-
-    return {
-      ...item,
-      subject_name: subject.subject_name,
-      class_name: classItem.class_name,
-    };
-  });
-  console.log(newAssignments);
-
-  // process data
-
-  let source = document.getElementById('showAssighments');
-
-   source.innerHTML = "";
-   let tasks;
-
-   newAssignments.forEach(items => {
-      let view = `
-      <td class="whitespace-nowrap px-6 py-4 font-medium"> ${items.assignment_id}</td>
-      <td class="whitespace-nowrap px-6 py-4">${items.updated_at.slice(0, 11)}</td>
-      <td class="whitespace-nowrap px-6 py-4">${items.subject_name}</td>
-      <td class="whitespace-nowrap px-6 py-4"></td>
-      <td class="whitespace-nowrap px-6 py-4">
-      <a href="#view_detail_assignment" class="p-1 mx-1 bg-blue-200 rounded-md border border-black" id="view_details">view</a>
-      </td>`;
-      tasks = items.question
-                  
-      source.insertAdjacentHTML("beforeend", view)
-      
-                
-   });
-
-   
-
-  return newAssignments;
-}
-
-
-
-function findData(item, field, id) {
-  return item.find((data) => data[field] === id);
-}
-
-})
-});
-
-
-
 // CHECK IF THERE IS A CONTENT IN THE STORAGE
+const student_data = JSON.parse(sessionStorage.getItem("schola-user"));
 
-const verifier = sessionStorage.getItem('schola-user');
+console.log(student_data);
 
-// if (!verifier) {
-//         location.href = '../students/student_login.html';
-//    //console.log('user is logged in')
+// if (student_data == null) {
+//   alert('Please login');
+//   location.href = '../students/student_login.html';
 // }
 
-// Get the data from the storage
+fullname.innerHTML = `${student_data.student.lastname.toUpperCase()} ${
+  student_data.student.firstname
+}`;
+firstname.innerHTML = `${student_data.student.firstname}`;
+lastname.innerHTML = `${student_data.student.lastname.toUpperCase()}`;
+admin_no.innerHTML = `${student_data.student.admin_no}`;
+pgname.innerHTML = `${student_data.student.guardian_name}`;
+pgrel.innerHTML = `${student_data.student.guardian_rel}`;
+registered_at.innerHTML = `${student_data.student.created_at}`;
 
-const data = JSON.parse(verifier);
+console.log(student_data.student.class);
 
-fullname.innerHTML = `${data.student.lastname.toUpperCase()} ${data.student.firstname}`;
-firstname.innerHTML = `${data.student.firstname}`;
-lastname.innerHTML = `${data.student.lastname.toUpperCase()}`;
-admin_no.innerHTML = `${data.student.admin_no}`;
-pgname.innerHTML = `${data.student.guardian_name}`;
-pgrel.innerHTML = `${data.student.guardian_rel}`;
-registered_at.innerHTML = `${data.student.created_at}`;
+// Show assignment
+searchAssignmentByClass();
 
+// Search for assignment by class fuction
+function searchAssignmentByClass() {
+  const studentConfig = {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      searchstring: student_data.student.class,
+      searchcolumn: "class_id",
+    }),
+  };
 
-async function getResource(url) {
-   let resource;
-   let res = await fetch(url)
-   let data = await res.json();
-    return data;
+  fetch(API_DOMAIN + "/api/assignmentapi/searchassignment.php", studentConfig)
+    .then((res) => res.json())
+    .then((student_assignments) => {
+      console.log(student_assignments);
+
+      showAssighments.innerHTML = "";
+
+      student_assignments.result.forEach((assignment, index) => {
+        showAssighments.innerHTML += `
+        <tr
+                    class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600"
+                  >
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">
+                    ${index + 1}
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4">${
+                      assignment.created_at
+                    }</td>
+                    <td class="whitespace-nowrap px-6 py-4">
+                    ${assignment.subject_id}
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4">
+                    ${assignment.staff_id}
+                    </td>
+                    <td class="tbody_td_controller whitespace-nowrap px-6 py-4 font-medium" id="controller">
+                      <a href="view_assignment.html?assignment_id=${
+                        assignment.assignment_id
+                      }" data-te-toggle="tooltip" title="View Record">
+                      <i class="fa-regular fa-eye text-lg text-blue-400"></i> View
+                      </a>
+                      </td>
+                  </tr>
+        `;
+      });
+    })
+    .catch((err) => console.log(err));
 }
-
-
 

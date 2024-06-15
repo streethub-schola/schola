@@ -14,8 +14,6 @@
 
     <title>Schola Project!</title>
 
-    <script src="../assets/js/nav.js" defer></script>
-          <script src="../assets/js/studentlogout.js" defer></script>
           
   </head>
   <body>
@@ -138,7 +136,7 @@
               <td id="verID" class="px-3 border border-gray-400">NIN/VC/Passport</td>
             </tr>
             <tr>
-              <td class="px-3 border border-gray-400 font-bold">Rank</td>
+              <td class="px-3 border border-gray-400 font-bold">Role</td>
               <td class="px-3 border border-gray-400">Class Teacher</td>
             </tr>
             <tr>
@@ -187,13 +185,13 @@
               >
                 <tr>
                   <th scope="col" class="px-6 py-4">#</th>
-                  <th scope="col" class="px-6 py-4">Student's Name</th>
                   <th scope="col" class="px-6 py-4">Admission No</th>
+                  <th scope="col" class="px-6 py-4">Student's Name</th>
                   <th scope="col" class="px-6 py-4">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr
+              <tbody id="my_students">
+                <!-- <tr
                   class="border-b bg-neutral-100 dark:border-neutral-500 dark:bg-neutral-700"
                 >
                   <td class="whitespace-nowrap px-6 py-4 font-medium">
@@ -204,21 +202,7 @@
                   <td class="whitespace-nowrap px-6 py-4" id="teacher_action">
                     Dec 1, 2023
                   </td>
-                </tr>
-                <tr
-                  class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600"
-                >
-                  <td class="whitespace-nowrap px-6 py-4 font-medium">
-                    2
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4">Basic 3</td>
-                  <td class="whitespace-nowrap px-6 py-4">
-                    Mrs. Ngozi
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4">
-                    Jan 5, 2023
-                  </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
@@ -365,6 +349,11 @@
         </div>
       </section>
     </div>
+    <script src="../assets/js/api_domain.js"></script>
     <script src="../assets/js/teacherdashboard.js"></script>
+    <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/stafflogout.js"></script>
+  
+
   </body>
 </html>

@@ -168,4 +168,29 @@ class Assignment extends Database
             return array("output" => $e->getMessage(), "outputStatus" => 1200);
         }
     }
+
+
+    // Get assignment for dashboard
+    function dashboardAssignment($searchstring, $col)
+    {
+
+        // select all query
+        // $query = "SELECT * FROM " . $this->table_name . " WHERE '$col' LIKE '%$searchstring%'";
+        $query = "SELECT assignments.class_id, assignments.created_at, assignments.assignment_id, subjects.subject_name, staffs.firstname, staffs.lastname FROM " . $this->table_name .    " JOIN subjects ON assignments.subject_id=subjects.subject_id JOIN staffs ON assignments.staff_id=staffs.staff_id WHERE assignments.$col LIKE '%$searchstring%'";
+
+
+        // prepare query statement
+        $update_stmt = $this->conn->prepare($query);
+        
+        try {
+            // execute query
+            $update_stmt->execute();
+
+            return array("output" => $update_stmt, "outputStatus" => 1000);
+        } catch (Exception $e) {
+
+            return array("output" => $e->getMessage(), "outputStatus" => 1200);
+        }
+    }
+
 }

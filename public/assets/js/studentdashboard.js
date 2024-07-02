@@ -21,10 +21,10 @@ const student_data = JSON.parse(sessionStorage.getItem("schola-user"));
 
 console.log(student_data);
 
-// if (student_data == null) {
-//   alert('Please login');
-//   location.href = '../students/student_login.html';
-// }
+if (student_data == null) {
+  alert('Please login');
+  location.href = '../students/student_login.html';
+}
 
 fullname.innerHTML = `${student_data.student.lastname.toUpperCase()} ${
   student_data.student.firstname

@@ -59,7 +59,7 @@ form.addEventListener("submit", (e) => {
       .catch((err) => console.log(err));
   } else {
     flag.style.display = "block";
-    message = "Your New password does not match";
+    message = "Your passwords do not match";
     msg.innerHTML = message;
   }
 
